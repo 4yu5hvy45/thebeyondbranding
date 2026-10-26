@@ -218,7 +218,7 @@ def close_cta(h2, p, msg):
       <a href="mailto:ayush@beyondbranding.media" class="cta outline-light">Email Ayush</a>
     </div>
     <div class="site-footer">
-      <a href="https://instagram.com/beyondbranding.media" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://instagram.com/thebeyondbranding" target="_blank" rel="noopener">Instagram</a>
       <a href="https://linkedin.com/in/ayush-branding" target="_blank" rel="noopener">LinkedIn</a>
       <a href="mailto:ayush@beyondbranding.media">Email</a>
       <span class="fs-copy">© Beyond Branding · London · Dubai · Mumbai</span>
@@ -619,7 +619,10 @@ def build_case(p, idx):
 
 def build_sitemap():
     urls = ["", "portfolio.html", "websites.html", "packages-global/", "packages-india/"] + [f"work/{p['slug']}.html" for p in PROJECTS]
-    body = "".join(f"  <url><loc>{SITE}/{u}</loc></url>\n" for u in urls)
+    import datetime
+    today = datetime.date.today().isoformat()
+    pri = {"": "1.0", "portfolio.html": "0.9", "websites.html": "0.9", "packages-global/": "0.8"}
+    body = "".join(f"  <url><loc>{SITE}/{u}</loc><lastmod>{today}</lastmod><priority>{pri.get(u, '0.6')}</priority></url>\n" for u in urls)
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{body}</urlset>\n'
 
 
@@ -662,6 +665,7 @@ def main():
     import apple
     allp = PROJECTS + PENDING
     with open(os.path.join(ROOT, "index.html"), "w") as f: f.write(apple.build_home(allp, SITE))
+    # Preview other hero layouts locally with: apple.build_home(allp, SITE, "a"|"b"|"k", preview=True)
     with open(os.path.join(ROOT, "websites.html"), "w") as f: f.write(apple.build_websites(allp, SITE, PACKAGES))
     with open(os.path.join(ROOT, "packages-global", "index.html"), "w") as f: f.write(pages.build_pricing(SITE))
     with open(os.path.join(ROOT, "packages-india", "index.html"), "w") as f: f.write(pages.build_pricing(SITE, inr=True))

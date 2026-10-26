@@ -18,7 +18,7 @@
 #   story       list of (label, text) sections for the case-study page
 
 WHATSAPP = "19108301588"
-SITE = "https://beyondbranding.media"
+SITE = "https://thebeyondbranding.com"
 
 FILTERS = [
     ("identity",   "Brand Identity"),

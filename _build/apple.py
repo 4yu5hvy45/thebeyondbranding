@@ -5,7 +5,7 @@ subhead, two calls to action per tile (a filled pill and a text link with a chev
 alternating light and dark tiles with a 12px seam, and a quiet, dense footer. Beyond Branding red
 replaces Apple's link blue as the single accent.
 """
-import html, os
+import html, json, os, re
 from urllib.parse import quote
 
 E = lambda s: html.escape(s, quote=True)
@@ -57,9 +57,78 @@ SERVICES = [("identity", "Brand Identity", "Logo, type, colour and guidelines.",
             ("events", "Exhibitions & Events", "Booths, stages and conference graphics.", "$800"),
             ("campaigns", "Campaigns & Social", "Print, digital ads and social systems.", "$150"),
             ("collateral", "Brochures", "Catalogues, profiles and sales decks.", "$400")]
-LOGOS = [("BEYONDCLIENTS-03.svg", "Government of Dubai Media Office"), ("BEYONDCLIENTS-02.svg", "Marriott"),
-         ("BEYONDCLIENTS-01.svg", "Radisson"), ("BEYONDCLIENTS-04.svg", "Sunset Hospitality Group"),
-         ("BEYONDCLIENTS-06.svg", "WazirX"), ("BEYONDCLIENTS-05.svg", "Wemasy")]
+# (file, alt, optical height in px). Tight-cropped copies of BEYONDCLIENTS-0x.svg, plus ESPERTI and Soul AV.
+LOGOS = [("client-marriott.svg", "Marriott", 22), ("client-dubai-media-office.svg", "Government of Dubai Media Office", 34),
+         ("client-esperti.svg", "ESPERTI", 23), ("client-soul-av.svg", "Soul AV", 20),
+         ("client-radisson.svg", "Radisson", 30), ("client-aiolec.svg", "Aiolec", 20),
+         ("client-wazirx.svg", "WazirX", 22), ("client-wemasy.svg", "Wemasy", 24)]
+# SF-Symbols-style glyphs (2px rounded strokes) used by the button system
+ARROW = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11.5M11 5.5 15.5 10 11 14.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+CHEV_L = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+CHEV_R = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+KCHEV = '<svg class="chv" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+KDOWN = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v10M3.5 8.5 8 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+SERVICE_TAG = {"web": "Website", "identity": "Identity", "packaging": "Packaging", "events": "Exhibition",
+               "campaigns": "Campaign", "signage": "Signage", "collateral": "Collateral"}
+
+# ---- hero settings -------------------------------------------------------------------------------
+HERO_LEAD = ("Branding, packaging and websites for hospitality and retail brands in the UK, US and Middle East. "
+             "Fast execution, premium craft.")
+# Paste a Calendly (or similar) link here. While empty, "Book a 15-min call" opens WhatsApp with a call request.
+CALL_URL = ""
+# Hero layout. "A" = calm: logos stay in the left column, ungridded and quiet.
+#              "B" = strip: left column is headline + CTA only; logos run in one row along the bottom of the hero.
+# "K" = Kern-style: grotesk headline with reflection, side panel, red project band (current)
+HERO_VARIANT = "K"
+# Four projects shown in the hero work row (image file or a VIDEO_CARDS token)
+# Markets shown under the client logos in the hero panel
+HERO_MARKETS = ["United Kingdom", "Ireland", "United States", "UAE"]
+HERO_WORK = ["@soul-av-video", "esperti-1.webp", "dubai-media-office-stage.webp", "doubletree-hilton-signage.webp",
+             "marriott-indore-hamper.webp", "aiolec-1.webp", "valdaria-exhibition-booth.webp", "overcmr-paddles-display.webp"]
+# Gallery cards that play a muted screen recording instead of a still: token -> (project slug, video, poster)
+VIDEO_CARDS = {"@soul-av-video": ("soul-av", "soul-av-scroll.mp4", "soul-av-scroll-poster.webp")}
+# Client quote under the logo wall. Leave as None until you have a real, approved quote. Example shape:
+# TESTIMONIAL = {"quote": "Two sentences from the client.", "name": "Chris Small", "role": "Director, ESPERTI",
+#                "photo": "assets/testimonial-chris.webp"}   # photo optional (square, ~96px)
+TESTIMONIAL = None
+
+
+def sec_bar(n, label, right=""):
+    """Kern-style section bar: red square, number, label; optional link/controls on the right."""
+    return f'<div class="sx-bar"><span><i></i><em>{n}</em>{label}</span>{right}</div>'
+
+
+def testimonial():
+    t = TESTIMONIAL
+    if not t:
+        return ""
+    ph = f'<img src="{E(t["photo"])}" alt="" width="44" height="44" loading="lazy">' if t.get("photo") else ""
+    return (f'<figure class="bbquote rv" style="--d:.36s"><blockquote>&ldquo;{E(t["quote"])}&rdquo;</blockquote>'
+            f'<figcaption>{ph}<span><b>{E(t["name"])}</b>{E(t.get("role", ""))}</span></figcaption></figure>')
+
+
+# (question, answer, optional trailing HTML link). Answers only restate claims already made elsewhere on the site.
+FAQS = [
+    ("How much does a project cost?",
+     "Every service has a published starting price: brand identity from $500, packaging from $400 and websites from $800. "
+     "Your quote is scoped to your brief and agreed before any work begins, so there are no surprises.",
+     'See the full breakdown on our <a href="packages-global/index.html">pricing page</a>.'),
+    ("Do you work with clients in the UK, US and Middle East?",
+     "Yes. We work with brands across the UK, Ireland, the US and the Middle East. Live examples include the websites for "
+     "Soul AV in London and ESPERTI in Dublin, and event branding for the Government of Dubai Media Office.", ""),
+    ("How fast can you deliver?",
+     "Days, not months. A dedicated production team sits behind every project, so we can move at launch pace without cutting corners. "
+     "Your timeline is confirmed with your quote.", ""),
+    ("Who will actually work on my project?",
+     "Ayush, the founder, leads every project personally, from first call to final files, with an in-house team producing the work. "
+     "No hand-offs to juniors.", ""),
+    ("Do you design and build websites in-house?",
+     "Yes. Websites are designed, written and built in-house, from single landing pages to full multi-page sites, "
+     "and handed over fast, responsive and ready for search.", 'See <a href="websites.html">recent website work</a>.'),
+    ("How do we get started?",
+     "Send a WhatsApp or email with what you're launching, your timeline and a rough budget. "
+     "You'll hear back from the person doing the work, with a clear scope and price.", ""),
+]
 
 CSS = r"""
 :root{
@@ -263,10 +332,11 @@ from home_parts import CSS2, JS2
 CSS = CSS + CSS2
 JS = JS2
 
-FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">'
+FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">'
 
 
-def head(title, desc, site, path):
+def head(title, desc, site, path, jsonld=None):
+    ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else ""
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -274,21 +344,27 @@ def head(title, desc, site, path):
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>{E(title)}</title>
 <meta name="description" content="{E(desc)}">
+<meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="{site}/{path}">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Beyond Branding"><meta property="og:url" content="{site}/{path}">
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}">
-<meta property="og:image" content="{site}/assets/og-image.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="{site}/assets/og-image.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Beyond Branding: brand, packaging and website design studio">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(title)}"><meta name="twitter:description" content="{E(desc)}"><meta name="twitter:image" content="{site}/assets/og-image.jpg">
 <meta name="theme-color" content="#FFFFFF">
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+{ld}
 {FONTS}
 <script>document.documentElement.classList.add('js')</script>
 <style>{CSS}</style>
 </head>
 <body>
-<header class="gn"><div class="in">
-  <a class="logo" href="{HOME}">BEYOND<em>BRANDING</em></a>
-  <nav><a href="portfolio.html">Work</a><a href="websites.html">Websites</a><a href="{HOME}#services">Services</a><a href="packages-global/index.html">Pricing</a><a href="{HOME}#about">About</a></nav>
-  <a class="go" href="{wa('Hi Ayush, I would like to start a project.')}" target="_blank" rel="noopener">Start a project</a>
-</div></header>
+<header class="kn">
+  <a class="kn-logo" href="{HOME}" aria-label="Beyond Branding home"><span>BEYOND<em>BRANDING</em></span></a>
+  <nav class="kn-nav"><a href="portfolio.html">Work</a><a href="websites.html">Websites</a><a href="{HOME}#services">Services</a><a href="packages-global/index.html">Pricing</a><a href="{HOME}#about">About</a></nav>
+  <a class="kn-cell" href="{WA}" target="_blank" rel="noopener">WhatsApp {KCHEV}</a>
+  <span class="kprog" aria-hidden="true"></span>
+  <a class="kn-go" href="{wa('Hi Ayush, I would like to start a project.')}" target="_blank" rel="noopener">Start<span class="kn-x"> a project</span> {KCHEV}</a>
+</header>
 """
 
 
@@ -299,9 +375,9 @@ def footer():
     <div><h4>Work</h4><a href="portfolio.html">All projects</a><a href="websites.html">Websites</a><a href="portfolio.html#identity">Brand identity</a><a href="portfolio.html#packaging">Packaging</a><a href="portfolio.html#events">Exhibitions</a></div>
     <div><h4>Services</h4><a href="packages-global/index.html#identity">Identity</a><a href="packages-global/index.html#packaging">Packaging</a><a href="packages-global/index.html#web">Websites</a><a href="packages-global/index.html#campaigns">Campaigns</a><a href="packages-global/index.html">All pricing</a></div>
     <div><h4>Studio</h4><a href="{HOME}#about">About Ayush</a><a href="{HOME}#why">Why Beyond Branding</a><span>London · Dubai · Mumbai</span></div>
-    <div><h4>Contact</h4><a href="{WA}" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:ayush@beyondbranding.media">Email</a><a href="https://instagram.com/beyondbranding.media" target="_blank" rel="noopener">Instagram</a><a href="https://linkedin.com/in/ayush-branding" target="_blank" rel="noopener">LinkedIn</a></div>
+    <div><h4>Contact</h4><a href="{WA}" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:ayush@beyondbranding.media">Email</a><a href="https://instagram.com/thebeyondbranding" target="_blank" rel="noopener">Instagram</a><a href="https://linkedin.com/in/ayush-branding" target="_blank" rel="noopener">LinkedIn</a></div>
   </div>
-  <div class="legal"><span>Copyright © 2026 Beyond Branding. All rights reserved.</span><span>beyondbranding.media</span></div>
+  <div class="legal"><span>Copyright © 2026 Beyond Branding. All rights reserved.</span><span>thebeyondbranding.com</span></div>
 </div></footer>
 <script src="assets/js/lenis.min.js"></script>
 <script>{JS}</script>
@@ -373,10 +449,11 @@ def image_card(p, cls, d=0, img=None):
 </a>"""
 
 
-def build_home(projects, site):
+def build_home(projects, site, variant=None, preview=False):
+    variant = (variant or HERO_VARIANT).upper()
     by = {p["slug"]: p for p in projects}
     real = [p for p in projects if not p.get("_pending")]
-    logos = "".join(f'<img src="assets/{f}" alt="{a}">' for f, a in LOGOS)
+    logos = "".join(f'<span><img src="assets/{f}" alt="{E(a)}" style="--h:{h}px" height="{h}"></span>' for f, a, h in LOGOS)
     soul, esp = by.get("soul-av"), by.get("esperti")
 
     def phone(p):
@@ -400,82 +477,137 @@ def build_home(projects, site):
                     ("valdaria", "c4"), ("indian-kawfee-co", "c6"), ("doubletree-by-hilton", "c6")]
     brand_html = "".join(image_card(by[t[0]], t[1], (i % 3) * .08, t[2] if len(t) > 2 else None) for i, t in enumerate(brand_layout) if t[0] in by)
     why = "".join(f'<div class="card"><svg viewBox="0 0 24 24" aria-hidden="true">{ICONS[k]}</svg><h3>{E(t)}</h3><p>{E(d)}</p></div>' for k, t, d in WHY)
-    svcs = "".join(f'<a href="packages-global/index.html#{k}" class="rv" style="--d:{(i % 3) * .06}s"><h3>{E(n)}</h3><p>{E(d)}</p><div class="pr"><b><small>From</small>{pr}</b><span>Learn more ›</span></div></a>' for i, (k, n, d, pr) in enumerate(SERVICES))
+    svcs = "".join(f'<a class="srow rv" style="--d:{i * .05:.2f}s" href="packages-global/index.html#{k}"><span class="n">{i + 1:02d}</span><h3>{E(n)}</h3><p>{E(d)}</p><b><small>From</small>{pr}</b><span class="go">{KCHEV}</span></a>' for i, (k, n, d, pr) in enumerate(SERVICES))
     words = "".join(f'<span class="w" style="transition-delay:{i * .07:.2f}s">{w}</span> ' for i, w in enumerate("Brands that look the part.".split()))
 
-    col_a = ["soul-av-1.webp", "dubai-media-office-stage.webp", "marriott-indore-hamper.webp", "esperti-1.webp", "colorado-windows-newspaper-ad.webp",
+    col_a = ["dubai-media-office-stage.webp", "esperti-1.webp", "marriott-indore-hamper.webp", "colorado-windows-newspaper-ad.webp",
              "overcmr-paddles-display.webp", "aeroengines-america-booth.webp", "stanfords-real-estate-poolside.webp", "xess-conference-stage.webp", "indian-kawfee-jar.webp"]
-    col_b = ["doubletree-hilton-signage.webp", "aiolec-1.webp", "gowardhan-ghee-amazon.webp", "dubai-media-office-instagram.webp", "valdaria-exhibition-booth.webp",
+    col_b = ["doubletree-hilton-signage.webp", "@soul-av-video", "aiolec-1.webp", "dubai-media-office-instagram.webp", "valdaria-exhibition-booth.webp", "gowardhan-ghee-amazon.webp",
              "manek-brochure-bag.webp", "sd-med-solutions-1.webp", "pride-of-cows-retail-signage.webp", "dhanraj-jain-jewellers-counter.webp", "market-lens-1.webp"]
     alt_of = {}
     for p in real:
         for f, a_ in p["images"]:
             alt_of[f] = (p["slug"], a_)
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    def label(pj):
+        if not pj: return ""
+        tag = SERVICE_TAG.get((pj.get("filters") or [""])[0], "")
+        where = (pj.get("location") or "").split(" · ")[0]
+        meta = " · ".join(x for x in (where, "Live site" if pj.get("url") else "") if x) or tag
+        return (f'<span class="lb">{E(pj["client"])}<small class="t">{tag}</small><small class="l">{E(meta)}</small></span>'
+                f'<span class="vc" aria-hidden="true">View case</span>')
+
     def gi(f, eager):
+        if f in VIDEO_CARDS:  # muted looping screen recording of a live site
+            slug, src, poster = VIDEO_CARDS[f]
+            pj = by.get(slug)
+            return (f'<a class="gi vid" href="work/{slug}.html" tabindex="-1"><video src="assets/{src}" poster="assets/{poster}" '
+                    f'muted loop playsinline preload="none" aria-label="{E(pj["client"] if pj else slug)} website scrolling"></video>{label(pj)}</a>')
         if not os.path.exists(os.path.join(root_dir, "assets", f)): return ""
         slug, alt = alt_of.get(f, ("", f))
         href = f"work/{slug}.html" if slug else "portfolio.html"
-        return f'<a class="gi" href="{href}" tabindex="-1"><img src="assets/{f}" alt="{E(alt)}" loading="{"eager" if eager else "lazy"}"></a>'
+        hi = ' fetchpriority="high"' if eager and f == col_a[0] else ""
+        return (f'<a class="gi" href="{href}" tabindex="-1"><img src="assets/{f}" alt="{E(alt)}" width="1122" height="1402" '
+                f'loading="{"eager" if eager else "lazy"}"{hi}>{label(by.get(slug))}</a>')
     def col(files, rev):
         items = "".join(gi(f, i < 3) for i, f in enumerate(files))
-        return f'<div class="gcol"><div class="gtrk{" rev" if rev else ""}">{items}{items.replace(chr(34) + "eager" + chr(34), chr(34) + "lazy" + chr(34))}</div></div>'
+        return f'<div class="gcol"><div class="gtrk{" rev" if rev else ""}">{items}{items.replace(chr(34) + "eager" + chr(34), chr(34) + "lazy" + chr(34)).replace(' fetchpriority="high"', "")}</div></div>'
     gal_cols = col(col_a, False) + col(col_b, True)
     row_items = "".join(gi(f, False) for f in [x for pair in zip(col_a, col_b) for x in pair])
     gal_row = row_items + row_items
-    out = head("Beyond Branding · Brand, Packaging & Website Design Studio",
-               "Beyond Branding is a brand and design studio in London, Dubai and Mumbai. Websites, identity, packaging and exhibitions for Marriott, DoubleTree by Hilton, Dubai Media Office and growing brands.",
-               site, "")
+    desc = ("Brand identity, packaging and website design for hospitality, retail and growing brands in the UK, US and "
+            "Middle East. Trusted by Marriott and Dubai Media Office. Projects from $500.")
+    org_id = site + "/#organization"
+    services = [("Brand identity design", 500), ("Packaging design", 400), ("Website design and development", 800),
+                ("Exhibition and event design", 800), ("Campaign and social media design", 150), ("Brochure and catalogue design", 400)]
+    ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "ProfessionalService", "@id": org_id, "name": "Beyond Branding", "url": site + "/",
+         "logo": site + "/assets/apple-touch-icon.png", "image": site + "/assets/og-image.jpg", "description": desc,
+         "email": "ayush@beyondbranding.media", "telephone": "+1-910-830-1588", "priceRange": "$$",
+         "slogan": "Fast ideas. Premium design. On time, every time.",
+         "areaServed": [{"@type": "Country", "name": n} for n in ("United Kingdom", "Ireland", "United States", "United Arab Emirates", "India")],
+         "knowsAbout": ["Brand identity", "Packaging design", "Website design", "Exhibition design", "Hospitality branding", "Retail branding"],
+         "founder": {"@type": "Person", "name": "Ayush", "jobTitle": "Founder & Creative Director", "sameAs": ["https://linkedin.com/in/ayush-branding"]},
+         "sameAs": ["https://instagram.com/thebeyondbranding", "https://linkedin.com/in/ayush-branding"],
+         "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Design services", "itemListElement": [
+             {"@type": "Offer", "itemOffered": {"@type": "Service", "name": n},
+              "priceSpecification": {"@type": "PriceSpecification", "minPrice": pr, "priceCurrency": "USD"}} for n, pr in services]}},
+        {"@type": "WebSite", "@id": site + "/#website", "url": site + "/", "name": "Beyond Branding", "publisher": {"@id": org_id}, "inLanguage": "en"},
+        {"@type": "FAQPage", "@id": site + "/#faq", "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a, _ in FAQS]},
+    ]}
+    faq = "".join(f'<details><summary>{E(q)}<i>{CHEV_R}</i></summary><p>{E(a)}{(" " + x) if x else ""}</p></details>' for q, a, x in FAQS)
+    out = head("Beyond Branding | Brand, Packaging & Website Design Studio", desc, site, "", ld)
+    if preview:  # side-by-side comparison pages: never indexed
+        out = out.replace("<meta name=\"robots\" content=\"index,follow,max-image-preview:large\">", "<meta name=\"robots\" content=\"noindex,nofollow\">", 1)
     out += f"""<main>
-<section class="bbh" aria-label="Beyond Branding">
+<section class="bbh v{variant.lower()}" aria-label="Beyond Branding">
   <div class="bbh-copy">
-    <h1 class="rv"><span class="r">FAST IDEAS. PREMIUM DESIGN.</span><br>ON TIME, EVERY TIME.<span class="shine" aria-hidden="true">FAST IDEAS. PREMIUM DESIGN.<br>ON TIME, EVERY TIME.</span></h1>
-    <p class="rv" style="--d:.12s">Branding, packaging, websites and campaigns for hospitality, retail and growing brands across the UK, US and Middle East. Fast execution. Premium craft. No unnecessary layers.</p>
-    <div class="rv" style="--d:.2s"><a class="bbcta" href="{wa('Hi Ayush, I would like to start a project.')}" target="_blank" rel="noopener"><span>&#8863;</span>Start a project</a></div>
-    <div class="bbrule rv" style="--d:.26s"></div>
-    <div class="bblogos rv" style="--d:.3s">{logos}</div>
+    <h1 class="rv"><span class="ey">Brand, packaging &amp; website design studio</span><span class="hl" data-shine="FAST IDEAS. PREMIUM DESIGN.&#10;ON TIME, EVERY TIME."><span class="r">FAST IDEAS. PREMIUM DESIGN.</span><br><span class="k">ON TIME, EVERY TIME.</span></span></h1>
+    <p class="lead rv" style="--d:.12s">{E(HERO_LEAD)}</p>
+    <div class="rv" style="--d:.2s">
+      <div class="bbact"><a class="btn fill lg" href="{wa('Hi Ayush, I would like to start a project.')}" target="_blank" rel="noopener"><span class="ic">{ARROW}</span><span class="tx">Start a project<small>From $500 &middot; Fixed quote</small></span></a><a class="btn gray lg" href="portfolio.html"><span class="ic">{ARROW}</span><span class="tx">Explore our work</span></a></div>
+    </div>
+    <div class="bbh-row" aria-hidden="true"><div class="trk">{gal_row}</div></div>
+    {'<div class="bbtrust rv" style="--d:.3s"><small>Trusted by teams at</small><div class="bblogos">' + logos + '</div></div>' if variant == "A" else ""}
+    {testimonial()}
   </div>
-  <div class="bbh-gal" aria-label="Recent work">
-    {gal_cols}
-    <a class="bbexplore" href="portfolio.html"><span>&#8863;</span>Explore our work</a>
+  <div class="bbh-gal">
+    <div class="gwin" aria-label="Recent work">
+      {gal_cols}
+    </div>
   </div>
-  <div class="bbh-row" aria-hidden="true"><div class="trk">{gal_row}</div></div>
-  <div class="bbh-mcta"><a class="bbexplore" href="portfolio.html"><span>&#8863;</span>Explore our work</a></div>
+  {'<div class="bbstrip"><small>Trusted by</small><div class="bblogos">' + logos + '</div></div>' if variant == "B" else ""}
+<script>
+(function(){{var r=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // play the live-site loops only while on screen
+  var io=new IntersectionObserver(function(es){{es.forEach(function(e){{var v=e.target;if(e.isIntersecting&&!r){{v.preload='auto';var p=v.play();if(p)p.catch(function(){{}})}}else v.pause()}})}},{{threshold:.15}});
+  document.querySelectorAll('.bbh video').forEach(function(v){{io.observe(v)}});
+  // headline shine: once on load, again on hover
+  var hl=document.querySelector('.bbh .hl');if(!hl||r)return;
+  setTimeout(function(){{hl.classList.add('sweep')}},1100);
+  hl.addEventListener('animationend',function(){{hl.classList.remove('sweep')}});
+  hl.addEventListener('mouseenter',function(){{if(!hl.classList.contains('sweep')){{void hl.offsetWidth;hl.classList.add('sweep')}}}});
+}})();
+</script>
 </section>
 
-<section class="sec2" id="websites">
-  <div class="head2 rv"><h2>Websites that win the work.</h2><p>Designed, written and built in-house. Two are live right now.</p></div>
-  <div class="wrap"><div class="grid">{web_html}</div>
-  <div class="more rv"><a class="lk" href="websites.html">All website work</a></div></div>
+<section class="sx" id="websites">
+  {sec_bar("01", "Websites", f'<a href="websites.html">All website work {KCHEV}</a>')}
+  <div class="sx-head"><h2 class="rv">Websites that win the work. <span>Designed, written and built in-house.</span></h2><p class="rv" style="--d:.1s">Two are live right now, for clients in London and Dublin. Every build is fast, responsive and ready for search.</p></div>
+  <div class="sxb"><div class="grid">{web_html}</div></div>
 </section>
 
-<section class="sec2">
-  <div class="wrap"><div class="stats rv">
-    <div><b>8+</b><span>years of brand work</span></div>
-    <div><b>{len(real)}</b><span>case studies</span></div>
-    <div><b>3</b><span>studios: London, Dubai, Mumbai</span></div>
-    <div><b>$500</b><span>projects from</span></div>
-  </div></div>
+<section class="sx sx-stats" aria-label="The studio in numbers">
+  <div class="kstats rv">
+    <div><b><span data-n="8">8</span><em>+</em></b><span>Years of brand work</span></div>
+    <div><b><span data-n="{len(real)}">{len(real)}</span></b><span>Case studies</span></div>
+    <div><b><span data-n="3">3</span></b><span>Studios: London, Dubai, Mumbai</span></div>
+    <div><b><em>$</em><span data-n="500">500</span></b><span>Projects from</span></div>
+  </div>
 </section>
 
-<section class="sec2" id="work">
-  <div class="head2 rv"><h2>Brand, packaging and print.</h2><p>Identity systems, packaging, exhibitions and campaigns for global names and growing brands.</p></div>
-  <div class="wrap"><div class="grid">{brand_html}</div>
-  <div class="more rv"><a class="lk" href="portfolio.html">Explore all {len(real)} projects</a></div></div>
+<section class="sx" id="work">
+  {sec_bar("02", "Brand &amp; print", f'<a href="portfolio.html">Explore all {len(real)} projects {KCHEV}</a>')}
+  <div class="sx-head"><h2 class="rv">Brand, packaging and print. <span>For global names and growing brands.</span></h2><p class="rv" style="--d:.1s">Identity systems, packaging, exhibitions and campaigns, designed to work on the shelf, the stage and the screen.</p></div>
+  <div class="sxb"><div class="grid">{brand_html}</div></div>
 </section>
 
-<section class="sec why-wrap" id="why" style="max-width:none;padding-inline:0">
-  <div class="sec-t rv"><h2>Why Beyond Branding. <span>The short version.</span></h2><div class="why-nav"><button data-d="l" aria-label="Previous">‹</button><button data-d="r" aria-label="Next">›</button></div></div>
+<section class="sx" id="why">
+  {sec_bar("03", "Why us", f'<div class="why-nav"><button data-d="l" aria-label="Previous">{CHEV_L}</button><button data-d="r" aria-label="Next">{CHEV_R}</button></div>')}
+  <div class="sx-head"><h2 class="rv">Why Beyond Branding. <span>The short version.</span></h2><p class="rv" style="--d:.1s">How we work, in six points. Senior-led, priced up front and quick to move.</p></div>
   <div class="why">{why}</div>
 </section>
 
-<section class="sec" id="services">
-  <div class="sec-t rv"><h2>Find the right service. <span>See the price first.</span></h2><a class="lk" href="packages-global/index.html">Compare all packages</a></div>
-  <div class="svc">{svcs}</div>
+<section class="sx" id="services">
+  {sec_bar("04", "Services", f'<a href="packages-global/index.html">Compare all packages {KCHEV}</a>')}
+  <div class="sx-head"><h2 class="rv">Find the right service. <span>See the price first.</span></h2><p class="rv" style="--d:.1s">Every service has a published starting price. Your quote is scoped to your brief and agreed before any work begins.</p></div>
+  <div class="sxb"><div class="srows">{svcs}</div></div>
 </section>
 
-<section class="sec2" id="about"><div class="wrap">
-  <div class="founder2 rv">
+<section class="sx" id="about">
+  {sec_bar("05", "Founder", '<a href="https://linkedin.com/in/ayush-branding" target="_blank" rel="noopener">LinkedIn ' + KCHEV + '</a>')}
+  <div class="sxb sx-pad"><div class="founder2 rv">
     <div class="ph"><img src="assets/founder-ayush.jpg" alt="Ayush, founder of Beyond Branding" loading="lazy"></div>
     <div class="copy">
       <div class="eyebrow">Meet the founder</div>
@@ -484,17 +616,86 @@ def build_home(projects, site):
       <div class="who"><b>Ayush</b> · Founder &amp; Creative Director</div>
       <div class="ctas"><a class="pill o" href="https://linkedin.com/in/ayush-branding" target="_blank" rel="noopener">Connect on LinkedIn</a></div>
     </div>
-  </div>
-</div></section>
+  </div></div>
+</section>
 
-<section class="close">
-  <h2 class="h-xl rv">Bring us the brief. We'll bring the direction.</h2>
+<section class="sx sx-faq" id="faq">
+  {sec_bar("06", "FAQ")}
+  <div class="sxb fq">
+    <div class="fq-h"><h2 class="rv">Questions, answered.</h2><p class="rv" style="--d:.1s">What most clients ask before we start. Anything else, just message us.</p></div>
+    <div class="faq rv">{faq}</div>
+  </div>
+</section>
+
+<section class="close sx">
+  {sec_bar("07", "Start a project")}
+  <h2 class="h-xl rv">Bring us the brief. <span class="r">We'll bring the direction.</span></h2>
   <p class="sub s rv">Tell us what you're launching, your timeline and a rough budget. You'll hear back from the person doing the work.</p>
-  <div class="ctas rv"><a class="pill" href="{wa("Hi Ayush, I'd like to discuss a project.")}" target="_blank" rel="noopener">Message on WhatsApp</a><a class="lk" href="mailto:ayush@beyondbranding.media">Email us</a></div>
+  <div class="ctas rv"><a class="pill" href="{wa("Hi Ayush, I'd like to discuss a project.")}" target="_blank" rel="noopener">Message on WhatsApp</a><a class="pill t" href="{E(CALL_URL or wa("Hi Ayush, I'd like to book a 15-minute call about a project."))}" target="_blank" rel="noopener">Book a 15-min call</a><a class="lk" href="mailto:ayush@beyondbranding.media?subject=New%20project%20enquiry">Email us</a></div>
   <p class="lines"><a href="mailto:ayush@beyondbranding.media">ayush@beyondbranding.media</a> · <a href="{WA}" target="_blank" rel="noopener">+1 (910) 830-1588</a></p>
 </section>
 </main>
 """
+    if variant == "K":
+        def wcell(f):
+            if f in VIDEO_CARDS:
+                slug, src, poster = VIDEO_CARDS[f]
+                media = (f'<video src="assets/{src}" poster="assets/{poster}" muted loop playsinline preload="none" '
+                         f'aria-label="{E(by[slug]["client"])} website scrolling"></video>')
+            else:
+                slug, alt = alt_of.get(f, ("", f))
+                media = f'<img src="assets/{f}" alt="{E(alt)}" width="1122" height="1402" loading="eager">'
+            pj = by.get(slug, {})
+            tag = SERVICE_TAG.get((pj.get("filters") or [""])[0], "")
+            where = (pj.get("location") or "").split(" · ")[0]
+            live = '<b class="live">Live</b>' if pj.get("url") else ""
+            return (f'<a class="kw" href="work/{slug}.html"><span class="kw-m">{media}</span>'
+                    f'<span class="kw-c"><span class="kw-n">{E(pj.get("client", ""))}{live}</span><span class="kw-t">{tag}{(" · " + E(where)) if where else ""}</span></span></a>')
+        work = "".join(wcell(f) for f in HERO_WORK)
+        hero_k = f"""<section class="kh" aria-label="Beyond Branding">
+  <div class="kh-main">
+    <div class="kh-left">
+      <span class="kh-ey"><i></i>Brand, packaging &amp; website design studio</span>
+      <h1 class="kh-h rv"><span class="sr">Brand, packaging and website design studio. </span><span class="fx r">Fast ideas. Premium design.</span><span class="fx k">On time, every time.</span></h1>
+      <div class="kh-body rv" style="--d:.15s">
+        <p>{E(HERO_LEAD)}</p>
+        <div class="kh-act"><div class="kh-cta"><a class="kb ink" href="{wa('Hi Ayush, I would like to start a project.')}" target="_blank" rel="noopener">Start a project {KCHEV}</a><a class="kb line" href="portfolio.html">Explore our work</a></div>
+        <small class="kh-note">From $500 &middot; Fixed quote before we start</small></div>
+      </div>
+    </div>
+    <aside class="kh-side" aria-label="Clients">
+      <div class="kh-tr"><span class="kh-lbl"><i></i>Trusted by</span><p>Global hotel groups, government media and growing brands.</p></div>
+      <div class="kh-logos">{logos}</div>
+      <div class="kh-mk"><span class="kh-lbl">Clients across</span><ul>{"".join(f"<li>{E(m)}</li>" for m in HERO_MARKETS)}</ul></div>
+    </aside>
+  </div>
+  <div class="kh-bar"><span><i></i>Selected work</span><div class="kh-ctl"><a href="portfolio.html">View all {len(real)} projects {KCHEV}</a><button class="kq" data-d="-1" aria-label="Previous project">{CHEV_L}</button><button class="kq" data-d="1" aria-label="Next project">{CHEV_R}</button></div></div>
+  <div class="kh-work"><div class="kw-trk">{work}</div></div>
+  <script>(function(){{
+  var r=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io=new IntersectionObserver(function(es){{es.forEach(function(e){{var v=e.target;if(e.isIntersecting&&!r){{v.preload='auto';var p=v.play();if(p)p.catch(function(){{}})}}else v.pause()}})}},{{threshold:.2}});
+  function watch(){{document.querySelectorAll('.kh video').forEach(function(v){{io.observe(v)}})}}
+  // stepped carousel: one card at a time, eased, infinite, pauses on hover / when off-screen / tab hidden
+  var box=document.querySelector('.kh-work'),trk=box&&box.querySelector('.kw-trk');
+  if(trk){{var items=[].slice.call(trk.children),N=items.length;items.slice(0,4).forEach(function(n){{var c=n.cloneNode(true);c.setAttribute('aria-hidden','true');c.tabIndex=-1;trk.appendChild(c)}});
+    var i=0,busy=false,hover=false,vis=true;
+    function w(){{return trk.children[0].getBoundingClientRect().width}}
+    function go(d){{if(busy)return;busy=true;
+      if(d<0&&i===0){{trk.style.transition='none';i=N;trk.style.transform='translate3d('+(-i*w())+'px,0,0)';void trk.offsetWidth;trk.style.transition=''}}
+      i+=d;trk.style.transform='translate3d('+(-i*w())+'px,0,0)'}}
+    trk.addEventListener('transitionend',function(){{busy=false;if(i>=N){{trk.style.transition='none';i=0;trk.style.transform='translate3d(0,0,0)';void trk.offsetWidth;trk.style.transition=''}}}});
+    document.querySelectorAll('.kq').forEach(function(b){{b.addEventListener('click',function(){{go(+b.dataset.d)}})}});
+    box.addEventListener('mouseenter',function(){{hover=true}});box.addEventListener('mouseleave',function(){{hover=false}});
+    new IntersectionObserver(function(es){{vis=es[0].isIntersecting}}).observe(box);
+    var x0=null;box.addEventListener('touchstart',function(e){{x0=e.touches[0].clientX}},{{passive:true}});
+    box.addEventListener('touchend',function(e){{if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(dx<0?1:-1);x0=null}});
+    addEventListener('resize',function(){{trk.style.transition='none';trk.style.transform='translate3d('+(-i*w())+'px,0,0)';void trk.offsetWidth;trk.style.transition=''}});
+    if(!r)setInterval(function(){{if(!hover&&vis&&!document.hidden)go(1)}},4200)}}
+  watch();
+}})();</script>
+  {testimonial()}
+</section>"""
+        out = re.sub(r'<section class="bbh v[a-z]".*?</section>', lambda m: hero_k, out, count=1, flags=re.S)
     return out + footer()
 
 
