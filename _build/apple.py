@@ -58,10 +58,10 @@ SERVICES = [("identity", "Brand Identity", "Logo, type, colour and guidelines.",
             ("campaigns", "Campaigns & Social", "Print, digital ads and social systems.", "$150"),
             ("collateral", "Brochures", "Catalogues, profiles and sales decks.", "$400")]
 # (file, alt, optical height in px). Tight-cropped copies of BEYONDCLIENTS-0x.svg, plus ESPERTI and Soul AV.
-LOGOS = [("client-marriott.svg", "Marriott", 22), ("client-dubai-media-office.svg", "Government of Dubai Media Office", 34),
-         ("client-esperti.svg", "ESPERTI", 23), ("client-soul-av.svg", "Soul AV", 20),
-         ("client-radisson.svg", "Radisson", 30), ("client-aiolec.svg", "Aiolec", 20),
-         ("client-wazirx.svg", "WazirX", 22), ("client-wemasy.svg", "Wemasy", 24)]
+LOGOS = [("client-marriott.svg", "Marriott", 22), ("client-dubai-media-office.svg", "Government of Dubai Media Office", 40),
+         ("client-esperti.svg", "ESPERTI", 23), ("client-soul-av.svg", "Soul AV", 23),
+         ("client-radisson.svg", "Radisson", 30), ("client-aiolec.svg", "Aiolec", 16.5),
+         ("client-wazirx.svg", "WazirX", 18.5), ("client-wemasy.svg", "Wemasy", 23)]
 # SF-Symbols-style glyphs (2px rounded strokes) used by the button system
 ARROW = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11.5M11 5.5 15.5 10 11 14.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 CHEV_L = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
@@ -354,7 +354,7 @@ def head(title, desc, site, path, jsonld=None):
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 {ld}
 {FONTS}
-<script>document.documentElement.classList.add('js')</script>
+<script>(function(){{var d=document.documentElement;d.classList.add('js');try{{if(sessionStorage.getItem('bbw')){{d.classList.add('wipe-in');sessionStorage.removeItem('bbw')}}else if(!sessionStorage.getItem('bbIntro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){{d.classList.add('intro');sessionStorage.setItem('bbIntro','1')}}}}catch(e){{}}}})()</script>
 <style>{CSS}</style>
 </head>
 <body>
@@ -363,8 +363,16 @@ def head(title, desc, site, path, jsonld=None):
   <nav class="kn-nav"><a href="portfolio.html">Work</a><a href="websites.html">Websites</a><a href="{HOME}#services">Services</a><a href="packages-global/index.html">Pricing</a><a href="{HOME}#about">About</a></nav>
   <a class="kn-cell" href="{WA}" target="_blank" rel="noopener">WhatsApp {KCHEV}</a>
   <span class="kprog" aria-hidden="true"></span>
-  <a class="kn-go" href="{wa('Hi Ayush, I would like to start a project.')}" target="_blank" rel="noopener">Start<span class="kn-x"> a project</span> {KCHEV}</a>
+  <button class="kn-menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="ksheet"><i></i><i></i></button>
+  <a class="kn-go" href="{wa('Hi Ayush, I would like to start a project.')}" target="_blank" rel="noopener"><span>Start<span class="kn-x"> a project</span></span>{KCHEV}</a>
 </header>
+<div class="ksheet" id="ksheet" aria-hidden="true">
+  <nav><a href="portfolio.html"><em>01</em>Work</a><a href="websites.html"><em>02</em>Websites</a><a href="{HOME}#services"><em>03</em>Services</a><a href="packages-global/index.html"><em>04</em>Pricing</a><a href="{HOME}#about"><em>05</em>About</a><a href="{HOME}#faq"><em>06</em>FAQ</a></nav>
+  <div class="ksheet-cta"><a class="kb red" href="{wa('Hi Ayush, I would like to start a project.')}" target="_blank" rel="noopener">Start a project {KCHEV}</a><a class="kb line" href="{WA}" target="_blank" rel="noopener">WhatsApp</a></div>
+  <p class="ksheet-mail"><a href="mailto:ayush@beyondbranding.media?subject=New%20project%20enquiry">ayush@beyondbranding.media</a></p>
+</div>
+<div class="kdock" aria-label="Quick actions"><a class="kb ink" href="{wa('Hi Ayush, I would like to start a project.')}" target="_blank" rel="noopener">Start a project {KCHEV}</a><a class="kb wa" href="{WA}" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a></div>
+<div id="kwipe" aria-hidden="true"></div>
 """
 
 
@@ -655,7 +663,7 @@ def build_home(projects, site, variant=None, preview=False):
         hero_k = f"""<section class="kh" aria-label="Beyond Branding">
   <div class="kh-main">
     <div class="kh-left">
-      <span class="kh-ey"><i></i>Brand, packaging &amp; website design studio</span>
+      <span class="kh-ey kin" style="--i:0"><i></i>Brand, packaging &amp; website design studio</span>
       <h1 class="kh-h rv"><span class="sr">Brand, packaging and website design studio. </span><span class="fx r">Fast ideas. Premium design.</span><span class="fx k">On time, every time.</span></h1>
       <div class="kh-body rv" style="--d:.15s">
         <p>{E(HERO_LEAD)}</p>
@@ -669,7 +677,7 @@ def build_home(projects, site, variant=None, preview=False):
       <div class="kh-mk"><span class="kh-lbl">Clients across</span><ul>{"".join(f"<li>{E(m)}</li>" for m in HERO_MARKETS)}</ul></div>
     </aside>
   </div>
-  <div class="kh-bar"><span><i></i>Selected work</span><div class="kh-ctl"><a href="portfolio.html">View all {len(real)} projects {KCHEV}</a><button class="kq" data-d="-1" aria-label="Previous project">{CHEV_L}</button><button class="kq" data-d="1" aria-label="Next project">{CHEV_R}</button></div></div>
+  <div class="kh-bar"><span class="kh-tick" aria-hidden="true"></span><span><i></i>Selected work</span><div class="kh-ctl"><a href="portfolio.html">View all {len(real)} projects {KCHEV}</a><button class="kq" data-d="-1" aria-label="Previous project">{CHEV_L}</button><button class="kq" data-d="1" aria-label="Next project">{CHEV_R}</button></div></div>
   <div class="kh-work"><div class="kw-trk">{work}</div></div>
   <script>(function(){{
   var r=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -684,13 +692,25 @@ def build_home(projects, site, variant=None, preview=False):
       if(d<0&&i===0){{trk.style.transition='none';i=N;trk.style.transform='translate3d('+(-i*w())+'px,0,0)';void trk.offsetWidth;trk.style.transition=''}}
       i+=d;trk.style.transform='translate3d('+(-i*w())+'px,0,0)'}}
     trk.addEventListener('transitionend',function(){{busy=false;if(i>=N){{trk.style.transition='none';i=0;trk.style.transform='translate3d(0,0,0)';void trk.offsetWidth;trk.style.transition=''}}}});
-    document.querySelectorAll('.kq').forEach(function(b){{b.addEventListener('click',function(){{go(+b.dataset.d)}})}});
-    box.addEventListener('mouseenter',function(){{hover=true}});box.addEventListener('mouseleave',function(){{hover=false}});
-    new IntersectionObserver(function(es){{vis=es[0].isIntersecting}}).observe(box);
+    document.querySelectorAll('.kq').forEach(function(b){{b.addEventListener('click',function(){{go(+b.dataset.d);play()}})}});
+    box.addEventListener('mouseenter',function(){{hover=true;sync()}});box.addEventListener('mouseleave',function(){{hover=false;sync()}});
+    new IntersectionObserver(function(es){{vis=es[0].isIntersecting;sync()}}).observe(box);
     var x0=null;box.addEventListener('touchstart',function(e){{x0=e.touches[0].clientX}},{{passive:true}});
     box.addEventListener('touchend',function(e){{if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(dx<0?1:-1);x0=null}});
     addEventListener('resize',function(){{trk.style.transition='none';trk.style.transform='translate3d('+(-i*w())+'px,0,0)';void trk.offsetWidth;trk.style.transition=''}});
-    if(!r)setInterval(function(){{if(!hover&&vis&&!document.hidden)go(1)}},4200)}}
+    var tk=document.querySelector('.kh-tick');
+    function sync(){{if(tk)tk.style.animationPlayState=(hover||!vis||document.hidden)?'paused':'running'}}
+    function play(){{if(!tk||r)return;tk.classList.remove('run');void tk.offsetWidth;tk.classList.add('run');sync()}}
+    if(tk&&!r){{tk.addEventListener('animationend',function(){{go(1);play()}});document.addEventListener('visibilitychange',sync);play()}}
+    // 'View' cursor disc over the projects (mouse/trackpad only)
+    if(!r&&matchMedia('(hover:hover) and (pointer:fine)').matches){{
+      var cur=document.createElement('div');cur.className='kcur';cur.innerHTML='View <span>&#8599;</span>';document.body.appendChild(cur);box.classList.add('has-cur');
+      var tx=0,ty=0,cx=0,cy=0,on=false,raf=0;
+      function loop(){{cx+=(tx-cx)*.2;cy+=(ty-cy)*.2;cur.style.transform='translate3d('+cx+'px,'+cy+'px,0) translate(-50%,-50%) scale('+(on?1:.3)+')';if(on||Math.abs(tx-cx)>.5){{raf=requestAnimationFrame(loop)}}else raf=0}}
+      box.addEventListener('mousemove',function(e){{tx=e.clientX;ty=e.clientY;if(!on){{on=true;if(!cx){{cx=tx;cy=ty}}cur.classList.add('on')}}if(!raf)raf=requestAnimationFrame(loop)}});
+      box.addEventListener('mouseleave',function(){{on=false;cur.classList.remove('on')}});
+    }}
+  }}
   watch();
 }})();</script>
   {testimonial()}

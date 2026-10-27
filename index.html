@@ -15,7 +15,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ProfessionalService", "@id": "https://thebeyondbranding.com/#organization", "name": "Beyond Branding", "url": "https://thebeyondbranding.com/", "logo": "https://thebeyondbranding.com/assets/apple-touch-icon.png", "image": "https://thebeyondbranding.com/assets/og-image.jpg", "description": "Brand identity, packaging and website design for hospitality, retail and growing brands in the UK, US and Middle East. Trusted by Marriott and Dubai Media Office. Projects from $500.", "email": "ayush@beyondbranding.media", "telephone": "+1-910-830-1588", "priceRange": "$$", "slogan": "Fast ideas. Premium design. On time, every time.", "areaServed": [{"@type": "Country", "name": "United Kingdom"}, {"@type": "Country", "name": "Ireland"}, {"@type": "Country", "name": "United States"}, {"@type": "Country", "name": "United Arab Emirates"}, {"@type": "Country", "name": "India"}], "knowsAbout": ["Brand identity", "Packaging design", "Website design", "Exhibition design", "Hospitality branding", "Retail branding"], "founder": {"@type": "Person", "name": "Ayush", "jobTitle": "Founder & Creative Director", "sameAs": ["https://linkedin.com/in/ayush-branding"]}, "sameAs": ["https://instagram.com/thebeyondbranding", "https://linkedin.com/in/ayush-branding"], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Design services", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Brand identity design"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 500, "priceCurrency": "USD"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Packaging design"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 400, "priceCurrency": "USD"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Website design and development"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 800, "priceCurrency": "USD"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Exhibition and event design"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 800, "priceCurrency": "USD"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Campaign and social media design"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 150, "priceCurrency": "USD"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Brochure and catalogue design"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 400, "priceCurrency": "USD"}}]}}, {"@type": "WebSite", "@id": "https://thebeyondbranding.com/#website", "url": "https://thebeyondbranding.com/", "name": "Beyond Branding", "publisher": {"@id": "https://thebeyondbranding.com/#organization"}, "inLanguage": "en"}, {"@type": "FAQPage", "@id": "https://thebeyondbranding.com/#faq", "mainEntity": [{"@type": "Question", "name": "How much does a project cost?", "acceptedAnswer": {"@type": "Answer", "text": "Every service has a published starting price: brand identity from $500, packaging from $400 and websites from $800. Your quote is scoped to your brief and agreed before any work begins, so there are no surprises."}}, {"@type": "Question", "name": "Do you work with clients in the UK, US and Middle East?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We work with brands across the UK, Ireland, the US and the Middle East. Live examples include the websites for Soul AV in London and ESPERTI in Dublin, and event branding for the Government of Dubai Media Office."}}, {"@type": "Question", "name": "How fast can you deliver?", "acceptedAnswer": {"@type": "Answer", "text": "Days, not months. A dedicated production team sits behind every project, so we can move at launch pace without cutting corners. Your timeline is confirmed with your quote."}}, {"@type": "Question", "name": "Who will actually work on my project?", "acceptedAnswer": {"@type": "Answer", "text": "Ayush, the founder, leads every project personally, from first call to final files, with an in-house team producing the work. No hand-offs to juniors."}}, {"@type": "Question", "name": "Do you design and build websites in-house?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Websites are designed, written and built in-house, from single landing pages to full multi-page sites, and handed over fast, responsive and ready for search."}}, {"@type": "Question", "name": "How do we get started?", "acceptedAnswer": {"@type": "Answer", "text": "Send a WhatsApp or email with what you're launching, your timeline and a rough budget. You'll hear back from the person doing the work, with a clear scope and price."}}]}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script>document.documentElement.classList.add('js')</script>
+<script>(function(){var d=document.documentElement;d.classList.add('js');try{if(sessionStorage.getItem('bbw')){d.classList.add('wipe-in');sessionStorage.removeItem('bbw')}else if(!sessionStorage.getItem('bbIntro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('intro');sessionStorage.setItem('bbIntro','1')}}catch(e){}})()</script>
 <style>
 :root{
   /* Apple-style tiles: light #F5F5F7 / dark #000 alternating, 12px seams, one red accent. */
@@ -757,6 +757,112 @@ a.card:hover,.card.hov:hover{transform:translateY(-4px);box-shadow:0 24px 50px -
 .close .h-xl{margin-top:clamp(48px,6vw,88px);font:500 clamp(2.6rem,5.6vw,6rem)/.98 var(--kt);letter-spacing:-.055em;max-width:14ch;padding:0 20px}
 .close .h-xl .r{color:var(--k-red)}
 .close .ctas{margin-top:30px}
+
+/* ====================== v11: refinements, motion, phone UI ====================== */
+/* headline: true brand red at rest, light grain, a single highlight sweep on load / hover */
+.kh-h{letter-spacing:-.042em}
+.kh-h .fx{animation:none}
+.kh-h .fx.r{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .14 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+  linear-gradient(100deg,#D91C2B 0%,#D91C2B 40%,#FF6B5E 49%,#FFB3A8 50%,#FF6B5E 51%,#D91C2B 60%,#D91C2B 100%);
+  background-size:160px 160px,320% 100%;background-position:0 0,100% 0}
+.kh-h .fx.r.sweep{animation:kSweep 1.7s cubic-bezier(.45,0,.2,1) both}
+@keyframes kSweep{from{background-position:0 0,100% 0}to{background-position:0 0,0% 0}}
+.kh-h .fx.k{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+  linear-gradient(#0B0B0C,#0B0B0C);background-size:160px 160px,100% 100%}
+
+/* hero rhythm: label at the top (level with "Trusted by"), headline + copy at the bottom (level with the chips) */
+.kh-left{justify-content:flex-start;padding-top:clamp(28px,4.4vh,44px);padding-bottom:clamp(28px,4.4vh,44px)}
+.kh-h{margin-top:auto;padding-top:clamp(40px,7vh,96px)}
+.js .kh .rv{opacity:1;transform:none;transition:none}
+
+/* header label fix */
+.kn-go{gap:10px}.kn-go>span{display:inline}
+
+/* carousel progress tick */
+.kh-bar{position:relative}
+.kh-tick{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--k-red);transform:scaleX(0);transform-origin:left;pointer-events:none}
+.kh-tick.run{animation:kTick 4.2s linear both}
+@keyframes kTick{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* 'View' cursor */
+.kh-work.has-cur,.kh-work.has-cur a{cursor:none}
+.kcur{position:fixed;left:0;top:0;z-index:80;width:84px;height:84px;border-radius:50%;display:grid;place-items:center;background:var(--k-ink);color:#fff;
+  font:600 .74rem/1 var(--kt);letter-spacing:.08em;text-transform:uppercase;pointer-events:none;opacity:0;transition:opacity .25s;will-change:transform}
+.kcur span{color:var(--k-red);margin-left:3px}
+.kcur.on{opacity:1}
+
+/* page wipe */
+#kwipe{position:fixed;inset:0;z-index:3000;background:var(--k-red);transform:scaleY(0);transform-origin:bottom;pointer-events:none;transition:transform .55s cubic-bezier(.76,0,.24,1)}
+#kwipe.cover{transform:scaleY(1)}
+html.wipe-in #kwipe{transform:scaleY(1);transform-origin:top;transition:none}
+html.wipe-in.wipe-go #kwipe{transform:scaleY(0);transition:transform .7s cubic-bezier(.76,0,.24,1) .05s}
+
+/* ---- intro: plays once per visit ---- */
+@keyframes kFade{from{opacity:0}to{opacity:1}}
+@keyframes kUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes kRise{from{transform:translateY(55%);clip-path:inset(0 0 100% 0)}to{transform:none;clip-path:inset(-20% 0 -20% 0)}}
+@keyframes kDraw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.kn::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--k-line);transform-origin:left;pointer-events:none;display:block!important}
+html.intro .kn{border-bottom-color:transparent}
+html.intro .kn::after{animation:kDraw 1.1s cubic-bezier(.65,0,.25,1) .05s both}
+html.intro .kn-logo,html.intro .kn-nav,html.intro .kn-cell,html.intro .kn-go,html.intro .kn-menu{animation:kFade .8s ease .2s both}
+html.intro .kh-ey{animation:kFade .7s ease .3s both}
+html.intro .kh-h .fx{animation:kRise 1.05s cubic-bezier(.19,1,.22,1) both}
+html.intro .kh-h .fx.r{animation-delay:.35s}html.intro .kh-h .fx.k{animation-delay:.5s}
+html.intro .kh-body{animation:kUp .9s cubic-bezier(.19,1,.22,1) .75s both}
+html.intro .kh-side{animation:kFade .9s ease .25s both}
+html.intro .kh-tr{animation:kUp .8s cubic-bezier(.19,1,.22,1) .55s both}
+html.intro .kh-logos span{animation:kFade .6s ease both}
+html.intro .kh-logos span:nth-child(1){animation-delay:.7s}html.intro .kh-logos span:nth-child(2){animation-delay:.76s}
+html.intro .kh-logos span:nth-child(3){animation-delay:.82s}html.intro .kh-logos span:nth-child(4){animation-delay:.88s}
+html.intro .kh-logos span:nth-child(5){animation-delay:.94s}html.intro .kh-logos span:nth-child(6){animation-delay:1s}
+html.intro .kh-logos span:nth-child(7){animation-delay:1.06s}html.intro .kh-logos span:nth-child(8){animation-delay:1.12s}
+html.intro .kh-mk{animation:kUp .8s cubic-bezier(.19,1,.22,1) 1.1s both}
+html.intro .kh-bar{animation:kFade .8s ease .95s both}
+html.intro .kw-trk{animation:kUp 1.1s cubic-bezier(.19,1,.22,1) 1s both}
+@media(prefers-reduced-motion:reduce){html.intro *{animation:none!important}.kh-h .fx.r.sweep{animation:none}}
+
+/* ---- phone menu + sheet ---- */
+.kn-menu{display:none}
+.ksheet{display:none}
+.kdock{display:none}
+@media(max-width:820px){
+  .kn{grid-template-columns:1fr auto auto}
+  .kn-menu{display:grid;place-items:center;align-content:center;gap:6px;width:var(--hd);height:100%;border:0;border-left:1px solid var(--k-line);background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .kn-menu i{display:block;width:20px;height:1.6px;background:var(--k-ink);border-radius:2px;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+  html.menu-open .kn-menu i:first-child{transform:translateY(3.8px) rotate(45deg)}
+  html.menu-open .kn-menu i:last-child{transform:translateY(-3.8px) rotate(-45deg)}
+  .kn-go{padding:0 18px}
+  .ksheet{display:flex;flex-direction:column;position:fixed;left:0;right:0;top:calc(var(--hd) + env(safe-area-inset-top));bottom:0;z-index:59;background:#fff;padding:8px 20px calc(24px + env(safe-area-inset-bottom));
+    opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .35s ease,transform .5s cubic-bezier(.2,.8,.2,1),visibility 0s .5s;overflow:auto}
+  html.menu-open .ksheet{opacity:1;visibility:visible;transform:none;transition:opacity .35s ease,transform .5s cubic-bezier(.2,.8,.2,1)}
+  .ksheet nav{display:flex;flex-direction:column}
+  .ksheet nav a{display:flex;align-items:baseline;gap:14px;padding:16px 0;border-bottom:1px solid var(--k-line);font:500 2.1rem/1 var(--kt);letter-spacing:-.045em;color:var(--k-ink);
+    opacity:0;transform:translateY(12px);transition:opacity .4s ease,transform .6s cubic-bezier(.19,1,.22,1)}
+  .ksheet nav a em{font:500 .78rem/1 var(--kt);font-style:normal;color:var(--k-red);letter-spacing:.02em;width:22px}
+  html.menu-open .ksheet nav a{opacity:1;transform:none}
+  html.menu-open .ksheet nav a:nth-child(2){transition-delay:.04s}html.menu-open .ksheet nav a:nth-child(3){transition-delay:.08s}
+  html.menu-open .ksheet nav a:nth-child(4){transition-delay:.12s}html.menu-open .ksheet nav a:nth-child(5){transition-delay:.16s}html.menu-open .ksheet nav a:nth-child(6){transition-delay:.2s}
+  .ksheet-cta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto;padding-top:28px}
+  .ksheet-mail{margin-top:16px;text-align:center;font:500 .9rem/1 var(--kt);color:#77746f}
+  html.menu-open,html.menu-open body{overflow:hidden}
+  /* bottom dock (iOS-style floating toolbar) */
+  .kdock{display:grid;grid-template-columns:1fr auto;gap:8px;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:55;padding:8px;border-radius:16px;
+    background:rgba(255,255,255,.78);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);box-shadow:0 0 0 1px rgba(11,11,12,.08),0 18px 40px -18px rgba(0,0,0,.35);
+    transform:translateY(calc(100% + 24px));opacity:0;transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .35s}
+  .kdock.on{transform:none;opacity:1}
+  html.menu-open .kdock{transform:translateY(calc(100% + 24px));opacity:0}
+  .kdock .kb{min-height:46px}
+  .kdock .wa{background:#25D366;color:#fff;padding:0 16px}
+  /* phone hero spacing */
+  .kh-left{padding:30px 20px 26px}
+  .kh-h{padding-top:26px}
+  .kh-ey{font-size:.68rem;letter-spacing:.06em}
+  .kh-body p{font-size:1.04rem}
+  .kh-cta .kb{padding:0 10px;font-size:.74rem}
+  .close.sx{padding-bottom:calc(110px + env(safe-area-inset-bottom))}
+}
+@media(max-width:360px){.kh-cta{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -765,13 +871,21 @@ a.card:hover,.card.hov:hover{transform:translateY(-4px);box-shadow:0 24px 50px -
   <nav class="kn-nav"><a href="portfolio.html">Work</a><a href="websites.html">Websites</a><a href="index.html#services">Services</a><a href="packages-global/index.html">Pricing</a><a href="index.html#about">About</a></nav>
   <a class="kn-cell" href="https://wa.me/19108301588" target="_blank" rel="noopener">WhatsApp <svg class="chv" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   <span class="kprog" aria-hidden="true"></span>
-  <a class="kn-go" href="https://wa.me/19108301588?text=Hi%20Ayush%2C%20I%20would%20like%20to%20start%20a%20project." target="_blank" rel="noopener">Start<span class="kn-x"> a project</span> <svg class="chv" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <button class="kn-menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="ksheet"><i></i><i></i></button>
+  <a class="kn-go" href="https://wa.me/19108301588?text=Hi%20Ayush%2C%20I%20would%20like%20to%20start%20a%20project." target="_blank" rel="noopener"><span>Start<span class="kn-x"> a project</span></span><svg class="chv" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </header>
+<div class="ksheet" id="ksheet" aria-hidden="true">
+  <nav><a href="portfolio.html"><em>01</em>Work</a><a href="websites.html"><em>02</em>Websites</a><a href="index.html#services"><em>03</em>Services</a><a href="packages-global/index.html"><em>04</em>Pricing</a><a href="index.html#about"><em>05</em>About</a><a href="index.html#faq"><em>06</em>FAQ</a></nav>
+  <div class="ksheet-cta"><a class="kb red" href="https://wa.me/19108301588?text=Hi%20Ayush%2C%20I%20would%20like%20to%20start%20a%20project." target="_blank" rel="noopener">Start a project <svg class="chv" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="kb line" href="https://wa.me/19108301588" target="_blank" rel="noopener">WhatsApp</a></div>
+  <p class="ksheet-mail"><a href="mailto:ayush@beyondbranding.media?subject=New%20project%20enquiry">ayush@beyondbranding.media</a></p>
+</div>
+<div class="kdock" aria-label="Quick actions"><a class="kb ink" href="https://wa.me/19108301588?text=Hi%20Ayush%2C%20I%20would%20like%20to%20start%20a%20project." target="_blank" rel="noopener">Start a project <svg class="chv" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="kb wa" href="https://wa.me/19108301588" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a></div>
+<div id="kwipe" aria-hidden="true"></div>
 <main>
 <section class="kh" aria-label="Beyond Branding">
   <div class="kh-main">
     <div class="kh-left">
-      <span class="kh-ey"><i></i>Brand, packaging &amp; website design studio</span>
+      <span class="kh-ey kin" style="--i:0"><i></i>Brand, packaging &amp; website design studio</span>
       <h1 class="kh-h rv"><span class="sr">Brand, packaging and website design studio. </span><span class="fx r">Fast ideas. Premium design.</span><span class="fx k">On time, every time.</span></h1>
       <div class="kh-body rv" style="--d:.15s">
         <p>Branding, packaging and websites for hospitality and retail brands in the UK, US and Middle East. Fast execution, premium craft.</p>
@@ -781,11 +895,11 @@ a.card:hover,.card.hov:hover{transform:translateY(-4px);box-shadow:0 24px 50px -
     </div>
     <aside class="kh-side" aria-label="Clients">
       <div class="kh-tr"><span class="kh-lbl"><i></i>Trusted by</span><p>Global hotel groups, government media and growing brands.</p></div>
-      <div class="kh-logos"><span><img src="assets/client-marriott.svg" alt="Marriott" style="--h:22px" height="22"></span><span><img src="assets/client-dubai-media-office.svg" alt="Government of Dubai Media Office" style="--h:34px" height="34"></span><span><img src="assets/client-esperti.svg" alt="ESPERTI" style="--h:23px" height="23"></span><span><img src="assets/client-soul-av.svg" alt="Soul AV" style="--h:20px" height="20"></span><span><img src="assets/client-radisson.svg" alt="Radisson" style="--h:30px" height="30"></span><span><img src="assets/client-aiolec.svg" alt="Aiolec" style="--h:20px" height="20"></span><span><img src="assets/client-wazirx.svg" alt="WazirX" style="--h:22px" height="22"></span><span><img src="assets/client-wemasy.svg" alt="Wemasy" style="--h:24px" height="24"></span></div>
+      <div class="kh-logos"><span><img src="assets/client-marriott.svg" alt="Marriott" style="--h:22px" height="22"></span><span><img src="assets/client-dubai-media-office.svg" alt="Government of Dubai Media Office" style="--h:40px" height="40"></span><span><img src="assets/client-esperti.svg" alt="ESPERTI" style="--h:23px" height="23"></span><span><img src="assets/client-soul-av.svg" alt="Soul AV" style="--h:23px" height="23"></span><span><img src="assets/client-radisson.svg" alt="Radisson" style="--h:30px" height="30"></span><span><img src="assets/client-aiolec.svg" alt="Aiolec" style="--h:16.5px" height="16.5"></span><span><img src="assets/client-wazirx.svg" alt="WazirX" style="--h:18.5px" height="18.5"></span><span><img src="assets/client-wemasy.svg" alt="Wemasy" style="--h:23px" height="23"></span></div>
       <div class="kh-mk"><span class="kh-lbl">Clients across</span><ul><li>United Kingdom</li><li>Ireland</li><li>United States</li><li>UAE</li></ul></div>
     </aside>
   </div>
-  <div class="kh-bar"><span><i></i>Selected work</span><div class="kh-ctl"><a href="portfolio.html">View all 22 projects <svg class="chv" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><button class="kq" data-d="-1" aria-label="Previous project"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button class="kq" data-d="1" aria-label="Next project"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div>
+  <div class="kh-bar"><span class="kh-tick" aria-hidden="true"></span><span><i></i>Selected work</span><div class="kh-ctl"><a href="portfolio.html">View all 22 projects <svg class="chv" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><button class="kq" data-d="-1" aria-label="Previous project"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button class="kq" data-d="1" aria-label="Next project"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div>
   <div class="kh-work"><div class="kw-trk"><a class="kw" href="work/soul-av.html"><span class="kw-m"><video src="assets/soul-av-scroll.mp4" poster="assets/soul-av-scroll-poster.webp" muted loop playsinline preload="none" aria-label="Soul AV website scrolling"></video></span><span class="kw-c"><span class="kw-n">Soul AV<b class="live">Live</b></span><span class="kw-t">Website · London, UK</span></span></a><a class="kw" href="work/esperti.html"><span class="kw-m"><img src="assets/esperti-1.webp" alt="ESPERTI website on desktop and mobile: line-art Wingstop shop front with &#x27;Built from experience. Delivered with expertise.&#x27;" width="1122" height="1402" loading="eager"></span><span class="kw-c"><span class="kw-n">ESPERTI<b class="live">Live</b></span><span class="kw-t">Website · Dublin</span></span></a><a class="kw" href="work/dubai-media-office.html"><span class="kw-m"><img src="assets/dubai-media-office-stage.webp" alt="Dubai Government Media Office annual forum stage branding" width="1122" height="1402" loading="eager"></span><span class="kw-c"><span class="kw-n">Dubai Media Office</span><span class="kw-t">Exhibition · Dubai, UAE</span></span></a><a class="kw" href="work/doubletree-by-hilton.html"><span class="kw-m"><img src="assets/doubletree-hilton-signage.webp" alt="DoubleTree by Hilton signage" width="1122" height="1402" loading="eager"></span><span class="kw-c"><span class="kw-n">DoubleTree by Hilton</span><span class="kw-t">Signage</span></span></a><a class="kw" href="work/marriott-indore.html"><span class="kw-m"><img src="assets/marriott-indore-hamper.webp" alt="Marriott Indore festive hamper packaging" width="1122" height="1402" loading="eager"></span><span class="kw-c"><span class="kw-n">Marriott Indore</span><span class="kw-t">Packaging · Indore, India</span></span></a><a class="kw" href="work/aiolec.html"><span class="kw-m"><img src="assets/aiolec-1.webp" alt="Aiolec website on desktop and mobile: &#x27;Unified commercial display technologies&#x27;" width="1122" height="1402" loading="eager"></span><span class="kw-c"><span class="kw-n">Aiolec</span><span class="kw-t">Website · London, UK</span></span></a><a class="kw" href="work/valdaria.html"><span class="kw-m"><img src="assets/valdaria-exhibition-booth.webp" alt="Valdaria premium suiting trade exhibition booth" width="1122" height="1402" loading="eager"></span><span class="kw-c"><span class="kw-n">Valdaria</span><span class="kw-t">Identity</span></span></a><a class="kw" href="work/overcmr.html"><span class="kw-m"><img src="assets/overcmr-paddles-display.webp" alt="Overcmr pickleball paddle range launch display" width="1122" height="1402" loading="eager"></span><span class="kw-c"><span class="kw-n">Overcmr</span><span class="kw-t">Packaging · India</span></span></a></div></div>
   <script>(function(){
   var r=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -800,13 +914,25 @@ a.card:hover,.card.hov:hover{transform:translateY(-4px);box-shadow:0 24px 50px -
       if(d<0&&i===0){trk.style.transition='none';i=N;trk.style.transform='translate3d('+(-i*w())+'px,0,0)';void trk.offsetWidth;trk.style.transition=''}
       i+=d;trk.style.transform='translate3d('+(-i*w())+'px,0,0)'}
     trk.addEventListener('transitionend',function(){busy=false;if(i>=N){trk.style.transition='none';i=0;trk.style.transform='translate3d(0,0,0)';void trk.offsetWidth;trk.style.transition=''}});
-    document.querySelectorAll('.kq').forEach(function(b){b.addEventListener('click',function(){go(+b.dataset.d)})});
-    box.addEventListener('mouseenter',function(){hover=true});box.addEventListener('mouseleave',function(){hover=false});
-    new IntersectionObserver(function(es){vis=es[0].isIntersecting}).observe(box);
+    document.querySelectorAll('.kq').forEach(function(b){b.addEventListener('click',function(){go(+b.dataset.d);play()})});
+    box.addEventListener('mouseenter',function(){hover=true;sync()});box.addEventListener('mouseleave',function(){hover=false;sync()});
+    new IntersectionObserver(function(es){vis=es[0].isIntersecting;sync()}).observe(box);
     var x0=null;box.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
     box.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(dx<0?1:-1);x0=null});
     addEventListener('resize',function(){trk.style.transition='none';trk.style.transform='translate3d('+(-i*w())+'px,0,0)';void trk.offsetWidth;trk.style.transition=''});
-    if(!r)setInterval(function(){if(!hover&&vis&&!document.hidden)go(1)},4200)}
+    var tk=document.querySelector('.kh-tick');
+    function sync(){if(tk)tk.style.animationPlayState=(hover||!vis||document.hidden)?'paused':'running'}
+    function play(){if(!tk||r)return;tk.classList.remove('run');void tk.offsetWidth;tk.classList.add('run');sync()}
+    if(tk&&!r){tk.addEventListener('animationend',function(){go(1);play()});document.addEventListener('visibilitychange',sync);play()}
+    // 'View' cursor disc over the projects (mouse/trackpad only)
+    if(!r&&matchMedia('(hover:hover) and (pointer:fine)').matches){
+      var cur=document.createElement('div');cur.className='kcur';cur.innerHTML='View <span>&#8599;</span>';document.body.appendChild(cur);box.classList.add('has-cur');
+      var tx=0,ty=0,cx=0,cy=0,on=false,raf=0;
+      function loop(){cx+=(tx-cx)*.2;cy+=(ty-cy)*.2;cur.style.transform='translate3d('+cx+'px,'+cy+'px,0) translate(-50%,-50%) scale('+(on?1:.3)+')';if(on||Math.abs(tx-cx)>.5){raf=requestAnimationFrame(loop)}else raf=0}
+      box.addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY;if(!on){on=true;if(!cx){cx=tx;cy=ty}cur.classList.add('on')}if(!raf)raf=requestAnimationFrame(loop)});
+      box.addEventListener('mouseleave',function(){on=false;cur.classList.remove('on')});
+    }
+  }
   watch();
 })();</script>
   
@@ -947,6 +1073,41 @@ a.card:hover,.card.hov:hover{transform:translateY(-4px);box-shadow:0 24px 50px -
   // one scroll path: Lenis when present, native otherwise (never both — avoids double layout reads per frame)
   if(lenis)lenis.on('scroll',function(){tick();progress()});else addEventListener('scroll',function(){if(!reduce)tick();progress()},{passive:true});
   addEventListener('resize',tick);if(!reduce)tick();progress();
+
+  // ---------------- v11: shine, page wipe, phone menu + dock ----------------
+  (function(){
+    var d=document.documentElement,red=document.querySelector('.kh-h .fx.r'),h1=document.querySelector('.kh-h');
+    // headline shine: once after load (after the intro if it plays), again on hover
+    if(red&&!reduce){
+      function sweep(){if(red.classList.contains('sweep'))return;red.classList.add('sweep')}
+      red.addEventListener('animationend',function(e){if(e.animationName==='kSweep')red.classList.remove('sweep')});
+      setTimeout(sweep,d.classList.contains('intro')?1700:700);
+      if(h1)h1.addEventListener('mouseenter',sweep);
+    }
+    // arrival wipe (coming back from a case study)
+    if(d.classList.contains('wipe-in'))requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('wipe-go')})});
+    // leaving to an internal page: red panel rises, then navigate
+    var wipe=document.getElementById('kwipe');
+    if(wipe&&!reduce)document.addEventListener('click',function(e){
+      var a=e.target.closest&&e.target.closest('a[href]');if(!a||a.target==='_blank'||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+      var h=a.getAttribute('href');if(!h||h.charAt(0)==='#'||/^(mailto|tel|https?):/i.test(h))return;
+      if(h.indexOf('#')>-1&&(h.split('#')[0]===''||h.split('#')[0]===location.pathname.split('/').pop()))return;
+      e.preventDefault();try{sessionStorage.setItem('bbw','1')}catch(err){}d.classList.remove('wipe-in','wipe-go');wipe.classList.add('cover');setTimeout(function(){location.href=a.href},520);
+    });
+    addEventListener('pageshow',function(e){if(e.persisted&&wipe)wipe.classList.remove('cover')});
+    // phone menu sheet
+    var btn=document.querySelector('.kn-menu'),sheet=document.getElementById('ksheet');
+    function menu(open){d.classList.toggle('menu-open',open);if(btn)btn.setAttribute('aria-expanded',open);if(sheet)sheet.setAttribute('aria-hidden',!open);if(lenis){open?lenis.stop():lenis.start()}}
+    if(btn)btn.addEventListener('click',function(){menu(!d.classList.contains('menu-open'))});
+    if(sheet)sheet.addEventListener('click',function(e){if(e.target.closest('a'))menu(false)});
+    addEventListener('keydown',function(e){if(e.key==='Escape')menu(false)});
+    // bottom dock: appears after the hero, steps aside at the closing call to action
+    var dock=document.querySelector('.kdock'),hero=document.querySelector('.kh'),close=document.querySelector('.close');
+    if(dock&&hero){var past=false,atEnd=false;
+      new IntersectionObserver(function(es){past=!es[0].isIntersecting;dock.classList.toggle('on',past&&!atEnd)}).observe(hero.querySelector('.kh-main')||hero);
+      if(close)new IntersectionObserver(function(es){atEnd=es[0].isIntersecting;dock.classList.toggle('on',past&&!atEnd)}).observe(close);
+    }
+  })();
   // stat counters
   var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;cio.unobserve(e.target);var el=e.target,n=+el.dataset.n,t0=null;if(reduce||!n){el.textContent=n;return}
     (function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),v=Math.round(n*(1-Math.pow(1-k,4)));el.textContent=v;if(k<1)requestAnimationFrame(f)})(performance.now())})},{threshold:.6});

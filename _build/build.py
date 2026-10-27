@@ -155,7 +155,7 @@ BASE_JS = r"""
   document.addEventListener('click',function(e){
     var a=e.target.closest('a'); if(!a||a.target==='_blank'||e.metaKey||e.ctrlKey||e.shiftKey) return;
     var href=a.getAttribute('href')||''; if(!href||href.charAt(0)==='#'||/^(https?:|mailto:|tel:)/.test(href)) return;
-    e.preventDefault(); wipe.classList.add('cover'); setTimeout(function(){location.href=a.href},520);
+    e.preventDefault(); try{sessionStorage.setItem('bbw','1')}catch(err){} wipe.classList.add('cover'); setTimeout(function(){location.href=a.href},520);
   });
   window.addEventListener('pageshow',function(e){if(e.persisted) wipe.classList.remove('cover');});
   // progress bar
