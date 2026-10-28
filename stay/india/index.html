@@ -162,7 +162,7 @@ button{font-family:inherit}
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 24px}
 .pcard{display:grid;gap:12px;min-width:0}
 .pcard[hidden]{display:none!important}
-.pphoto{position:relative;aspect-ratio:1/1;border-radius:var(--r-md);overflow:hidden;background:var(--strong)}
+.pphoto{position:relative;aspect-ratio:4/5;border-radius:var(--r-md);overflow:hidden;background:var(--strong)}
 .pphoto>img{width:100%;height:100%;object-fit:cover}
 .badge{position:absolute;left:12px;top:12px;z-index:3;background:#fff;color:#222;font:600 11px/1.18 var(--font);padding:6px 10px;border-radius:999px;box-shadow:var(--lift)}
 .heart{position:absolute;right:10px;top:10px;z-index:3;width:36px;height:36px;border:0;background:none;padding:4px;cursor:pointer;transition:transform .15s}
@@ -223,7 +223,7 @@ button{font-family:inherit}
 .pkc{display:grid;grid-template-rows:auto 1fr;border:1px solid var(--hair);border-radius:var(--r-lg);overflow:hidden;background:var(--canvas);transition:box-shadow .2s}
 .pkc:hover{box-shadow:var(--lift)}
 .pkc.fav{border:2px solid var(--olive)}
-.pk-photo{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--strong)}
+.pk-photo{position:relative;aspect-ratio:8/5;overflow:hidden;background:var(--strong)}
 .pk-photo>img{width:100%;height:100%;object-fit:cover}
 .pk-body{padding:20px 22px 22px;display:grid;gap:14px;align-content:start}
 .pk-top{display:flex;justify-content:space-between;align-items:start;gap:12px}
@@ -440,7 +440,7 @@ footer{background:var(--soft);border-top:1px solid var(--hair);margin-top:48px}
           <p>Wi-Fi card, house rules, washroom and checkout cards in your stay's own look. Print-ready PDFs, no shipping.</p>
           <div class="ctas"><a class="btn btn-lime btn-pill" href="#services">Browse printables</a></div>
         </div>
-        <div class="slide-img"><img src="/stay/assets/card-linen.webp" alt="" loading="lazy"></div>
+        <div class="slide-img"><img src="/stay/assets/service-03-arrival-set.webp" alt="" loading="lazy"></div>
       </div>
       <div class="slide" aria-roledescription="slide" aria-label="3 of 3">
         <div class="slide-copy">
@@ -475,85 +475,78 @@ footer{background:var(--soft);border-top:1px solid var(--hair);margin-top:48px}
     <div class="sec-h"><div><h2>Everything your stay needs</h2><p>Tap the heart to add a piece to your stay. Your total builds below.</p></div><a class="link" href="#build">Show my stay</a></div>
     <div class="grid" id="grid">
       <article class="pcard" data-group="identity" data-id="kit">
-        <div class="pphoto"><img src="/stay/assets/card-pair.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-brand"><div class="m">Casa Lira<small>Boutique stay</small></div><div class="sw"><i style="background:#3E4A1E"></i><i style="background:#C4D334"></i><i style="background:#D9CBB4"></i><i style="background:#F4F2EA"></i></div></div><span class="badge">Bestseller</span>
+        <div class="pphoto"><img src="/stay/assets/service-01-mini-brand-kit.webp" alt="" loading="lazy" width="720" height="900"><span class="badge">Bestseller</span>
           <button class="heart" type="button" data-heart="kit" aria-pressed="false" aria-label="Add Mini brand kit to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
         <div class="pmeta"><div class="prow"><h3>Mini brand kit</h3><span class="pdays">5 days</span></div>
           <p class="pdesc">Logo, wordmark, palette, type pairing, one-page guide</p>
           <p class="pprice"><b data-price="kit">$149</b> <span>· once</span></p></div>
       </article>
       <article class="pcard" data-group="identity" data-id="naming">
-        <div class="pphoto"><img src="/stay/assets/concept-door.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-name"><span>Casa Lira</span><small>casalira.stay · @casalira ✓</small></div>
-          <button class="heart" type="button" data-heart="naming" aria-pressed="false" aria-label="Add Stay naming to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pphoto"><img src="/stay/assets/service-02-stay-naming.webp" alt="" loading="lazy" width="720" height="900"><button class="heart" type="button" data-heart="naming" aria-pressed="false" aria-label="Add Stay naming to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
         <div class="pmeta"><div class="prow"><h3>Stay naming</h3><span class="pdays">3 days</span></div>
           <p class="pdesc">10 name ideas, 3 shortlisted, domain and handle checked</p>
           <p class="pprice"><b data-price="naming">$49</b> <span>· once</span></p></div>
       </article>
       <article class="pcard" data-group="printables" data-id="arrival">
-        <div class="pphoto"><img src="/stay/assets/card-tent.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-card"><span class="k">Stay connected</span><span class="t">Wi-Fi</span><span class="s">Network · Password</span></div><span class="badge">Bestseller</span>
+        <div class="pphoto"><img src="/stay/assets/service-03-arrival-set.webp" alt="" loading="lazy" width="720" height="900"><span class="badge">Bestseller</span>
           <button class="heart" type="button" data-heart="arrival" aria-pressed="false" aria-label="Add Arrival set to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
         <div class="pmeta"><div class="prow"><h3>Arrival set</h3><span class="pdays">3 days</span></div>
           <p class="pdesc">Welcome sign, Wi-Fi card, house rules</p>
           <p class="pprice"><b data-price="arrival">$49</b> <span>· once</span></p></div>
       </article>
       <article class="pcard" data-group="printables" data-id="washroom">
-        <div class="pphoto"><img src="/stay/assets/eh-bath.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-card"><span class="k">A small favour</span><span class="t">Please don't flush</span><span class="s">Bin is under the sink</span></div>
-          <button class="heart" type="button" data-heart="washroom" aria-pressed="false" aria-label="Add Washroom set to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pphoto"><img src="/stay/assets/service-04-washroom-set.webp" alt="" loading="lazy" width="720" height="900"><button class="heart" type="button" data-heart="washroom" aria-pressed="false" aria-label="Add Washroom set to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
         <div class="pmeta"><div class="prow"><h3>Washroom set</h3><span class="pdays">3 days</span></div>
           <p class="pdesc">Towel, toiletries and “please don't flush” cards</p>
           <p class="pprice"><b data-price="washroom">$39</b> <span>· once</span></p></div>
       </article>
       <article class="pcard" data-group="printables" data-id="kitchen">
-        <div class="pphoto"><img src="/stay/assets/eh-kitchen.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-card"><span class="k">Before you go</span><span class="t">Checkout</span><span class="s">Keys on the tray by 10 am</span></div>
-          <button class="heart" type="button" data-heart="kitchen" aria-pressed="false" aria-label="Add Kitchen & checkout set to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pphoto"><img src="/stay/assets/service-05-kitchen-checkout.webp" alt="" loading="lazy" width="720" height="900"><button class="heart" type="button" data-heart="kitchen" aria-pressed="false" aria-label="Add Kitchen & checkout set to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
         <div class="pmeta"><div class="prow"><h3>Kitchen & checkout set</h3><span class="pdays">3 days</span></div>
           <p class="pdesc">Appliance and coffee guides, checkout checklist</p>
           <p class="pprice"><b data-price="kitchen">$39</b> <span>· once</span></p></div>
       </article>
       <article class="pcard" data-group="printables" data-id="review">
-        <div class="pphoto"><img src="/stay/assets/card-linen.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-card"><span class="k">Scan to review</span><svg class="qr" viewBox="0 0 7 7" shape-rendering="crispEdges" aria-hidden="true"><path fill="#222" fill-rule="evenodd" d="M0 0h3v3H0zM1 1v1h1V1zM4 0h3v3H4zM5 1v1h1V1zM0 4h3v3H0zM1 5v1h1V5z"/><path fill="#222" d="M4 4h1v1H4zM6 4h1v1H6zM5 5h1v1H5zM4 6h1v1H4zM6 6h1v1H6z"/></svg><span class="t sm">Loved your stay?</span></div>
-          <button class="heart" type="button" data-heart="review" aria-pressed="false" aria-label="Add Review set to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pphoto"><img src="/stay/assets/service-06-review-set.webp" alt="" loading="lazy" width="720" height="900"><button class="heart" type="button" data-heart="review" aria-pressed="false" aria-label="Add Review set to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
         <div class="pmeta"><div class="prow"><h3>Review set</h3><span class="pdays">3 days</span></div>
           <p class="pdesc">QR stand, door hanger, thank-you card</p>
           <p class="pprice"><b data-price="review">$39</b> <span>· once</span></p></div>
       </article>
       <article class="pcard" data-group="printables" data-id="map">
-        <div class="pphoto"><img src="/stay/assets/cup-book.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-map"><svg viewBox="0 0 160 120" aria-hidden="true"><rect width="160" height="120" rx="6" fill="#F4F2EA"/><path d="M0 78 C40 70 60 96 100 84 S150 60 160 66" stroke="#B9CBD6" stroke-width="10" fill="none"/><path d="M20 0 L42 120 M0 40 L160 30 M100 0 L120 120" stroke="#E2DCCB" stroke-width="5"/><circle cx="68" cy="44" r="7" fill="#3E4A1E"/><circle cx="68" cy="44" r="2.5" fill="#F4F2EA"/><circle cx="112" cy="26" r="4" fill="#C4D334"/><circle cx="34" cy="92" r="4" fill="#C4D334"/><circle cx="132" cy="96" r="4" fill="#C4D334"/></svg><span>Saket Nagar · 6 local picks</span></div><span class="badge">New</span>
+        <div class="pphoto"><img src="/stay/assets/service-07-neighbourhood-map.webp" alt="" loading="lazy" width="720" height="900"><span class="badge">New</span>
           <button class="heart" type="button" data-heart="map" aria-pressed="false" aria-label="Add Neighbourhood map to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
         <div class="pmeta"><div class="prow"><h3>Neighbourhood map</h3><span class="pdays">5 days</span></div>
           <p class="pdesc">Illustrated poster plus a digital version</p>
           <p class="pprice"><b data-price="map">$89</b> <span>· once</span></p></div>
       </article>
       <article class="pcard" data-group="guide" data-id="guide">
-        <div class="pphoto"><img src="/stay/assets/eh-living.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-phone"><div class="scr"><div class="top"><small>Guest guide</small><b>Your stay</b></div><div class="g"><i>Wi-Fi</i><i>Coffee</i><i>Nearby</i><i>Checkout</i></div></div></div><span class="badge">Bestseller</span>
+        <div class="pphoto"><img src="/stay/assets/service-08-web-guest-guide.webp" alt="" loading="lazy" width="720" height="900"><span class="badge">Bestseller</span>
           <button class="heart" type="button" data-heart="guide" aria-pressed="false" aria-label="Add Web guest guide to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
         <div class="pmeta"><div class="prow"><h3>Web guest guide</h3><span class="pdays">3 days</span></div>
           <p class="pdesc">Mobile guide behind a QR code, hosting included</p>
           <p class="pprice"><b data-price="guide">$149</b> <span>· once</span></p></div>
       </article>
       <article class="pcard" data-group="online" data-id="listing">
-        <div class="pphoto"><img src="/stay/assets/eh-bed1.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-listing"><b>Design-led 2BHK near Indore's best cafes</b><span>★ 4.98 · Superhost</span></div>
-          <button class="heart" type="button" data-heart="listing" aria-pressed="false" aria-label="Add Listing refresh to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pphoto"><img src="/stay/assets/service-09-listing-refresh.webp" alt="" loading="lazy" width="720" height="900"><button class="heart" type="button" data-heart="listing" aria-pressed="false" aria-label="Add Listing refresh to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
         <div class="pmeta"><div class="prow"><h3>Listing refresh</h3><span class="pdays">2 days</span></div>
           <p class="pdesc">Title, description, photo order, cover image</p>
           <p class="pprice"><b data-price="listing">$99</b> <span>· once</span></p></div>
       </article>
       <article class="pcard" data-group="online" data-id="insta">
-        <div class="pphoto"><img src="/stay/assets/eh-lamp.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-grid"><i style="background:#3E4A1E"></i><i style="background:#E9E1D1"></i><i style="background:#C4D334"></i><i style="background:#D9CBB4"></i><i style="background:#3E4A1E"></i><i style="background:#F4F2EA"></i><i style="background:#C9B79C"></i><i style="background:#C4D334"></i><i style="background:#E9E1D1"></i></div>
-          <button class="heart" type="button" data-heart="insta" aria-pressed="false" aria-label="Add Instagram kit to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pphoto"><img src="/stay/assets/service-10-instagram-kit.webp" alt="" loading="lazy" width="720" height="900"><button class="heart" type="button" data-heart="insta" aria-pressed="false" aria-label="Add Instagram kit to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
         <div class="pmeta"><div class="prow"><h3>Instagram kit</h3><span class="pdays">5 days</span></div>
           <p class="pdesc">Profile, highlight covers, 9 post templates</p>
           <p class="pprice"><b data-price="insta">$99</b> <span>· once</span></p></div>
       </article>
       <article class="pcard" data-group="online" data-id="reel">
-        <div class="pphoto"><img src="/stay/assets/concept-seabed.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-play"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></div><span class="ov-dur">0:24</span><span class="badge">New</span>
+        <div class="pphoto"><img src="/stay/assets/service-11-property-reel.webp" alt="" loading="lazy" width="720" height="900"><span class="badge">New</span>
           <button class="heart" type="button" data-heart="reel" aria-pressed="false" aria-label="Add Property reel to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
         <div class="pmeta"><div class="prow"><h3>Property reel</h3><span class="pdays">5 days</span></div>
           <p class="pdesc">20–30 second reel made from your photos</p>
           <p class="pprice"><b data-price="reel">$129</b> <span>· once</span></p></div>
       </article>
       <article class="pcard" data-group="online" data-id="site">
-        <div class="pphoto"><img src="/stay/assets/concept-villa.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-browser"><div class="bar"><i></i><i></i><i></i><span>yourstay.com</span></div><div class="pg"><b>The Olive House</b><em>Book direct</em></div></div>
-          <button class="heart" type="button" data-heart="site" aria-pressed="false" aria-label="Add Direct-booking site to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pphoto"><img src="/stay/assets/service-12-direct-booking-site.webp" alt="" loading="lazy" width="720" height="900"><button class="heart" type="button" data-heart="site" aria-pressed="false" aria-label="Add Direct-booking site to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
         <div class="pmeta"><div class="prow"><h3>Direct-booking site</h3><span class="pdays">10–14 days</span></div>
           <p class="pdesc">One page: rooms, gallery, area guide, enquiries</p>
           <p class="pprice"><b data-price="site" data-from="1">$599</b> <span>· one page</span></p></div>
@@ -567,7 +560,7 @@ footer{background:var(--soft);border-top:1px solid var(--hair);margin-top:48px}
     <div class="sec-h"><div><h2>Packages</h2><p>Each one costs less than buying the same pieces separately.</p></div><span class="link" style="text-decoration:none;font-weight:500;color:var(--muted)">2nd property in the same brand: 40% off</span></div>
     <div class="pk">
       <article class="pkc">
-        <div class="pk-photo"><img src="/stay/assets/card-tent.webp" alt="" loading="lazy"><div class="ov-card"><span class="k">Stay connected</span><span class="t">Wi-Fi</span><span class="s">Network · Password</span></div><span class="badge">Starter</span></div>
+        <div class="pk-photo"><img src="/stay/assets/package-13-guest-essentials.webp" alt="" loading="lazy" width="1000" height="625"><span class="badge">Starter</span></div>
         <div class="pk-body">
           <div class="pk-top"><div><h3>Guest Essentials</h3><small>Printables set · 3 working days</small></div><div class="pk-price"><b data-price="b_essentials">$149</b><small data-save="b_essentials"></small></div></div>
           <ul class="pk-list"><li>Welcome sign, Wi-Fi card, house rules</li><li>Washroom, kitchen and checkout cards</li><li>QR stand, door hanger, review card</li><li>Styled to your existing logo or a clean wordmark</li></ul>
@@ -575,7 +568,7 @@ footer{background:var(--soft);border-top:1px solid var(--hair);margin-top:48px}
         </div>
       </article>
       <article class="pkc fav">
-        <div class="pk-photo"><img src="/stay/assets/card-pair.webp" alt="" loading="lazy"><div class="ov-brand"><div class="m">Casa Lira<small>Boutique stay · concept</small></div><div class="sw"><i style="background:#3E4A1E"></i><i style="background:#C4D334"></i><i style="background:#D9CBB4"></i><i style="background:#F4F2EA"></i></div></div><span class="badge">Host favourite</span></div>
+        <div class="pk-photo"><img src="/stay/assets/package-14-stay-identity.webp" alt="" loading="lazy" width="1000" height="625"><span class="badge">Host favourite</span></div>
         <div class="pk-body">
           <div class="pk-top"><div><h3>Stay Identity</h3><small>Most booked · 5 working days</small></div><div class="pk-price"><b data-price="b_identity">$449</b><small data-save="b_identity"></small></div></div>
           <div class="tiles"><div class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg>Brand kit</div><div class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>All printables</div><div class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>Guest guide</div></div>
@@ -584,7 +577,7 @@ footer{background:var(--soft);border-top:1px solid var(--hair);margin-top:48px}
         </div>
       </article>
       <article class="pkc">
-        <div class="pk-photo"><img src="/stay/assets/concept-seabed.webp" alt="Concept: a sunlit bedroom with sea views" loading="lazy"><div class="ov-browser"><div class="bar"><i></i><i></i><i></i><span>yourstay.com</span></div><div class="pg"><b>The Olive House</b><em>Book direct</em></div></div><span class="badge">Complete</span></div>
+        <div class="pk-photo"><img src="/stay/assets/package-15-brand-my-stay-complete.webp" alt="" loading="lazy" width="1000" height="625"><span class="badge">Complete</span></div>
         <div class="pk-body">
           <div class="pk-top"><div><h3>Brand My Stay</h3><small>Full brand + website · 10–14 days</small></div><div class="pk-price"><b data-price="b_complete">$1,199</b><small data-save="b_complete"></small></div></div>
           <div class="chips"><span class="chip">Direct-booking site</span><span class="chip">Instagram kit</span><span class="chip">Reel</span><span class="chip">Area map</span></div>
@@ -734,7 +727,7 @@ footer{background:var(--soft);border-top:1px solid var(--hair);margin-top:48px}
       <div><h4>For hosts</h4><ul><li><a href="#packages">Packages</a></li><li><a href="#build">Build your own</a></li><li><a href="#free">Free host kit</a></li><li><a href="#free">Free stay audit</a></li></ul></div>
       <div><h4>Beyond Branding</h4><ul><li><a href="/">Studio home</a></li><li><a href="/portfolio.html">Portfolio</a></li><li><a href="/websites.html">Websites</a></li></ul></div>
     </div>
-    <div class="legal"><span class="bb">© 2026 Brand My Stay · a Beyond Branding service</span><span>An independent studio, not affiliated with Airbnb. Concept work is illustrative. Photos: Espresso House by its host; concepts via Pexels &amp; Unsplash.</span></div>
+    <div class="legal"><span class="bb">© 2026 Brand My Stay · a Beyond Branding service</span><span>An independent studio, not affiliated with Airbnb. Concept work is illustrative. Photos: Espresso House by its host; concept imagery is illustrative.</span></div>
   </div>
 </footer>
 
