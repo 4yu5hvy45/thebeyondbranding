@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brand My Stay</title>
+<link rel="canonical" href="https://thebeyondbranding.com/stay/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Brand My Stay by Beyond Branding">
+<meta property="og:description" content="Make your stay feel like a boutique hotel. Brand, printables, guest guide and website for independent stays.">
+<meta property="og:url" content="https://thebeyondbranding.com/stay/">
+<meta property="og:image" content="https://thebeyondbranding.com/stay/assets/eh-living.webp">
+<link rel="alternate" hreflang="en" href="https://thebeyondbranding.com/stay/">
+<link rel="alternate" hreflang="en-IN" href="https://thebeyondbranding.com/stay/india/">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}[hidden]{display:none!important}</style>
+
+<meta name="description" content="Brand identity, guest printables, QR guest guides and direct-booking websites for Airbnb hosts and independent stays. Paid once, drafts in 3 days. By Beyond Branding.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap">
+<style>
+/* Layout: a host marketplace. White canvas, one pill search, photo-first cards, a listing-detail case study and a reservation-card builder. Lime is the single voltage; olive marks the selected state. */
+:root{
+  --canvas:#FFFFFF; --soft:#F7F7F2; --strong:#EFEEE6; --ink:#222222; --body:#3F3F3F; --muted:#6A6A6A;
+  --hair:#DDDDDD; --hair-soft:#EBEBEB; --border-strong:#C1C1C1;
+  --lime:#C4D334; --lime-press:#B2C020; --on-lime:#1F2412; --olive:#3E4A1E; --on-olive:#FFFFFF; --olive-soft:#EEF1DC; --mint:#E3ECDF;
+  --banner:#1E2315; --scrim:rgba(0,0,0,.5); --bb-red:#D91C2B;
+  --lift:0 0 0 1px rgba(0,0,0,.02),0 2px 6px rgba(0,0,0,.04),0 4px 8px rgba(0,0,0,.10);
+  --font:'Figtree',-apple-system,system-ui,Roboto,'Helvetica Neue',sans-serif;
+  --r-xs:4px; --r-sm:8px; --r-md:14px; --r-lg:20px; --r-xl:32px;
+  --wrap:1280px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --canvas:#141512; --soft:#1B1D18; --strong:#25281F; --ink:#F2F2EC; --body:#D6D6CE; --muted:#A3A39A;
+  --hair:#34372F; --hair-soft:#2A2C26; --border-strong:#50544A;
+  --olive:#D6E26A; --on-olive:#1F2412; --olive-soft:#2A3018; --mint:#22291D; --banner:#0E110A;
+  --lift:0 0 0 1px rgba(255,255,255,.04),0 2px 6px rgba(0,0,0,.3),0 4px 10px rgba(0,0,0,.4); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --canvas:#141512; --soft:#1B1D18; --strong:#25281F; --ink:#F2F2EC; --body:#D6D6CE; --muted:#A3A39A;
+  --hair:#34372F; --hair-soft:#2A2C26; --border-strong:#50544A;
+  --olive:#D6E26A; --on-olive:#1F2412; --olive-soft:#2A3018; --mint:#22291D; --banner:#0E110A;
+  --lift:0 0 0 1px rgba(255,255,255,.04),0 2px 6px rgba(0,0,0,.3),0 4px 10px rgba(0,0,0,.4); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{margin:0;background:var(--canvas);color:var(--ink);font:400 16px/1.5 var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:70;background:var(--canvas)}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:600;text-wrap:balance}
+p{margin:0}
+button{font-family:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+@media (max-width:744px){.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
+.sec{padding-block:48px}
+.sec-h{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:20px}
+.sec-h h2{font-size:26px;line-height:1.2;font-weight:600;letter-spacing:-.01em}
+.sec-h p{color:var(--muted);font-size:15px;margin-top:4px}
+.link{white-space:nowrap;font-weight:600;font-size:15px;text-decoration:underline;text-underline-offset:3px}
+.tnum{font-variant-numeric:tabular-nums}
+.divider{height:1px;background:var(--hair);border:0;margin:0}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:var(--r-sm);font:500 16px/1.25 var(--font);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.98)}
+.btn-lime{background:var(--lime);color:var(--on-lime);font-weight:600}
+.btn-lime:hover{background:var(--lime-press)}
+.btn-line{background:var(--canvas);color:var(--ink);border-color:var(--ink)}
+.btn-line:hover{background:var(--soft)}
+.btn-pill{border-radius:999px}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--canvas);border-bottom:1px solid var(--hair)}
+.top-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:80px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;justify-self:start}
+.logo-mark{width:34px;height:34px;border-radius:10px;background:var(--lime);color:var(--on-lime);display:grid;place-items:center;font:800 17px/1 var(--font)}
+.logo b{font:700 20px/1 var(--font);letter-spacing:-.02em;color:var(--ink)}
+.logo small{display:block;font:500 11px/1 var(--font);color:var(--muted);margin-top:4px}
+.tabs{display:flex;gap:28px}
+.tab{position:relative;display:flex;align-items:center;gap:8px;padding:10px 2px;text-decoration:none;color:var(--muted);font:600 16px/1.25 var(--font);border-bottom:2px solid transparent}
+.tab .ti{width:32px;height:32px;flex:none}
+.tab.on{color:var(--ink);border-bottom-color:var(--ink)}
+.tab:hover{color:var(--ink)}
+.tab .new{position:absolute;top:-2px;left:22px;background:var(--canvas);color:var(--ink);font:700 8px/1.25 var(--font);letter-spacing:.32px;text-transform:uppercase;padding:2px 6px;border-radius:999px;box-shadow:var(--lift)}
+.top-right{justify-self:end;display:flex;align-items:center;gap:6px}
+.tr-link{font:500 14px/1 var(--font);text-decoration:none;padding:12px;border-radius:999px}
+.tr-link:hover{background:var(--soft)}
+.cur{display:inline-flex;align-items:center;gap:2px;border:1px solid var(--hair);border-radius:999px;padding:3px}
+.cur button{border:0;background:transparent;color:var(--muted);font:600 12px/1 var(--font);padding:9px 11px;border-radius:999px;cursor:pointer}
+.cur button[aria-pressed="true"]{background:var(--olive);color:var(--on-olive)}
+.mini{display:none;align-items:center;gap:12px;border:1px solid var(--hair);border-radius:999px;box-shadow:var(--lift);padding:7px 7px 7px 20px;background:var(--canvas);font:500 14px/1 var(--font);cursor:pointer;color:var(--ink)}
+.mini span+span{border-left:1px solid var(--hair);padding-left:12px;color:var(--muted)}
+.mini i{width:32px;height:32px;border-radius:50%;background:var(--lime);display:grid;place-items:center;color:var(--on-lime)}
+.top.compact .tabs{display:none}.top.compact .mini{display:flex}
+.search-band{padding:4px 0 24px;background:var(--canvas);border-bottom:1px solid var(--hair)}
+.top{border-bottom-color:transparent}.top.compact{border-bottom-color:var(--hair)}
+.spill{display:flex;align-items:center;max-width:850px;margin:0 auto;height:66px;border:1px solid var(--hair);border-radius:999px;box-shadow:var(--lift);background:var(--canvas);padding:0 8px 0 0}
+.seg{flex:1 1 0;min-width:0;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 24px 0 32px;border-radius:999px;cursor:pointer;position:relative}
+.seg+.seg::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:1px;background:var(--hair)}
+.seg:hover{background:var(--soft)}.seg:hover::before,.seg:hover+.seg::before{opacity:0}
+.seg:focus-within{background:var(--canvas);box-shadow:var(--lift)}
+.seg span{font:600 12px/1.3 var(--font)}
+.seg input,.seg select{border:0;background:transparent;color:var(--muted);font:400 14px/1.4 var(--font);padding:0;width:100%;min-width:0;outline:none;appearance:none;-webkit-appearance:none;cursor:pointer;text-overflow:ellipsis}
+.seg select option{color:#222}
+.orb{flex:none;height:48px;min-width:48px;border-radius:999px;border:0;background:var(--lime);color:var(--on-lime);display:flex;align-items:center;justify-content:center;gap:8px;padding:0 16px;font:600 16px/1 var(--font);cursor:pointer}
+.orb:hover{background:var(--lime-press)}
+@media (max-width:1128px){.tr-link{display:none}.tabs{gap:18px}}
+@media (max-width:950px){.top-row{grid-template-columns:auto 1fr}.tabs{display:none}.top.compact .mini{display:none}}
+@media (max-width:744px){
+  .top-row{height:64px}
+  .spill{flex-direction:column;align-items:stretch;height:auto;border-radius:var(--r-lg);padding:8px;gap:0}
+  .seg{padding:12px 16px;border-radius:var(--r-md)}
+  .seg+.seg::before{left:16px;right:16px;top:0;bottom:auto;width:auto;height:1px}
+  .orb{border-radius:var(--r-sm);height:50px;margin-top:6px}
+}
+
+/* ---------- banner ---------- */
+.banner{position:relative;border-radius:var(--r-lg);overflow:hidden;background:var(--banner);color:#fff;min-height:420px;display:grid}
+.slide{grid-area:1/1;display:grid;grid-template-columns:1.05fr 1fr;opacity:0;visibility:hidden;transition:opacity .6s ease,visibility .6s}
+.slide.on{opacity:1;visibility:visible}
+.slide-copy{padding:56px 48px;display:flex;flex-direction:column;justify-content:center;gap:18px;position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font:600 13px/1 var(--font);color:#E3EAA6}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lime)}
+.slide h1,.slide h2{font:700 clamp(34px,4.4vw,56px)/1.05 var(--font);letter-spacing:-.025em;color:#fff}
+.slide h1 em,.slide h2 em{font-style:italic;color:var(--lime)}
+.slide p{color:rgba(255,255,255,.78);font-size:17px;max-width:46ch}
+.slide .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.slide .btn-ghost{color:#fff;border-color:rgba(255,255,255,.4);background:transparent}
+.slide .btn-ghost:hover{border-color:#fff}
+.slide-img{position:relative;min-height:300px}
+.slide-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slide-img::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--banner) 0%,rgba(30,35,21,0) 38%);z-index:1}
+.dots{position:absolute;right:24px;bottom:22px;z-index:3;display:flex;gap:6px}
+.dots button{width:8px;height:8px;border-radius:999px;border:0;background:rgba(255,255,255,.55);padding:0;cursor:pointer;transition:width .3s}
+.dots button[aria-current="true"]{width:24px;background:var(--lime)}
+.fact{position:absolute;left:24px;bottom:22px;z-index:3;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.96);color:#222;border-radius:999px;padding:6px 14px 6px 6px;font:600 13px/1.2 var(--font);box-shadow:var(--lift)}
+.fact i{width:28px;height:28px;border-radius:50%;background:var(--lime);display:grid;place-items:center;font-style:normal;font-weight:800;font-size:13px;color:#1F2412}
+@media (max-width:860px){.slide{grid-template-columns:1fr;grid-template-rows:auto 240px}.slide-copy{padding:32px 24px 24px}.slide-img::before{background:linear-gradient(180deg,var(--banner) 0%,rgba(30,35,21,0) 40%)}.banner{min-height:0}.fact{display:none}}
+
+/* quick actions (ref: Buy Tickets / Explore Vendors / Host Event) */
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}
+.qa{display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid var(--hair);border-radius:var(--r-md);text-decoration:none;background:var(--canvas);transition:box-shadow .2s}
+.qa:hover{box-shadow:var(--lift)}
+.qa .qi{width:44px;height:44px;border-radius:50%;background:var(--mint);display:grid;place-items:center;flex:none}
+.qa .qi svg{width:22px;height:22px;fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.qa b{display:block;font:600 15px/1.25 var(--font)}
+.qa small{display:block;font-size:13px;color:var(--muted)}
+.qa .beta{font:700 9px/1 var(--font);background:var(--lime);color:var(--on-lime);padding:3px 6px;border-radius:999px;margin-left:6px;vertical-align:2px;text-transform:uppercase}
+@media (max-width:950px){.quick{grid-template-columns:1fr 1fr}}
+@media (max-width:744px){.qa{flex-direction:column;align-items:flex-start;gap:10px;padding:14px}.qa .qi{width:38px;height:38px}}
+
+/* ---------- category strip + cards ---------- */
+.cats{display:flex;gap:32px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--hair);margin-bottom:24px}
+.cats::-webkit-scrollbar{display:none}
+.cat{flex:none;display:flex;flex-direction:column;align-items:center;gap:8px;padding:6px 2px 12px;border:0;background:none;color:var(--muted);font:500 13px/1.2 var(--font);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.cat svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.cat:hover{color:var(--ink);border-bottom-color:var(--hair)}
+.cat[aria-pressed="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 24px}
+.pcard{display:grid;gap:12px;min-width:0}
+.pcard[hidden]{display:none!important}
+.pphoto{position:relative;aspect-ratio:1/1;border-radius:var(--r-md);overflow:hidden;background:var(--strong)}
+.pphoto>img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;left:12px;top:12px;z-index:3;background:#fff;color:#222;font:600 11px/1.18 var(--font);padding:6px 10px;border-radius:999px;box-shadow:var(--lift)}
+.heart{position:absolute;right:10px;top:10px;z-index:3;width:36px;height:36px;border:0;background:none;padding:4px;cursor:pointer;transition:transform .15s}
+.heart:active{transform:scale(.9)}
+.heart svg{width:100%;height:100%;fill:rgba(0,0,0,.5);stroke:#fff;stroke-width:2}
+.heart[aria-pressed="true"] svg{fill:var(--lime);stroke:#fff}
+.prow{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.prow h3{font:600 16px/1.25 var(--font)}
+.pdays{font:400 14px/1.3 var(--font);color:var(--muted);white-space:nowrap}
+.pdesc{font:400 14px/1.43 var(--font);color:var(--muted)}
+.pprice{font-size:15px;margin-top:2px}
+.pprice b{font-weight:600}
+.pprice span{color:var(--body)}
+@media (max-width:1128px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:860px){.grid{grid-template-columns:repeat(2,1fr);gap:28px 16px}}
+@media (max-width:520px){.grid{grid-template-columns:1fr}}
+
+/* photo overlays (drawn printables) */
+.ov-card{position:absolute;z-index:2;left:50%;top:50%;width:52%;aspect-ratio:5/7;transform:translate(-50%,-50%) rotate(-3deg);background:#FBFAF5;color:#222;border-radius:4px;box-shadow:0 12px 28px -10px rgba(0,0,0,.5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:12px}
+.ov-card .k{font:600 9px/1.2 var(--font);letter-spacing:.14em;text-transform:uppercase;color:#6A6A6A}
+.ov-card .t{font:700 22px/1.05 var(--font);letter-spacing:-.02em;color:#3E4A1E}
+.ov-card .t.sm{font-size:15px}
+.ov-card .s{font:400 11px/1.35 var(--font);color:#555}
+.ov-card .qr{width:48px;height:48px}
+.ov-brand{position:absolute;z-index:2;inset:16% 14%;background:#FBFAF5;border-radius:4px;box-shadow:0 12px 28px -10px rgba(0,0,0,.5);transform:rotate(-2deg);display:grid;grid-template-rows:1fr auto;padding:14px;gap:10px;color:#222}
+.ov-brand .m{display:grid;place-items:center;text-align:center;font:800 26px/1 var(--font);letter-spacing:-.03em;color:#3E4A1E}
+.ov-brand .m small{display:block;font:600 8px/1 var(--font);letter-spacing:.2em;text-transform:uppercase;color:#6A6A6A;margin-top:6px}
+.ov-brand .sw{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.ov-brand .sw i{aspect-ratio:1;border-radius:3px;border:1px solid rgba(0,0,0,.06)}
+.ov-name{position:absolute;z-index:2;left:12px;right:12px;bottom:12px;background:rgba(255,255,255,.95);color:#222;border-radius:var(--r-md);padding:14px 16px;box-shadow:var(--lift);display:grid;gap:4px}
+.ov-name span{font:800 24px/1 var(--font);letter-spacing:-.03em;color:#3E4A1E}
+.ov-name small{font:500 12px/1.2 var(--font);color:#6A6A6A}
+.ov-map{position:absolute;z-index:2;inset:14% 12%;background:#FBFAF5;border-radius:6px;box-shadow:0 12px 28px -10px rgba(0,0,0,.5);padding:8px;display:grid;gap:6px;transform:rotate(2deg)}
+.ov-map svg{width:100%;height:auto}
+.ov-map span{font:600 11px/1.2 var(--font);color:#222;text-align:center}
+.ov-phone{position:absolute;z-index:2;right:14%;bottom:-8%;width:42%;aspect-ratio:9/17;background:#151712;border-radius:22px;padding:5px;box-shadow:0 12px 28px -8px rgba(0,0,0,.55);transform:rotate(4deg)}
+.ov-phone .scr{height:100%;border-radius:18px;background:#F6F5EE;overflow:hidden;display:flex;flex-direction:column}
+.ov-phone .top{background:#3E4A1E;color:#fff;padding:18% 10% 10%;display:grid;gap:3px}
+.ov-phone .top small{font:600 7px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;color:#D9E38A}
+.ov-phone .top b{font:700 14px/1.05 var(--font)}
+.ov-phone .g{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:9%}
+.ov-phone .g i{font:600 8px/1 var(--font);font-style:normal;background:#fff;border-radius:7px;aspect-ratio:1;display:grid;place-items:end start;padding:6px;color:#222;box-shadow:0 0 0 1px #E6E3D8}
+.ov-listing{position:absolute;z-index:2;left:12px;right:12px;bottom:12px;background:#fff;color:#222;border-radius:var(--r-md);padding:12px 14px;box-shadow:var(--lift);display:grid;gap:4px}
+.ov-listing b{font:600 14px/1.25 var(--font)}.ov-listing span{font:500 12px/1 var(--font);color:#6A6A6A}
+.ov-grid{position:absolute;z-index:2;inset:18% 18%;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:6px;background:#fff;border-radius:8px;box-shadow:0 12px 28px -10px rgba(0,0,0,.5)}
+.ov-grid i{aspect-ratio:1;border-radius:2px}
+.ov-play{position:absolute;z-index:2;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(255,255,255,.92);color:#222;display:grid;place-items:center;box-shadow:var(--lift)}
+.ov-dur{position:absolute;z-index:2;right:12px;bottom:12px;background:rgba(0,0,0,.6);color:#fff;font:600 12px/1 var(--font);padding:5px 8px;border-radius:6px}
+.ov-browser{position:absolute;z-index:2;left:10%;right:10%;bottom:12%;background:#FBFAF5;color:#222;border-radius:10px;box-shadow:0 12px 28px -10px rgba(0,0,0,.55);overflow:hidden}
+.ov-browser .bar{display:flex;gap:5px;align-items:center;padding:8px 10px;background:#ECEAE0}
+.ov-browser .bar i{width:7px;height:7px;border-radius:50%;background:#C8C5B8}
+.ov-browser .bar span{margin-left:8px;font:500 10px/1 var(--font);color:#555;background:#fff;padding:4px 9px;border-radius:999px}
+.ov-browser .pg{padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.ov-browser .pg b{font:700 16px/1.1 var(--font);letter-spacing:-.02em;color:#3E4A1E}
+.ov-browser .pg em{font:600 10px/1 var(--font);font-style:normal;background:#C4D334;color:#1F2412;padding:7px 10px;border-radius:999px;white-space:nowrap}
+
+/* ---------- packages ---------- */
+.pk{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pkc{display:grid;grid-template-rows:auto 1fr;border:1px solid var(--hair);border-radius:var(--r-lg);overflow:hidden;background:var(--canvas);transition:box-shadow .2s}
+.pkc:hover{box-shadow:var(--lift)}
+.pkc.fav{border:2px solid var(--olive)}
+.pk-photo{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--strong)}
+.pk-photo>img{width:100%;height:100%;object-fit:cover}
+.pk-body{padding:20px 22px 22px;display:grid;gap:14px;align-content:start}
+.pk-top{display:flex;justify-content:space-between;align-items:start;gap:12px}
+.pk-top h3{font:600 21px/1.2 var(--font)}
+.pk-top small{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.pk-price{text-align:right;white-space:nowrap}
+.pk-price b{font:700 21px/1.2 var(--font)}
+.pk-price small{display:block;color:var(--muted);font-size:13px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--hair);border-radius:999px;padding:7px 12px;font:500 13px/1.2 var(--font);background:var(--canvas)}
+.chip svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tile{background:var(--mint);border-radius:var(--r-md);padding:12px;display:grid;gap:8px;font:500 13px/1.25 var(--font)}
+.tile svg{width:20px;height:20px;fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.pk-list{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14.5px;color:var(--body)}
+.pk-list li{display:grid;grid-template-columns:18px 1fr;gap:8px}
+.pk-list li::before{content:"";width:16px;height:16px;margin-top:2px;border-radius:50%;background:var(--olive-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.3 2.3 4.7-5' fill='none' stroke='%233E4A1E' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+.pk-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--hair-soft);padding-top:14px}
+.pk-foot span{font-size:13.5px;color:var(--muted)}
+.pk-foot .btn{min-height:44px;padding:0 20px}
+@media (max-width:1000px){.pk{grid-template-columns:1fr;max-width:560px}}
+
+/* ---------- listing detail (case) ---------- */
+.mosaic{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:200px 200px;gap:8px;border-radius:var(--r-md);overflow:hidden;position:relative}
+.mosaic img{width:100%;height:100%;object-fit:cover}
+.mosaic img:first-child{grid-row:span 2}
+.mosaic .all{position:absolute;right:16px;bottom:16px;background:#fff;color:#222;border:1px solid #222;border-radius:var(--r-sm);padding:8px 14px;font:600 14px/1.2 var(--font);text-decoration:none;display:flex;gap:8px;align-items:center}
+.ld{display:grid;grid-template-columns:1fr 372px;gap:64px;margin-top:32px;align-items:start}
+.ld-title h2{font:500 22px/1.18 var(--font);letter-spacing:-.44px}
+.ld-title p{color:var(--ink);font-size:16px;margin-top:6px}
+.rating-card{display:flex;align-items:center;justify-content:space-between;gap:20px;border:1px solid var(--hair);border-radius:var(--r-md);padding:20px 24px;margin:24px 0}
+.rc-score{display:flex;align-items:center;gap:6px}
+.rc-score b{font:700 64px/1.1 var(--font);letter-spacing:-1px}
+.rc-score svg{width:34px;height:64px;color:var(--ink)}
+.rc-tag{font:600 16px/1.25 var(--font);max-width:16ch}
+.rc-tag small{display:block;font:400 14px/1.43 var(--font);color:var(--muted);margin-top:2px}
+.rc-stats{display:flex;gap:0}
+.rc-stats div{padding:0 18px;border-left:1px solid var(--hair);text-align:center;display:grid;gap:2px}
+.rc-stats b{font:700 18px/1.2 var(--font)}
+.rc-stats span{font-size:12px;color:var(--muted)}
+.host{display:flex;gap:16px;align-items:center;padding:24px 0;border-block:1px solid var(--hair)}
+.host .av{width:48px;height:48px;border-radius:50%;background:var(--olive);color:var(--on-olive);display:grid;place-items:center;font:800 18px/1 var(--font);flex:none;position:relative}
+.host .av::after{content:"";position:absolute;right:-2px;bottom:-2px;width:18px;height:18px;border-radius:50%;background:var(--lime) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.3 2.3 4.7-5' fill='none' stroke='%231F2412' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center/14px no-repeat;border:2px solid var(--canvas)}
+.host b{font:600 16px/1.25 var(--font)}
+.host small{display:block;color:var(--muted);font-size:14px}
+.amen h3{font:700 21px/1.43 var(--font);margin:28px 0 8px}
+.arow-s{display:flex;gap:16px;align-items:start;padding:12px 0;font-size:16px}
+.arow-s svg{width:24px;height:24px;flex:none;fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
+.arow-s small{display:block;color:var(--muted);font-size:14px}
+.side-card{position:sticky;top:110px;border:1px solid var(--hair);border-radius:var(--r-md);box-shadow:var(--lift);padding:24px;display:grid;gap:16px;background:var(--canvas)}
+.side-card .p{font-size:16px}.side-card .p b{font:700 22px/1.2 var(--font)}
+.side-card .p span{color:var(--body)}
+.side-card .btn{width:100%}
+.side-card .n{text-align:center;color:var(--muted);font-size:14px}
+@media (max-width:950px){.ld{grid-template-columns:1fr;gap:16px}.side-card{position:static}.mosaic{grid-template-columns:1fr 1fr;grid-template-rows:220px 140px 140px}.mosaic img:first-child{grid-column:span 2;grid-row:auto}}
+@media (max-width:520px){.rating-card{flex-wrap:wrap}.rc-stats div:first-child{border-left:0;padding-left:0}}
+
+/* ---------- builder (reservation) ---------- */
+.bd{display:grid;grid-template-columns:1fr 372px;gap:64px;align-items:start}
+.agroup h3{font:700 21px/1.43 var(--font);padding:28px 0 6px;border-top:1px solid var(--hair)}
+.agroup:first-child h3{border-top:0;padding-top:0}
+.arow{display:grid;grid-template-columns:24px 1fr auto auto;gap:16px;align-items:center;padding:14px 0;cursor:pointer}
+.aic svg{width:24px;height:24px;fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;display:block}
+.atx b{display:block;font:500 16px/1.3 var(--font)}
+.atx small{display:block;color:var(--muted);font-size:14px;line-height:1.4}
+.aamt{font:500 15px/1 var(--font);white-space:nowrap;color:var(--body)}
+.arow input{appearance:none;-webkit-appearance:none;width:24px;height:24px;margin:0;border:1px solid var(--border-strong);border-radius:6px;display:grid;place-items:center;cursor:pointer;background:var(--canvas)}
+.arow input:checked{background:var(--olive);border-color:var(--olive)}
+.arow input:checked::after{content:"";width:6px;height:11px;border:solid var(--on-olive);border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.arow:hover .atx b{text-decoration:underline}
+.res{position:sticky;top:110px;border:1px solid var(--hair);border-radius:var(--r-md);box-shadow:var(--lift);padding:24px;display:grid;gap:16px;background:var(--canvas)}
+.res-h{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.res-h b{font:700 22px/1.2 var(--font)}
+.res-h span{color:var(--body)}
+.res-f{border:1px solid var(--border-strong);border-radius:var(--r-sm);overflow:hidden}
+.res-f .r1{display:grid;grid-template-columns:1fr 1fr}
+.res-f .c{padding:10px 12px;display:grid;gap:2px}
+.res-f .r1 .c+.c{border-left:1px solid var(--border-strong)}
+.res-f .r2{border-top:1px solid var(--border-strong);display:flex;justify-content:space-between;align-items:center;padding:8px 12px}
+.res-f span{font:800 10px/1.2 var(--font);letter-spacing:.04em;text-transform:uppercase}
+.res-f b{font:400 14px/1.3 var(--font);color:var(--body)}
+.res-f select{border:0;background:transparent;color:var(--body);font:400 14px/1.3 var(--font);padding:0;appearance:none;-webkit-appearance:none;cursor:pointer}
+.step{display:flex;align-items:center;gap:12px}
+.step button{width:32px;height:32px;border-radius:50%;border:1px solid var(--border-strong);background:var(--canvas);color:var(--ink);font:400 18px/1 var(--font);cursor:pointer;display:grid;place-items:center}
+.step button:disabled{opacity:.35;cursor:not-allowed}
+.step output{min-width:14px;text-align:center;font:500 15px/1 var(--font)}
+.res .btn{width:100%;min-height:50px}
+.res .n{text-align:center;font-size:14px;color:var(--muted)}
+.fees{display:grid;gap:12px;font-size:16px}
+.fees div{display:flex;justify-content:space-between;gap:12px}
+.fees div span:first-child{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border-strong)}
+.fees .save{color:var(--olive)}
+.fees .save span:first-child{text-decoration:none}
+.fees-empty{color:var(--muted);font-size:15px}
+.res-t{display:flex;justify-content:space-between;border-top:1px solid var(--hair);padding-top:16px;font:600 16px/1.3 var(--font)}
+.res-hint{background:var(--olive-soft);border-radius:var(--r-sm);padding:12px 14px;font-size:14px;line-height:1.45}
+@media (max-width:950px){.bd{grid-template-columns:1fr;gap:24px}.res{position:static}}
+
+/* ---------- how it works (date chips) ---------- */
+.days{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.day{border:1px solid var(--hair);border-radius:var(--r-lg);padding:20px;display:grid;gap:12px;align-content:start}
+.dchip{width:56px;height:68px;border-radius:999px;background:var(--strong);display:grid;place-items:center;align-content:center;gap:2px}
+.dchip small{font:500 12px/1 var(--font);color:var(--muted)}
+.dchip b{font:700 18px/1 var(--font)}
+.day.on .dchip{background:var(--lime);color:var(--on-lime)}.day.on .dchip small{color:var(--on-lime)}
+.day h3{font:600 17px/1.25 var(--font)}
+.day p{color:var(--muted);font-size:14.5px}
+@media (max-width:950px){.days{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.days{grid-template-columns:1fr}.day{grid-template-columns:auto 1fr;column-gap:16px}.day .dchip{grid-row:span 2}}
+
+/* compare */
+.tblw{overflow-x:auto;border:1px solid var(--hair);border-radius:var(--r-md)}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:15px}
+th,td{text-align:left;padding:16px 20px;border-bottom:1px solid var(--hair-soft);vertical-align:top}
+thead th{font:600 13px/1.3 var(--font);color:var(--muted);background:var(--soft)}
+tbody th{font:600 16px/1.3 var(--font)}
+tr:last-child>*{border-bottom:0}
+tr.us{background:var(--olive-soft)}
+.pill{display:inline-block;background:var(--lime);color:var(--on-lime);font:700 11px/1 var(--font);padding:4px 8px;border-radius:999px;margin-left:8px;vertical-align:2px}
+
+/* things to know */
+.know{display:grid;grid-template-columns:repeat(3,1fr);gap:24px 48px}
+.know h3{font:600 16px/1.25 var(--font);margin-bottom:12px}
+.know details{border-bottom:1px solid var(--hair-soft)}
+.know summary{list-style:none;cursor:pointer;padding:12px 0;display:flex;justify-content:space-between;gap:12px;font-size:15px}
+.know summary::-webkit-details-marker{display:none}
+.know summary::after{content:"";width:8px;height:8px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg);margin:4px 4px 0 0;flex:none;transition:transform .2s}
+.know details[open] summary::after{transform:rotate(-135deg);margin-top:8px}
+.know details p{color:var(--muted);font-size:14.5px;padding:0 0 14px}
+@media (max-width:860px){.know{grid-template-columns:1fr}}
+
+/* free offers */
+.offers{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.offer{border-radius:var(--r-lg);padding:28px;display:grid;gap:12px;align-content:start;background:var(--soft)}
+.offer.dark{background:var(--banner);color:#fff}
+.offer.dark p{color:rgba(255,255,255,.75)}
+.offer h3{font:700 24px/1.2 var(--font);letter-spacing:-.02em}
+.offer p{color:var(--muted)}
+.offer form{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.offer input{flex:1 1 220px;min-width:0;height:52px;border:1px solid var(--border-strong);border-radius:var(--r-sm);padding:0 14px;font:400 16px var(--font);background:var(--canvas);color:var(--ink)}
+.offer.dark input{background:#fff;color:#222;border-color:transparent}
+.offer input:focus{outline:none;border:2px solid var(--ink)}
+.offer .ok{font-size:14px}
+@media (max-width:860px){.offers{grid-template-columns:1fr}}
+
+/* footer */
+footer{background:var(--soft);border-top:1px solid var(--hair);margin-top:48px}
+.fcols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-block:48px}
+.fcols h4{font:600 14px/1.25 var(--font);margin:0 0 12px}
+.fcols ul{list-style:none;margin:0;padding:0;display:grid;gap:12px;font-size:14px}
+.fcols a{text-decoration:none}.fcols a:hover{text-decoration:underline}
+.legal{border-top:1px solid var(--hair);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:24px;font-size:13px;color:var(--muted)}
+.legal .bb{display:inline-flex;align-items:center;gap:8px}
+.legal .bb::before{content:"";width:7px;height:7px;background:var(--bb-red)}
+@media (max-width:744px){.fcols{grid-template-columns:1fr}footer{padding-bottom:72px}}
+
+/* mobile tab bar */
+.tabbar{display:none}
+@media (max-width:744px){
+  .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:65;display:grid;grid-template-columns:repeat(4,1fr);background:var(--canvas);border-top:1px solid var(--hair);padding:8px max(8px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
+  .tabbar a{display:grid;justify-items:center;gap:4px;text-decoration:none;font:500 11px/1 var(--font);color:var(--muted);position:relative}
+  .tabbar svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .tabbar a.on{color:var(--ink)}
+  .tabbar .cnt{position:absolute;top:-4px;left:calc(50% + 6px);min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--lime);color:var(--on-lime);font:700 11px/18px var(--font);text-align:center}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+
+</head>
+<body>
+<header class="top" id="top">
+  <div class="wrap top-row">
+    <a class="logo" href="#main" aria-label="Brand My Stay, by Beyond Branding"><span class="logo-mark">b.</span><span><b>brand my stay</b><small>by Beyond Branding</small></span></a>
+    <nav class="tabs" aria-label="Sections">
+      <a class="tab on" href="#services"><svg class="ti" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="5" width="15" height="21" rx="2" fill="#F4F2EA" stroke="#3E4A1E" stroke-width="1.4" transform="rotate(-8 14 15)"/><rect x="11" y="7" width="15" height="21" rx="2" fill="#C4D334" stroke="#3E4A1E" stroke-width="1.4"/><path d="M14.5 13h8M14.5 17h8M14.5 21h5" stroke="#3E4A1E" stroke-width="1.4" stroke-linecap="round"/></svg>Services</a>
+      <a class="tab" href="#packages"><svg class="ti" viewBox="0 0 32 32" aria-hidden="true"><path d="M10 6h12a2 2 0 0 1 2 2v13a8 8 0 0 1-16 0V8a2 2 0 0 1 2-2z" fill="#C4D334" stroke="#3E4A1E" stroke-width="1.4"/><circle cx="16" cy="11" r="2.4" fill="#F4F2EA" stroke="#3E4A1E" stroke-width="1.4"/><path d="M12.5 20h7" stroke="#3E4A1E" stroke-width="1.4" stroke-linecap="round"/></svg>Packages</a>
+      <a class="tab" href="#build"><span class="new">New</span><svg class="ti" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 15L16 6l11 9v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z" fill="#F4F2EA" stroke="#3E4A1E" stroke-width="1.4" stroke-linejoin="round"/><rect x="13" y="18" width="6" height="9" fill="#C4D334" stroke="#3E4A1E" stroke-width="1.4"/></svg>Build your own</a>
+    </nav>
+    <button class="mini" type="button" id="miniPill" aria-label="Start your stay brand"><span>Your stay</span><span>Any package</span><span>Ready by</span><i><svg width="14" height="14" viewBox="0 0 32 32" aria-hidden="true"><path d="M13 24a11 11 0 1 1 0-22 11 11 0 0 1 0 22zm8-3l8 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg></i></button>
+    <div class="top-right">
+      <a class="tr-link" href="/">Beyond Branding studio</a>
+      <div class="cur" role="group" aria-label="Currency"><button type="button" data-cur="usd" aria-pressed="true">USD</button><button type="button" data-cur="inr" aria-pressed="false">INR</button></div>
+    </div>
+  </div>
+</header>
+<div class="search-band" id="searchBand">
+    <div class="wrap">
+      <form class="spill" id="spill" aria-label="Find your package">
+        <label class="seg" for="spStay"><span>Your stay</span><input id="spStay" type="text" placeholder="Name or Airbnb link" autocomplete="off"></label>
+        <label class="seg" for="spNeed"><span>You need</span><select id="spNeed"><option value="b_essentials">Guest printables</option><option value="b_identity" selected>Brand + guest guide</option><option value="b_complete">Everything + website</option></select></label>
+        <label class="seg" for="spWhen"><span>Ready by</span><select id="spWhen"><option>Next 2 weeks</option><option>This month</option><option>No rush</option></select></label>
+        <button class="orb" type="submit"><svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true"><path d="M13 24a11 11 0 1 1 0-22 11 11 0 0 1 0 22zm8-3l8 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>Search</button>
+      </form>
+    </div>
+</div>
+
+<main id="main">
+<section class="sec" style="padding-top:28px">
+  <div class="wrap">
+    <div class="banner" id="banner" aria-roledescription="carousel" aria-label="Highlights">
+      <div class="slide on" aria-roledescription="slide" aria-label="1 of 3">
+        <div class="slide-copy">
+          <span class="eyebrow">Branding for Airbnb hosts &amp; independent stays</span>
+          <h1>Make your stay feel like a <em>boutique hotel.</em></h1>
+          <p>A name and logo, matching guest printables, a QR guest guide and a direct-booking site. One look, one fixed price, drafts in 3 working days.</p>
+          <div class="ctas"><a class="btn btn-lime btn-pill" href="#packages">Get started</a><a class="btn btn-ghost btn-pill" href="#work">See Espresso House</a></div>
+        </div>
+        <div class="slide-img"><img src="assets/eh-living.webp" alt="Living room at Espresso House, Indore" width="1600" height="1200"></div>
+      </div>
+      <div class="slide" aria-roledescription="slide" aria-label="2 of 3">
+        <div class="slide-copy">
+          <span class="eyebrow">Guest essentials</span>
+          <h2>Printables guests <em>actually read.</em></h2>
+          <p>Wi-Fi card, house rules, washroom and checkout cards in your stay's own look. Print-ready PDFs, no shipping.</p>
+          <div class="ctas"><a class="btn btn-lime btn-pill" href="#services">Browse printables</a></div>
+        </div>
+        <div class="slide-img"><img src="assets/card-linen.webp" alt="" loading="lazy"></div>
+      </div>
+      <div class="slide" aria-roledescription="slide" aria-label="3 of 3">
+        <div class="slide-copy">
+          <span class="eyebrow">Guest guide</span>
+          <h2>Five questions, <em>one QR code.</em></h2>
+          <p>Arrival notes, house rules, your local picks and checkout on the guest's phone. Paid once, hosting included.</p>
+          <div class="ctas"><a class="btn btn-lime btn-pill" href="demo/espresso-house/guest/index.html" target="_blank" rel="noopener">Open a live guide</a></div>
+        </div>
+        <div class="slide-img"><img src="assets/eh-desk.webp" alt="" loading="lazy"></div>
+      </div>
+      <span class="fact"><i>★</i>4.98 Superhost stay, our first case</span>
+      <div class="dots" role="tablist" aria-label="Choose slide"><button type="button" aria-current="true" aria-label="Slide 1"></button><button type="button" aria-label="Slide 2"></button><button type="button" aria-label="Slide 3"></button></div>
+    </div>
+    <div class="quick">
+      <a class="qa" href="#packages"><span class="qi"><svg viewBox="0 0 24 24"><path d="M8 3h8a2 2 0 0 1 2 2v9a6 6 0 0 1-12 0V5a2 2 0 0 1 2-2z"/><circle cx="12" cy="7.5" r="1.6"/></svg></span><span><b>Pick a package</b><small>From <span data-price="b_essentials">$149</span>, paid once</small></span></a>
+      <a class="qa" href="#build"><span class="qi"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"/><path d="M17 15l2 2 3-4"/></svg></span><span><b>Build your own<span class="beta">New</span></b><small>Tick, total, reserve</small></span></a>
+      <a class="qa" href="#work"><span class="qi"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg></span><span><b>See the work</b><small>Espresso House, Indore</small></span></a>
+      <a class="qa" href="#free"><span class="qi"><svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span><span><b>Free host kit</b><small>Wi-Fi card + house rules</small></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="services" style="padding-top:8px">
+  <div class="wrap">
+    <div class="cats" role="group" aria-label="Filter services">
+      <button class="cat" type="button" data-cat="all" aria-pressed="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>All services</button>
+      <button class="cat" type="button" data-cat="identity" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg>Identity</button>
+      <button class="cat" type="button" data-cat="printables" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>Printables</button>
+      <button class="cat" type="button" data-cat="guide" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>Guest guide</button>
+      <button class="cat" type="button" data-cat="online" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg>Listing &amp; web</button>
+    </div>
+    <div class="sec-h"><div><h2>Everything your stay needs</h2><p>Tap the heart to add a piece to your stay. Your total builds below.</p></div><a class="link" href="#build">Show my stay</a></div>
+    <div class="grid" id="grid">
+      <article class="pcard" data-group="identity" data-id="kit">
+        <div class="pphoto"><img src="assets/card-pair.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-brand"><div class="m">Casa Lira<small>Boutique stay</small></div><div class="sw"><i style="background:#3E4A1E"></i><i style="background:#C4D334"></i><i style="background:#D9CBB4"></i><i style="background:#F4F2EA"></i></div></div><span class="badge">Bestseller</span>
+          <button class="heart" type="button" data-heart="kit" aria-pressed="false" aria-label="Add Mini brand kit to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pmeta"><div class="prow"><h3>Mini brand kit</h3><span class="pdays">5 days</span></div>
+          <p class="pdesc">Logo, wordmark, palette, type pairing, one-page guide</p>
+          <p class="pprice"><b data-price="kit">$149</b> <span>· once</span></p></div>
+      </article>
+      <article class="pcard" data-group="identity" data-id="naming">
+        <div class="pphoto"><img src="assets/concept-door.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-name"><span>Casa Lira</span><small>casalira.stay · @casalira ✓</small></div>
+          <button class="heart" type="button" data-heart="naming" aria-pressed="false" aria-label="Add Stay naming to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pmeta"><div class="prow"><h3>Stay naming</h3><span class="pdays">3 days</span></div>
+          <p class="pdesc">10 name ideas, 3 shortlisted, domain and handle checked</p>
+          <p class="pprice"><b data-price="naming">$49</b> <span>· once</span></p></div>
+      </article>
+      <article class="pcard" data-group="printables" data-id="arrival">
+        <div class="pphoto"><img src="assets/card-tent.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-card"><span class="k">Stay connected</span><span class="t">Wi-Fi</span><span class="s">Network · Password</span></div><span class="badge">Bestseller</span>
+          <button class="heart" type="button" data-heart="arrival" aria-pressed="false" aria-label="Add Arrival set to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pmeta"><div class="prow"><h3>Arrival set</h3><span class="pdays">3 days</span></div>
+          <p class="pdesc">Welcome sign, Wi-Fi card, house rules</p>
+          <p class="pprice"><b data-price="arrival">$49</b> <span>· once</span></p></div>
+      </article>
+      <article class="pcard" data-group="printables" data-id="washroom">
+        <div class="pphoto"><img src="assets/eh-bath.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-card"><span class="k">A small favour</span><span class="t">Please don't flush</span><span class="s">Bin is under the sink</span></div>
+          <button class="heart" type="button" data-heart="washroom" aria-pressed="false" aria-label="Add Washroom set to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pmeta"><div class="prow"><h3>Washroom set</h3><span class="pdays">3 days</span></div>
+          <p class="pdesc">Towel, toiletries and “please don't flush” cards</p>
+          <p class="pprice"><b data-price="washroom">$39</b> <span>· once</span></p></div>
+      </article>
+      <article class="pcard" data-group="printables" data-id="kitchen">
+        <div class="pphoto"><img src="assets/eh-kitchen.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-card"><span class="k">Before you go</span><span class="t">Checkout</span><span class="s">Keys on the tray by 10 am</span></div>
+          <button class="heart" type="button" data-heart="kitchen" aria-pressed="false" aria-label="Add Kitchen & checkout set to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pmeta"><div class="prow"><h3>Kitchen & checkout set</h3><span class="pdays">3 days</span></div>
+          <p class="pdesc">Appliance and coffee guides, checkout checklist</p>
+          <p class="pprice"><b data-price="kitchen">$39</b> <span>· once</span></p></div>
+      </article>
+      <article class="pcard" data-group="printables" data-id="review">
+        <div class="pphoto"><img src="assets/card-linen.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-card"><span class="k">Scan to review</span><svg class="qr" viewBox="0 0 7 7" shape-rendering="crispEdges" aria-hidden="true"><path fill="#222" fill-rule="evenodd" d="M0 0h3v3H0zM1 1v1h1V1zM4 0h3v3H4zM5 1v1h1V1zM0 4h3v3H0zM1 5v1h1V5z"/><path fill="#222" d="M4 4h1v1H4zM6 4h1v1H6zM5 5h1v1H5zM4 6h1v1H4zM6 6h1v1H6z"/></svg><span class="t sm">Loved your stay?</span></div>
+          <button class="heart" type="button" data-heart="review" aria-pressed="false" aria-label="Add Review set to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pmeta"><div class="prow"><h3>Review set</h3><span class="pdays">3 days</span></div>
+          <p class="pdesc">QR stand, door hanger, thank-you card</p>
+          <p class="pprice"><b data-price="review">$39</b> <span>· once</span></p></div>
+      </article>
+      <article class="pcard" data-group="printables" data-id="map">
+        <div class="pphoto"><img src="assets/cup-book.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-map"><svg viewBox="0 0 160 120" aria-hidden="true"><rect width="160" height="120" rx="6" fill="#F4F2EA"/><path d="M0 78 C40 70 60 96 100 84 S150 60 160 66" stroke="#B9CBD6" stroke-width="10" fill="none"/><path d="M20 0 L42 120 M0 40 L160 30 M100 0 L120 120" stroke="#E2DCCB" stroke-width="5"/><circle cx="68" cy="44" r="7" fill="#3E4A1E"/><circle cx="68" cy="44" r="2.5" fill="#F4F2EA"/><circle cx="112" cy="26" r="4" fill="#C4D334"/><circle cx="34" cy="92" r="4" fill="#C4D334"/><circle cx="132" cy="96" r="4" fill="#C4D334"/></svg><span>Saket Nagar · 6 local picks</span></div><span class="badge">New</span>
+          <button class="heart" type="button" data-heart="map" aria-pressed="false" aria-label="Add Neighbourhood map to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pmeta"><div class="prow"><h3>Neighbourhood map</h3><span class="pdays">5 days</span></div>
+          <p class="pdesc">Illustrated poster plus a digital version</p>
+          <p class="pprice"><b data-price="map">$89</b> <span>· once</span></p></div>
+      </article>
+      <article class="pcard" data-group="guide" data-id="guide">
+        <div class="pphoto"><img src="assets/eh-living.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-phone"><div class="scr"><div class="top"><small>Guest guide</small><b>Your stay</b></div><div class="g"><i>Wi-Fi</i><i>Coffee</i><i>Nearby</i><i>Checkout</i></div></div></div><span class="badge">Bestseller</span>
+          <button class="heart" type="button" data-heart="guide" aria-pressed="false" aria-label="Add Web guest guide to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pmeta"><div class="prow"><h3>Web guest guide</h3><span class="pdays">3 days</span></div>
+          <p class="pdesc">Mobile guide behind a QR code, hosting included</p>
+          <p class="pprice"><b data-price="guide">$149</b> <span>· once</span></p></div>
+      </article>
+      <article class="pcard" data-group="online" data-id="listing">
+        <div class="pphoto"><img src="assets/eh-bed1.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-listing"><b>Design-led 2BHK near Indore's best cafes</b><span>★ 4.98 · Superhost</span></div>
+          <button class="heart" type="button" data-heart="listing" aria-pressed="false" aria-label="Add Listing refresh to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pmeta"><div class="prow"><h3>Listing refresh</h3><span class="pdays">2 days</span></div>
+          <p class="pdesc">Title, description, photo order, cover image</p>
+          <p class="pprice"><b data-price="listing">$99</b> <span>· once</span></p></div>
+      </article>
+      <article class="pcard" data-group="online" data-id="insta">
+        <div class="pphoto"><img src="assets/eh-lamp.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-grid"><i style="background:#3E4A1E"></i><i style="background:#E9E1D1"></i><i style="background:#C4D334"></i><i style="background:#D9CBB4"></i><i style="background:#3E4A1E"></i><i style="background:#F4F2EA"></i><i style="background:#C9B79C"></i><i style="background:#C4D334"></i><i style="background:#E9E1D1"></i></div>
+          <button class="heart" type="button" data-heart="insta" aria-pressed="false" aria-label="Add Instagram kit to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pmeta"><div class="prow"><h3>Instagram kit</h3><span class="pdays">5 days</span></div>
+          <p class="pdesc">Profile, highlight covers, 9 post templates</p>
+          <p class="pprice"><b data-price="insta">$99</b> <span>· once</span></p></div>
+      </article>
+      <article class="pcard" data-group="online" data-id="reel">
+        <div class="pphoto"><img src="assets/concept-seabed.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-play"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></div><span class="ov-dur">0:24</span><span class="badge">New</span>
+          <button class="heart" type="button" data-heart="reel" aria-pressed="false" aria-label="Add Property reel to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pmeta"><div class="prow"><h3>Property reel</h3><span class="pdays">5 days</span></div>
+          <p class="pdesc">20–30 second reel made from your photos</p>
+          <p class="pprice"><b data-price="reel">$129</b> <span>· once</span></p></div>
+      </article>
+      <article class="pcard" data-group="online" data-id="site">
+        <div class="pphoto"><img src="assets/concept-villa.webp" alt="" loading="lazy" width="600" height="600"><div class="ov-browser"><div class="bar"><i></i><i></i><i></i><span>yourstay.com</span></div><div class="pg"><b>The Olive House</b><em>Book direct</em></div></div>
+          <button class="heart" type="button" data-heart="site" aria-pressed="false" aria-label="Add Direct-booking site to my stay"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28c7-4.7 14-10 14-17 0-3.9-3.1-7-7-7-2.8 0-5 1.6-7 4-2-2.4-4.2-4-7-4-3.9 0-7 3.1-7 7 0 7 7 12.3 14 17z"/></svg></button></div>
+        <div class="pmeta"><div class="prow"><h3>Direct-booking site</h3><span class="pdays">10–14 days</span></div>
+          <p class="pdesc">One page: rooms, gallery, area guide, enquiries</p>
+          <p class="pprice"><b data-price="site" data-from="1">$599</b> <span>· one page</span></p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="packages">
+  <div class="wrap">
+    <div class="sec-h"><div><h2>Packages</h2><p>Each one costs less than buying the same pieces separately.</p></div><span class="link" style="text-decoration:none;font-weight:500;color:var(--muted)">2nd property in the same brand: 40% off</span></div>
+    <div class="pk">
+      <article class="pkc">
+        <div class="pk-photo"><img src="assets/card-tent.webp" alt="" loading="lazy"><div class="ov-card"><span class="k">Stay connected</span><span class="t">Wi-Fi</span><span class="s">Network · Password</span></div><span class="badge">Starter</span></div>
+        <div class="pk-body">
+          <div class="pk-top"><div><h3>Guest Essentials</h3><small>Printables set · 3 working days</small></div><div class="pk-price"><b data-price="b_essentials">$149</b><small data-save="b_essentials"></small></div></div>
+          <ul class="pk-list"><li>Welcome sign, Wi-Fi card, house rules</li><li>Washroom, kitchen and checkout cards</li><li>QR stand, door hanger, review card</li><li>Styled to your existing logo or a clean wordmark</li></ul>
+          <div class="pk-foot"><span>Print-ready PDFs</span><a class="btn btn-line" href="#build" data-pick="b_essentials">Reserve</a></div>
+        </div>
+      </article>
+      <article class="pkc fav">
+        <div class="pk-photo"><img src="assets/card-pair.webp" alt="" loading="lazy"><div class="ov-brand"><div class="m">Casa Lira<small>Boutique stay · concept</small></div><div class="sw"><i style="background:#3E4A1E"></i><i style="background:#C4D334"></i><i style="background:#D9CBB4"></i><i style="background:#F4F2EA"></i></div></div><span class="badge">Host favourite</span></div>
+        <div class="pk-body">
+          <div class="pk-top"><div><h3>Stay Identity</h3><small>Most booked · 5 working days</small></div><div class="pk-price"><b data-price="b_identity">$449</b><small data-save="b_identity"></small></div></div>
+          <div class="tiles"><div class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg>Brand kit</div><div class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>All printables</div><div class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>Guest guide</div></div>
+          <ul class="pk-list"><li>Logo, palette, type and a one-page guide</li><li>All four printable sets in your new brand</li><li>Web guest guide with QR code</li><li>Airbnb listing refresh: title, copy, photo order</li></ul>
+          <div class="pk-foot"><span>One revision round</span><a class="btn btn-lime" href="#build" data-pick="b_identity">Reserve</a></div>
+        </div>
+      </article>
+      <article class="pkc">
+        <div class="pk-photo"><img src="assets/concept-seabed.webp" alt="Concept: a sunlit bedroom with sea views" loading="lazy"><div class="ov-browser"><div class="bar"><i></i><i></i><i></i><span>yourstay.com</span></div><div class="pg"><b>The Olive House</b><em>Book direct</em></div></div><span class="badge">Complete</span></div>
+        <div class="pk-body">
+          <div class="pk-top"><div><h3>Brand My Stay</h3><small>Full brand + website · 10–14 days</small></div><div class="pk-price"><b data-price="b_complete">$1,199</b><small data-save="b_complete"></small></div></div>
+          <div class="chips"><span class="chip">Direct-booking site</span><span class="chip">Instagram kit</span><span class="chip">Reel</span><span class="chip">Area map</span></div>
+          <ul class="pk-list"><li>Everything in Stay Identity</li><li>One-page site that takes enquiries or bookings</li><li>Instagram kit and a 20–30 second reel</li><li>Illustrated neighbourhood map</li></ul>
+          <div class="pk-foot"><span>Domain not included</span><a class="btn btn-line" href="#build" data-pick="b_complete">Reserve</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="ld-title" style="margin-bottom:20px"><h2>Espresso House · a design-led stay in Saket Nagar, Indore</h2></div>
+    <div class="mosaic">
+      <img src="assets/eh-living.webp" alt="Living room with corduroy sofa and park view" loading="lazy">
+      <img src="assets/eh-bar.webp" alt="Walnut bar counter" loading="lazy">
+      <img src="assets/eh-lamp.webp" alt="Pleated pendant lamp" loading="lazy">
+      <img src="assets/eh-bed1.webp" alt="Bedroom one with striped linen" loading="lazy">
+      <img src="assets/eh-desk.webp" alt="Desk by an open window" loading="lazy">
+      <a class="all" href="demo/espresso-house/index.html" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 1h4v4H1zM6 1h4v4H6zM11 1h4v4h-4zM1 6h4v4H1zM6 6h4v4H6zM11 6h4v4h-4zM1 11h4v4H1zM6 11h4v4H6zM11 11h4v4h-4z" fill="currentColor"/></svg>Show the live site</a>
+    </div>
+    <div class="ld">
+      <div>
+        <div class="ld-title"><h2>Entire stay branded by Beyond Branding</h2><p>Stay website · Guest companion · Coffee ritual guide · Local food guide</p></div>
+        <div class="rating-card">
+          <div class="rc-score"><svg viewBox="0 0 34 64" aria-hidden="true"><path d="M27 61C16 54 12 42 13 30 14 19 18 10 24 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><ellipse cx="15" cy="52" rx="2.3" ry="5.2" transform="rotate(-50 15 52)" fill="currentColor"/><ellipse cx="10" cy="42" rx="2.3" ry="5.2" transform="rotate(-25 10 42)" fill="currentColor"/><ellipse cx="8" cy="31" rx="2.3" ry="5.2" transform="rotate(-5 8 31)" fill="currentColor"/><ellipse cx="9" cy="20" rx="2.3" ry="5.2" transform="rotate(15 9 20)" fill="currentColor"/><ellipse cx="13" cy="10" rx="2.3" ry="5.2" transform="rotate(35 13 10)" fill="currentColor"/><ellipse cx="22" cy="47" rx="1.8" ry="4.2" transform="rotate(-80 22 47)" fill="currentColor" opacity=".8"/><ellipse cx="19" cy="36" rx="1.8" ry="4.2" transform="rotate(-60 19 36)" fill="currentColor" opacity=".8"/><ellipse cx="18" cy="25" rx="1.8" ry="4.2" transform="rotate(-40 18 25)" fill="currentColor" opacity=".8"/></svg><b class="tnum">4.98</b><svg viewBox="0 0 34 64" aria-hidden="true" style="transform:scaleX(-1)"><path d="M27 61C16 54 12 42 13 30 14 19 18 10 24 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><ellipse cx="15" cy="52" rx="2.3" ry="5.2" transform="rotate(-50 15 52)" fill="currentColor"/><ellipse cx="10" cy="42" rx="2.3" ry="5.2" transform="rotate(-25 10 42)" fill="currentColor"/><ellipse cx="8" cy="31" rx="2.3" ry="5.2" transform="rotate(-5 8 31)" fill="currentColor"/><ellipse cx="9" cy="20" rx="2.3" ry="5.2" transform="rotate(15 9 20)" fill="currentColor"/><ellipse cx="13" cy="10" rx="2.3" ry="5.2" transform="rotate(35 13 10)" fill="currentColor"/><ellipse cx="22" cy="47" rx="1.8" ry="4.2" transform="rotate(-80 22 47)" fill="currentColor" opacity=".8"/><ellipse cx="19" cy="36" rx="1.8" ry="4.2" transform="rotate(-60 19 36)" fill="currentColor" opacity=".8"/><ellipse cx="18" cy="25" rx="1.8" ry="4.2" transform="rotate(-40 18 25)" fill="currentColor" opacity=".8"/></svg></div>
+          <p class="rc-tag">Superhost stay<small>Guest rating on Airbnb</small></p>
+          <div class="rc-stats"><div><b>2</b><span>bedrooms</span></div><div><b>9</b><span>photo plates</span></div><div><b>6</b><span>brew steps</span></div></div>
+        </div>
+        <div class="host"><span class="av">BB</span><div><b>Designed by Beyond Branding</b><small>Studio behind work for Marriott &amp; DoubleTree · London · Dubai · Mumbai</small></div></div>
+        <div class="amen">
+          <h3>What we made for this stay</h3>
+          <div class="arow-s"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg><div>Stay website<small>Nine-photo gallery hung like prints, room by room</small></div></div>
+          <div class="arow-s"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><div>Guest companion<small>Arrival notes, house rules and checkout behind a QR code</small></div></div>
+          <div class="arow-s"><svg viewBox="0 0 24 24"><path d="M5 8h11v6a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z"/><path d="M16 10h2a2 2 0 0 1 0 4h-2M8 3v2M11 3v2"/></svg><div>The slow morning brew<small>A six-step French-press guide for first-timers</small></div></div>
+          <div class="arow-s"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div>Walk out, eat well<small>The host's own picks of cafes and food nearby</small></div></div>
+        </div>
+      </div>
+      <aside class="side-card">
+        <p class="p"><b data-price="b_identity">$449</b> <span>for a set like this</span></p>
+        <div class="tiles" style="grid-template-columns:1fr 1fr"><div class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>Guest guide</div><div class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg>Stay site</div></div>
+        <a class="btn btn-lime" href="#build" data-pick="b_identity">Reserve this look</a>
+        <a class="btn btn-line" href="demo/espresso-house/guest/index.html" target="_blank" rel="noopener">Open the guest guide</a>
+        <p class="n">A live prototype built for the host</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="build">
+  <div class="wrap">
+    <div class="sec-h"><div><h2>Build your own</h2><p>Tick what your stay needs. If it adds up to a package, you get the package price.</p></div></div>
+    <div class="bd">
+      <form class="ledger" id="ledger" aria-label="Services"><div class="agroup"><h3>Identity</h3><label class="arow" for="svc-kit"><span class="aic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg></span><span class="atx"><b>Mini brand kit</b><small>Logo, wordmark, palette, type pairing, one-page guide</small></span><span class="aamt tnum" data-amt="kit"></span><input type="checkbox" id="svc-kit" value="kit"></label><label class="arow" for="svc-naming"><span class="aic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg></span><span class="atx"><b>Stay naming</b><small>10 name ideas, 3 shortlisted, domain and handle checked</small></span><span class="aamt tnum" data-amt="naming"></span><input type="checkbox" id="svc-naming" value="naming"></label></div><div class="agroup"><h3>Printables</h3><label class="arow" for="svc-arrival"><span class="aic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="atx"><b>Arrival set</b><small>Welcome sign, Wi-Fi card, house rules</small></span><span class="aamt tnum" data-amt="arrival"></span><input type="checkbox" id="svc-arrival" value="arrival"></label><label class="arow" for="svc-washroom"><span class="aic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="atx"><b>Washroom set</b><small>Towel, toiletries and “please don't flush” cards</small></span><span class="aamt tnum" data-amt="washroom"></span><input type="checkbox" id="svc-washroom" value="washroom"></label><label class="arow" for="svc-kitchen"><span class="aic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="atx"><b>Kitchen & checkout set</b><small>Appliance and coffee guides, checkout checklist</small></span><span class="aamt tnum" data-amt="kitchen"></span><input type="checkbox" id="svc-kitchen" value="kitchen"></label><label class="arow" for="svc-review"><span class="aic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="atx"><b>Review set</b><small>QR stand, door hanger, thank-you card</small></span><span class="aamt tnum" data-amt="review"></span><input type="checkbox" id="svc-review" value="review"></label><label class="arow" for="svc-map"><span class="aic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="atx"><b>Neighbourhood map</b><small>Illustrated poster plus a digital version</small></span><span class="aamt tnum" data-amt="map"></span><input type="checkbox" id="svc-map" value="map"></label></div><div class="agroup"><h3>Guest guide</h3><label class="arow" for="svc-guide"><span class="aic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="atx"><b>Web guest guide</b><small>Mobile guide behind a QR code, hosting included</small></span><span class="aamt tnum" data-amt="guide"></span><input type="checkbox" id="svc-guide" value="guide"></label></div><div class="agroup"><h3>Online</h3><label class="arow" for="svc-listing"><span class="aic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg></span><span class="atx"><b>Listing refresh</b><small>Title, description, photo order, cover image</small></span><span class="aamt tnum" data-amt="listing"></span><input type="checkbox" id="svc-listing" value="listing"></label><label class="arow" for="svc-insta"><span class="aic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg></span><span class="atx"><b>Instagram kit</b><small>Profile, highlight covers, 9 post templates</small></span><span class="aamt tnum" data-amt="insta"></span><input type="checkbox" id="svc-insta" value="insta"></label><label class="arow" for="svc-reel"><span class="aic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg></span><span class="atx"><b>Property reel</b><small>20–30 second reel made from your photos</small></span><span class="aamt tnum" data-amt="reel"></span><input type="checkbox" id="svc-reel" value="reel"></label><label class="arow" for="svc-site"><span class="aic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg></span><span class="atx"><b>Direct-booking site</b><small>One page: rooms, gallery, area guide, enquiries</small></span><span class="aamt tnum" data-amt="site"></span><input type="checkbox" id="svc-site" value="site"></label></div></form>
+      <aside class="res" aria-live="polite">
+        <div class="res-h"><b class="tnum" id="resTotal">$0</b><span>total, paid once</span></div>
+        <div class="res-f">
+          <div class="r1"><div class="c"><span>Ready by</span><b id="rcWhen">Next 2 weeks</b></div><div class="c"><span>Drafts in</span><b id="rcDraft">3 working days</b></div></div>
+          <div class="r2"><div class="c" style="padding:0"><span>Properties</span><b id="propLbl">1 property</b></div><div class="step"><button type="button" id="pMinus" aria-label="Fewer properties" disabled>−</button><output id="pCount" class="tnum">1</output><button type="button" id="pPlus" aria-label="More properties">+</button></div></div>
+        </div>
+        <a class="btn btn-lime" id="sendWA" href="#" target="_blank" rel="noopener">Reserve my slot</a>
+        <p class="n">You won't be charged yet. We confirm the scope on WhatsApp first.</p>
+        <div class="fees" id="fees"></div>
+        <div class="res-hint" id="resHint" hidden></div>
+        <div class="res-t"><span>Total</span><span class="tnum" id="resTotal2">$0</span></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-h"><div><h2>How it works</h2><p>From intake form to printed cards in about a week.</p></div></div>
+    <div class="days">
+      <div class="day on"><span class="dchip"><small>Day</small><b>0</b></span><h3>Tell us about your stay</h3><p>A 10-minute form: photos, the feel you want, Wi-Fi, house notes and your favourite places nearby.</p></div>
+      <div class="day"><span class="dchip"><small>Day</small><b>3</b></span><h3>See your drafts</h3><p>The full set as previews, with your guest guide live on a private link.</p></div>
+      <div class="day"><span class="dchip"><small>Day</small><b>4</b></span><h3>One round of changes</h3><p>Mark up anything you'd change. We revise the whole set in one go.</p></div>
+      <div class="day"><span class="dchip"><small>Day</small><b>5</b></span><h3>Print and welcome guests</h3><p>Print-ready PDFs, logo files and your QR code. Print locally and put them out.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-h"><div><h2>Compared with what hosts use now</h2><p>Typical prices for one property, October 2026.</p></div></div>
+    <div class="tblw"><table>
+      <thead><tr><th scope="col">Option</th><th scope="col">Typical cost</th><th scope="col">Who does the work</th><th scope="col">Matching brand everywhere</th><th scope="col">Turnaround</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">DIY template</th><td class="tnum">$5–15 once</td><td>You, in Canva</td><td>No, it looks like thousands of others</td><td>Your weekends</td></tr>
+        <tr><th scope="row">Guidebook app</th><td class="tnum">About $19 a month ($228 a year)</td><td>You write it, the app hosts it</td><td>Guide only, in the app's style</td><td>Same day</td></tr>
+        <tr><th scope="row">Freelance gigs</th><td class="tnum">$50–150 per piece</td><td>A different person per piece</td><td>Rarely</td><td>7–12 days each</td></tr>
+        <tr><th scope="row">STR marketing agency</th><td class="tnum">$900–2,000</td><td>Agency</td><td>Yes</td><td>Several weeks</td></tr>
+        <tr class="us"><th scope="row">Brand My Stay<span class="pill">Best value</span></th><td class="tnum"><span data-price="b_identity">$449</span> once</td><td>We do it, you review</td><td>Yes: print, guide, listing, site</td><td>5 working days</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-h"><div><h2>Things to know</h2></div></div>
+    <div class="know">
+      <div><h3>Files &amp; printing</h3>
+        <details><summary>Do you print and ship?</summary><p>No. You get print-ready PDFs with bleed and crop marks, sized for local print shops: A5, A6, business card and tent card.</p></details>
+        <details><summary>Which file formats do I get?</summary><p>PDF for print, PNG for screens and social, SVG and PNG for your logo, plus editable Canva files for printables in Identity and Complete.</p></details>
+        <details><summary>Where is the guest guide hosted?</summary><p>On a private link behind your QR code. Hosting and one content update a year are included. Lock codes and Wi-Fi passwords are never published on the open page.</p></details>
+      </div>
+      <div><h3>Revisions &amp; timing</h3>
+        <details><summary>How many revisions?</summary><p>One full round across the whole set. Extra rounds are <span data-price="revision">$29</span> each.</p></details>
+        <details><summary>Can you rush it?</summary><p>Yes. 48-hour delivery is +30% on any package, subject to availability.</p></details>
+        <details><summary>I have several properties</summary><p>Each extra property in the same brand is 40% off. Use the Properties counter in the builder to see the total.</p></details>
+      </div>
+      <div><h3>Payment &amp; Airbnb rules</h3>
+        <details><summary>How does payment work?</summary><p>50% deposit to start, the balance when you approve final files. Payment by card (USD) or UPI and bank transfer (INR).</p></details>
+        <details><summary>What if I don't like the drafts?</summary><p>Tell us what's off and we rework the direction once. If it still isn't right before final files, we refund the deposit minus a design fee.</p></details>
+        <details><summary>Is a direct-booking site allowed?</summary><p>Yes, for guests who find you elsewhere or come back. Keep the link out of your Airbnb listing text and photos, and don't share it before an Airbnb booking.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="free">
+  <div class="wrap offers">
+    <div class="offer">
+      <span class="eyebrow" style="color:var(--olive)">Free download</span>
+      <h3>Wi-Fi card + house rules template</h3>
+      <p>Two printable templates you can edit tonight.</p>
+      <form id="kitForm"><input id="kitEmail" type="email" aria-label="Email address" placeholder="you@yourstay.com" required autocomplete="email"><button class="btn btn-lime" type="submit">Send me the kit</button></form>
+      <p class="ok" id="kitOk" hidden></p>
+    </div>
+    <div class="offer dark">
+      <span class="eyebrow">Free stay audit</span>
+      <h3>Five things we'd change on your listing</h3>
+      <p>Paste your Airbnb link. Within 48 hours you get a short teardown of your cover photo, title, photo order and guest touchpoints.</p>
+      <form id="auditForm"><input id="auditUrl" type="url" aria-label="Airbnb listing link" placeholder="https://airbnb.com/rooms/…" required><button class="btn btn-lime" type="submit">Request my audit</button></form>
+      <p class="ok" id="auditOk" hidden></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div><h4>Support</h4><ul><li><a href="https://wa.me/19108301588" target="_blank" rel="noopener">WhatsApp +1 (910) 830-1588</a></li><li><span style="user-select:all">ayush@beyondbranding.media</span></li><li><a href="#faq">Things to know</a></li></ul></div>
+      <div><h4>For hosts</h4><ul><li><a href="#packages">Packages</a></li><li><a href="#build">Build your own</a></li><li><a href="#free">Free host kit</a></li><li><a href="#free">Free stay audit</a></li></ul></div>
+      <div><h4>Beyond Branding</h4><ul><li><a href="/">Studio home</a></li><li><a href="/portfolio.html">Portfolio</a></li><li><a href="/websites.html">Websites</a></li></ul></div>
+    </div>
+    <div class="legal"><span class="bb">© 2026 Brand My Stay · a Beyond Branding service</span><span>An independent studio, not affiliated with Airbnb. Concept work is illustrative. Photos: Espresso House by its host; concepts via Pexels &amp; Unsplash.</span></div>
+  </div>
+</footer>
+
+<nav class="tabbar" aria-label="Quick">
+  <a class="on" href="#main"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>Explore</a>
+  <a href="#build"><svg viewBox="0 0 24 24"><path d="M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z"/></svg>My stay<span class="cnt" id="tbCount">0</span></a>
+  <a href="#packages"><svg viewBox="0 0 24 24"><path d="M8 3h8a2 2 0 0 1 2 2v9a6 6 0 0 1-12 0V5a2 2 0 0 1 2-2z"/><circle cx="12" cy="7.5" r="1.6"/></svg>Packages</a>
+  <a href="https://wa.me/19108301588" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>Message</a>
+</nav>
+
+<script>
+(function(){
+  var D = {"S": [{"id": "kit", "g": "identity", "n": "Mini brand kit", "usd": 149, "inr": 7999, "from": false}, {"id": "naming", "g": "identity", "n": "Stay naming", "usd": 49, "inr": 1999, "from": false}, {"id": "arrival", "g": "printables", "n": "Arrival set", "usd": 49, "inr": 2999, "from": false}, {"id": "washroom", "g": "printables", "n": "Washroom set", "usd": 39, "inr": 2499, "from": false}, {"id": "kitchen", "g": "printables", "n": "Kitchen & checkout set", "usd": 39, "inr": 2499, "from": false}, {"id": "review", "g": "printables", "n": "Review set", "usd": 39, "inr": 2499, "from": false}, {"id": "map", "g": "printables", "n": "Neighbourhood map", "usd": 89, "inr": 4999, "from": false}, {"id": "guide", "g": "guide", "n": "Web guest guide", "usd": 149, "inr": 6999, "from": false}, {"id": "listing", "g": "online", "n": "Listing refresh", "usd": 99, "inr": 3999, "from": false}, {"id": "insta", "g": "online", "n": "Instagram kit", "usd": 99, "inr": 4999, "from": false}, {"id": "reel", "g": "online", "n": "Property reel", "usd": 129, "inr": 5999, "from": false}, {"id": "site", "g": "online", "n": "Direct-booking site", "usd": 599, "inr": 24999, "from": true}], "B": {"b_essentials": {"n": "Guest Essentials", "usd": 149, "inr": 8999, "items": ["arrival", "washroom", "kitchen", "review"]}, "b_identity": {"n": "Stay Identity", "usd": 449, "inr": 24999, "items": ["kit", "arrival", "washroom", "kitchen", "review", "guide", "listing"]}, "b_complete": {"n": "Brand My Stay", "usd": 1199, "inr": 59999, "items": ["kit", "arrival", "washroom", "kitchen", "review", "guide", "listing", "site", "insta", "map", "reel"]}}};
+  var DEFAULT_CUR = "usd", WA = "19108301588";
+  var S = D.S, B = D.B, EXTRA = {revision:{usd:29, inr:1499}};
+  var byId = {}; S.forEach(function(s){ byId[s.id]=s; });
+  var cur = DEFAULT_CUR, stay = "", when = "Next 2 weeks", props = 1;
+  try{ var sv = localStorage.getItem("bms-cur"); if(sv==="usd"||sv==="inr") cur = sv; }catch(e){}
+  var $ = function(id){ return document.getElementById(id); };
+  function fmt(v){ v=Math.round(v); return cur==="usd" ? "$"+v.toLocaleString("en-US") : "₹"+v.toLocaleString("en-IN"); }
+  function sum(ids){ return ids.reduce(function(t,id){ return t+byId[id][cur]; },0); }
+  var ledger = $("ledger");
+  function chosen(){ return Array.prototype.map.call(ledger.querySelectorAll("input:checked"), function(i){ return i.value; }); }
+  function bestBundle(sel){
+    var tot=sum(sel), best=null;
+    Object.keys(B).forEach(function(k){ var b=B[k];
+      if(sel.length && sel.every(function(id){ return b.items.indexOf(id)>-1; }) && b[cur]<tot && (!best || b[cur]<B[best][cur])) best=k; });
+    return best;
+  }
+  function update(){
+    var sel=chosen(), all=sum(sel), bb=bestBundle(sel), base=bb?B[bb][cur]:all, hasSite=sel.indexOf("site")>-1;
+    var extra = (props-1)*base*0.6, tot = base+extra, from = hasSite?"from ":"";
+    var f=[];
+    if(!sel.length) f.push("<p class='fees-empty'>Nothing added yet. Tap a heart above or tick a service.</p>");
+    else {
+      if(bb){ f.push("<div><span>"+B[bb].n+" package</span><span class='tnum'>"+fmt(base)+"</span></div>"); f.push("<div class='save'><span>Package saving</span><span class='tnum'>−"+fmt(all-base)+"</span></div>"); }
+      else sel.forEach(function(id){ var s=byId[id]; f.push("<div><span>"+s.n+"</span><span class='tnum'>"+(s.from?"from ":"")+fmt(s[cur])+"</span></div>"); });
+      if(props>1) f.push("<div><span>"+(props-1)+" more "+(props===2?"property":"properties")+" at 40% off</span><span class='tnum'>"+fmt(extra)+"</span></div>");
+    }
+    $("fees").innerHTML=f.join("");
+    var tt = from+fmt(tot);
+    $("resTotal").textContent=tt; $("resTotal2").textContent=tt;
+    var h=$("resHint");
+    if(bb){ h.hidden=false; h.innerHTML="Your picks are covered by <strong>"+B[bb].n+"</strong>, so you pay the package price and save "+fmt(all-base)+"."; } else h.hidden=true;
+    var heavy=["kit","listing","insta","naming","map","reel"].some(function(i){ return sel.indexOf(i)>-1; });
+    $("rcDraft").textContent = hasSite ? "10–14 days" : (heavy ? "5 working days" : "3 working days");
+    $("rcWhen").textContent = when;
+    $("pCount").textContent = props; $("propLbl").textContent = props+(props===1?" property":" properties"); $("pMinus").disabled = props<=1;
+    var tb=$("tbCount"); tb.textContent=sel.length; tb.hidden = !sel.length;
+    document.querySelectorAll("[data-heart]").forEach(function(btn){ btn.setAttribute("aria-pressed", sel.indexOf(btn.getAttribute("data-heart"))>-1 ? "true":"false"); });
+    var intro="Hi Ayush, I'd like to brand my stay"+(stay?" ("+stay+")":"")+". Ready by: "+when+". Properties: "+props+". ";
+    var msg = !sel.length ? intro+"Can you recommend a package?" :
+      intro+(bb ? "Package: "+B[bb].n+". " : "I picked: "+sel.map(function(id){ return byId[id].n; }).join(", ")+". ")+"Estimated total "+tt+".";
+    $("sendWA").href="https://wa.me/"+WA+"?text="+encodeURIComponent(msg);
+  }
+  ledger.addEventListener("change", update);
+  function setChecked(ids){ ledger.querySelectorAll("input").forEach(function(i){ i.checked = ids.indexOf(i.value)>-1; }); update(); }
+  function applyBundle(k){ setChecked(B[k].items); }
+  document.querySelectorAll("[data-pick]").forEach(function(a){ a.addEventListener("click", function(){ applyBundle(a.getAttribute("data-pick")); }); });
+  document.querySelectorAll("[data-heart]").forEach(function(btn){
+    btn.addEventListener("click", function(){ var i=$("svc-"+btn.getAttribute("data-heart")); i.checked=!i.checked; update(); });
+  });
+  $("pPlus").addEventListener("click", function(){ if(props<9){ props++; update(); } });
+  $("pMinus").addEventListener("click", function(){ if(props>1){ props--; update(); } });
+
+  function paint(){
+    document.querySelectorAll("[data-price]").forEach(function(el){
+      var k=el.getAttribute("data-price"), v = byId[k] ? byId[k][cur] : (B[k] ? B[k][cur] : EXTRA[k][cur]);
+      el.textContent=(el.hasAttribute("data-from")?"from ":"")+fmt(v);
+    });
+    document.querySelectorAll("[data-amt]").forEach(function(el){ var s=byId[el.getAttribute("data-amt")]; el.textContent=(s.from?"from ":"")+fmt(s[cur]); });
+    document.querySelectorAll("[data-save]").forEach(function(el){ var b=B[el.getAttribute("data-save")]; el.textContent="Save "+fmt(sum(b.items)-b[cur]); });
+    document.querySelectorAll(".cur button").forEach(function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-cur")===cur?"true":"false"); });
+    update();
+  }
+  document.querySelectorAll(".cur button").forEach(function(b){ b.addEventListener("click", function(){ cur=b.getAttribute("data-cur"); try{ localStorage.setItem("bms-cur",cur); }catch(e){} paint(); }); });
+
+  // category filter
+  document.querySelectorAll(".cat").forEach(function(c){ c.addEventListener("click", function(){
+    var k=c.getAttribute("data-cat");
+    document.querySelectorAll(".cat").forEach(function(o){ o.setAttribute("aria-pressed", o===c?"true":"false"); });
+    document.querySelectorAll(".pcard").forEach(function(p){ p.hidden = !(k==="all" || p.getAttribute("data-group")===k); });
+  }); });
+
+  // search pill
+  $("spill").addEventListener("submit", function(e){
+    e.preventDefault(); stay=$("spStay").value.trim(); when=$("spWhen").value; applyBundle($("spNeed").value);
+    $("build").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+  });
+  $("spWhen").addEventListener("change", function(e){ when=e.target.value; update(); });
+  $("miniPill").addEventListener("click", function(){ window.scrollTo({top:0, behavior:"smooth"}); setTimeout(function(){ $("spStay").focus(); }, 400); });
+
+  // compact header on scroll
+  var top=$("top"), band=$("searchBand"), compact=false;
+  function onScroll(){ var c = window.scrollY > band.offsetTop + band.offsetHeight - 80; if(c!==compact){ compact=c; top.classList.toggle("compact", c); } }
+  window.addEventListener("scroll", onScroll, {passive:true});
+
+  // banner
+  var slides=document.querySelectorAll(".slide"), dots=document.querySelectorAll(".dots button"), idx=0, timer=null;
+  function show(i){ idx=i; slides.forEach(function(s,j){ s.classList.toggle("on", j===i); s.setAttribute("aria-hidden", j===i?"false":"true"); }); dots.forEach(function(d,j){ d.setAttribute("aria-current", j===i?"true":"false"); }); }
+  dots.forEach(function(d,j){ d.addEventListener("click", function(){ show(j); restart(); }); });
+  function restart(){ clearInterval(timer); if(!matchMedia("(prefers-reduced-motion: reduce)").matches) timer=setInterval(function(){ show((idx+1)%slides.length); }, 6000); }
+  var bn=$("banner"); bn.addEventListener("mouseenter", function(){ clearInterval(timer); }); bn.addEventListener("mouseleave", restart);
+  show(0); restart();
+
+  function waForm(formId, okId, build, okText){
+    $(formId).addEventListener("submit", function(e){ e.preventDefault();
+      var a=document.createElement("a"); a.href="https://wa.me/"+WA+"?text="+encodeURIComponent(build()); a.target="_blank"; a.rel="noopener"; document.body.appendChild(a); a.click(); a.remove();
+      var ok=$(okId); ok.hidden=false; ok.textContent=okText; });
+  }
+  waForm("kitForm","kitOk",function(){ return "Hi, please send the free Wi-Fi card + house rules kit to "+$("kitEmail").value; },"WhatsApp should open with your request. If it didn't, message +1 (910) 830-1588.");
+  waForm("auditForm","auditOk",function(){ return "Hi, I'd like a free stay audit for my listing: "+$("auditUrl").value; },"WhatsApp should open with your listing link. If it didn't, message +1 (910) 830-1588.");
+
+  // example picks so the builder opens in a working state
+  ["arrival","washroom","guide"].forEach(function(id){ $("svc-"+id).checked=true; });
+  paint();
+})();
+</script>
+
+</body>
+</html>

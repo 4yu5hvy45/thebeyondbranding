@@ -618,10 +618,10 @@ def build_case(p, idx):
 
 
 def build_sitemap():
-    urls = ["", "portfolio.html", "websites.html", "packages-global/", "packages-india/"] + [f"work/{p['slug']}.html" for p in PROJECTS]
+    urls = ["", "portfolio.html", "websites.html", "packages-global/", "packages-india/", "stay/", "stay/india/"] + [f"work/{p['slug']}.html" for p in PROJECTS]
     import datetime
     today = datetime.date.today().isoformat()
-    pri = {"": "1.0", "portfolio.html": "0.9", "websites.html": "0.9", "packages-global/": "0.8"}
+    pri = {"": "1.0", "portfolio.html": "0.9", "websites.html": "0.9", "packages-global/": "0.8", "stay/": "0.8"}
     body = "".join(f"  <url><loc>{SITE}/{u}</loc><lastmod>{today}</lastmod><priority>{pri.get(u, '0.6')}</priority></url>\n" for u in urls)
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{body}</urlset>\n'
 
