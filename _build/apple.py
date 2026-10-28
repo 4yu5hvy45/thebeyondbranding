@@ -610,7 +610,23 @@ def build_home(projects, site, variant=None, preview=False):
 <section class="sx" id="services">
   {sec_bar("04", "Services", f'<a href="packages-global/index.html">Compare all packages {KCHEV}</a>')}
   <div class="sx-head"><h2 class="rv">Find the right service. <span>See the price first.</span></h2><p class="rv" style="--d:.1s">Every service has a published starting price. Your quote is scoped to your brief and agreed before any work begins.</p></div>
-  <div class="sxb"><div class="srows">{svcs}</div></div>
+  <div class="sxb">
+    <a class="sfeat rv" href="stay/" aria-label="Brand My Stay: branding for Airbnb hosts">
+      <span class="sf-copy">
+        <span class="sf-ey"><i></i>New &middot; For Airbnb hosts &amp; independent stays</span>
+        <span class="sf-h">Guests book the photos. <em>They remember the details.</em></span>
+        <span class="sf-p">Brand My Stay turns a rental into a stay people talk about: a name and logo, guest printables, a QR guest guide and a direct-booking site, all in one look. Paid once, drafts in 3 days.</span>
+        <span class="sf-chips"><span>Guest printables <b>$149</b></span><span>Brand + guest guide <b>$449</b></span><span>Full brand + website <b>$1,199</b></span></span>
+        <span class="sf-cta">Explore Brand My Stay {KCHEV}</span>
+      </span>
+      <span class="sf-vis">
+        <img src="stay/assets/eh-living.webp" alt="Living room at Espresso House, a Superhost stay in Indore" loading="lazy" width="1600" height="1200">
+        <span class="sf-card" aria-hidden="true"><small>Stay connected</small><b>Wi-Fi</b><em>EspressoHouse_5G</em></span>
+        <span class="sf-rate">&#9733; 4.98 &middot; Superhost stay, our first case</span>
+      </span>
+    </a>
+    <div class="srows">{svcs}</div>
+  </div>
 </section>
 
 <section class="sx" id="about">
