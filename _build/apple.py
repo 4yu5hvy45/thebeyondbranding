@@ -611,7 +611,7 @@ def build_home(projects, site, variant=None, preview=False):
   {sec_bar("04", "Services", f'<a href="packages-global/index.html">Compare all packages {KCHEV}</a>')}
   <div class="sx-head"><h2 class="rv">Find the right service. <span>See the price first.</span></h2><p class="rv" style="--d:.1s">Every service has a published starting price. Your quote is scoped to your brief and agreed before any work begins.</p></div>
   <div class="sxb">
-    <a class="sfeat rv" href="stay/" aria-label="Brand My Stay: branding for Airbnb hosts">
+    <a class="sfeat rv" href="/stay/" aria-label="Brand My Stay: branding for Airbnb hosts">
       <span class="sf-copy">
         <span class="sf-ey"><i></i>New &middot; For Airbnb hosts &amp; independent stays</span>
         <span class="sf-h">Guests book the photos. <em>They remember the details.</em></span>
@@ -620,7 +620,7 @@ def build_home(projects, site, variant=None, preview=False):
         <span class="sf-cta">Explore Brand My Stay {KCHEV}</span>
       </span>
       <span class="sf-vis">
-        <img src="stay/assets/eh-living.webp" alt="Living room at Espresso House, a Superhost stay in Indore" loading="lazy" width="1600" height="1200">
+        <img src="/stay/assets/eh-living.webp" alt="Living room at Espresso House, a Superhost stay in Indore" loading="lazy" width="1600" height="1200">
         <span class="sf-card" aria-hidden="true"><small>Stay connected</small><b>Wi-Fi</b><em>EspressoHouse_5G</em></span>
         <span class="sf-rate">&#9733; 4.98 &middot; Superhost stay, our first case</span>
       </span>
