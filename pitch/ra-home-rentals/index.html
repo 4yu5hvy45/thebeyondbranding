@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="Bay Central One Bedroom #10 · R.A. Home Rentals">
+<meta property="og:description" content="Fully furnished one-bedroom holiday home in Dubai Marina, booked direct with the owner.">
+<meta property="og:image" content="https://thebeyondbranding.com/pitch/ra-home-rentals/img/marina-day.jpg">
+<link rel="preload" as="image" href="img/marina-day.jpg">
+<title>Bay Central One Bedroom #10</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Fully furnished one-bedroom holiday home in Bay Central West Tower, Dubai Marina. Booked direct with the owner: no agency commission, no booking fee, no VAT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: cinematic film hero → photo mosaic → listing body with sticky "book direct" card → building, location, host. Blue-hour marina palette. */
+:root{
+  --bg:#EDF0EF; --surface:#FFFFFF; --sunk:#E2E7E6; --ink:#0D2730; --muted:#5A6D72; --line:#CBD4D3;
+  --water:#17707A; --water-soft:#D3E6E6; --brass:#B27A35; --night:#0A1C22; --on-night:#E9EFEE;
+  --display:"Gloock", "Iowan Old Style", Georgia, serif;
+  --body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --r:14px; --gut:max(16px, env(safe-area-inset-left, 0px)); --gutr:max(16px, env(safe-area-inset-right, 0px));
+  --wrap:1240px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#091A20; --surface:#0F242B; --sunk:#132D35; --ink:#E4ECEB; --muted:#93A9AC; --line:#22414A;
+  --water:#5CC0C4; --water-soft:#123A40; --brass:#D9A35C; --night:#050F13; --on-night:#E9EFEE; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#091A20; --surface:#0F242B; --sunk:#132D35; --ink:#E4ECEB; --muted:#93A9AC; --line:#22414A;
+  --water:#5CC0C4; --water-soft:#123A40; --brass:#D9A35C; --night:#050F13; --on-night:#E9EFEE; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+a{color:inherit}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.01em;text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--gut);padding-right:var(--gutr)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--water)}
+:focus-visible{outline:2px solid var(--water);outline-offset:3px;border-radius:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 14px/1 var(--body);padding:15px 20px;border-radius:999px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s, background .2s, color .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-ink{background:var(--ink);color:var(--bg)}
+.btn-water{background:var(--water);color:#fff}
+:root[data-theme="dark"] .btn-water{color:#04161A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn-water{color:#04161A}}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:transparent}
+.btn-ghost:hover{border-color:var(--ink)}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+.top.scrolled{border-bottom-color:var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:500 15px/1 var(--body);letter-spacing:.16em}
+.logo svg{width:26px;height:26px;flex:none}
+.nav{display:flex;gap:28px;font-size:14px;color:var(--muted)}
+.nav a{text-decoration:none}.nav a:hover{color:var(--ink)}
+.top-cta{display:flex;gap:10px}
+.top-cta .btn{padding:11px 16px;font-size:13px}
+
+/* Hero film */
+.hero{padding-top:14px}
+.film{position:relative;border-radius:22px;overflow:hidden;background:var(--night);aspect-ratio:16/8.2;min-height:420px;max-height:680px;width:100%;max-width:100%;isolation:isolate}
+.film img,.film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.film img{animation:drift 26s ease-in-out infinite alternate}
+.film video{opacity:0;transition:opacity 1.2s}
+.film.playing video{opacity:1}
+@keyframes drift{from{transform:scale(1.02)}to{transform:scale(1.1) translate(-1.5%,-1%)}}
+.film::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,15,19,.35) 0%,rgba(5,15,19,0) 30%,rgba(5,15,19,.15) 55%,rgba(5,15,19,.86) 100%);z-index:1;pointer-events:none}
+.film-top{position:absolute;z-index:2;top:22px;left:24px;right:24px;display:flex;justify-content:space-between;gap:12px;color:#E9EFEE}
+.chip-glass{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#F2F6F5}
+.dot{width:7px;height:7px;border-radius:50%;background:#7FE0D9;box-shadow:0 0 0 4px rgba(127,224,217,.2)}
+.film-body{position:absolute;z-index:2;left:clamp(20px,4vw,48px);right:clamp(20px,4vw,48px);bottom:clamp(22px,4vw,44px);display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;color:#F2F6F5}
+.film-body h1{font-size:clamp(40px,6.4vw,92px);line-height:.96}
+.film-body h1 i{font-style:italic;color:#9FE3DD}
+.film-sub{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:15px;color:#D5E1E0}
+.film-sub span{display:flex;align-items:center;gap:8px}
+.film-sub span+span::before{content:"";width:4px;height:4px;border-radius:50%;background:#9FE3DD;margin-right:10px}
+.play{display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff;font-weight:600;font-size:14px;background:none;border:0;cursor:pointer;padding:0;font-family:var(--body)}
+.play .ring{width:74px;height:74px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:transform .3s, background .3s}
+.play:hover .ring{transform:scale(1.07);background:rgba(255,255,255,.24)}
+.play svg{width:20px;height:20px;margin-left:3px}
+.play small{display:block;font:400 11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#C7D6D5;margin-top:3px}
+
+/* Mosaic */
+.mosaic{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:230px 230px;gap:10px;margin-top:10px}
+.mosaic button{position:relative;padding:0;border:0;border-radius:12px;overflow:hidden;cursor:zoom-in;background:var(--sunk);min-width:0}
+.mosaic button:first-child{grid-row:span 2}
+.mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.mosaic button:hover img{transform:scale(1.045)}
+.mosaic .all{position:absolute;right:12px;bottom:12px;background:var(--surface);color:var(--ink);border-radius:999px;padding:9px 14px;font:600 13px/1 var(--body);display:flex;gap:8px;align-items:center;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+
+/* Body */
+.listing{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:64px;padding-block:56px 40px;align-items:start}
+.listing > *{min-width:0}
+.section{padding-block:44px;border-top:1px solid var(--line)}
+.section:first-child{border-top:0;padding-top:0}
+.section h2{font-size:clamp(30px,3.4vw,44px);line-height:1.05;margin-top:10px}
+.lead{font-size:19px;line-height:1.65;color:var(--ink);max-width:62ch;margin-top:18px}
+.copy{color:var(--muted);max-width:62ch;margin-top:14px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:30px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.fact{padding:18px 18px 16px;border-left:1px solid var(--line)}
+.fact:first-child{border-left:0}
+.fact b{display:block;font:400 30px/1 var(--display)}
+.fact b sup{font:500 12px var(--mono);margin-left:3px;color:var(--muted);vertical-align:top}
+.fact span{display:block;margin-top:8px;font-size:13px;color:var(--muted)}
+.highlights{display:grid;grid-template-columns:1fr 1fr;gap:26px 34px;margin-top:34px}
+.hl{display:grid;grid-template-columns:40px 1fr;gap:14px}
+.hl svg{width:40px;height:40px;padding:9px;border-radius:12px;background:var(--water-soft);color:var(--water)}
+.hl h3{font:600 16px/1.3 var(--body)}
+.hl p{font-size:14.5px;color:var(--muted);margin-top:4px}
+
+/* Rooms */
+.tabs{display:flex;gap:6px;margin-top:26px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;font:500 14px/1 var(--body);padding:11px 16px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.room{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;margin-top:22px;align-items:start}
+.room-pics{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.room-pics button{padding:0;border:0;border-radius:10px;overflow:hidden;cursor:zoom-in;background:var(--sunk)}
+.room-pics button:first-child{grid-column:span 2}
+.room-pics img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.room-pics button:first-child img{aspect-ratio:16/10}
+.room h3{font-size:28px}
+.room p{color:var(--muted);margin-top:10px;font-size:15px}
+.inv{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:0}
+.inv li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
+.inv li span:last-child{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right;letter-spacing:.03em}
+
+/* Floor plan */
+.plan{display:grid;grid-template-columns:1.1fr 1fr;gap:30px;margin-top:26px;align-items:center}
+.plan-img{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.plan-img img{width:100%;mix-blend-mode:multiply}
+.legend{list-style:none;padding:0;margin:0;display:grid;gap:10px;counter-reset:z}
+.legend li{display:grid;grid-template-columns:30px 1fr auto;gap:12px;align-items:center;font-size:15px}
+.legend li::before{counter-increment:z;content:counter(z);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);font:500 12px var(--mono);color:var(--water)}
+.legend em{font-style:normal;font:12px var(--mono);color:var(--muted)}
+
+/* Booking card */
+.book{position:sticky;top:calc(env(safe-area-inset-top,0px) + 92px);background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 24px 60px -30px rgba(10,28,34,.35)}
+.book h3{font-size:26px;line-height:1.1}
+.book .copy{font-size:14px;margin-top:8px}
+.badge{display:inline-flex;align-items:center;gap:8px;font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--brass);margin-bottom:12px}
+.badge::before{content:"";width:18px;height:1px;background:currentColor}
+.fields{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:12px;margin-top:18px;overflow:hidden}
+.field{padding:10px 12px;display:grid;gap:3px;min-width:0}
+.field + .field{border-left:1px solid var(--line)}
+.field.full{grid-column:span 2;border-left:0;border-top:1px solid var(--line)}
+.field label{font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.field input,.field select{border:0;background:transparent;color:var(--ink);font:500 15px var(--body);padding:2px 0;width:100%;min-width:0}
+.field input:focus,.field select:focus{outline:none}
+.fields:focus-within{border-color:var(--water)}
+.nights{font-size:13px;color:var(--muted);margin-top:10px;min-height:20px}
+.book .btn{width:100%;margin-top:12px}
+.fees{list-style:none;padding:0;margin:20px 0 0;border-top:1px solid var(--line)}
+.fees li{display:flex;justify-content:space-between;padding:10px 0;font-size:14px;border-bottom:1px solid var(--line)}
+.fees li b{font:500 12.5px var(--mono);color:var(--water);letter-spacing:.04em}
+.contact-line{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px;font-size:13.5px;color:var(--muted)}
+.contact-line code{font:500 13px var(--mono);color:var(--ink);user-select:all}
+.copybtn{border:1px solid var(--line);background:transparent;color:var(--ink);font:500 12px var(--body);padding:6px 10px;border-radius:999px;cursor:pointer}
+
+/* Building */
+.band{background:var(--night);color:var(--on-night);padding-block:84px}
+.band .eyebrow{color:#7FD3CF}
+.band h2{font-size:clamp(34px,4.4vw,60px);line-height:1.02;margin-top:12px;max-width:16ch}
+.band-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+.band-head p{max-width:42ch;color:#A9BDBF}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,31%);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:40px;padding-bottom:16px;scrollbar-color:#2A4A52 transparent}
+.amen{scroll-snap-align:start;border-radius:16px;overflow:hidden;background:#0F262D;border:1px solid #1C3A42}
+.amen button{display:block;padding:0;border:0;width:100%;cursor:zoom-in;background:none}
+.amen img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.amen div{padding:16px 18px 18px}
+.amen h3{font:600 17px/1.3 var(--body);color:#F2F6F5}
+.amen p{font-size:14px;color:#9FB3B5;margin-top:4px}
+.also{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.also span{border:1px solid #2A4A52;border-radius:999px;padding:8px 14px;font-size:13.5px;color:#C9D7D7}
+.rail-ctrl{display:flex;gap:8px}
+.rail-ctrl button{width:44px;height:44px;border-radius:50%;border:1px solid #2A4A52;background:transparent;color:#E9EFEE;cursor:pointer;font-size:18px}
+.rail-ctrl button:hover{background:#13313A}
+
+/* Location */
+.loc{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center;padding-block:84px}
+.loc > *{min-width:0}
+.map{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--sunk)}
+.map img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:62% 40%}
+.map .pin{position:absolute;left:14px;bottom:14px;background:var(--surface);color:var(--ink);border-radius:12px;padding:12px 14px;font-size:13.5px;box-shadow:0 10px 30px rgba(0,0,0,.18);max-width:calc(100% - 28px)}
+.map .pin b{display:block;font-weight:600}
+.walk{list-style:none;padding:0;margin:26px 0 0}
+.walk li{display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+.walk b{font:400 30px/1 var(--display);color:var(--water)}
+.walk b small{font:500 11px var(--mono);letter-spacing:.06em;margin-left:4px;color:var(--muted)}
+.walk span{font-size:15px}
+.walk span em{display:block;font-style:normal;font-size:13px;color:var(--muted)}
+.near{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}
+.near span{background:var(--sunk);border-radius:8px;padding:6px 10px;font-size:13px;color:var(--muted)}
+
+/* Night strip */
+.night{position:relative;overflow:hidden;color:#F2F6F5}
+.night > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.night::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,15,19,.92) 0%,rgba(5,15,19,.7) 45%,rgba(5,15,19,.25) 100%);z-index:1}
+.night .wrap{position:relative;z-index:2;padding-block:96px}
+.night h2{font-size:clamp(34px,4.6vw,62px);line-height:1.02;max-width:14ch}
+.night h2 i{color:#9FE3DD}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:44px;max-width:900px}
+.step{border-top:1px solid rgba(255,255,255,.28);padding-top:16px}
+.step .mono{color:#9FE3DD}
+.step h3{font:600 17px/1.3 var(--body);margin-top:10px}
+.step p{font-size:14.5px;color:#C2D1D1;margin-top:6px}
+
+/* Host */
+.host{display:grid;grid-template-columns:auto 1fr auto;gap:36px;align-items:center;padding-block:72px;border-bottom:1px solid var(--line)}
+.host > *{min-width:0}
+.avatar{width:112px;height:112px;border-radius:50%;background:var(--night);display:grid;place-items:center;color:#E9EFEE;position:relative}
+.avatar svg{width:46px;height:46px}
+.avatar .star{position:absolute;right:-2px;bottom:4px;width:34px;height:34px;border-radius:50%;background:var(--brass);display:grid;place-items:center;color:#fff;font-size:15px;border:3px solid var(--bg)}
+.host h2{font-size:clamp(30px,3.2vw,42px)}
+.host blockquote{margin:12px 0 0;font-size:17px;color:var(--muted);max-width:56ch}
+.host-meta{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:13.5px}
+.host-meta span{display:flex;align-items:center;gap:8px}
+.host-meta b{font-weight:600}
+.host-actions{display:grid;gap:10px;min-width:220px}
+
+/* FAQ */
+.faq{display:grid;grid-template-columns:1fr 1.6fr;gap:48px;padding-block:72px}
+.faq > *{min-width:0}
+.faq h2{font-size:clamp(30px,3.4vw,44px);margin-top:10px}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:20px 0;display:flex;justify-content:space-between;gap:20px;font-weight:600;font-size:17px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:400 24px/1 var(--body);color:var(--water);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 20px;color:var(--muted);max-width:60ch}
+
+/* Footer */
+footer{padding-block:40px 120px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;font-size:13.5px;color:var(--muted)}
+.foot a{text-decoration:none}.foot a:hover{color:var(--ink)}
+.foot-links{display:flex;flex-wrap:wrap;gap:22px}
+.credit{margin-top:22px;font:12px var(--mono);letter-spacing:.06em;color:var(--muted)}
+
+/* Mobile bar */
+.mbar{display:none}
+
+/* Lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(4,12,15,.94);display:grid;grid-template-rows:auto 1fr auto;color:#E9EFEE;padding:calc(env(safe-area-inset-top,0px) + 14px) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 14px) max(16px,env(safe-area-inset-left,0px))}
+.lb-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.lb-stage{display:grid;place-items:center;min-height:0;position:relative}
+.lb-stage img{max-height:100%;max-width:min(1200px,100%);object-fit:contain;border-radius:8px}
+.lb button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;width:46px;height:46px;border-radius:50%;cursor:pointer;font-size:18px}
+.lb .nav-l,.lb .nav-r{position:absolute;top:50%;transform:translateY(-50%)}
+.lb .nav-l{left:0}.lb .nav-r{right:0}
+.lb-cap{text-align:center;font-size:14px;color:#B9CACA;padding-top:12px}
+.thumbs{display:flex;gap:6px;overflow-x:auto;justify-content:safe center;padding-top:10px;scrollbar-width:none}
+.thumbs button{width:64px;height:46px;border-radius:6px;padding:0;overflow:hidden;flex:none;opacity:.5}
+.thumbs button[aria-current="true"]{opacity:1;outline:2px solid #9FE3DD;outline-offset:1px}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+
+@media (max-width:1060px){
+  .listing{grid-template-columns:1fr;gap:20px}
+  .book{position:relative;top:0}
+  .nav{display:none}
+}
+@media (max-width:760px){
+  .top .wrap{height:60px}
+  .top-cta .btn-ghost{display:none}
+  .film{aspect-ratio:auto;height:78svh;min-height:480px;max-height:640px;border-radius:16px}
+  .film-body{grid-template-columns:1fr}
+  .film-top .chip-glass:last-child{display:none}
+  .play .ring{width:56px;height:56px}
+  .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:200px 120px 120px}
+  .mosaic button:first-child{grid-column:span 2;grid-row:auto}
+  .mosaic button:nth-child(5){display:none}
+  .facts{grid-template-columns:1fr 1fr}
+  .fact:nth-child(3){border-left:0}
+  .fact:nth-child(n+3){border-top:1px solid var(--line)}
+  .highlights,.room,.plan,.loc,.faq{grid-template-columns:1fr}
+  .loc,.faq{gap:28px;padding-block:60px}
+  .rail{grid-auto-columns:82%}
+  .steps{grid-template-columns:1fr}
+  .host{grid-template-columns:1fr;gap:20px}
+  .host-actions{min-width:0}
+  .band{padding-block:64px}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;align-items:center;justify-content:space-between;gap:12px;background:var(--surface);border-top:1px solid var(--line);padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+  .mbar b{display:block;font-size:14px}
+  .mbar span{font-size:12.5px;color:var(--muted)}
+  .mbar .btn{padding:13px 18px}
+  .lb .nav-l,.lb .nav-r{display:none}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+
+<style>[hidden]{display:none!important}body{margin:0}</style>
+</head>
+<body>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="R.A. Home Rentals">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 15 16 4l13 11"/><path d="M7 12v16h18V12"/><path d="M12 28v-9h8v9"/></svg>
+      R.A. HOME RENTALS
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#overview">Overview</a><a href="#rooms">Rooms</a><a href="#building">Building</a><a href="#location">Location</a><a href="#host">Host</a>
+    </nav>
+    <div class="top-cta">
+      <a class="btn btn-ghost" href="https://www.airbnb.ae/users/show/48123732" target="_blank" rel="noopener">Airbnb</a>
+      <a class="btn btn-ink" href="#book">Book direct</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero wrap" aria-label="Property film">
+  <div class="film" id="film">
+    <img data-k="marina-day" alt="View from Bay Central West Tower over the pool deck and Dubai Marina">
+    <video id="video" muted loop playsinline preload="auto" data-poster="marina-day" aria-label="Property film of One Bedroom #10">
+      <source src="https://video.wixstatic.com/video/4a3552_343a7943757d4b6fb3b8adb15d4dac8b/file" type="video/mp4">
+    </video>
+    <div class="film-top">
+      <span class="chip-glass"><span class="dot"></span>Holiday home · Dubai Marina</span>
+      <span class="chip-glass">DTCM permit HO35168758</span>
+    </div>
+    <div class="film-body">
+      <div>
+        <p class="mono" style="color:#9FE3DD">Bay Central West Tower</p>
+        <h1>One Bedroom <i>#10</i></h1>
+        <div class="film-sub"><span>647 sq ft</span><span>1 bedroom</span><span>2 bathrooms</span><span>Private balcony, open view</span></div>
+      </div>
+      <a class="play" id="playBtn" href="https://video.wixstatic.com/video/4a3552_343a7943757d4b6fb3b8adb15d4dac8b/file" target="_blank" rel="noopener">
+        <span class="ring"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span>
+        <span><span id="playLabel">Watch the film</span><small id="playSub">Full walkthrough</small></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="mosaic" aria-label="Photo highlights">
+    <button data-open="open-plan"><img data-k="open-plan" alt="Open-plan living room and kitchen"></button>
+    <button data-open="living-balcony"><img data-k="living-balcony" alt="Living room opening onto the balcony"></button>
+    <button data-open="bedroom"><img data-k="bedroom" alt="Queen bedroom"></button>
+    <button data-open="kitchen"><img data-k="kitchen" alt="Fully equipped kitchen"></button>
+    <button data-open="pool"><img data-k="pool" alt="Bay Central pool deck"><span class="all"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M1 1h6v6H1zM9 1h6v6H9zM1 9h6v6H1zM9 9h6v6H9z"/></svg>All <span id="count">20</span> photos</span></button>
+  </div>
+</section>
+
+<div class="wrap listing">
+  <div>
+    <section class="section" id="overview">
+      <p class="eyebrow">Overview</p>
+      <h2>A furnished marina flat, ready the moment you land.</h2>
+      <p class="lead">Floor-to-ceiling windows fill the flat with daylight while keeping it private. The living room, dining corner and open kitchen share one bright space, and the private balcony looks out over the marina towers.</p>
+      <p class="copy">Fully air-conditioned and set up for remote working, with a 58-inch Smart TV and free high-speed Wi-Fi. The building opens straight onto Marina Walk, with the tram a minute away.</p>
+
+      <div class="facts" role="list">
+        <div class="fact" role="listitem"><b>647<sup>sq ft</sup></b><span>About 60 m² of living space</span></div>
+        <div class="fact" role="listitem"><b>160<sup>×200</sup></b><span>Queen bed with storage, in cm</span></div>
+        <div class="fact" role="listitem"><b>2<sup>baths</sup></b><span>En-suite with bathtub, plus guest WC</span></div>
+        <div class="fact" role="listitem"><b>58<sup>inch</sup></b><span>Smart TV and free fast Wi-Fi</span></div>
+      </div>
+
+      <div class="highlights">
+        <div class="hl">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+          <div><h3>Set up for remote work</h3><p>Reliable high-speed Wi-Fi, a dressing table that works as a desk, and quiet, fully air-conditioned rooms.</p></div>
+        </div>
+        <div class="hl">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M9.5 15a2.5 2.5 0 0 0 2.5 2.5"/></svg>
+          <div><h3>Free filtered drinking water</h3><p>A compact reverse-osmosis system on tap. Drink as much as you like, with no bottles to buy or throw away.</p></div>
+        </div>
+        <div class="hl">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 18c2 0 2-1.5 4-1.5S8 18 10 18s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5"/><path d="M6 14V6l6-3 6 3v8"/></svg>
+          <div><h3>Direct Marina Walk access</h3><p>Step out of the lobby onto the promenade. Cafés, supermarket, pharmacy and laundry are all on foot.</p></div>
+        </div>
+        <div class="hl">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+          <div><h3>Hosted by the owner</h3><p>You deal with Rosario from enquiry to check-out. No agents, no agency, no surprise charges.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rooms">
+      <p class="eyebrow">Room by room</p>
+      <h2>What's in the flat</h2>
+      <div class="tabs" role="tablist" aria-label="Rooms">
+        <button class="tab" role="tab" aria-selected="true" data-room="0">Living</button>
+        <button class="tab" role="tab" aria-selected="false" data-room="1">Kitchen</button>
+        <button class="tab" role="tab" aria-selected="false" data-room="2">Bedroom</button>
+        <button class="tab" role="tab" aria-selected="false" data-room="3">Bathrooms</button>
+        <button class="tab" role="tab" aria-selected="false" data-room="4">Balcony &amp; view</button>
+      </div>
+      <div id="roomPanel" role="tabpanel"></div>
+    </section>
+
+    <section class="section" id="plan">
+      <p class="eyebrow">Floor plan</p>
+      <h2>647 sq ft, laid out simply</h2>
+      <div class="plan">
+        <button class="plan-img" data-open="floorplan" style="cursor:zoom-in"><img data-k="floorplan" alt="Floor plan of One Bedroom #10"></button>
+        <ol class="legend">
+          <li>Entrance and corridor <em>Guest WC off the hall</em></li>
+          <li>Living room <em>Sofa, TV, dining</em></li>
+          <li>Open kitchen <em>Fully equipped</em></li>
+          <li>Master bedroom <em>Queen bed</em></li>
+          <li>Master bathroom <em>Bathtub</em></li>
+          <li>Balcony <em>Open view</em></li>
+        </ol>
+      </div>
+    </section>
+  </div>
+
+  <aside id="book" aria-label="Book direct">
+    <div class="book">
+      <p class="badge">Book direct with the owner</p>
+      <h3>Check your dates with Rosario</h3>
+      <p class="copy">Pick your dates and send them on WhatsApp. You'll get availability and the rate straight from the owner.</p>
+      <form id="enq" class="fields" autocomplete="off">
+        <div class="field"><label for="in">Check-in</label><input id="in" type="date"></div>
+        <div class="field"><label for="out">Check-out</label><input id="out" type="date"></div>
+        <div class="field full"><label for="guests">Guests</label>
+          <select id="guests"><option>1 guest</option><option selected>2 guests</option><option>3 guests</option><option>4 guests</option></select>
+        </div>
+      </form>
+      <p class="nights" id="nights" aria-live="polite">Add your dates to see the length of stay.</p>
+      <a class="btn btn-water" id="waBtn" href="https://wa.me/971507957201" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg>
+        Send enquiry on WhatsApp
+      </a>
+      <a class="btn btn-ghost" href="https://www.airbnb.ae/users/show/48123732" target="_blank" rel="noopener">View host on Airbnb</a>
+      <ul class="fees" aria-label="Fees">
+        <li><span>Agency commission</span><b>NONE</b></li>
+        <li><span>Booking fee</span><b>NONE</b></li>
+        <li><span>VAT</span><b>NONE</b></li>
+        <li><span>Hidden charges</span><b>NONE</b></li>
+      </ul>
+      <div class="contact-line"><span>Call or WhatsApp <code id="phone">+971 50 795 7201</code></span><button class="copybtn" type="button" data-copy="+971507957201">Copy</button></div>
+    </div>
+  </aside>
+</div>
+
+<section class="band" id="building">
+  <div class="wrap">
+    <div class="band-head">
+      <div><p class="eyebrow">Bay Central West Tower</p><h2>The whole building comes with the stay.</h2></div>
+      <div style="display:grid;gap:18px;justify-items:start">
+        <p>Guests get full access to the tower's shared facilities, from the heated pool deck to the family room on the amenity floor.</p>
+        <div class="rail-ctrl"><button type="button" data-rail="-1" aria-label="Previous amenities">←</button><button type="button" data-rail="1" aria-label="Next amenities">→</button></div>
+      </div>
+    </div>
+    <div class="rail" id="rail">
+      <article class="amen"><button data-open="pool"><img data-k="pool" alt="Pool deck"></button><div><h3>Pool and jacuzzi</h3><p>Temperature-controlled pool with sun loungers on the podium deck.</p></div></article>
+      <article class="amen"><button data-open="gym"><img data-k="gym" alt="Gym"></button><div><h3>Fitness gym</h3><p>Treadmills, cross-trainers and weight stations with marina light.</p></div></article>
+      <article class="amen"><button data-open="games-room"><img data-k="games-room" alt="Family room with pool table"></button><div><h3>Family room</h3><p>Pool table, foosball, sofas and a small library.</p></div></article>
+      <article class="amen"><button data-open="kids-indoor"><img data-k="kids-indoor" alt="Indoor children's area"></button><div><h3>Children's area</h3><p>Soft play, ball pit and climbing frame indoors.</p></div></article>
+      <article class="amen"><button data-open="kids-outdoor"><img data-k="kids-outdoor" alt="Outdoor play area"></button><div><h3>Outdoor play area</h3><p>Shaded, fenced playground beside the pool.</p></div></article>
+      <article class="amen"><button data-open="gym-3"><img data-k="gym-3" alt="Cardio area"></button><div><h3>Cardio studio</h3><p>A row of treadmills facing the windows.</p></div></article>
+    </div>
+    <div class="also"><span>Sauna</span><span>Steam room</span><span>Changing rooms</span><span>Lobby and entrance hall</span><span>24-hour access</span></div>
+  </div>
+</section>
+
+<section class="wrap loc" id="location">
+  <div class="map">
+    <button data-open="map" style="all:unset;cursor:zoom-in;display:block"><img data-k="map" alt="Map showing Bay Central in Dubai Marina"></button>
+    <div class="pin"><b>Bay Central West Tower</b>Dubai Marina, Dubai, UAE</div>
+  </div>
+  <div>
+    <p class="eyebrow">Location</p>
+    <h2 style="font-size:clamp(32px,3.6vw,48px);line-height:1.04;margin-top:10px">On the marina, close to everything</h2>
+    <ul class="walk">
+      <li><b>1<small>MIN</small></b><span>Dubai Tram<em>On foot from the lobby</em></span></li>
+      <li><b>0<small>MIN</small></b><span>Marina Walk<em>Direct access from the building</em></span></li>
+      <li><b>15<small>MIN</small></b><span>Dubai Metro<em>Walk to the nearest station</em></span></li>
+      <li><b>SZR</b><span>Sheikh Zayed and Al Khail roads<em>Direct access in and out by car</em></span></li>
+    </ul>
+    <div class="near"><span>Supermarket</span><span>Coffee shops</span><span>Restaurants</span><span>Pharmacy</span><span>Laundry</span><span>Tailor</span><span>Money exchange</span><span>Banks and ATM</span><span>Beauty salons</span></div>
+  </div>
+</section>
+
+<section class="night" aria-label="Your stay">
+  <img data-k="marina-night" alt="" aria-hidden="true">
+  <div class="wrap">
+    <p class="eyebrow" style="color:#9FE3DD">How a stay works</p>
+    <h2>Arrive when you like. <i>We'll handle the rest.</i></h2>
+    <div class="steps">
+      <div class="step"><p class="mono">Before</p><h3>Professionally cleaned</h3><p>The flat is sanitised and cleaned by professionals before every arrival.</p></div>
+      <div class="step"><p class="mono">Arrival</p><h3>Self check-in</h3><p>Remote check-in, so a late flight or early landing is never a problem.</p></div>
+      <div class="step"><p class="mono">During</p><h3>Owner on call</h3><p>Ongoing support by phone and email, direct with the landlord.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap host" id="host">
+  <div class="avatar" aria-hidden="true">
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 15 16 4l13 11"/><path d="M7 12v16h18V12"/><path d="M12 28v-9h8v9"/></svg>
+    <span class="star">★</span>
+  </div>
+  <div>
+    <p class="eyebrow">Your host</p>
+    <h2>Rosario Anzalone</h2>
+    <blockquote>"I own all the properties listed and will be the only person you communicate with. No external agencies or agents are involved."</blockquote>
+    <div class="host-meta">
+      <span><b>Airbnb Superhost</b></span>
+      <span>DTCM Home Owner Permit <b class="mono" style="font-size:12px">HO35168758</b></span>
+      <span>anzalonerosario22@hotmail.com</span>
+    </div>
+  </div>
+  <div class="host-actions">
+    <a class="btn btn-ink" href="https://wa.me/971507957201" target="_blank" rel="noopener">Message on WhatsApp</a>
+    <a class="btn btn-ghost" href="https://www.airbnb.ae/users/show/48123732" target="_blank" rel="noopener">Airbnb profile</a>
+  </div>
+</section>
+
+<section class="wrap faq" id="faq">
+  <div><p class="eyebrow">Good to know</p><h2>Questions guests ask</h2></div>
+  <div>
+    <details open><summary>Are there any fees on top of the rate?</summary><p>No. Booking direct means no agency commission, no booking fee, no VAT and no hidden charges.</p></details>
+    <details><summary>How does check-in work?</summary><p>Check-in is self-service and remote, so you can arrive at any time. Rosario stays in touch by phone and email throughout your stay.</p></details>
+    <details><summary>Is it suitable for working remotely?</summary><p>Yes. The flat has free high-speed Wi-Fi, full air-conditioning and a quiet bedroom with a dressing table you can use as a desk.</p></details>
+    <details><summary>Can I use the pool and gym?</summary><p>Guests have full access to the building's amenities: the temperature-controlled pool, jacuzzi, gym, sauna, steam room, changing rooms, family room and children's area.</p></details>
+    <details><summary>What's included in the kitchen?</summary><p>Fridge, freezer, microwave, electric kettle, toaster, and a full set of cutlery, crockery, pans and bowls. An iron, ironing board and vacuum are also provided.</p></details>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <div class="foot">
+    <a class="logo" href="#top"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 15 16 4l13 11"/><path d="M7 12v16h18V12"/><path d="M12 28v-9h8v9"/></svg>R.A. HOME RENTALS</a>
+    <div class="foot-links"><a href="#overview">Overview</a><a href="#rooms">Rooms</a><a href="#building">Building</a><a href="#location">Location</a><a href="#book">Book direct</a></div>
+    <span>Your short-term home in Dubai, stress free.</span>
+  </div>
+  <p class="credit">© R.A. Home Rentals · DTCM HO35168758 · Concept design by Beyond Branding</p>
+</footer>
+
+<div class="mbar">
+  <div><b>One Bedroom #10</b><span>No fees · direct with owner</span></div>
+  <a class="btn btn-water" href="#book">Check dates</a>
+</div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo gallery">
+  <div class="lb-top"><span class="mono" id="lbCount">1 / 20</span><button type="button" id="lbClose" aria-label="Close gallery">✕</button></div>
+  <div class="lb-stage">
+    <button type="button" class="nav-l" id="lbPrev" aria-label="Previous photo">←</button>
+    <img id="lbImg" alt="">
+    <button type="button" class="nav-r" id="lbNext" aria-label="Next photo">→</button>
+  </div>
+  <div><p class="lb-cap" id="lbCap"></p><div class="thumbs" id="thumbs"></div></div>
+</div>
+
+<script>
+(function(){
+  var I = {"marina-day": "img/marina-day.jpg", "kitchen-dining": "img/kitchen-dining.jpg", "kitchen-bar": "img/kitchen-bar.jpg", "marina-night": "img/marina-night.jpg", "open-plan": "img/open-plan.jpg", "living-tv": "img/living-tv.jpg", "living-sofa": "img/living-sofa.jpg", "living-balcony": "img/living-balcony.jpg", "kitchen": "img/kitchen.jpg", "bedroom": "img/bedroom.jpg", "bedroom-ensuite": "img/bedroom-ensuite.jpg", "bathroom": "img/bathroom.jpg", "pool": "img/pool.jpg", "kids-outdoor": "img/kids-outdoor.jpg", "gym": "img/gym.jpg", "gym-2": "img/gym-2.jpg", "games-room": "img/games-room.jpg", "gym-3": "img/gym-3.jpg", "floorplan": "img/floorplan.jpg", "marina-panorama": "img/marina-panorama.jpg", "map": "img/map.jpg", "kids-indoor": "img/kids-indoor.jpg"};
+  document.querySelectorAll('[data-k]').forEach(function(el){el.src=I[el.dataset.k]});
+  document.querySelectorAll('[data-poster]').forEach(function(el){el.poster=I[el.dataset.poster]});
+  var photos = [
+    ['open-plan','Open-plan living and kitchen'],['living-tv','Living room with 58-inch Smart TV'],['living-sofa','Three-seat sofa and coffee table'],
+    ['living-balcony','Living room and balcony doors'],['kitchen-dining','Kitchen and dining corner'],['kitchen-bar','Breakfast bar'],['kitchen','Fully equipped kitchen'],
+    ['bedroom','Queen bed, 160 × 200 cm'],['bedroom-ensuite','Bedroom with en-suite'],['bathroom','Master bathroom'],
+    ['marina-day','View over the pool deck and marina'],['marina-night','Dubai Marina at night'],['marina-panorama','Dubai Marina skyline'],
+    ['pool','Temperature-controlled pool'],['gym','Gym'],['gym-2','Gym equipment'],['gym-3','Cardio studio'],['games-room','Family room'],
+    ['kids-indoor','Indoor children’s area'],['kids-outdoor','Outdoor play area'],['floorplan','Floor plan'],['map','Location map']
+  ];
+  var galleryCount = photos.length - 2;
+  document.getElementById('count').textContent = galleryCount;
+
+  /* Rooms */
+  var rooms = [
+    {t:'Living room',p:'One open space joins the lounge, dining corner and kitchen, with full-height glazing onto the balcony.',img:['living-tv','living-sofa','open-plan'],
+     inv:[['3-seat sofa, coffee table, floor lamp','Lounge'],['58" Smart TV','Entertainment'],['High-speed Wi-Fi','Free'],['Dining table for four','Dining'],['Air-conditioning','Throughout']]},
+    {t:'Kitchen',p:'An open kitchen with everything for cooking in, plus a breakfast bar facing the living room.',img:['kitchen','kitchen-dining','kitchen-bar'],
+     inv:[['Fridge and freezer','Cold'],['Microwave, kettle, toaster','Small appliances'],['Cutlery, crockery, pans, bowls','Full set'],['Osmosis drinking water','Free, unlimited'],['Iron, ironing board, vacuum','Household']]},
+    {t:'Master bedroom',p:'A calm bedroom with plenty of storage and an en-suite bathroom.',img:['bedroom','bedroom-ensuite','living-balcony'],
+     inv:[['Queen bed with storage drawers','160 × 200 cm'],['5-door wardrobe with mirror','Storage'],['Shelving unit','Storage'],['Dressing table','Doubles as desk'],['Fresh linen and towels','Every stay']]},
+    {t:'Bathrooms',p:'A mid-size master bathroom attached to the bedroom, and a separate guest toilet in the corridor.',img:['bathroom','bedroom-ensuite','kitchen-bar'],
+     inv:[['Bathtub with shower','En-suite'],['WC and vanity sink','En-suite'],['Bathroom accessories','Supplied'],['Guest toilet','Off the corridor']]},
+    {t:'Balcony and view',p:'A furnished private balcony with an open view across the marina towers, by day and by night.',img:['marina-day','marina-night','living-balcony'],
+     inv:[['Private balcony','Furnished'],['Open view','Marina towers'],['Floor-to-ceiling windows','Bright and private']]}
+  ];
+  var panel = document.getElementById('roomPanel');
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+  function renderRoom(i){
+    var r = rooms[i];
+    panel.innerHTML = '<div class="room"><div class="room-pics">' +
+      r.img.map(function(k){var cap=(photos.find(function(p){return p[0]===k})||[k,''])[1];return '<button type="button" data-open="'+k+'"><img src="'+I[k]+'" alt="'+esc(cap)+'"></button>'}).join('') +
+      '</div><div><h3>'+r.t+'</h3><p>'+r.p+'</p><ul class="inv">' +
+      r.inv.map(function(x){return '<li><span>'+esc(x[0])+'</span><span>'+esc(x[1])+'</span></li>'}).join('') + '</ul></div></div>';
+  }
+  document.querySelectorAll('.tab').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected','false')});
+      b.setAttribute('aria-selected','true'); renderRoom(+b.dataset.room);
+    });
+  });
+  renderRoom(0);
+
+  /* Lightbox */
+  var lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg'), cap=document.getElementById('lbCap'), cnt=document.getElementById('lbCount'), th=document.getElementById('thumbs'), cur=0, lastFocus=null;
+  th.innerHTML = photos.map(function(p,i){return '<button type="button" data-i="'+i+'" aria-label="'+esc(p[1])+'"><img src="'+I[p[0]]+'" alt=""></button>'}).join('');
+  function show(i){
+    cur=(i+photos.length)%photos.length; var p=photos[cur];
+    lbImg.src=I[p[0]]; lbImg.alt=p[1]; cap.textContent=p[1]; cnt.textContent=(cur+1)+' / '+photos.length;
+    th.querySelectorAll('button').forEach(function(b,j){b.setAttribute('aria-current',j===cur?'true':'false')});
+    var t=th.children[cur]; if(t&&t.scrollIntoView) t.scrollIntoView({block:'nearest',inline:'center'});
+  }
+  function open(key){ lastFocus=document.activeElement; var i=photos.findIndex(function(p){return p[0]===key}); lb.hidden=false; document.body.style.overflow='hidden'; show(i<0?0:i); document.getElementById('lbClose').focus(); }
+  function close(){ lb.hidden=true; document.body.style.overflow=''; if(lastFocus) lastFocus.focus(); }
+  document.addEventListener('click',function(e){
+    var o=e.target.closest('[data-open]'); if(o){e.preventDefault(); open(o.dataset.open); return;}
+    var t=e.target.closest('#thumbs button'); if(t){show(+t.dataset.i);}
+  });
+  document.getElementById('lbClose').onclick=close;
+  document.getElementById('lbPrev').onclick=function(){show(cur-1)};
+  document.getElementById('lbNext').onclick=function(){show(cur+1)};
+  lb.addEventListener('click',function(e){ if(e.target===lb||e.target.classList.contains('lb-stage')) close(); });
+  document.addEventListener('keydown',function(e){ if(lb.hidden) return; if(e.key==='Escape')close(); if(e.key==='ArrowRight')show(cur+1); if(e.key==='ArrowLeft')show(cur-1); });
+  var sx=null; lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+  lb.addEventListener('touchend',function(e){ if(sx===null)return; var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40) show(cur+(dx<0?1:-1)); sx=null; });
+
+  /* Amenity rail */
+  var rail=document.getElementById('rail');
+  document.querySelectorAll('[data-rail]').forEach(function(b){ b.onclick=function(){ rail.scrollBy({left:(+b.dataset.rail)*rail.clientWidth*0.8,behavior:'smooth'}); }; });
+
+  /* Enquiry → WhatsApp */
+  var fin=document.getElementById('in'), fout=document.getElementById('out'), g=document.getElementById('guests'), wa=document.getElementById('waBtn'), nights=document.getElementById('nights');
+  var today=new Date(); var iso=function(d){return d.toISOString().slice(0,10)};
+  fin.min=iso(today); fout.min=iso(new Date(today.getTime()+864e5));
+  function fmt(v){ var d=new Date(v+'T00:00:00'); return d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}); }
+  function update(){
+    if(fin.value){ var m=new Date(fin.value+'T00:00:00'); m.setDate(m.getDate()+1); fout.min=iso(m); }
+    var msg='Hi Rosario, I’m interested in One Bedroom #10 at Bay Central West Tower.';
+    if(fin.value&&fout.value){
+      var n=Math.round((new Date(fout.value)-new Date(fin.value))/864e5);
+      if(n>0){ nights.textContent=n+(n===1?' night':' nights')+' · '+fmt(fin.value)+' to '+fmt(fout.value); msg+=' Dates: '+fmt(fin.value)+' to '+fmt(fout.value)+' ('+n+(n===1?' night':' nights')+').'; }
+      else nights.textContent='Check-out needs to be after check-in.';
+    } else nights.textContent='Add your dates to see the length of stay.';
+    msg+=' '+g.value+'. Is it available?';
+    wa.href='https://wa.me/971507957201?text='+encodeURIComponent(msg);
+  }
+  [fin,fout,g].forEach(function(el){el.addEventListener('change',update)});
+  document.getElementById('enq').addEventListener('submit',function(e){e.preventDefault()});
+  update();
+
+  /* Copy */
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var done=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1600)};
+      try{ navigator.clipboard.writeText(b.dataset.copy).then(done,function(){sel()}); }catch(_){sel()}
+      function sel(){ var r=document.createRange(); r.selectNodeContents(document.getElementById('phone')); var s=getSelection(); s.removeAllRanges(); s.addRange(r); }
+    });
+  });
+
+  /* Header */
+  var top=document.getElementById('top');
+  addEventListener('scroll',function(){ top.classList.toggle('scrolled',scrollY>10) },{passive:true});
+
+  /* Film: plays from Wix where the host allows it; otherwise the button opens the film in a new tab */
+  var film=document.getElementById('film'), v=document.getElementById('video'), pb=document.getElementById('playBtn'), pl=document.getElementById('playLabel'), ps=document.getElementById('playSub'), ok=false;
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  v.addEventListener('playing',function(){ ok=true; film.classList.add('playing'); pl.textContent='Play with sound'; ps.textContent='Property film'; });
+  v.addEventListener('error',function(){},true);
+  if(!reduce){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); }
+  pb.addEventListener('click',function(e){
+    if(!ok) return; e.preventDefault();
+    if(v.muted){ v.muted=false; v.currentTime=0; v.controls=true; v.play(); pl.textContent='Mute'; ps.textContent='Sound on'; }
+    else { v.muted=true; v.controls=false; pl.textContent='Play with sound'; ps.textContent='Property film'; }
+  });
+})();
+</script>
+
+<script src="https://thebeyondbranding.com/pitch/bar.js" defer
+  data-client="R.A. Home Rentals"
+  data-offer="Save 25% on your holiday-home website redesign"
+  data-note="For a limited number of hospitality projects · Enquire for details"
+  data-sector="hospitality"
+  data-logos="marriott,radisson,dubai-media-office,esperti,soul-av,aiolec,wazirx,wemasy"></script>
+<script>
+(function(){var m=document.querySelector('.mbar');function fit(){var pb=parseFloat(getComputedStyle(document.body).paddingBottom)||0;m.style.bottom=pb+'px'}
+addEventListener('load',function(){fit();setTimeout(fit,800);setTimeout(fit,2500)});addEventListener('resize',fit);new MutationObserver(fit).observe(document.body,{attributes:true,attributeFilter:['style','class']});})();
+</script>
+</body>
+</html>
