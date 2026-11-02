@@ -73,7 +73,7 @@ def build_work(projects, site, filters):
     cards = "".join(image_card(p, "c4", (i % 3) * .06).replace('<a class="card im', f'<a data-f="{" ".join(p["filters"])}" class="card im', 1)
                     for i, p in enumerate(rest))
     words = "".join(f'<span class="w" style="transition-delay:{i * .07:.2f}s">{w}</span> ' for i, w in enumerate("All the work.".split()))
-    out = head("Work · Beyond Branding", f"{len(projects)} case studies from Beyond Branding: websites, brand identity, packaging, exhibitions and campaigns for Marriott, DoubleTree by Hilton, Dubai Media Office and growing brands.", site, "portfolio.html")
+    out = head("Brand, Packaging & Website Design Portfolio | Beyond Branding", f"{len(projects)} case studies from Beyond Branding: websites, brand identity, packaging, exhibitions and campaigns for Marriott, DoubleTree by Hilton, Dubai Media Office and growing brands.", site, "portfolio.html")
     out = out.replace("</head>", WORK_CSS + "</head>", 1)
     out += f"""<main>
 <section class="hero2" style="padding-bottom:clamp(40px,5vw,64px)">
@@ -196,9 +196,12 @@ def build_pricing(site, inr=False):
     cur = "INR" if inr else "USD"
     msg = "Hi Ayush, I've seen your pricing and I'd like a quote."
     words = "".join(f'<span class="w" style="transition-delay:{i * .07:.2f}s">{w}</span> ' for i, w in enumerate("What it actually costs.".split()))
-    out = head(f"Pricing ({cur}) · Beyond Branding",
+    out = head(f"Branding, Logo & Website Design Prices ({cur}) | Beyond Branding",
                f"Beyond Branding rate card in {cur}: brand identity, packaging, websites, exhibitions, brochures, signage, campaigns and social, each in three clear tiers.", site, path)
-    out = out.replace("</head>", PRICE_CSS + "</head>", 1)
+    alt = (f'<link rel="alternate" hreflang="en" href="{site}/packages-global/">'
+           f'<link rel="alternate" hreflang="en-IN" href="{site}/packages-india/">'
+           f'<link rel="alternate" hreflang="x-default" href="{site}/packages-global/">')
+    out = out.replace("</head>", alt + PRICE_CSS + "</head>", 1)
     out += f"""<main>
 <section class="hero2" style="padding-bottom:0">
   <div class="eyebrow rv">Pricing · {'India' if inr else 'Global'}</div>

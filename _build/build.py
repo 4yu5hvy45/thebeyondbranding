@@ -671,6 +671,8 @@ def main():
     with open(os.path.join(ROOT, "packages-india", "index.html"), "w") as f: f.write(pages.build_pricing(SITE, inr=True))
     with open(os.path.join(ROOT, "sitemap.xml"), "w") as f: f.write(build_sitemap())
     with open(os.path.join(ROOT, "robots.txt"), "w") as f: f.write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
+    from inject_head import inject
+    inject(ROOT)
     print(f"built portfolio.html + {len(PROJECTS)} case pages")
 
 

@@ -348,8 +348,8 @@ def head(title, desc, site, path, jsonld=None):
 <link rel="canonical" href="{site}/{path}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Beyond Branding"><meta property="og:url" content="{site}/{path}">
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}">
-<meta property="og:image" content="{site}/assets/og-image.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Beyond Branding: brand, packaging and website design studio">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(title)}"><meta name="twitter:description" content="{E(desc)}"><meta name="twitter:image" content="{site}/assets/og-image.jpg">
+<meta property="og:image" content="{site}/assets/og-image.jpg?v=4"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Beyond Branding: brand, packaging and website design studio">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(title)}"><meta name="twitter:description" content="{E(desc)}"><meta name="twitter:image" content="{site}/assets/og-image.jpg?v=4">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 {ld}
@@ -530,8 +530,9 @@ def build_home(projects, site, variant=None, preview=False):
                 ("Exhibition and event design", 800), ("Campaign and social media design", 150), ("Brochure and catalogue design", 400)]
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "ProfessionalService", "@id": org_id, "name": "Beyond Branding", "url": site + "/",
-         "logo": site + "/assets/apple-touch-icon.png", "image": site + "/assets/og-image.jpg", "description": desc,
+         "logo": site + "/assets/apple-touch-icon.png", "image": site + "/assets/og-image.jpg?v=4", "description": desc,
          "email": "ayush@beyondbranding.media", "telephone": "+1-910-830-1588", "priceRange": "$$",
+         "address": {"@type": "PostalAddress", "streetAddress": "Suite 408, 80A Ruskin Ave", "addressLocality": "Welling", "addressRegion": "London", "postalCode": "DA16 3QQ", "addressCountry": "GB"},
          "slogan": "Fast ideas. Premium design. On time, every time.",
          "areaServed": [{"@type": "Country", "name": n} for n in ("United Kingdom", "Ireland", "United States", "United Arab Emirates", "India")],
          "knowsAbout": ["Brand identity", "Packaging design", "Website design", "Exhibition design", "Hospitality branding", "Retail branding"],
@@ -760,7 +761,7 @@ def build_websites(projects, site, packages):
             ("Launch and handover", "We help you go live on your domain and hand over everything you need to own it.")]
     incl_html = "".join(f"<div class=\"rv\"><h3>{E(t)}</h3><p>{E(d)}</p></div>" for t, d in incl)
     msg = "Hi Ayush, I'm interested in a new website."
-    out = head("Websites · Beyond Branding", "Websites designed and built in-house by Beyond Branding: custom design, mobile-first build and enquiry flows. Landing pages from $800.", site, "websites.html")
+    out = head("Website Design & Development Studio | Beyond Branding", "Websites designed and built in-house by Beyond Branding: custom design, mobile-first build and enquiry flows. Landing pages from $800.", site, "websites.html")
     out += f"""<main>
 <section class="hero2" style="padding-bottom:clamp(48px,6vw,80px)">
   <div class="eyebrow rv">Websites</div>
