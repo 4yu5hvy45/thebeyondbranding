@@ -618,10 +618,13 @@ def build_case(p, idx):
 
 
 def build_sitemap():
-    urls = ["", "portfolio.html", "websites.html", "packages-global/", "packages-india/", "stay/", "stay/india/"] + [f"work/{p['slug']}.html" for p in PROJECTS]
+    from seo_pages import SITEMAP_URLS
+    urls = ["", "services/"] + [u for u in SITEMAP_URLS if u != "services/"] + ["portfolio.html", "websites.html", "packages-global/", "packages-india/", "stay/", "stay/india/"] + [f"work/{p['slug']}.html" for p in PROJECTS]
     import datetime
     today = datetime.date.today().isoformat()
-    pri = {"": "1.0", "portfolio.html": "0.9", "websites.html": "0.9", "packages-global/": "0.8", "stay/": "0.8"}
+    pri = {"": "1.0", "portfolio.html": "0.9", "websites.html": "0.9", "services/": "0.9", "guides/": "0.7", "packages-global/": "0.8", "stay/": "0.8"}
+    pri.update({u: "0.9" for u in SITEMAP_URLS if u.startswith("services/") and u != "services/"})
+    pri.update({u: "0.8" for u in SITEMAP_URLS if u.startswith("guides/") and u != "guides/"})
     body = "".join(f"  <url><loc>{SITE}/{u}</loc><lastmod>{today}</lastmod><priority>{pri.get(u, '0.6')}</priority></url>\n" for u in urls)
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{body}</urlset>\n'
 
@@ -671,6 +674,8 @@ def main():
     with open(os.path.join(ROOT, "packages-india", "index.html"), "w") as f: f.write(pages.build_pricing(SITE, inr=True))
     with open(os.path.join(ROOT, "sitemap.xml"), "w") as f: f.write(build_sitemap())
     with open(os.path.join(ROOT, "robots.txt"), "w") as f: f.write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
+    import seo_pages
+    seo_pages.build_all(PROJECTS, SITE, ROOT)
     from inject_head import inject
     inject(ROOT)
     print(f"built portfolio.html + {len(PROJECTS)} case pages")

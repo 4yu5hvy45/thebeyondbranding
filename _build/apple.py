@@ -57,6 +57,7 @@ SERVICES = [("identity", "Brand Identity", "Logo, type, colour and guidelines.",
             ("events", "Exhibitions & Events", "Booths, stages and conference graphics.", "$800"),
             ("campaigns", "Campaigns & Social", "Print, digital ads and social systems.", "$150"),
             ("collateral", "Brochures", "Catalogues, profiles and sales decks.", "$400")]
+SVC_PAGE = {"identity": "services/brand-identity-design/index.html", "packaging": "services/packaging-design/index.html", "web": "services/website-design/index.html"}
 # (file, alt, optical height in px). Tight-cropped copies of BEYONDCLIENTS-0x.svg, plus ESPERTI and Soul AV.
 LOGOS = [("client-marriott.svg", "Marriott", 22), ("client-dubai-media-office.svg", "Government of Dubai Media Office", 40),
          ("client-esperti.svg", "ESPERTI", 23), ("client-soul-av.svg", "Soul AV", 23),
@@ -360,14 +361,14 @@ def head(title, desc, site, path, jsonld=None):
 <body>
 <header class="kn">
   <a class="kn-logo" href="{HOME}" aria-label="Beyond Branding home"><span>BEYOND<em>BRANDING</em></span></a>
-  <nav class="kn-nav"><a href="portfolio.html">Work</a><a href="websites.html">Websites</a><a href="{HOME}#services">Services</a><a href="packages-global/index.html">Pricing</a><a href="{HOME}#about">About</a></nav>
+  <nav class="kn-nav"><a href="portfolio.html">Work</a><a href="websites.html">Websites</a><a href="services/index.html">Services</a><a href="packages-global/index.html">Pricing</a><a href="{HOME}#about">About</a></nav>
   <a class="kn-cell" href="{WA}" target="_blank" rel="noopener">WhatsApp {KCHEV}</a>
   <span class="kprog" aria-hidden="true"></span>
   <button class="kn-menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="ksheet"><i></i><i></i></button>
   <a class="kn-go" href="{wa('Hi Ayush, I would like to start a project.')}" target="_blank" rel="noopener"><span>Start<span class="kn-x"> a project</span></span>{KCHEV}</a>
 </header>
 <div class="ksheet" id="ksheet" aria-hidden="true">
-  <nav><a href="portfolio.html"><em>01</em>Work</a><a href="websites.html"><em>02</em>Websites</a><a href="{HOME}#services"><em>03</em>Services</a><a href="packages-global/index.html"><em>04</em>Pricing</a><a href="{HOME}#about"><em>05</em>About</a><a href="{HOME}#faq"><em>06</em>FAQ</a></nav>
+  <nav><a href="portfolio.html"><em>01</em>Work</a><a href="websites.html"><em>02</em>Websites</a><a href="services/index.html"><em>03</em>Services</a><a href="packages-global/index.html"><em>04</em>Pricing</a><a href="{HOME}#about"><em>05</em>About</a><a href="guides/index.html"><em>06</em>Guides</a></nav>
   <div class="ksheet-cta"><a class="kb red" href="{wa('Hi Ayush, I would like to start a project.')}" target="_blank" rel="noopener">Start a project {KCHEV}</a><a class="kb line" href="{WA}" target="_blank" rel="noopener">WhatsApp</a></div>
   <p class="ksheet-mail"><a href="mailto:ayush@beyondbranding.media?subject=New%20project%20enquiry">ayush@beyondbranding.media</a></p>
 </div>
@@ -381,7 +382,7 @@ def footer():
   <p class="note">Starting prices are in US dollars and exclude printing, fabrication and third-party costs. Every quote is scoped to your brief and agreed before work begins.</p>
   <div class="cols">
     <div><h4>Work</h4><a href="portfolio.html">All projects</a><a href="websites.html">Websites</a><a href="portfolio.html#identity">Brand identity</a><a href="portfolio.html#packaging">Packaging</a><a href="portfolio.html#events">Exhibitions</a></div>
-    <div><h4>Services</h4><a href="packages-global/index.html#identity">Identity</a><a href="packages-global/index.html#packaging">Packaging</a><a href="packages-global/index.html#web">Websites</a><a href="packages-global/index.html#campaigns">Campaigns</a><a href="packages-global/index.html">All pricing</a></div>
+    <div><h4>Services</h4><a href="services/brand-identity-design/index.html">Brand identity</a><a href="services/packaging-design/index.html">Packaging design</a><a href="services/website-design/index.html">Website design</a><a href="services/hospitality-branding/index.html">Hospitality branding</a><a href="packages-global/index.html">All pricing</a><a href="guides/index.html">Pricing guides</a></div>
     <div><h4>Studio</h4><a href="{HOME}#about">About Ayush</a><a href="{HOME}#why">Why Beyond Branding</a><span>London · Dubai · Mumbai</span></div>
     <div><h4>Contact</h4><a href="{WA}" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:ayush@beyondbranding.media">Email</a><a href="https://instagram.com/thebeyondbranding" target="_blank" rel="noopener">Instagram</a><a href="https://linkedin.com/in/ayush-branding" target="_blank" rel="noopener">LinkedIn</a></div>
   </div>
@@ -485,7 +486,7 @@ def build_home(projects, site, variant=None, preview=False):
                     ("valdaria", "c4"), ("indian-kawfee-co", "c6"), ("doubletree-by-hilton", "c6")]
     brand_html = "".join(image_card(by[t[0]], t[1], (i % 3) * .08, t[2] if len(t) > 2 else None) for i, t in enumerate(brand_layout) if t[0] in by)
     why = "".join(f'<div class="card"><svg viewBox="0 0 24 24" aria-hidden="true">{ICONS[k]}</svg><h3>{E(t)}</h3><p>{E(d)}</p></div>' for k, t, d in WHY)
-    svcs = "".join(f'<a class="srow rv" style="--d:{i * .05:.2f}s" href="packages-global/index.html#{k}"><span class="n">{i + 1:02d}</span><h3>{E(n)}</h3><p>{E(d)}</p><b><small>From</small>{pr}</b><span class="go">{KCHEV}</span></a>' for i, (k, n, d, pr) in enumerate(SERVICES))
+    svcs = "".join(f'<a class="srow rv" style="--d:{i * .05:.2f}s" href="{SVC_PAGE.get(k, "packages-global/index.html#" + k)}"><span class="n">{i + 1:02d}</span><h3>{E(n)}</h3><p>{E(d)}</p><b><small>From</small>{pr}</b><span class="go">{KCHEV}</span></a>' for i, (k, n, d, pr) in enumerate(SERVICES))
     words = "".join(f'<span class="w" style="transition-delay:{i * .07:.2f}s">{w}</span> ' for i, w in enumerate("Brands that look the part.".split()))
 
     col_a = ["dubai-media-office-stage.webp", "esperti-1.webp", "marriott-indore-hamper.webp", "colorado-windows-newspaper-ad.webp",
