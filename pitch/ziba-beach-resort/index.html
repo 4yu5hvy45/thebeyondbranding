@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="Ziba Beach Resort · Lagos">
+<meta property="og:description" content="Nigeria's first overwater resort. A website concept by Beyond Branding.">
+<meta property="og:image" content="https://thebeyondbranding.com/pitch/ziba-beach-resort/img/hero-lagoon.jpg">
+<title>Ziba Beach Resort</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Ziba Beach Resort, Lagos. Nigeria's first overwater resort: beach-facing and overwater rooms, day passes, pools, dining, weddings and retreats on the Okun Ajah coastline.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="img/ziba-favicon-192x192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..500&family=Manrope:wght@400;500;600;700&family=Marcellus&display=swap">
+<style>
+/* Layout: sunlit film hero with booking strip → stays rail → day-pass vs overnight split → mist-blue experiences tabs → celebrations → ratings band → find us → ocean footer.
+   Palette taken from Ziba's own logo and site: Ocean #035582, Sky #1AA3ED, Aqua #32C9D6 on white. Single light theme by design. */
+:root{
+  --white:#FFFFFF; --mist:#F2F8FB; --foam:#E4F3F8; --ink:#0B2B3D; --muted:#56717F; --line:#D9E7EE;
+  --ocean:#035582; --ocean-2:#02466B; --sky:#1AA3ED; --aqua:#32C9D6; --aqua-soft:#BDEFF5;
+  --sand:var(--white); --paper:var(--white);
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Manrope","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --label:"Marcellus","Optima","Candara",Georgia,serif;
+  --gl:max(16px, env(safe-area-inset-left, 0px)); --gr:max(16px, env(safe-area-inset-right, 0px));
+  --wrap:1240px; --r:18px;
+  --wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 8'%3E%3Cpath d='M1 4.5c2.3-3 4.7-3 7 0s4.7 3 7 0 4.7-3 7 0 4.7 3 7 0' fill='none' stroke='%23000' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E");
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font:400 16px/1.7 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--white)}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--sky);outline-offset:3px;border-radius:6px}
+::selection{background:var(--aqua-soft);color:var(--ocean)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.04;letter-spacing:-.02em;margin:0;text-wrap:balance;font-optical-sizing:auto}
+h1 em,h2 em,h3 em{font-style:italic}
+h2{font-size:clamp(38px,5vw,62px);color:var(--ocean)}
+h3{font-size:clamp(25px,2.5vw,31px)}
+p{margin:0}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font:400 13px/1.2 var(--label);letter-spacing:.26em;text-transform:uppercase;color:var(--sky)}
+.eyebrow::before{content:"";flex:none;width:30px;height:8px;background:currentColor;-webkit-mask:var(--wave) center/contain no-repeat;mask:var(--wave) center/contain no-repeat}
+.lede{color:var(--muted);font-size:17px;max-width:46ch}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font:600 15px/1 var(--body);letter-spacing:.01em;text-decoration:none;border:0;cursor:pointer;transition:transform .25s,background .25s,box-shadow .25s,color .25s}
+.btn svg{width:16px;height:16px;transition:transform .25s}
+.btn:hover svg{transform:translateX(3px)}
+.btn-peach{background:var(--white);color:var(--ocean)}
+.btn-peach:hover{background:var(--aqua-soft)}
+.btn-ghost{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.8)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1.5px #fff;background:rgba(255,255,255,.12)}
+.btn-ink{background:var(--ocean);color:#fff}
+.btn-ink:hover{background:var(--sky)}
+.tlink{display:inline-flex;align-items:center;gap:10px;font-weight:600;color:var(--ocean);text-decoration:none;padding-bottom:5px;border-bottom:1.5px solid var(--aqua)}
+.tlink svg{width:16px;height:16px;transition:transform .25s}
+.tlink:hover svg{transform:translateX(4px)}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;transition:background .35s,box-shadow .35s}
+.nav-in{display:flex;align-items:center;gap:28px;height:86px;max-width:1320px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr);transition:height .35s}
+.logo{position:relative;display:block}
+.logo img{height:46px;width:auto;transition:height .35s,opacity .35s}
+.logo .lg-dark{position:absolute;inset:0;opacity:0}
+.nav ul{display:flex;gap:32px;list-style:none;margin:0 auto;padding:0}
+.nav ul a{color:#fff;text-decoration:none;font-size:15px;font-weight:500;position:relative;transition:color .3s}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:1.5px;background:var(--aqua);transform:scaleX(0);transition:transform .3s}
+.nav ul a:hover::after{transform:scaleX(1)}
+.nav .btn{min-height:46px;padding:0 22px;font-size:14px}
+.menu-btn{display:none;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:#fff;cursor:pointer;margin-left:auto}
+.menu-btn svg{width:20px;height:20px;margin:auto}
+.nav.solid{background:rgba(255,255,255,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line),0 10px 30px -12px rgba(3,85,130,.18)}
+.nav.solid .nav-in{height:72px}
+.nav.solid .logo img{height:40px}
+.nav.solid .lg-light{opacity:0}
+.nav.solid .lg-dark{opacity:1}
+.nav.solid ul a{color:var(--ink)}
+.nav.solid .btn-peach{background:var(--ocean);color:#fff}
+.nav.solid .btn-peach:hover{background:var(--sky)}
+.nav.solid .menu-btn{background:var(--foam);color:var(--ocean)}
+.sheet{position:fixed;inset:0;z-index:70;background:var(--white);color:var(--ink);padding:calc(24px + env(safe-area-inset-top,0px)) var(--gr) calc(24px + env(safe-area-inset-bottom,0px)) var(--gl);display:flex;flex-direction:column;gap:6px}
+.sheet[hidden]{display:none!important}
+.sheet-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.sheet a.l{font:400 36px/1.3 var(--display);color:var(--ocean);text-decoration:none;border-bottom:1px solid var(--line);padding-block:6px}
+.sheet .btn{margin-top:auto;justify-content:center;background:var(--ocean);color:#fff}
+.sheet .x{width:44px;height:44px;border-radius:50%;border:0;background:var(--foam);color:var(--ocean);font-size:22px;cursor:pointer}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:clamp(620px,92vh,900px);display:flex;align-items:flex-end;color:#fff;background:var(--ocean);overflow:hidden;isolation:isolate}
+.hero-media{position:absolute;inset:0;z-index:-2}
+.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.8s ease;animation:drift 22s ease-in-out infinite alternate}
+.hero-media img.on{opacity:1}
+@keyframes drift{from{transform:scale(1.04)}to{transform:scale(1.12) translate(-1.5%,-1%)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:
+   linear-gradient(180deg,rgba(2,40,62,.55) 0%,rgba(2,40,62,0) 26%),
+   linear-gradient(90deg,rgba(2,44,68,.78) 0%,rgba(3,70,105,.42) 46%,rgba(3,85,130,0) 76%),
+   linear-gradient(0deg,rgba(2,40,62,.8) 0%,rgba(2,40,62,0) 46%)}
+.hero-in{width:100%;max-width:1320px;margin:0 auto;padding:150px var(--gr) 0 var(--gl)}
+.hero .eyebrow{color:var(--aqua-soft);margin-bottom:24px}
+.hero h1{font-size:clamp(54px,8.6vw,118px);max-width:11ch;line-height:.94;letter-spacing:-.03em}
+.hero h1 em{color:var(--aqua-soft)}
+.hero .sub{font-size:clamp(17px,1.5vw,19px);max-width:44ch;margin-top:26px;color:rgba(255,255,255,.9)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero-meta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;margin-top:40px;font-size:14px;color:rgba(255,255,255,.86)}
+.hero-meta .score{display:flex;align-items:center;gap:10px}
+.hero-meta b{font:500 28px/1 var(--display);color:#fff}
+.hero-meta .sep{width:1px;height:28px;background:rgba(255,255,255,.3)}
+.hero-in > *{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero-in > :nth-child(2){animation-delay:.08s}.hero-in > :nth-child(3){animation-delay:.16s}.hero-in > :nth-child(4){animation-delay:.24s}.hero-in > :nth-child(5){animation-delay:.32s}
+@keyframes rise{from{transform:translateY(18px)}to{transform:none}}
+
+/* booking strip */
+.book{position:relative;z-index:5;margin:46px auto 0;max-width:1320px;padding-left:var(--gl);padding-right:var(--gr);transform:translateY(50%)}
+.book form{display:grid;grid-template-columns:auto repeat(3,minmax(0,1fr)) auto;align-items:stretch;background:var(--white);color:var(--ink);border-radius:22px;box-shadow:0 30px 60px -24px rgba(3,85,130,.45),0 0 0 1px var(--line);overflow:hidden}
+.seg{display:flex;flex-direction:column;justify-content:center;gap:6px;padding:18px 22px;border-right:1px solid var(--line);min-width:0}
+.seg label,.seg .lbl{font:400 11.5px/1 var(--label);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.seg input,.seg select{font:600 16px/1.2 var(--body);color:var(--ocean);background:transparent;border:0;padding:0;min-width:0;width:100%}
+.seg input:focus,.seg select:focus{outline:none}
+.seg:focus-within{background:var(--mist)}
+.toggle{display:flex;gap:4px;padding:4px;background:var(--mist);border-radius:999px}
+.toggle button{border:0;background:transparent;color:var(--muted);font:600 13px/1 var(--body);padding:10px 14px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.toggle button[aria-pressed="true"]{background:var(--ocean);color:#fff}
+.book .go{border:0;border-radius:0;background:var(--ocean);color:#fff;font:600 16px/1 var(--body);padding:0 34px;cursor:pointer;display:flex;align-items:center;gap:10px;text-decoration:none;white-space:nowrap;transition:background .25s}
+.book .go:hover{background:var(--sky)}
+.book .go svg{width:18px;height:18px}
+
+/* ---------- intro ---------- */
+.intro{padding-block:170px 110px}
+.intro-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:72px;align-items:center}
+.intro .eyebrow{margin-bottom:22px}
+.intro h2{margin-bottom:26px}
+.intro p+p{margin-top:16px}
+.intro .body{color:var(--muted);max-width:52ch}
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:40px;padding-top:30px;border-top:1px solid var(--line)}
+.pillars b{display:block;font:500 21px/1.15 var(--display);color:var(--ocean);margin-bottom:8px}
+.pillars span{font-size:14px;color:var(--muted);line-height:1.55;display:block}
+.collage{position:relative;display:grid;grid-template-columns:1.15fr .85fr;grid-template-rows:auto auto;gap:16px}
+.collage img{width:100%;height:100%;object-fit:cover;border-radius:var(--r)}
+.collage .a{grid-row:1/3;aspect-ratio:3/4}
+.collage .b{aspect-ratio:1/1}
+.collage .c{aspect-ratio:1/1}
+.stamp{position:absolute;left:-26px;bottom:34px;background:var(--white);color:var(--ocean);border-radius:50%;width:150px;height:150px;display:grid;place-items:center;text-align:center;padding:18px;box-shadow:0 24px 50px -16px rgba(3,85,130,.45),inset 0 0 0 6px var(--white),inset 0 0 0 7px var(--aqua)}
+.stamp b{font:500 38px/1 var(--display);display:block;font-style:italic}
+.stamp span{font:400 10.5px/1.4 var(--label);letter-spacing:.14em;text-transform:uppercase;display:block;margin-top:6px;color:var(--muted)}
+
+/* ---------- stays ---------- */
+.stays{padding-block:40px 110px}
+.stays-grid{display:grid;grid-template-columns:minmax(260px,330px) minmax(0,1fr);gap:48px;align-items:start}
+.stays-head{position:sticky;top:110px}
+.stays-head .eyebrow{margin-bottom:22px}
+.stays-head p{margin:20px 0 28px}
+.rail-ctrl{display:flex;gap:10px;margin-top:34px}
+.rail-ctrl button{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:var(--white);color:var(--ocean);cursor:pointer;display:grid;place-items:center;transition:background .2s,color .2s,border-color .2s}
+.rail-ctrl button:hover{background:var(--ocean);color:#fff;border-color:var(--ocean)}
+.rail-ctrl svg{width:18px;height:18px}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(280px,380px);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:18px;scrollbar-width:thin;scrollbar-color:var(--line) transparent;min-width:0}
+.room{scroll-snap-align:start;position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;color:#fff;text-decoration:none;background:var(--ocean)}
+.room img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.room:hover img{transform:scale(1.06)}
+.room::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(2,40,62,.85) 0%,rgba(2,40,62,0) 55%)}
+.room .tag{position:absolute;z-index:2;top:16px;left:16px;font:400 11px/1 var(--label);letter-spacing:.18em;text-transform:uppercase;background:rgba(255,255,255,.92);color:var(--ocean);padding:8px 12px;border-radius:999px}
+.room .cap{position:absolute;z-index:2;left:20px;right:20px;bottom:20px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.room h3{font-size:28px}
+.room small{display:block;font-size:13px;color:rgba(255,255,255,.8);margin-top:6px}
+.room .arr{flex:none;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.6);display:grid;place-items:center;transition:background .25s,color .25s}
+.room:hover .arr{background:#fff;color:var(--ocean)}
+.room .arr svg{width:16px;height:16px}
+.room.new{background:linear-gradient(160deg,var(--sky),var(--ocean) 70%);display:flex;flex-direction:column;justify-content:space-between;padding:26px}
+.room.new::after{display:none}
+.room.new .tag{position:static;align-self:flex-start;background:var(--white)}
+.room.new h3{font-size:34px;color:#fff}
+.room.new p{color:rgba(255,255,255,.85);font-size:15px;margin-top:12px}
+.room.new .cap{position:static}
+.room.new .tlink{color:#fff;border-color:rgba(255,255,255,.7)}
+
+/* ---------- ways ---------- */
+.ways{padding-block:0 110px}
+.ways-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.way{position:relative;border-radius:24px;overflow:hidden;min-height:460px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:36px;isolation:isolate}
+.way img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.way::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(2,40,62,.94) 0%,rgba(3,60,92,.7) 50%,rgba(3,85,130,.08) 100%)}
+.way .eyebrow{color:var(--aqua-soft);margin-bottom:14px}
+.way h3{font-size:clamp(36px,3.8vw,50px)}
+.way p{color:rgba(255,255,255,.88);max-width:42ch;margin:14px 0 22px}
+.way ul{list-style:none;margin:0 0 26px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.way li{font-size:13px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.14);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.way .btn{align-self:flex-start}
+
+/* ---------- experiences ---------- */
+.exp{background:var(--mist);color:var(--ink);padding-block:110px;position:relative;overflow:hidden}
+.exp::before{content:"";position:absolute;inset:-30% -12% auto auto;width:55vw;height:55vw;border-radius:50%;background:radial-gradient(circle,rgba(50,201,214,.16),rgba(50,201,214,0) 65%);pointer-events:none}
+.exp-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:46px;position:relative}
+.exp .eyebrow{margin-bottom:20px}
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px;position:relative}
+.tab{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--white);color:var(--ocean);padding:12px 20px;border-radius:14px;font:600 15px/1 var(--body);cursor:pointer;transition:background .25s,border-color .25s,color .25s,box-shadow .25s}
+.tab svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5}
+.tab:hover{border-color:var(--aqua);box-shadow:0 8px 20px -12px rgba(3,85,130,.35)}
+.tab[aria-selected="true"]{background:var(--ocean);color:#fff;border-color:var(--ocean)}
+.panel{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:32px;align-items:stretch;position:relative}
+.panel[hidden]{display:none!important}
+.panel .big{border-radius:22px;overflow:hidden;aspect-ratio:16/11;position:relative;box-shadow:0 30px 60px -30px rgba(3,85,130,.45)}
+.panel .big img{width:100%;height:100%;object-fit:cover;animation:fadein .7s ease}
+@keyframes fadein{from{opacity:.4;transform:scale(1.03)}to{opacity:1;transform:none}}
+.panel .side{display:flex;flex-direction:column;gap:20px;min-width:0}
+.panel h3{font-size:clamp(32px,3.4vw,44px);color:var(--ocean)}
+.panel .side > p{color:var(--muted)}
+.minis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:auto}
+.mini{border-radius:14px;overflow:hidden;position:relative;aspect-ratio:4/3}
+.mini img{width:100%;height:100%;object-fit:cover}
+.mini span{position:absolute;left:10px;bottom:10px;font-size:13px;font-weight:600;color:var(--ocean);background:rgba(255,255,255,.92);padding:6px 10px;border-radius:8px}
+.exp-foot{display:flex;flex-wrap:wrap;gap:12px 30px;align-items:center;margin-top:44px;padding-top:28px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;position:relative}
+.exp-foot b{color:var(--ocean);font-weight:600}
+.exp-foot .tlink{margin-left:auto}
+
+/* ---------- celebrate ---------- */
+.cele{padding-block:110px}
+.cele-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px;margin-bottom:44px}
+.cele-head .eyebrow{margin-bottom:20px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.card{display:flex;flex-direction:column;gap:18px;text-decoration:none;color:var(--ink)}
+.card .ph{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.card:hover .ph img{transform:scale(1.05)}
+.card .k{font:400 12px/1 var(--label);letter-spacing:.24em;text-transform:uppercase;color:var(--sky)}
+.card h3{margin:10px 0 10px;color:var(--ocean)}
+.card p{color:var(--muted);font-size:15px}
+.card .more{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px}
+.card .more span{font-size:12.5px;font-weight:500;background:var(--mist);border-radius:999px;padding:6px 12px;color:var(--ocean)}
+
+/* ---------- reviews ---------- */
+.rev{background:var(--foam);color:var(--ink);padding-block:90px;position:relative;overflow:hidden}
+.rev::after{content:"";position:absolute;left:0;right:0;bottom:0;height:10px;background:var(--aqua);opacity:.35;-webkit-mask:var(--wave) 0 50%/34px 10px repeat-x;mask:var(--wave) 0 50%/34px 10px repeat-x}
+.rev-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:56px;align-items:center}
+.rev h2{font-style:italic}
+.rev .eyebrow{margin-bottom:20px}
+.scores{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.sc{padding:8px 30px;border-left:1px solid rgba(3,85,130,.18)}
+.sc b{display:block;font:400 clamp(54px,6vw,80px)/1 var(--display);font-variant-numeric:lining-nums tabular-nums;color:var(--ocean)}
+.sc b small{font-size:.4em;color:var(--muted);margin-left:4px}
+.sc .src{font-size:15px;font-weight:600;margin-top:14px;display:block;color:var(--ink)}
+.sc .det{font-size:13px;color:var(--muted);display:block;margin-top:2px}
+.stars{display:flex;gap:3px;margin-top:12px;color:var(--sky)}
+.stars svg{width:15px;height:15px}
+
+/* ---------- gallery ---------- */
+.ig{padding-block:110px 40px}
+.ig-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:34px}
+.ig-head .eyebrow{margin-bottom:18px}
+.ig-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:150px;gap:12px}
+.ig-grid a{border-radius:14px;overflow:hidden;position:relative;display:block}
+.ig-grid img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.ig-grid a:hover img{transform:scale(1.06)}
+.ig-grid .t2{grid-row:span 2}.ig-grid .w2{grid-column:span 2}
+
+/* ---------- find ---------- */
+.find{padding-block:80px 110px}
+.find-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;background:var(--white);border-radius:26px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 60px -40px rgba(3,85,130,.4)}
+.find-ph{position:relative;min-height:420px}
+.find-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.find-body{padding:56px;display:flex;flex-direction:column;gap:26px;min-width:0}
+.dl{display:grid;grid-template-columns:110px minmax(0,1fr);gap:14px 20px;font-size:15px}
+.dl dt{font:400 11.5px/1.9 var(--label);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.dl dd{margin:0;overflow-wrap:anywhere;user-select:text}
+.dl a{text-decoration:none;color:var(--ocean);font-weight:600;border-bottom:1px solid var(--line)}
+.dl a:hover{border-color:currentColor}
+.find .row{display:flex;flex-wrap:wrap;gap:12px}
+.btn-line{color:var(--ocean);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn-line:hover{box-shadow:inset 0 0 0 1.5px var(--ocean)}
+
+/* ---------- footer ---------- */
+footer{background:var(--ocean);color:rgba(255,255,255,.72);padding-block:80px 40px;font-size:14px}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px}
+footer h4{font:400 12px/1 var(--label);letter-spacing:.24em;text-transform:uppercase;color:#fff;margin:0 0 18px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+footer .f-logo img{height:50px;width:auto;margin-bottom:18px}
+footer .f-about{max-width:34ch;line-height:1.6}
+.soc{display:flex;gap:10px;margin-top:22px}
+.soc a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:grid;place-items:center;color:#fff}
+.soc a:hover{background:rgba(255,255,255,.12)}
+.soc svg{width:17px;height:17px}
+.f-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:60px;padding-top:24px;border-top:1px solid rgba(255,255,255,.16);font-size:13px}
+
+/* mobile book bar */
+.mbar{display:none}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .nav ul{display:none}
+  .nav .nav-cta{margin-left:auto}
+  .menu-btn{display:grid;margin-left:0}
+  .book form{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .seg.t{grid-column:1/-1;border-bottom:1px solid var(--line);border-right:0}
+  .seg{border-bottom:1px solid var(--line)}
+  .book .go{grid-column:1/-1;justify-content:center;padding:20px}
+  .intro{padding-block:250px 90px}
+  .intro-grid,.stays-grid,.exp-head,.panel,.rev-grid,.find-grid{grid-template-columns:minmax(0,1fr)}
+  .stays-head{position:static}
+  .f-grid{grid-template-columns:1fr 1fr}
+  .stamp{left:12px}
+}
+@media (max-width:760px){
+  .nav .nav-cta{display:none}
+  .menu-btn{margin-left:auto}
+  .nav-in{height:72px}
+  .logo img{height:38px}
+  .hero{min-height:auto}
+  .hero-in{padding-top:130px}
+  .hero-meta .sep{display:none}
+  .book{transform:none;margin-top:36px;padding-bottom:28px}
+  .intro{padding-block:70px 80px}
+  .pillars{grid-template-columns:minmax(0,1fr)}
+  .collage{grid-template-columns:1fr 1fr}
+  .stamp{width:118px;height:118px;left:10px;bottom:16px}
+  .stamp b{font-size:28px}
+  .stays,.ways,.cele,.find{padding-bottom:80px}
+  .exp,.cele{padding-block:80px}
+  .rail{grid-auto-columns:78vw;max-width:100%}
+  .rail-ctrl{display:none}
+  .ways-grid,.cards{grid-template-columns:minmax(0,1fr)}
+  .way{min-height:420px;padding:26px}
+  .scores{grid-template-columns:minmax(0,1fr)}
+  .sc{border-left:0;border-top:1px solid rgba(3,85,130,.18);padding:22px 0}
+  .ig-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:140px}
+  .ig-grid .w2{grid-column:span 1}
+  .find-body{padding:30px 22px}
+  .dl{grid-template-columns:minmax(0,1fr);gap:4px}
+  .dl dd{margin-bottom:12px}
+  .f-grid{grid-template-columns:minmax(0,1fr)}
+  .exp-foot .tlink{margin-left:0}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;gap:10px;padding:10px var(--gr) calc(10px + env(safe-area-inset-bottom,0px)) var(--gl);background:rgba(255,255,255,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 -1px 0 var(--line);transition:bottom .3s}
+  .mbar .btn{flex:1;justify-content:center;min-height:46px;padding:0 12px}
+  .mbar .btn-ghost{color:var(--ocean);box-shadow:inset 0 0 0 1.5px var(--ocean)}
+  .mbar .btn-peach{background:var(--ocean);color:#fff}
+  footer{padding-bottom:110px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+<!-- clarity --><script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "z7a3izqphe");
+</script>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arr" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="arl" viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="#top" aria-label="Ziba Beach Resort home"><img class="lg-light" src="img/ziba-logo-white.png" alt="Ziba Beach Resort" width="208" height="60"><img class="lg-dark" src="img/ziba-logo.png" alt="" width="208" height="60"></a>
+    <ul>
+      <li><a href="#stay">Stay</a></li>
+      <li><a href="#daypass">Day Pass</a></li>
+      <li><a href="#experiences">Experiences</a></li>
+      <li><a href="#dining" data-tab="dining">Dining</a></li>
+      <li><a href="#celebrate">Events</a></li>
+      <li><a href="#find">Contact</a></li>
+    </ul>
+    <a class="btn btn-peach nav-cta" href="https://zibabeachresort.com/book-now/" target="_blank" rel="noopener">Book your stay <svg><use href="#arr"/></svg></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="sheet" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+  </div>
+</header>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet-top"><img src="img/ziba-logo.png" alt="Ziba Beach Resort" style="height:38px;width:auto"><button class="x" id="sheetX" aria-label="Close menu">×</button></div>
+  <a class="l" href="#stay">Stay</a>
+  <a class="l" href="#daypass">Day Pass</a>
+  <a class="l" href="#experiences">Experiences</a>
+  <a class="l" href="#dining" data-tab="dining">Dining</a>
+  <a class="l" href="#celebrate">Weddings &amp; Events</a>
+  <a class="l" href="#find">Contact</a>
+  <a class="btn btn-peach" href="https://zibabeachresort.com/book-now/" target="_blank" rel="noopener">Book your stay <svg><use href="#arr"/></svg></a>
+</div>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-media" id="heroMedia">
+    <img class="on" src="img/hero-lagoon.jpg" alt="Lagoon pool and beach-facing rooms at Ziba Beach Resort" fetchpriority="high">
+    <img src="img/hero-beach.jpg" alt="Ziba's private beach with loungers and palm trees" loading="lazy">
+    <img src="img/ig-couple.jpg" alt="Couple walking on the beach at sunset" loading="lazy" style="object-position:50% 40%">
+  </div>
+  <div class="hero-in">
+    <p class="eyebrow">Ziba Beach Resort · Okun Ajah, Lagos</p>
+    <h1>A beachside escape <em>in&nbsp;Lagos</em></h1>
+    <p class="sub">Nigeria's first overwater resort. Overwater rooms, day visits and world-class service, without the visa stress or long flights.</p>
+    <div class="hero-cta">
+      <a class="btn btn-peach" href="https://zibabeachresort.com/book-now/" target="_blank" rel="noopener">Book a stay <svg><use href="#arr"/></svg></a>
+      <a class="btn btn-ghost" href="#daypass">Get a day pass</a>
+    </div>
+    <div class="hero-meta">
+      <span class="score"><b>9.3</b> Booking.com</span><span class="sep"></span>
+      <span class="score"><b>4.4</b> Tripadvisor</span><span class="sep"></span>
+      <span>Rated “Fantastic” across 1,525 Google reviews</span>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<div class="book" id="book">
+  <form id="bookForm" aria-label="Check availability">
+    <div class="seg t">
+      <span class="lbl" id="visitLbl">Your visit</span>
+      <div class="toggle" role="group" aria-labelledby="visitLbl">
+        <button type="button" id="tStay" aria-pressed="true" data-mode="stay">Overnight stay</button>
+        <button type="button" id="tDay" aria-pressed="false" data-mode="day">Day pass</button>
+      </div>
+    </div>
+    <div class="seg"><label for="ci" id="ciL">Check in</label><input type="date" id="ci" name="ci"></div>
+    <div class="seg" id="coSeg"><label for="co">Check out</label><input type="date" id="co" name="co"></div>
+    <div class="seg"><label for="gu">Guests</label>
+      <select id="gu" name="gu"><option>1 adult</option><option selected>2 adults</option><option>2 adults, 1 child</option><option>2 adults, 2 children</option><option>Family of 5+</option><option>Group (10+)</option></select>
+    </div>
+    <a class="go" id="goBtn" href="https://zibabeachresort.com/book-now/" target="_blank" rel="noopener">Check availability <svg><use href="#arr"/></svg></a>
+  </form>
+</div>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="wrap intro-grid">
+    <div>
+      <p class="eyebrow">Your gateway to luxury</p>
+      <h2>Every moment, <em>crafted</em> to exceed expectations</h2>
+      <div class="body">
+        <p>At Ziba Beach Resort, every moment is crafted to exceed your expectations. From overwater rooms to day visits to bespoke experiences, we offer the beauty, service and joy of a world-class getaway.</p>
+        <p>From romantic getaways to family escapes and special celebrations, every detail at Ziba is crafted to create memories worth keeping. We've redefined what it means to experience true luxury in West Africa.</p>
+      </div>
+      <div class="pillars">
+        <div><b>Award-winning service</b><span>Recognised for excellence in hospitality and guest satisfaction</span></div>
+        <div><b>Prime location</b><span>On Nigeria's most beautiful stretch of coastline</span></div>
+        <div><b>Personal concierge</b><span>Dedicated staff to curate your perfect getaway</span></div>
+      </div>
+      <p style="margin-top:34px"><a class="tlink" href="https://zibabeachresort.com/ziba-story/" target="_blank" rel="noopener">Discover our story <svg><use href="#arr"/></svg></a></p>
+    </div>
+    <div class="collage">
+      <img class="a" src="img/room-overwater.jpg" alt="Overwater Terrace Room with Ziba straw bag and hat on the bed" loading="lazy">
+      <img class="b" src="img/e-honeymoon.jpg" alt="Guests toasting by the pool" loading="lazy">
+      <img class="c" src="img/signpost.jpg" alt="Signposts on the beach to the fire pit, kids zone, game house and gym" loading="lazy">
+      <div class="stamp"><div><b>1st</b><span>Overwater resort in Nigeria</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STAYS -->
+<section class="stays" id="stay">
+  <div class="wrap stays-grid">
+    <div class="stays-head">
+      <p class="eyebrow">Our stays</p>
+      <h2>Rooms &amp; suites <em>for every escape</em></h2>
+      <p class="lede">From cosy suites to spacious family rooms. Whether you're travelling as a couple, with family or with friends, there's a room for you.</p>
+      <a class="tlink" href="https://zibabeachresort.com/rooms/" target="_blank" rel="noopener">Explore all stays <svg><use href="#arr"/></svg></a>
+      <div class="rail-ctrl"><button type="button" id="railPrev" aria-label="Previous rooms"><svg><use href="#arl"/></svg></button><button type="button" id="railNext" aria-label="Next rooms"><svg><use href="#arr"/></svg></button></div>
+    </div>
+    <div class="rail" id="rail">
+      <a class="room" href="https://zibabeachresort.com/rooms/overwater-terrace-room/" target="_blank" rel="noopener"><img src="img/room-overwater.jpg" alt="" loading="lazy"><span class="tag">Overwater</span><span class="cap"><span><h3>Overwater Terrace Room</h3><small>Wake up above the water</small></span><span class="arr"><svg><use href="#arr"/></svg></span></span></a>
+      <a class="room" href="https://zibabeachresort.com/rooms/beach-facing-suite/" target="_blank" rel="noopener"><img src="img/room-suite.jpg" alt="" loading="lazy"><span class="tag">Suite</span><span class="cap"><span><h3>Beach Facing Suite</h3><small>Separate sitting room, sea views</small></span><span class="arr"><svg><use href="#arr"/></svg></span></span></a>
+      <a class="room" href="https://zibabeachresort.com/rooms/ziba-black/" target="_blank" rel="noopener"><img src="img/room-black.jpg" alt="" loading="lazy"><span class="tag">Signature</span><span class="cap"><span><h3>Ziba Black</h3><small>Our moodiest room, made for two</small></span><span class="arr"><svg><use href="#arr"/></svg></span></span></a>
+      <a class="room" href="https://zibabeachresort.com/rooms/beach-facing-family-room-full-view/" target="_blank" rel="noopener"><img src="img/room-family.jpg" alt="" loading="lazy"><span class="tag">Family</span><span class="cap"><span><h3>Beach Facing Family Room</h3><small>Full view, room for everyone</small></span><span class="arr"><svg><use href="#arr"/></svg></span></span></a>
+      <a class="room" href="https://zibabeachresort.com/rooms/beach-facing-room/" target="_blank" rel="noopener"><img src="img/room-beach.jpg" alt="" loading="lazy"><span class="tag">Beach facing</span><span class="cap"><span><h3>Beach Facing Room</h3><small>Steps from the sand</small></span><span class="arr"><svg><use href="#arr"/></svg></span></span></a>
+      <a class="room" href="https://zibabeachresort.com/rooms/beach-facing-connecting-room/" target="_blank" rel="noopener"><img src="img/room-connecting.jpg" alt="" loading="lazy"><span class="tag">Family</span><span class="cap"><span><h3>Beach Facing Connecting Room</h3><small>Two rooms, one door between</small></span><span class="arr"><svg><use href="#arr"/></svg></span></span></a>
+      <a class="room" href="https://zibabeachresort.com/rooms/two-bedroom-apartment/" target="_blank" rel="noopener"><img src="img/room-2bed.jpg" alt="" loading="lazy"><span class="tag">Apartment</span><span class="cap"><span><h3>Two Bedroom Apartment</h3><small>For groups and longer stays</small></span><span class="arr"><svg><use href="#arr"/></svg></span></span></a>
+      <a class="room new" href="https://zibabeachresort.com/rooms/grand-overwater-loft-room/" target="_blank" rel="noopener"><span class="tag">New</span><span><h3>The Grand Overwater collection</h3><p>Grand Overwater Loft and Studio rooms, plus the Overwater Terrace Suite. Ask our concierge for availability.</p></span><span class="cap"><span class="tlink">See the new rooms <svg><use href="#arr"/></svg></span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- TWO WAYS -->
+<section class="ways" id="daypass">
+  <div class="wrap ways-grid">
+    <div class="way">
+      <img src="img/hero-beach.jpg" alt="" loading="lazy">
+      <p class="eyebrow">Day pass</p>
+      <h3>Here for the day</h3>
+      <p>Beach, pools, food and drinks from morning to sunset. The easiest way to try Ziba from Lagos.</p>
+      <ul><li>Private beach</li><li>Lagoon &amp; family pools</li><li>Beach bar &amp; restaurant</li><li>Games room</li></ul>
+      <a class="btn btn-peach" href="https://zibabeachresort.com/day-pass/" target="_blank" rel="noopener">Book a day pass <svg><use href="#arr"/></svg></a>
+    </div>
+    <div class="way">
+      <img src="img/night-stay.jpg" alt="" loading="lazy" style="object-position:50% 30%">
+      <p class="eyebrow">Overnight stay</p>
+      <h3>Stay the night</h3>
+      <p>Fall asleep to the ocean, wake up to breakfast by the water, and keep the whole resort to yourself after the day guests leave.</p>
+      <ul><li>9 room types</li><li>Overwater rooms</li><li>Spa &amp; gym</li><li>Cinema &amp; fire pit</li></ul>
+      <a class="btn btn-peach" href="https://zibabeachresort.com/book-now/" target="_blank" rel="noopener">Book a stay <svg><use href="#arr"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCES -->
+<section class="exp" id="experiences">
+  <div class="wrap">
+    <div class="exp-head">
+      <div><p class="eyebrow">Experiences</p><h2>More than <em>a stay</em></h2></div>
+      <p class="lede">Relax, dine, play and celebrate. Ziba offers numerous activities and amenities for couples, families and groups. Enjoy the moment and make memories that last.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Experiences">
+      <button class="tab" role="tab" id="tab-pools" aria-controls="p-pools" aria-selected="true"><svg viewBox="0 0 24 24"><path d="M2 17c2 0 2-1.5 4-1.5S8 17 10 17s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5M2 21c2 0 2-1.5 4-1.5S8 21 10 21s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5M8 14V5a2 2 0 0 1 4 0M16 14V5a2 2 0 0 0-4 0M8 9h8"/></svg>Pools</button>
+      <button class="tab" role="tab" id="tab-dining" aria-controls="p-dining" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M7 3v8a2 2 0 0 0 2 2v8M11 3v8a2 2 0 0 1-2 2M9 3v6M17 21V3c-2 1-3 4-3 8h3"/></svg>Dining</button>
+      <button class="tab" role="tab" id="tab-wellness" aria-controls="p-wellness" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M12 20c-4 0-8-2.5-8-7 3 0 6 1.5 8 4 2-2.5 5-4 8-4 0 4.5-4 7-8 7zM12 17c-2-3-2-7 0-11 2 4 2 8 0 11z"/></svg>Wellness</button>
+      <button class="tab" role="tab" id="tab-family" aria-controls="p-family" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24"><circle cx="8" cy="6" r="2.5"/><circle cx="16.5" cy="8.5" r="2"/><path d="M3.5 20v-4a4.5 4.5 0 0 1 9 0v4M13 20v-3a3.5 3.5 0 0 1 7 0v3"/></svg>Family</button>
+      <button class="tab" role="tab" id="tab-play" aria-controls="p-play" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M12 3c2 3 4 4 4 7a4 4 0 0 1-8 0c0-1.5.7-2.5 1.5-3.5.3 1.5 1 2 1.5 2 0-2 .2-3.5 1-5.5zM5 21h14M7 17.5l10 3M17 17.5l-10 3"/></svg>Play</button>
+      <button class="tab" role="tab" id="tab-meet" aria-controls="p-meet" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Events</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-pools" aria-labelledby="tab-pools">
+      <div class="big"><img src="img/f-lagoon.jpg" alt="The lagoon pool winding around a palm island" loading="lazy"></div>
+      <div class="side"><h3>Lagoon pool &amp; family pool</h3><p>A winding lagoon pool around a palm island and waterfall rock, and a separate adult and kids pool so everyone gets their own pace of day.</p>
+        <div class="minis"><div class="mini"><img src="img/f-pool.jpg" alt="" loading="lazy"><span>Adult &amp; kids pool</span></div><div class="mini"><img src="img/e-honeymoon.jpg" alt="" loading="lazy"><span>Poolside</span></div></div></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-dining" aria-labelledby="tab-dining" hidden>
+      <div class="big"><img src="img/f-restaurant.jpg" alt="Ziba restaurant with rattan lamps and sea view" loading="lazy"></div>
+      <div class="side"><h3>Beach bar &amp; restaurant</h3><p>The perfect blend of Nigerian and international cuisine with tropical cocktails. Toes in the sand, ocean breeze for company, and the sun painting the sky as you eat.</p>
+        <div class="minis"><div class="mini"><img src="img/f-bar.jpg" alt="" loading="lazy"><span>The bar</span></div><div class="mini"><img src="img/f-firepit.jpg" alt="" loading="lazy"><span>Fire pit evenings</span></div></div>
+        <p style="display:flex;flex-wrap:wrap;gap:20px"><a class="tlink" href="https://zibabeachresort.com/our-menu/" target="_blank" rel="noopener">Food menu <svg><use href="#arr"/></svg></a><a class="tlink" href="https://zibabeachresort.com/our-menu/drinks/" target="_blank" rel="noopener">Drinks menu <svg><use href="#arr"/></svg></a></p></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-wellness" aria-labelledby="tab-wellness" hidden>
+      <div class="big"><img src="img/f-spa.jpg" alt="Spa treatment room" loading="lazy"></div>
+      <div class="side"><h3>Spa &amp; gym</h3><p>Couples' massages, quiet treatment rooms and a sea-view gym, so the routine comes on holiday with you.</p>
+        <div class="minis"><div class="mini"><img src="img/f-gym.jpg" alt="" loading="lazy"><span>Sea-view gym</span></div><div class="mini"><img src="img/hero-beach.jpg" alt="" loading="lazy"><span>Beach mornings</span></div></div></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-family" aria-labelledby="tab-family" hidden>
+      <div class="big"><img src="img/f-playground.jpg" alt="Kids outdoor playground on the sand" loading="lazy"></div>
+      <div class="side"><h3>Kids' club &amp; playground</h3><p>An indoor kids' club and an outdoor playground right on the sand, so parents get a sunbed and children get an adventure.</p>
+        <div class="minis"><div class="mini"><img src="img/f-kidsclub.jpg" alt="" loading="lazy"><span>Ziba kids' club</span></div><div class="mini"><img src="img/f-pool.jpg" alt="" loading="lazy"><span>Kids pool</span></div></div></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-play" aria-labelledby="tab-play" hidden>
+      <div class="big"><img src="img/f-games.jpg" alt="Games room with pool table and table tennis" loading="lazy"></div>
+      <div class="side"><h3>Games, cinema &amp; fire pit</h3><p>Pool and table tennis in the games house, movie nights in our private cinema, and stories round the fire pit after dark.</p>
+        <div class="minis"><div class="mini"><img src="img/f-cinema.jpg" alt="" loading="lazy"><span>Cinema</span></div><div class="mini"><img src="img/f-firepit.jpg" alt="" loading="lazy"><span>Fire pit</span></div></div></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-meet" aria-labelledby="tab-meet" hidden>
+      <div class="big"><img src="img/f-conference.jpg" alt="Conference room set for a corporate event" loading="lazy"></div>
+      <div class="side"><h3>Conference room</h3><p>A bright, sea-facing conference room for offsites, workshops and team bonding, with the beach waiting when the agenda ends.</p>
+        <div class="minis"><div class="mini"><img src="img/e-celebrations.jpg" alt="" loading="lazy"><span>Evening events</span></div><div class="mini"><img src="img/f-games.jpg" alt="" loading="lazy"><span>Team games</span></div></div></div>
+    </div>
+
+    <div class="exp-foot">
+      <span><b>11 facilities:</b> lagoon pool · adult/kids pool · restaurant &amp; bar · kids' club · playground · games room · cinema · fire pit · spa · gym · conference room</span>
+      <a class="tlink" href="https://zibabeachresort.com/experiences/" target="_blank" rel="noopener">Explore all experiences <svg><use href="#arr"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- CELEBRATE -->
+<section class="cele" id="celebrate">
+  <div class="wrap">
+    <div class="cele-head">
+      <div><p class="eyebrow">Celebrate at Ziba</p><h2>Honeymoons, retreats <em>&amp;&nbsp;events</em></h2></div>
+      <a class="btn btn-ink" href="https://zibabeachresort.com/events/" target="_blank" rel="noopener">Plan your event <svg><use href="#arr"/></svg></a>
+    </div>
+    <div class="cards">
+      <a class="card" href="https://zibabeachresort.com/honeymoon-packages-beach-resort/" target="_blank" rel="noopener">
+        <div class="ph"><img src="img/ig-couple.jpg" alt="Couple on the beach at sunset" loading="lazy"></div>
+        <div><span class="k">Offers</span><h3>Honeymoons</h3><p>Your honeymoon at Ziba is the start of a new chapter: decorated rooms, romantic dinners, couples' massages, floating breakfasts, sunset picnics and hand-casting.</p></div>
+        <div class="more"><span>Floating breakfast</span><span>Sunset picnic</span><span>Couples' massage</span></div>
+      </a>
+      <a class="card" href="https://zibabeachresort.com/events/team-bonding/" target="_blank" rel="noopener">
+        <div class="ph"><img src="img/f-conference.jpg" alt="Conference set-up at Ziba" loading="lazy"></div>
+        <div><span class="k">Retreats</span><h3>Team bonding &amp; offsites</h3><p>Ziba turns your occasions into extraordinary memories. Planning team bonding activities or a corporate retreat? We've got you covered.</p></div>
+        <div class="more"><span>Conference room</span><span>Team activities</span><span>Group stays</span></div>
+      </a>
+      <a class="card" href="https://zibabeachresort.com/events/weddings/" target="_blank" rel="noopener">
+        <div class="ph"><img src="img/e-celebrations.jpg" alt="Fairy-lit beach canopy set for a celebration" loading="lazy"></div>
+        <div><span class="k">Events</span><h3>Weddings, celebrations &amp; shoots</h3><p>Beachside weddings, celebrations and photo shoots at Nigeria's premier overwater beach resort, with water views and dedicated event coordination for any size.</p></div>
+        <div class="more"><span>Weddings</span><span>Celebrations</span><span>Shoots</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- RATINGS -->
+<section class="rev">
+  <div class="wrap rev-grid">
+    <div><p class="eyebrow">Guest ratings</p><h2>Loved by our guests</h2></div>
+    <div class="scores">
+      <div class="sc"><b>9.3<small>/10</small></b><span class="src">Booking.com</span><span class="det">Guest review score</span></div>
+      <div class="sc"><b>4.4<small>/5</small></b><span class="src">Tripadvisor</span><span class="det">Traveller rating</span></div>
+      <div class="sc"><b>1,525</b><span class="src">Google reviews</span><span class="det">Rated “Fantastic”</span><span class="stars" aria-hidden="true"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="ig">
+  <div class="wrap">
+    <div class="ig-head">
+      <div><p class="eyebrow">@zibabeachresorts</p><h2>The magic <em>of Ziba</em></h2></div>
+      <a class="tlink" href="https://www.instagram.com/zibabeachresorts/" target="_blank" rel="noopener">Follow on Instagram <svg><use href="#arr"/></svg></a>
+    </div>
+    <div class="ig-grid">
+      <a class="t2" href="https://www.instagram.com/zibabeachresorts/" target="_blank" rel="noopener" aria-label="Ziba on Instagram"><img src="img/ig-guest.jpg" alt="Guest at a beachside event" loading="lazy"></a>
+      <a class="w2" href="https://www.instagram.com/zibabeachresorts/" target="_blank" rel="noopener" aria-label="Ziba on Instagram"><img src="img/hero-lagoon.jpg" alt="Lagoon pool" loading="lazy"></a>
+      <a href="https://www.instagram.com/zibabeachresorts/" target="_blank" rel="noopener" aria-label="Ziba on Instagram"><img src="img/e-hearts.jpg" alt="Heart-shaped lit celebration set-up" loading="lazy"></a>
+      <a class="t2" href="https://www.instagram.com/zibabeachresorts/" target="_blank" rel="noopener" aria-label="Ziba on Instagram"><img src="img/ig-couple.jpg" alt="Couple at sunset" loading="lazy"></a>
+      <a href="https://www.instagram.com/zibabeachresorts/" target="_blank" rel="noopener" aria-label="Ziba on Instagram"><img src="img/room-black.jpg" alt="Ziba Black room" loading="lazy"></a>
+      <a class="w2" href="https://www.instagram.com/zibabeachresorts/" target="_blank" rel="noopener" aria-label="Ziba on Instagram"><img src="img/hero-beach.jpg" alt="Beach loungers under palm trees" loading="lazy"></a>
+      <a href="https://www.instagram.com/zibabeachresorts/" target="_blank" rel="noopener" aria-label="Ziba on Instagram"><img src="img/f-restaurant.jpg" alt="Restaurant" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<!-- FIND US -->
+<section class="find" id="find">
+  <div class="wrap">
+    <div class="find-grid">
+      <div class="find-ph"><img src="img/signpost.jpg" alt="Beach signposts at Ziba Beach Resort" loading="lazy"></div>
+      <div class="find-body">
+        <p class="eyebrow">Find us</p>
+        <h2>Okun Ajah, on the Lekki coast</h2>
+        <dl class="dl">
+          <dt>Address</dt><dd>Ziba Beach Close, Okun Ajah, Lagos, Nigeria</dd>
+          <dt>Bookings</dt><dd><a href="tel:+2347047300013">+234 704 730 0013</a><br><a href="tel:+2348187444447">+234 818 744 4447</a></dd>
+          <dt>Email</dt><dd><a href="mailto:bookings@zibabeachresort.com">bookings@zibabeachresort.com</a></dd>
+        </dl>
+        <div class="row">
+          <a class="btn btn-ink" href="https://www.google.com/maps/search/?api=1&amp;query=Ziba+Beach+Resort+Okun+Ajah+Lagos" target="_blank" rel="noopener">Get directions <svg><use href="#arr"/></svg></a>
+          <a class="btn btn-line" href="https://zibabeachresort.com/contact/" target="_blank" rel="noopener">Contact the resort</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <div class="f-logo"><img src="img/ziba-logo-white.png" alt="Ziba Beach Resort" width="208" height="60"></div>
+        <p class="f-about">Luxury redefined at Nigeria's premier beachfront destination, where world-class hospitality meets pristine natural beauty.</p>
+        <div class="soc">
+          <a href="https://www.instagram.com/zibabeachresorts/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/people/Ziba-Beach-Resort/100082712688250/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8.5V6.8c0-.8.5-1 1-1h2V2.5h-2.8C11.1 2.5 10.5 4.6 10.5 6v2.5H8V12h2.5v9.5H14V12h2.7l.4-3.5z"/></svg></a>
+          <a href="https://x.com/zibabeachresort" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.7 8 10.3h-6.2l-4.9-6.3L5.4 21H2.3l7.3-8.3L2 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Our rooms</h4><ul>
+        <li><a href="https://zibabeachresort.com/rooms/beach-facing-family-room-full-view/" target="_blank" rel="noopener">Beach Facing Family Room</a></li>
+        <li><a href="https://zibabeachresort.com/rooms/beach-facing-connecting-room/" target="_blank" rel="noopener">Beach Facing Connecting Room</a></li>
+        <li><a href="https://zibabeachresort.com/rooms/beach-facing-suite/" target="_blank" rel="noopener">Beach Facing Suite</a></li>
+        <li><a href="https://zibabeachresort.com/rooms/ziba-black/" target="_blank" rel="noopener">Ziba Black</a></li>
+        <li><a href="https://zibabeachresort.com/rooms/overwater-terrace-room/" target="_blank" rel="noopener">Overwater Terrace Room</a></li>
+        <li><a href="https://zibabeachresort.com/overwater-terrace-suite/" target="_blank" rel="noopener">Overwater Terrace Suite</a></li>
+        <li><a href="https://zibabeachresort.com/rooms/two-bedroom-apartment/" target="_blank" rel="noopener">Two Bedroom Apartment</a></li>
+        <li><a href="https://zibabeachresort.com/rooms/grand-overwater-loft-room/" target="_blank" rel="noopener">Grand Overwater Loft Room</a></li>
+        <li><a href="https://zibabeachresort.com/rooms/grand-overwater-studio-room/" target="_blank" rel="noopener">Grand Overwater Studio Room</a></li>
+      </ul></div>
+      <div><h4>Plan your visit</h4><ul>
+        <li><a href="https://zibabeachresort.com/day-pass/" target="_blank" rel="noopener">Day Pass</a></li>
+        <li><a href="https://zibabeachresort.com/book-now/" target="_blank" rel="noopener">Overnight Stay</a></li>
+        <li><a href="https://zibabeachresort.com/offers/" target="_blank" rel="noopener">Offers</a></li>
+        <li><a href="https://zibabeachresort.com/events/" target="_blank" rel="noopener">Events</a></li>
+        <li><a href="https://zibabeachresort.com/gallery/" target="_blank" rel="noopener">Gallery</a></li>
+        <li><a href="https://zibabeachresort.com/blog/" target="_blank" rel="noopener">Blog</a></li>
+        <li><a href="https://zibabeachresort.com/ziba-story/resort-policies-house-rules/" target="_blank" rel="noopener">Policies &amp; house rules</a></li>
+      </ul></div>
+      <div><h4>Contact</h4><ul>
+        <li>Ziba Beach Close, Okun Ajah, Lagos, Nigeria</li>
+        <li><a href="tel:+2347047300013">+234 704 730 0013</a></li>
+        <li><a href="tel:+2348187444447">+234 818 744 4447</a></li>
+        <li><a href="mailto:bookings@zibabeachresort.com">bookings@zibabeachresort.com</a></li>
+      </ul></div>
+    </div>
+    <div class="f-base"><span>© 2026 Ziba Beach Resort</span><span>Concept redesign by Beyond Branding</span></div>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar">
+  <a class="btn btn-ghost" href="https://zibabeachresort.com/day-pass/" target="_blank" rel="noopener">Day pass</a>
+  <a class="btn btn-peach" href="https://zibabeachresort.com/book-now/" target="_blank" rel="noopener">Book a stay</a>
+</div>
+
+<script>
+(function(){
+  /* nav state */
+  var nav=document.getElementById('nav');
+  function onScroll(){nav.classList.toggle('solid',window.scrollY>60)}
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  /* mobile menu */
+  var sheet=document.getElementById('sheet'),mb=document.getElementById('menuBtn');
+  function closeSheet(){sheet.hidden=true;mb.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+  mb.addEventListener('click',function(){sheet.hidden=false;mb.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'});
+  document.getElementById('sheetX').addEventListener('click',closeSheet);
+  sheet.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeSheet)});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&!sheet.hidden)closeSheet()});
+
+  /* hero crossfade */
+  var hs=document.querySelectorAll('#heroMedia img'),hi=0;
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    setInterval(function(){hs[hi].classList.remove('on');hi=(hi+1)%hs.length;hs[hi].classList.add('on')},6500);
+  }
+
+  /* booking strip */
+  var mode='stay',ci=document.getElementById('ci'),co=document.getElementById('co'),go=document.getElementById('goBtn'),coSeg=document.getElementById('coSeg'),ciL=document.getElementById('ciL');
+  function iso(d){return d.toISOString().slice(0,10)}
+  var t=new Date();t.setDate(t.getDate()+7);var t2=new Date(t);t2.setDate(t.getDate()+2);
+  ci.value=iso(t);co.value=iso(t2);ci.min=iso(new Date());co.min=ci.value;
+  ci.addEventListener('change',function(){co.min=ci.value;if(co.value<=ci.value){var d=new Date(ci.value);d.setDate(d.getDate()+1);co.value=iso(d)}});
+  document.querySelectorAll('.toggle button').forEach(function(b){
+    b.addEventListener('click',function(){
+      mode=b.dataset.mode;
+      document.querySelectorAll('.toggle button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});
+      coSeg.style.opacity=mode==='day'?'.35':'';co.disabled=mode==='day';
+      ciL.textContent=mode==='day'?'Visit date':'Check in';
+      go.href=mode==='day'?'https://zibabeachresort.com/product/day-pass/':'https://zibabeachresort.com/book-now/';
+      go.firstChild.nodeValue=mode==='day'?'Book day pass ':'Check availability ';
+    });
+  });
+
+  /* rooms rail */
+  var rail=document.getElementById('rail');
+  function step(){var c=rail.querySelector('.room');return c?c.getBoundingClientRect().width+20:320}
+  document.getElementById('railPrev').addEventListener('click',function(){rail.scrollBy({left:-step(),behavior:'smooth'})});
+  document.getElementById('railNext').addEventListener('click',function(){rail.scrollBy({left:step(),behavior:'smooth'})});
+
+  /* experience tabs */
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  function sel(tab,focus){
+    tabs.forEach(function(x){var on=x===tab;x.setAttribute('aria-selected',String(on));x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on});
+    if(focus)tab.focus();
+  }
+  tabs.forEach(function(tab,i){
+    tab.addEventListener('click',function(){sel(tab)});
+    tab.addEventListener('keydown',function(e){var n=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(n){e.preventDefault();sel(tabs[(i+n+tabs.length)%tabs.length],true)}});
+  });
+  document.querySelectorAll('[data-tab]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();sel(document.getElementById('tab-'+a.dataset.tab));document.getElementById('experiences').scrollIntoView({behavior:'smooth'})})});
+
+  /* keep mobile book bar above the Beyond Branding pitch bar */
+  var m=document.getElementById('mbar');
+  function fit(){var pb=parseFloat(getComputedStyle(document.body).paddingBottom)||0;m.style.bottom=pb+'px'}
+  addEventListener('load',function(){fit();setTimeout(fit,800);setTimeout(fit,2500)});addEventListener('resize',fit);
+  new MutationObserver(fit).observe(document.body,{attributes:true,attributeFilter:['style','class']});
+})();
+</script>
+<script src="https://thebeyondbranding.com/pitch/bar.js" defer
+  data-client="Ziba Beach Resort"
+  data-offer="Save 25% on your resort website redesign"
+  data-note="For a limited number of hospitality projects · Enquire for details"
+  data-sector="hospitality"
+  data-logos="marriott,radisson,dubai-media-office,esperti,soul-av,aiolec,wazirx,wemasy"></script>
+
+</body>
+</html>
