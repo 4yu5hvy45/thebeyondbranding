@@ -129,6 +129,7 @@ button{font-family:inherit}
 .slide-img{position:relative;min-height:300px}
 .slide-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .slide-img::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--banner) 0%,rgba(30,35,21,0) 38%);z-index:1}
+.bn-media{position:absolute;inset:0;z-index:0;overflow:hidden}.bn-media video,.bn-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.bn-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(22,26,16,.97) 0%,rgba(22,26,16,.9) 38%,rgba(22,26,16,.35) 66%,rgba(22,26,16,.08) 100%),linear-gradient(0deg,rgba(22,26,16,.45),rgba(22,26,16,0) 30%)}.banner .slide{position:relative;z-index:1}.banner .slide-img{visibility:hidden}.banner{min-height:520px}@media (max-width:860px){.bn-media{top:auto;height:300px}.bn-media::after{background:linear-gradient(180deg,var(--banner) 0%,rgba(22,26,16,0) 45%)}.banner .slide{grid-template-rows:auto 300px}.banner .slide-img{min-height:300px}}@media (prefers-reduced-motion:reduce){.bn-media video{display:none}}
 .dots{position:absolute;right:24px;bottom:22px;z-index:3;display:flex;gap:6px}
 .dots button{width:8px;height:8px;border-radius:999px;border:0;background:rgba(255,255,255,.55);padding:0;cursor:pointer;transition:width .3s}
 .dots button[aria-current="true"]{width:24px;background:var(--lime)}
@@ -427,7 +428,8 @@ footer{background:var(--soft);border-top:1px solid var(--hair);margin-top:48px}
 <section class="sec" style="padding-top:28px">
   <div class="wrap">
     <div class="banner" id="banner" aria-roledescription="carousel" aria-label="Highlights">
-      <div class="slide on" aria-roledescription="slide" aria-label="1 of 3">
+      <div class="bn-media" aria-hidden="true"><img src="/stay/assets/bms-hero-poster.jpg" alt="" width="1280" height="720"><video autoplay muted loop playsinline preload="metadata" poster="/stay/assets/bms-hero-poster.jpg"><source src="/stay/assets/bms-hero-loop.webm" type="video/webm"><source src="/stay/assets/bms-hero-loop.mp4" type="video/mp4"></video></div>
+            <div class="slide on" aria-roledescription="slide" aria-label="1 of 3">
         <div class="slide-copy">
           <span class="eyebrow">Branding for Airbnb hosts &amp; independent stays</span>
           <h1>Make your stay feel like a <em>boutique hotel.</em></h1>
