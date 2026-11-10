@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#1E1416">
+<meta name="theme-color" content="#140E0F">
 <link rel="icon" type="image/png" href="/pitch/premium-caterers/img/logo-dark.png">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Premium Caterers</title>
@@ -11,26 +11,27 @@
 <meta name="description" content="Chef-led catering for weddings, corporate events and celebrations across Indore, Bhopal, Ujjain, Dewas and Dubai.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Marcellus&family=Jost:wght@300;400;500;600&display=swap">
 <style>
 /* Layout: editorial hospitality — dark photographic hero, ivory reading sections, burgundy and night bands for proof and conversion; the station board is the signature object. Single deliberate light look. */
 :root{
   color-scheme: light;
-  --ivory:#F5EFE5; --sand:#E9DECF; --paper:#FBF8F3;
-  --burgundy:#572331; --burgundy-deep:#3E1622; --wine:#6E2B3D;
-  --gold:#C5A66B; --gold-deep:#9C7D45;
-  --espresso:#2A2321; --night:#1E1416; --muted:#6F625C; --line:#D9CBB8;
-  --on-dark:#F5EFE5; --on-dark-muted:#CDBFAF;
-  --f-display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
-  --f-body:"Hanken Grotesk", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --ivory:#F2ECE2; --sand:#E5DACA; --paper:#F8F4ED;
+  --burgundy:#4B1A26; --burgundy-deep:#36111B; --wine:#5E2331;
+  --gold:#B8955A; --gold-deep:#8A6B38; --gold-soft:#D8C29A;
+  --espresso:#231B19; --night:#140E0F; --muted:#766A60; --line:#D6C9B6;
+  --on-dark:#EFE7DA; --on-dark-muted:#B5A795;
+  --f-display:"Gilda Display", "Didot", "Times New Roman", serif;
+  --f-label:"Marcellus", "Trajan Pro", "Times New Roman", serif;
+  --f-body:"Jost", "Futura", "Century Gothic", "Helvetica Neue", sans-serif;
   --gutter: max(16px, env(safe-area-inset-left, 0px));
   --gutter-r: max(16px, env(safe-area-inset-right, 0px));
   --wrap: 1180px;
-  --r: 6px;
+  --r: 2px;
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
+html{scroll-padding-top:84px}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
 body{background:var(--ivory);color:var(--espresso);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--night)}
@@ -315,6 +316,73 @@ footer{background:var(--night);color:var(--on-dark-muted);font-size:.88rem}
 .mbar .btn{flex:1;justify-content:center;padding:12px}
 @media (max-width:820px){.mbar{display:flex}}
 .toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--espresso);color:var(--on-dark);padding:10px 16px;border-radius:999px;font-size:.84rem;z-index:70}
+
+/* ===== PREMIUM REFINEMENT LAYER (overrides earlier rules) ===== */
+.hero-img{transform:scale(1.06);will-change:transform}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+body{font-weight:400;letter-spacing:.005em}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opacity:.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+h1,h2,h3,legend{font-family:var(--f-display);font-weight:400;letter-spacing:-.005em;line-height:1.08}
+h2{font-size:clamp(2.3rem,4.8vw,4rem)}
+h1 em,h2 em{font-style:normal;color:var(--gold-deep)}
+.dark h2 em,.hero h1 em,.founder h2 em,.philo h2 em,.kitchen h2 em,.dubai-copy h2 em{font-style:normal}
+.dark h2 em,.hero h1 em,.founder h2 em{color:var(--gold-soft)}
+.hero h1{font-size:clamp(3rem,7.2vw,6.4rem);line-height:1.0;max-width:12ch}
+.eyebrow{font-family:var(--f-label);font-weight:400;font-size:.8rem;letter-spacing:.34em;color:var(--gold-deep);gap:14px}
+.eyebrow::before{width:7px;height:7px;background:none;border:1px solid currentColor;transform:rotate(45deg)}
+.dark .eyebrow,.hero .eyebrow,.founder .eyebrow{color:var(--gold)}
+.lead{font-weight:300;font-size:1.12rem;line-height:1.7}
+.hero .lead{font-weight:300}
+.btn{border-radius:0;font:500 .74rem/1.2 var(--f-body);letter-spacing:.22em;text-transform:uppercase;padding:17px 28px;gap:14px}
+.btn-gold{background:var(--gold);color:var(--night)}
+.btn-gold:hover{background:var(--gold-soft)}
+.btn-primary{background:var(--burgundy)}
+.btn-primary:hover{background:var(--wine)}
+.nav-links{gap:34px}
+.nav-links a{font:500 .7rem var(--f-body);letter-spacing:.24em;text-transform:uppercase}
+.nav .btn{padding:12px 20px;font-size:.66rem}
+.nav.solid{background:rgba(20,14,15,.92)}
+.proof{font:400 .72rem var(--f-label);letter-spacing:.26em}
+.proof span+span::before{width:5px;height:5px;border-radius:0;transform:rotate(45deg);background:none;border:1px solid var(--gold)}
+.datecheck{border-radius:0;padding:0;background:var(--paper)}
+.datecheck label{padding:14px 18px}
+.datecheck span,.field>label,.flabel,.board dt,.board-sub,.board .curated,.event-meta,.occ .more,.trust b,.foot h4,.portrait figcaption{font-family:var(--f-label);font-weight:400;letter-spacing:.24em}
+.datecheck .btn{border-radius:0;margin:8px}
+.trust i{font-style:normal;font-size:1.2rem;letter-spacing:.01em}
+.pillars strong{font-family:var(--f-display);font-weight:400;font-size:1.4rem}
+.philo-img::before{border-color:var(--gold);inset:-18px 18px 18px -18px}
+.occ h3,.station h3,.event h3{font-weight:400}
+.occ .more{font-size:.7rem}
+.station{border-radius:0}
+.add,.chip span,.seg,.seg span,.copy,.vid-toggle{border-radius:0}
+.add{font:500 .68rem var(--f-body);letter-spacing:.2em;text-transform:uppercase;padding:10px 14px}
+.facts strong{font-weight:400;font-size:1.5rem}
+.founder{background:var(--burgundy-deep)}
+.founder blockquote{font-family:var(--f-display);font-style:normal;color:var(--gold-soft)}
+.sig{font-family:var(--f-label);font-style:normal;font-size:1.1rem;letter-spacing:.3em;text-transform:uppercase}
+.portrait img{border-radius:999px 999px 0 0}
+.event .link{font:500 .72rem var(--f-body);letter-spacing:.2em;text-transform:uppercase}
+.mosaic img,.philo-img img,.occ,.kitchen-video{border-radius:0}
+.kitchen-video{border-radius:0;border-color:rgba(184,149,90,.5)}
+.wizard{border-radius:0;box-shadow:0 30px 80px rgba(54,17,27,.08)}
+.progress span{border-radius:0;transform:rotate(45deg);width:10px;height:10px;font-size:0;margin-inline:4px}
+.progress li{font:500 .68rem var(--f-body);letter-spacing:.18em;text-transform:uppercase;gap:12px}
+.tile .t{border-radius:0}
+.tile b{font:400 1.2rem var(--f-display)}
+.chip span{font-weight:400;font-size:.9rem;padding:10px 16px}
+.seg span{font:500 .7rem var(--f-body);letter-spacing:.16em;text-transform:uppercase;padding:10px 14px}
+.seg{border-radius:0;padding:3px}
+.field input[type=text],.field input[type=tel],.field input[type=date],.field select,.field textarea{border-radius:0;font-weight:400}
+.field output{font-family:var(--f-display);font-weight:400}
+.board h3{font-weight:400;font-size:2rem}
+.board ol{font-family:var(--f-display)}
+.done h3{font-weight:400}
+.credit-wm{font-family:var(--f-display);font-weight:400;letter-spacing:0;text-transform:none}
+.bb-name{font-family:var(--f-label);font-weight:400}
+@media (max-width:600px){.progress li{font-size:0}}
 </style>
 <style>body{margin:0}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 </head>
@@ -654,9 +722,29 @@ footer{background:var(--night);color:var(--on-dark-muted);font-size:.88rem}
 </nav>
 <div class="toast" id="toast" hidden></div>
 
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 (function(){
   const PHONE = '918602438138';
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let lenis = null;
+  if (window.Lenis && !reduceMotion) {
+    lenis = new Lenis({ lerp: 0.085, smoothWheel: true, wheelMultiplier: 0.9 });
+    const raf = t => { lenis.raf(t); requestAnimationFrame(raf); };
+    requestAnimationFrame(raf);
+    const heroImg = document.querySelector('.hero-img');
+    lenis.on('scroll', ({ scroll }) => {
+      if (heroImg && scroll < window.innerHeight * 1.2) heroImg.style.transform = `translate3d(0, ${scroll * 0.22}px, 0) scale(1.06)`;
+    });
+    document.querySelectorAll('.station-row').forEach(el => el.setAttribute('data-lenis-prevent-horizontal', ''));
+  }
+  const scrollToEl = el => { if (!el) return; if (lenis) lenis.scrollTo(el, { offset: -84, duration: 1.4 }); else el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' }); };
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]'); if (!a) return;
+    const id = a.getAttribute('href'); const t = id.length > 1 ? document.querySelector(id) : document.body;
+    if (t) { e.preventDefault(); scrollToEl(t); }
+  });
+
   const $ = s => document.querySelector(s);
   const $$ = s => [...document.querySelectorAll(s)];
   const ic = p => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
@@ -761,7 +849,7 @@ footer{background:var(--night);color:var(--on-dark-muted);font-size:.88rem}
     $('#back').style.visibility = n === 1 ? 'hidden' : 'visible';
     $('#stepCount').textContent = `Step ${n} of ${LAST}`;
     $('#next').innerHTML = n === LAST ? 'Review &amp; send <svg class="arrow"><use href="#i-arrow"/></svg>' : 'Next <svg class="arrow"><use href="#i-arrow"/></svg>';
-    if (scroll) $('#wizard').scrollIntoView({block:'start'});
+    if (scroll) scrollToEl($('#wizard'));
     render();
   }
   function valid(n){
@@ -828,7 +916,7 @@ footer{background:var(--night);color:var(--on-dark-muted);font-size:.88rem}
   function setOcc(v){ st.occ = v; const r = $(`#occTiles input[value="${v}"]`); if (r) r.checked = true; render(); }
   $$('[data-occasion]').forEach(el => el.addEventListener('click', () => {
     setOcc(el.dataset.occasion); go(2);
-    if (el.tagName === 'BUTTON') $('#plan').scrollIntoView();
+    if (el.tagName === 'BUTTON') scrollToEl($('#plan'));
   }));
 
   // hero date check -> step 2 prefilled
@@ -838,13 +926,13 @@ footer{background:var(--night);color:var(--on-dark-muted);font-size:.88rem}
     const c = $(`#cityChips input[value="${$('#dc-city').value}"]`); if (c) { c.checked = true; st.city = c.value; }
     const g = +$('#dc-guests').value; if (g) $('#f-guests').value = Math.min(2000, Math.max(25, Math.round(g/25)*25));
     if (!st.occ) setOcc('Wedding');
-    go(2); $('#plan').scrollIntoView();
+    go(2); scrollToEl($('#plan'));
     toast('Added to your event board. A few more details and you’re done.');
   });
 
   $('#tastingBtn').addEventListener('click', () => {
     const x = $(`#extraChips input[value="Tasting with Chef Gagan"]`); x.checked = true; st.extras.add(x.value);
-    render(); $('#plan').scrollIntoView(); toast('Tasting request added to your board.');
+    render(); scrollToEl($('#plan')); toast('Tasting request added to your board.');
   });
   $('#waGagan').href = wa(`Hello Chef Gagan, I found Premium Caterers online and would like to talk about an event.`);
   $('#mWa').href = $('#waGagan').href;
