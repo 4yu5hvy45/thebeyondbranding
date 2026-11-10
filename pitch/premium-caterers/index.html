@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1E1416">
+<link rel="icon" type="image/png" href="/pitch/premium-caterers/img/logo-dark.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Premium Caterers</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Chef-led catering for weddings, corporate events and celebrations across Indore, Bhopal, Ujjain, Dewas and Dubai.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: editorial hospitality — dark photographic hero, ivory reading sections, burgundy and night bands for proof and conversion; the station board is the signature object. Single deliberate light look. */
+:root{
+  color-scheme: light;
+  --ivory:#F5EFE5; --sand:#E9DECF; --paper:#FBF8F3;
+  --burgundy:#572331; --burgundy-deep:#3E1622; --wine:#6E2B3D;
+  --gold:#C5A66B; --gold-deep:#9C7D45;
+  --espresso:#2A2321; --night:#1E1416; --muted:#6F625C; --line:#D9CBB8;
+  --on-dark:#F5EFE5; --on-dark-muted:#CDBFAF;
+  --f-display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --f-body:"Hanken Grotesk", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  --wrap: 1180px;
+  --r: 6px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--ivory);color:var(--espresso);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--night)}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:1.06;letter-spacing:-0.02em;font-optical-sizing:auto;margin:0;text-wrap:balance}
+h2{font-size:clamp(2.1rem,4.4vw,3.4rem)}
+h3{font-size:1.6rem}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter-r)}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.dark .eyebrow{color:var(--gold)}
+.lead{font-size:1.06rem;color:var(--muted);max-width:56ch}
+.dark .lead{color:var(--on-dark-muted)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;font-weight:600;font-size:.92rem;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--f-body);transition:background .2s,color .2s,border-color .2s,transform .2s;line-height:1.2}
+.btn:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.btn-primary{background:var(--burgundy);color:var(--on-dark)}
+.btn-primary:hover{background:var(--wine)}
+.btn-gold{background:var(--gold);color:var(--night)}
+.btn-gold:hover{background:#d4b77c}
+.btn-ghost{border-color:currentColor;color:inherit;background:transparent}
+.btn-ghost:hover{background:rgba(245,239,229,.1)}
+.arrow{width:14px;height:14px;flex:none}
+
+/* NAV */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;transition:background .3s, box-shadow .3s}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}
+.nav.solid{background:rgba(30,20,22,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(197,166,107,.25)}
+.logo img{height:46px;width:auto;display:block}
+.nav-links{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.nav-links a{color:var(--on-dark);text-decoration:none;font-size:.88rem;font-weight:500;opacity:.88}
+.nav-links a:hover{opacity:1;color:var(--gold)}
+.nav .btn{padding:10px 18px;font-size:.84rem}
+@media (max-width:960px){.nav-links{display:none}}
+@media (max-width:520px){.nav .btn{display:none}.logo img{height:38px}}
+
+/* HERO */
+.hero{position:relative;margin-top:-76px;color:var(--on-dark);background:var(--night);overflow:hidden}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% center}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(24,14,16,.92) 0%,rgba(24,14,16,.72) 38%,rgba(24,14,16,.15) 75%),linear-gradient(0deg,rgba(24,14,16,.85) 0%,rgba(24,14,16,0) 40%)}
+.hero-in{position:relative;z-index:1;padding-top:150px;padding-bottom:36px;min-height:min(92vh,820px);display:flex;flex-direction:column;justify-content:flex-end;gap:30px}
+.hero h1{font-size:clamp(2.8rem,6.8vw,5.6rem);max-width:11ch;font-weight:500}
+.hero h1 em{font-style:italic;color:var(--gold);font-weight:500}
+.hero .lead{font-size:1.12rem;max-width:44ch;color:#E6DACB}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.proof{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-muted)}
+.proof span{display:flex;align-items:center;gap:18px}
+.proof span+span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.datecheck{display:grid;grid-template-columns:1.1fr 1fr .8fr auto;gap:0;background:rgba(245,239,229,.97);border-radius:14px;padding:8px;max-width:820px;color:var(--espresso);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.datecheck label{display:flex;flex-direction:column;gap:2px;padding:6px 14px;border-right:1px solid var(--line);min-width:0}
+.datecheck label:nth-of-type(3){border-right:0}
+.datecheck span{font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep)}
+.datecheck input,.datecheck select{border:0;background:transparent;font:500 .98rem var(--f-body);color:var(--espresso);padding:2px 0;width:100%;min-width:0}
+.datecheck .btn{border-radius:10px;justify-content:center}
+@media (max-width:760px){.datecheck{grid-template-columns:1fr 1fr}.datecheck label{border-right:0;border-bottom:1px solid var(--line)}.datecheck label:nth-of-type(3){grid-column:1/-1}.datecheck .btn{grid-column:1/-1;margin-top:6px}}
+
+@media (max-width:700px){.hero::after{background:linear-gradient(0deg,rgba(24,14,16,.94) 0%,rgba(24,14,16,.78) 55%,rgba(24,14,16,.45) 100%)}.philo-img::before{inset:-8px 8px 8px -8px}}
+/* TRUST STRIP */
+.trust{background:var(--night);color:var(--on-dark-muted);border-top:1px solid rgba(197,166,107,.2)}
+.trust-in{display:flex;flex-wrap:wrap;align-items:center;gap:14px 34px;padding-block:20px;font-size:.84rem}
+.trust b{color:var(--gold);font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:.68rem}
+.trust i{font-family:var(--f-display);font-style:italic;font-size:1.12rem;color:var(--on-dark)}
+
+/* SECTIONS */
+section{position:relative}
+.pad{padding-block:clamp(72px,10vw,128px)}
+.head{display:grid;gap:18px;margin-bottom:44px}
+.head.split{grid-template-columns:1.1fr 1fr;align-items:end;gap:24px 60px}
+@media (max-width:860px){.head.split{grid-template-columns:1fr}}
+
+/* PHILOSOPHY */
+.philo{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(32px,6vw,80px);align-items:center}
+.philo-copy{display:grid;gap:24px;min-width:0}
+.philo h2 em{font-style:italic;color:var(--burgundy)}
+.philo-img{position:relative}
+.philo-img img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:var(--r)}
+.philo-img::before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:1px solid var(--gold);border-radius:var(--r);z-index:-1}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;border-top:1px solid var(--line);padding-top:24px}
+.pillars div{display:grid;gap:6px;min-width:0}
+.pillars strong{font-family:var(--f-display);font-size:1.3rem;font-weight:600;color:var(--burgundy)}
+.pillars p{font-size:.88rem;color:var(--muted)}
+@media (max-width:860px){.philo{grid-template-columns:1fr}.philo-img{order:-1}}
+@media (max-width:520px){.pillars{grid-template-columns:1fr}}
+
+/* OCCASIONS */
+.occasions{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.occ{position:relative;border-radius:var(--r);overflow:hidden;color:var(--on-dark);text-decoration:none;aspect-ratio:3/4;display:flex;align-items:flex-end;background:var(--night)}
+.occ img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.occ::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(24,14,16,.9) 0%,rgba(24,14,16,.1) 60%)}
+.occ:hover img{transform:scale(1.05)}
+.occ-body{position:relative;z-index:1;padding:20px;display:grid;gap:6px;width:100%}
+.occ h3{font-size:1.7rem}
+.occ p{font-size:.86rem;color:var(--on-dark-muted)}
+.occ .more{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:6px}
+@media (max-width:960px){.occasions{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.occasions{grid-template-columns:1fr}.occ{aspect-ratio:4/3}}
+
+/* STATIONS */
+.stations-band{background:var(--paper);border-block:1px solid var(--line)}
+.station-row{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(250px,1fr);gap:18px;overflow-x:auto;padding-bottom:18px;scroll-snap-type:x mandatory;scrollbar-color:var(--gold) transparent}
+@media (min-width:1100px){.station-row{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);overflow:visible}}
+.station{scroll-snap-align:start;display:grid;grid-template-rows:auto 1fr;background:var(--ivory);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;min-width:0}
+.station img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.station-body{display:grid;gap:8px;padding:16px 16px 18px;align-content:start}
+.station h3{font-size:1.45rem;color:var(--burgundy)}
+.station p{font-size:.86rem;color:var(--muted)}
+.add{justify-self:start;margin-top:6px;display:inline-flex;align-items:center;gap:8px;font:600 .8rem var(--f-body);padding:8px 14px;border-radius:999px;border:1px solid var(--burgundy);background:transparent;color:var(--burgundy);cursor:pointer}
+.add[aria-pressed="true"]{background:var(--burgundy);color:var(--on-dark)}
+.add .tick{width:14px;height:14px}
+.row-hint{font-size:.8rem;color:var(--muted);margin-top:4px}
+
+/* KITCHEN (video) */
+.dark{background:var(--night);color:var(--on-dark)}
+.kitchen{display:grid;grid-template-columns:1fr minmax(260px,360px) 1fr;gap:clamp(24px,5vw,64px);align-items:center}
+.kitchen-video{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:9/16;border:1px solid rgba(197,166,107,.4);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.kitchen-video video{width:100%;height:100%;object-fit:cover}
+.vid-toggle{position:absolute;right:12px;bottom:12px;background:rgba(24,14,16,.7);color:var(--on-dark);border:1px solid rgba(245,239,229,.3);border-radius:999px;padding:6px 12px;font:600 .74rem var(--f-body);cursor:pointer}
+.kitchen h2 em{font-style:italic;color:var(--gold)}
+.kitchen-copy{display:grid;gap:22px;min-width:0}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:18px;min-width:0}
+.facts li{display:grid;gap:4px;padding-bottom:18px;border-bottom:1px solid rgba(197,166,107,.22)}
+.facts strong{font-family:var(--f-display);font-size:1.35rem;font-weight:600;color:var(--on-dark)}
+.facts span{font-size:.88rem;color:var(--on-dark-muted)}
+@media (max-width:900px){.kitchen{grid-template-columns:1fr}.kitchen-video{max-width:320px;margin:0 auto;width:100%}}
+
+/* FOUNDER */
+.founder{background:var(--burgundy);color:var(--on-dark);overflow:hidden}
+.founder-in{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,90px);align-items:center}
+.portrait{position:relative;max-width:380px;width:100%}
+.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;border-radius:200px 200px var(--r) var(--r);border:1px solid rgba(197,166,107,.5)}
+.portrait figcaption{margin-top:14px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.founder-copy{display:grid;gap:22px;min-width:0}
+.founder h2{color:var(--on-dark)}
+.founder blockquote{margin:0;font-family:var(--f-display);font-style:italic;font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.25;color:var(--sand);border-left:2px solid var(--gold);padding-left:22px;max-width:30ch}
+.founder p{color:#E4D3D3;max-width:58ch}
+.sig{font-family:var(--f-display);font-style:italic;font-size:2rem;color:var(--gold)}
+.founder .eyebrow{color:var(--gold)}
+.founder-ctas{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.num{font-size:.86rem;color:var(--on-dark-muted);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.num b{color:var(--on-dark);font-weight:600;letter-spacing:.04em;user-select:all}
+.copy{background:transparent;border:1px solid rgba(245,239,229,.35);color:var(--on-dark);border-radius:999px;padding:4px 10px;font:600 .72rem var(--f-body);cursor:pointer}
+@media (max-width:820px){.founder-in{grid-template-columns:1fr}.portrait{margin:0 auto}}
+
+/* EVENTS */
+.events{display:grid;gap:56px}
+.event{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(24px,4vw,56px);align-items:center}
+.event:nth-child(even){grid-template-columns:1.5fr 1fr}
+.event:nth-child(even) .event-copy{order:2}
+.event-copy{display:grid;gap:12px;min-width:0}
+.event-meta{font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep)}
+.event h3{font-size:clamp(1.9rem,3.2vw,2.6rem);color:var(--burgundy)}
+.event p{color:var(--muted);font-size:.95rem}
+.event .link{font-weight:600;font-size:.88rem;color:var(--burgundy);text-decoration:none;border-bottom:1px solid var(--gold);justify-self:start;padding-bottom:2px;background:none;border-top:0;border-left:0;border-right:0;cursor:pointer;font-family:var(--f-body)}
+.mosaic{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;gap:10px;aspect-ratio:16/10}
+.mosaic img{width:100%;height:100%;object-fit:cover;border-radius:var(--r);min-height:0}
+.mosaic img:first-child{grid-row:1/3}
+@media (max-width:820px){.event,.event:nth-child(even){grid-template-columns:1fr}.event:nth-child(even) .event-copy{order:0}}
+
+/* DUBAI */
+.dubai{display:grid;grid-template-columns:1.1fr 1fr;min-height:520px;background:var(--sand)}
+.dubai-img{position:relative;min-height:340px}
+.dubai-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dubai-copy{display:grid;gap:22px;align-content:center;padding:clamp(40px,6vw,88px) var(--gutter-r) clamp(40px,6vw,88px) clamp(24px,5vw,72px);min-width:0}
+.dubai-copy h2 em{font-style:italic;color:var(--burgundy)}
+.dubai-copy ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.dubai-copy li{display:flex;gap:12px;font-size:.95rem}
+.dubai-copy li::before{content:"";flex:none;width:7px;height:7px;margin-top:9px;border-radius:50%;background:var(--gold-deep)}
+@media (max-width:860px){.dubai{grid-template-columns:1fr}.dubai-copy{padding-left:var(--gutter)}}
+
+/* PLAN / WIZARD */
+.plan{background:linear-gradient(180deg,var(--ivory) 0%,var(--sand) 100%)}
+.builder{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(28px,4vw,56px);align-items:start}
+.wizard{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,3vw,36px);display:grid;gap:24px;min-width:0;box-shadow:0 24px 60px rgba(62,22,34,.08)}
+.progress{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.progress li{display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;color:var(--muted);min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.progress span{flex:none;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;border:1px solid var(--line);font-size:.74rem;background:var(--ivory)}
+.progress li.is-on{color:var(--burgundy)}
+.progress li.is-on span{background:var(--burgundy);border-color:var(--burgundy);color:var(--on-dark)}
+.progress li.is-done span{background:var(--gold);border-color:var(--gold);color:var(--night)}
+@media (max-width:600px){.progress li{font-size:0;gap:0;justify-content:center}.progress li span{font-size:.74rem}}
+.bar{height:3px;background:var(--sand);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;width:20%;background:linear-gradient(90deg,var(--burgundy),var(--gold));transition:width .35s ease}
+fieldset{border:0;margin:0;padding:0;display:grid;gap:20px;min-width:0}
+legend{font-family:var(--f-display);font-size:clamp(1.6rem,2.6vw,2.1rem);font-weight:500;color:var(--burgundy);padding:0;margin-bottom:18px;letter-spacing:-.01em}
+.step{animation:stepIn .35s ease}
+@keyframes stepIn{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tiles.small{grid-template-columns:repeat(4,1fr)}
+@media (max-width:700px){.tiles,.tiles.small{grid-template-columns:repeat(2,1fr)}}
+.tile{position:relative;display:block;cursor:pointer}
+.tile input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.tile .t{display:grid;gap:8px;align-content:start;height:100%;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--ivory);transition:border-color .15s,background .15s,transform .15s}
+.tile:hover .t{border-color:var(--gold);transform:translateY(-2px)}
+.tile svg{width:28px;height:28px;color:var(--gold-deep)}
+.tile b{font-family:var(--f-body);font-weight:600;font-size:.98rem;color:var(--espresso)}
+.tile small{font-size:.78rem;color:var(--muted);line-height:1.4}
+.tile input:checked+.t{border-color:var(--burgundy);background:#F3E6E4;box-shadow:inset 0 0 0 1px var(--burgundy)}
+.tile input:checked+.t svg{color:var(--burgundy)}
+.tile input:focus-visible+.t{outline:2px solid var(--gold);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer;margin:0}
+.chip span{display:inline-block;padding:9px 15px;border-radius:999px;border:1px solid var(--line);background:var(--ivory);font-size:.86rem;font-weight:500;color:var(--espresso);transition:all .15s}
+.chip input:checked+span{background:var(--burgundy);border-color:var(--burgundy);color:var(--on-dark)}
+.chip input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+.seg{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--line);border-radius:12px;background:var(--ivory);justify-self:start;max-width:100%}
+.seg label{position:relative}
+.seg input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.seg span{display:block;padding:8px 14px;border-radius:9px;font-size:.84rem;font-weight:600;color:var(--muted)}
+.seg input:checked+span{background:var(--burgundy);color:var(--on-dark)}
+.seg input:focus-visible+span{outline:2px solid var(--gold)}
+.fields{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.fields.two{grid-template-columns:1fr 1fr}
+.field{display:grid;gap:8px;min-width:0}
+.field>label,.flabel{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.hint{font-style:normal;text-transform:none;letter-spacing:0;font-weight:500;color:var(--gold-deep)}
+.field input[type=text],.field input[type=tel],.field input[type=date],.field select,.field textarea{width:100%;min-width:0;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--ivory);font:500 .96rem var(--f-body);color:var(--espresso)}
+.field textarea{min-height:90px;resize:vertical}
+.field output{font-family:var(--f-display);font-size:1.7rem;letter-spacing:0;text-transform:none;color:var(--burgundy);font-weight:500}
+input[type=range]{width:100%;accent-color:var(--burgundy);height:28px}
+.scale{display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted)}
+@media (max-width:600px){.fields,.fields.two{grid-template-columns:1fr}}
+.check{display:flex;gap:10px;align-items:center;font-size:.92rem}
+.check input{width:18px;height:18px;accent-color:var(--burgundy)}
+.err{color:#A3322B;font-size:.86rem;font-weight:600}
+.nav-row{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:20px}
+.stepcount{font-size:.8rem;color:var(--muted)}
+.btn-line{border-color:var(--line);background:transparent;color:var(--espresso)}
+.btn-line:hover{border-color:var(--burgundy);color:var(--burgundy)}
+.done{display:grid;gap:16px}
+.done h3{font-size:clamp(2rem,3.4vw,2.8rem);color:var(--burgundy)}
+.done p{color:var(--muted);max-width:52ch}
+.done-ctas{display:flex;flex-wrap:wrap;gap:10px}
+
+/* the board — modelled on their easel station boards */
+.board{position:sticky;top:96px;background:var(--paper);border-radius:4px;padding:14px;box-shadow:0 30px 60px rgba(62,22,34,.18);min-width:0}
+.board-in{border:1px solid var(--gold);outline:1px solid var(--gold);outline-offset:-6px;padding:28px 24px 24px;display:grid;gap:14px;text-align:center}
+.board-mono{width:130px;height:auto;margin:0 auto}
+.board h3{font-size:1.9rem;color:var(--burgundy)}
+.board .rule{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.board dl{display:grid;grid-template-columns:auto 1fr;gap:7px 14px;text-align:left;margin:0;font-size:.88rem}
+.board dt{font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);padding-top:3px}
+.board dd{margin:0;color:var(--espresso);font-weight:500;min-width:0;overflow-wrap:anywhere}
+.board-sub{font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep)}
+.board ol{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-family:var(--f-display);font-size:1.2rem;color:var(--espresso)}
+.board ol li.empty{font-family:var(--f-body);font-size:.84rem;color:var(--muted);font-style:italic}
+.board-extras{font-size:.82rem;color:var(--muted)}
+.board-extras:empty{display:none}
+.board .curated{font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.wa-icon{width:18px;height:18px;flex:none}
+.note{font-size:.84rem;color:var(--muted)}
+@media (max-width:960px){.builder{grid-template-columns:1fr}.board{position:static}}
+
+/* BEYOND BRANDING CREDIT */
+.credit{position:relative;background:#120B0D;color:var(--on-dark-muted);overflow:hidden;border-top:1px solid rgba(197,166,107,.18)}
+.credit-wm{position:absolute;left:50%;bottom:-0.18em;transform:translateX(-50%);white-space:nowrap;font:700 clamp(2.1rem,8.4vw,8.2rem)/1 var(--f-body);letter-spacing:-.04em;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px rgba(197,166,107,.16);pointer-events:none;user-select:none}
+.credit-in{position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-block:44px 120px;font-size:.82rem}
+@media (min-width:821px){.credit-in{padding-block:52px 96px}}
+.credit a{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--on-dark)}
+.credit a:hover .bb-name{color:var(--gold)}
+.bb-mark{display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--gold);border-radius:50%;font:700 .78rem var(--f-body);letter-spacing:.06em;color:var(--gold)}
+.bb-name{display:grid;gap:2px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;font-size:.9rem;transition:color .2s}
+.bb-name small{font-weight:500;letter-spacing:.14em;font-size:.66rem;color:var(--on-dark-muted)}
+.credit-note{display:grid;gap:4px;max-width:40ch}
+.credit-note b{color:var(--on-dark);font-weight:600;font-size:.92rem}
+
+/* FOOTER */
+footer{background:var(--night);color:var(--on-dark-muted);font-size:.88rem}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;padding-block:64px 40px}
+.foot img{height:54px;width:auto;margin-bottom:16px}
+.foot h4{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--gold)}
+.legal{border-top:1px solid rgba(197,166,107,.2);padding-block:20px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:.78rem}
+@media (max-width:820px){.foot{grid-template-columns:1fr 1fr}}
+
+
+/* mobile sticky bar */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:55;display:none;gap:10px;padding:10px var(--gutter-r) calc(10px + env(safe-area-inset-bottom,0px)) var(--gutter);background:rgba(30,20,22,.96);backdrop-filter:blur(8px);border-top:1px solid rgba(197,166,107,.3)}
+.mbar .btn{flex:1;justify-content:center;padding:12px}
+@media (max-width:820px){.mbar{display:flex}}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--espresso);color:var(--on-dark);padding:10px 16px;border-radius:999px;font-size:.84rem;z-index:70}
+</style>
+<style>body{margin:0}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></symbol>
+  <symbol id="i-tick" viewBox="0 0 16 16"><path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 16 16"><path d="M8 3v10M3 8h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top" aria-label="Premium Caterers home"><img src="/pitch/premium-caterers/img/logo-light.png" alt="Premium Caterers" width="686" height="265"></a>
+    <ul class="nav-links">
+      <li><a href="#experiences">Experiences</a></li>
+      <li><a href="#stations">Live Stations</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#dubai">Dubai</a></li>
+    </ul>
+    <a class="btn btn-ghost" href="#plan" style="color:var(--on-dark)">Plan Your Event <svg class="arrow"><use href="#i-arrow"/></svg></a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <img class="hero-img" src="/pitch/premium-caterers/img/hero.webp" alt="A long buffet line of gold domed chafing dishes, red and white florals and lantern light" fetchpriority="high">
+    <div class="wrap hero-in">
+      <div style="display:grid;gap:22px">
+        <p class="eyebrow">Catering · India &amp; Dubai</p>
+        <h1>The Art of Hosting, <em>Perfected.</em></h1>
+        <p class="lead">Live counters, curated menus and calm, uniformed service for weddings, corporate events and celebrations. Planned with Chef Gagan Pathak.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-gold" href="#plan">Plan Your Event <svg class="arrow"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost" href="#stations">See the live stations</a>
+        </div>
+      </div>
+      <form class="datecheck" id="datecheck" aria-label="Check your date">
+        <label for="dc-date"><span>Event date</span><input id="dc-date" type="date" required></label>
+        <label for="dc-city"><span>City</span>
+          <select id="dc-city"><option>Indore</option><option>Bhopal</option><option>Ujjain</option><option>Dewas</option><option>Dubai</option><option>Other city</option></select></label>
+        <label for="dc-guests"><span>Guests</span><input id="dc-guests" type="number" min="10" step="10" placeholder="e.g. 400" inputmode="numeric"></label>
+        <button class="btn btn-primary" type="submit">Check my date</button>
+      </form>
+      <div class="proof"><span>Chef-led</span><span>Pure vegetarian kitchen</span><span>Indore · Bhopal · Ujjain · Dewas</span><span>Now in Dubai</span></div>
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="wrap trust-in">
+      <b>Trusted at</b>
+      <i>ITC Bhopal</i><i>Snehjeev Paradise Farms</i><i>Rajshahi Resort</i><i>Aarohan 2026 · SGSITS Indore</i>
+    </div>
+  </div>
+
+  <section class="pad">
+    <div class="wrap philo">
+      <div class="philo-copy">
+        <p class="eyebrow">Our philosophy</p>
+        <h2>We Serve Moments.<br>You Enjoy <em>Memories.</em></h2>
+        <p class="lead">Guests remember three things about the food at a celebration: how it tasted, how it looked, and how easy it felt to be served. We plan all three together, from the menu to the last counter light.</p>
+        <div class="pillars">
+          <div><strong>Culinary craft</strong><p>Menus built around your guests, cooked fresh at live counters.</p></div>
+          <div><strong>Presentation</strong><p>Brass and gold serveware, lit counter fronts, styled stations.</p></div>
+          <div><strong>Hospitality</strong><p>Trained, uniformed staff and one point of contact on the day.</p></div>
+        </div>
+        <a class="btn btn-primary" href="#story" style="justify-self:start">Meet the chef <svg class="arrow"><use href="#i-arrow"/></svg></a>
+      </div>
+      <figure class="philo-img" style="margin:0"><img src="/pitch/premium-caterers/img/ai-chef.webp" alt="A chef in gloves finishing a vegetable dish in a brass pan at a live counter" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <section class="pad" id="experiences" style="padding-top:0">
+    <div class="wrap">
+      <div class="head split">
+        <div style="display:grid;gap:16px"><p class="eyebrow">Experiences</p><h2>Made for every kind of gathering.</h2></div>
+        <p class="lead">From a 50-guest kitty party to a wedding food court on a lawn, every event gets its own menu, station line-up and service plan.</p>
+      </div>
+      <div class="occasions">
+        <a class="occ" href="#plan" data-occasion="Wedding"><img src="/pitch/premium-caterers/img/ai-wedding.webp" alt="Wedding food counter with brass serveware and a floral mandap behind" loading="lazy"><div class="occ-body"><h3>Weddings &amp; Receptions</h3><p>Food courts, live counters and a feast worth the occasion.</p><span class="more">Plan a wedding</span></div></a>
+        <a class="occ" href="#plan" data-occasion="Corporate"><img src="/pitch/premium-caterers/img/ai-corporate.webp" alt="Hotel buffet with gold chafing dishes, orchids and a server in a waistcoat" loading="lazy"><div class="occ-body"><h3>Corporate Events</h3><p>On time, on brief, and right for a hotel or campus crowd.</p><span class="more">Get a corporate quote</span></div></a>
+        <a class="occ" href="#plan" data-occasion="Birthday or anniversary"><img src="/pitch/premium-caterers/img/celebration.webp" alt="Gold domed chafing dishes on ivory and gold drapes at a private celebration" loading="lazy"><div class="occ-body"><h3>Private Celebrations</h3><p>Birthdays, anniversaries, retirements, kitty parties and haldi.</p><span class="more">Plan a celebration</span></div></a>
+        <a class="occ" href="#stations"><img src="/pitch/premium-caterers/img/chefs-plating.webp" alt="Chefs in white preparing dishes at a busy outdoor live counter" loading="lazy"><div class="occ-body"><h3>Live Stations</h3><p>A little theatre. A lot of flavour. Built your way.</p><span class="more">Build a line-up</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="pad stations-band" id="stations">
+    <div class="wrap">
+      <div class="head split">
+        <div style="display:grid;gap:16px"><p class="eyebrow">Live stations</p><h2>Pick the counters your guests will talk about.</h2></div>
+        <p class="lead">These are real counters from our events. Add the ones you like and they go straight onto your event board below.</p>
+      </div>
+      <div class="station-row" id="stationRow"></div>
+      <p class="row-hint" id="rowHint">0 stations added · <a href="#plan">see your line-up</a></p>
+    </div>
+  </section>
+
+  <section class="pad dark">
+    <div class="wrap kitchen">
+      <div class="kitchen-copy">
+        <p class="eyebrow">In the kitchen</p>
+        <h2>Not your <em>average</em> caterer.</h2>
+        <p class="lead">Flames, handis and hot tawas, cooked in front of your guests. The live counter is where a meal turns into a memory.</p>
+      </div>
+      <div class="kitchen-video">
+        <video id="kv" src="/pitch/premium-caterers/img/kitchen.mp4" poster="/pitch/premium-caterers/img/kitchen-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Montage of chefs cooking at live counters"></video>
+        <button class="vid-toggle" id="kvToggle" type="button">Pause</button>
+      </div>
+      <ul class="facts">
+        <li><strong>Cooked live</strong><span>Wok, tawa, tandoor-style and pizza counters run by our own chefs.</span></li>
+        <li><strong>Styled counters</strong><span>Lit fronts, brass handis and themed stalls like our Rajasthani dhaba.</span></li>
+        <li><strong>Clean service</strong><span>Gloves, caps and uniformed staff at every counter.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pad founder" id="story">
+    <div class="wrap founder-in">
+      <figure class="portrait" style="margin:0">
+        <img src="/pitch/premium-caterers/img/gagan.webp" alt="Chef Gagan Pathak in chef whites, smiling" loading="lazy">
+        <figcaption>Founder &amp; head chef</figcaption>
+      </figure>
+      <div class="founder-copy">
+        <p class="eyebrow">Our story</p>
+        <h2>Meet Chef Gagan Pathak.</h2>
+        <blockquote>“We Serve Moments. You Enjoy Memories.”</blockquote>
+        <p>Premium Caterers began in Dewas and now serves weddings, corporate events and celebrations across Indore, Bhopal and Ujjain, and in Dubai. Chef Gagan plans every menu with the family or company that books, and you can talk to him directly before you decide.</p>
+        <p class="sig">Gagan Pathak</p>
+        <div class="founder-ctas">
+          <button class="btn btn-gold" type="button" id="tastingBtn">Book a tasting with Gagan <svg class="arrow"><use href="#i-arrow"/></svg></button>
+          <a class="btn btn-ghost" id="waGagan" href="https://wa.me/918602438138" target="_blank" rel="noopener"><svg class="wa-icon"><use href="#i-wa"/></svg> WhatsApp</a>
+        </div>
+        <p class="num">Call or WhatsApp <b>+91 86024 38138</b> <button class="copy" type="button" data-copy="+91 86024 38138">Copy</button></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pad" id="events">
+    <div class="wrap">
+      <div class="head split">
+        <div style="display:grid;gap:16px"><p class="eyebrow">Selected events</p><h2>Real counters. Real nights.</h2></div>
+        <p class="lead">A few events we have catered recently. Every photo here is from the day itself.</p>
+      </div>
+      <div class="events">
+        <article class="event">
+          <div class="event-copy">
+            <p class="event-meta">Corporate · Bhopal</p>
+            <h3>ITC Bhopal</h3>
+            <p>A full buffet line with live counters under a decorated marquee: lit counter fronts, fresh florals and chefs cooking to order.</p>
+            <button class="link" type="button" data-occasion="Corporate">Plan something similar →</button>
+          </div>
+          <div class="mosaic"><img src="/pitch/premium-caterers/img/itc-1.webp" alt="Chefs at a lit live counter, ITC Bhopal" loading="lazy"><img src="/pitch/premium-caterers/img/itc-3.webp" alt="Counter with florals and brass serveware" loading="lazy"><img src="/pitch/premium-caterers/img/itc-2.webp" alt="Chef behind a decorated counter" loading="lazy"></div>
+        </article>
+        <article class="event">
+          <div class="event-copy">
+            <p class="event-meta">Evening celebration · Indore</p>
+            <h3>Snehjeev Paradise Farms</h3>
+            <p>An open-air evening with styled stations, live handis and a counter for every craving, set among flowers and stage lights.</p>
+            <button class="link" type="button" data-occasion="Wedding">Plan something similar →</button>
+          </div>
+          <div class="mosaic"><img src="/pitch/premium-caterers/img/sneh-handi.webp" alt="Live handi of curry served at night" loading="lazy"><img src="/pitch/premium-caterers/img/sneh-bowls.webp" alt="Bowls of chaat toppings on a styled counter" loading="lazy"><img src="/pitch/premium-caterers/img/sneh-party.webp" alt="Guests at an open-air evening event" loading="lazy"></div>
+        </article>
+        <article class="event">
+          <div class="event-copy">
+            <p class="event-meta">Outdoor food court · Malwa</p>
+            <h3>Rajshahi Resort</h3>
+            <p>A lawn-side food court of illuminated counters with laser-cut swan fronts, plus a themed Rajasthani dhaba.</p>
+            <button class="link" type="button" data-occasion="Wedding">Plan something similar →</button>
+          </div>
+          <div class="mosaic"><img src="/pitch/premium-caterers/img/swan-counters.webp" alt="Illuminated counters with swan patterns at night" loading="lazy"><img src="/pitch/premium-caterers/img/rajshahi.webp" alt="Counters on the lawn in front of Rajshahi Resort" loading="lazy"><img src="/pitch/premium-caterers/img/gate-counter.webp" alt="Ornate white gate-style counter lit at night" loading="lazy"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="dubai" class="dubai">
+    <div class="dubai-img"><img src="/pitch/premium-caterers/img/dubai-2.webp" alt="Dessert and fruit display at a beachfront live station in Dubai" loading="lazy"></div>
+    <div class="dubai-copy">
+      <p class="eyebrow">Now in Dubai</p>
+      <h2>Indian hosting, <em>by the sea.</em></h2>
+      <p class="lead">We have started catering in Dubai, from beachfront live stations to private celebrations and Indian weddings.</p>
+      <ul>
+        <li>Vegetarian menus, with Jain options on request</li>
+        <li>Live counters and buffet set-ups, staffed by our chefs</li>
+        <li>Planned on WhatsApp, same team as India</li>
+      </ul>
+      <a class="btn btn-primary" id="waDubai" href="https://wa.me/918602438138" target="_blank" rel="noopener" style="justify-self:start"><svg class="wa-icon"><use href="#i-wa"/></svg> Plan an event in Dubai</a>
+    </div>
+  </section>
+
+  <section class="pad plan" id="plan">
+    <div class="wrap">
+      <div class="head split">
+        <div style="display:grid;gap:16px"><p class="eyebrow">Plan your event</p><h2>Let’s plan your menu, step by step.</h2></div>
+        <p class="lead">Five short steps, about two minutes. Your event board fills in as you go, and Chef Gagan gets everything he needs to reply with a proposal.</p>
+      </div>
+      <div class="builder">
+        <form class="wizard" id="wizard" novalidate>
+          <ol class="progress" id="progress" aria-label="Steps">
+            <li data-step="1"><span>1</span>Occasion</li>
+            <li data-step="2"><span>2</span>Details</li>
+            <li data-step="3"><span>3</span>Food</li>
+            <li data-step="4"><span>4</span>Extras</li>
+            <li data-step="5"><span>5</span>Contact</li>
+          </ol>
+          <div class="bar"><i id="barFill"></i></div>
+
+          <fieldset class="step" data-step="1">
+            <legend>What are we celebrating?</legend>
+            <div class="tiles" id="occTiles"></div>
+            <p class="err" id="err1" hidden>Pick an occasion to continue.</p>
+          </fieldset>
+
+          <fieldset class="step" data-step="2" hidden>
+            <legend>When, where and how many?</legend>
+            <div class="fields two">
+              <div class="field"><label for="f-date">Event date</label><input id="f-date" type="date"></div>
+              <div class="field"><label for="f-days">How many days</label>
+                <div class="seg" id="daysSeg" role="radiogroup" aria-label="Number of days"></div></div>
+            </div>
+            <label class="check" for="f-flex"><input id="f-flex" type="checkbox"> Date not fixed yet</label>
+            <div class="field"><span class="flabel">City</span><div class="chips" id="cityChips"></div></div>
+            <div class="field">
+              <label for="f-guests">Guests <output id="guestsOut" for="f-guests">300</output></label>
+              <input id="f-guests" type="range" min="25" max="2000" step="25" value="300">
+              <div class="scale" aria-hidden="true"><span>25</span><span>500</span><span>1,000</span><span>1,500</span><span>2,000+</span></div>
+            </div>
+            <div class="field"><span class="flabel">Venue</span><div class="seg" id="venueSeg" role="radiogroup" aria-label="Venue status"></div></div>
+            <div class="field" id="venueNameWrap"><label for="f-venue">Venue name</label><input id="f-venue" type="text" placeholder="e.g. Snehjeev Paradise Farms"></div>
+            <p class="err" id="err2" hidden>Add a date or tick “Date not fixed yet”.</p>
+          </fieldset>
+
+          <fieldset class="step" data-step="3" hidden>
+            <legend>How should we serve it?</legend>
+            <div class="tiles small" id="styleTiles"></div>
+            <div class="field"><span class="flabel">Cuisines you’d like</span><div class="chips" id="cuisineChips"></div></div>
+            <div class="field"><span class="flabel">Live stations <em class="hint">synced with the station cards above</em></span><div class="chips" id="stChips"></div></div>
+            <div class="field"><span class="flabel">Dietary</span><div class="chips" id="dietChips"></div></div>
+          </fieldset>
+
+          <fieldset class="step" data-step="4" hidden>
+            <legend>Anything extra?</legend>
+            <div class="chips" id="extraChips"></div>
+            <div class="field"><span class="flabel">Budget per plate <em class="hint">optional, helps us propose the right menu</em></span><div class="seg wrapseg" id="budgetSeg" role="radiogroup" aria-label="Budget per plate"></div></div>
+            <div class="field"><label for="f-notes">Theme, timings or must-have dishes</label><textarea id="f-notes" placeholder="e.g. Rajasthani theme for the sangeet, hi-tea at 5pm, grandmother’s favourite moong dal halwa"></textarea></div>
+          </fieldset>
+
+          <fieldset class="step" data-step="5" hidden>
+            <legend>Where should Chef Gagan reply?</legend>
+            <div class="fields two">
+              <div class="field"><label for="f-name">Your name</label><input id="f-name" type="text" autocomplete="name" placeholder="Full name"></div>
+              <div class="field"><label for="f-phone">Phone / WhatsApp</label><input id="f-phone" type="tel" autocomplete="tel" placeholder="+91 98xxx xxxxx"></div>
+            </div>
+            <div class="fields two">
+              <div class="field"><span class="flabel">Reply on</span><div class="seg" id="replySeg" role="radiogroup" aria-label="Reply on"></div></div>
+              <div class="field"><label for="f-time">Best time to reach you</label>
+                <select id="f-time"><option>Any time</option><option>Morning (9–12)</option><option>Afternoon (12–5)</option><option>Evening (5–9)</option></select></div>
+            </div>
+            <div class="field"><label for="f-source">How did you hear about us?</label>
+              <select id="f-source"><option value="">Choose one</option><option>Instagram</option><option>Attended an event we catered</option><option>Friend or family</option><option>Venue recommendation</option><option>Google</option><option>Other</option></select></div>
+            <p class="err" id="err5" hidden>Add your name and a phone number with at least 10 digits.</p>
+          </fieldset>
+
+          <div class="step done" data-step="6" hidden>
+            <p class="eyebrow">Your enquiry is ready</p>
+            <h3>Send it to Chef Gagan.</h3>
+            <p>Tap the button to open WhatsApp with your full event board written out. Nothing is sent until you press send in WhatsApp.</p>
+            <div class="done-ctas">
+              <a class="btn btn-primary" id="doneWa" href="https://wa.me/918602438138" target="_blank" rel="noopener"><svg class="wa-icon"><use href="#i-wa"/></svg> Open WhatsApp</a>
+              <button class="btn btn-line" type="button" id="copySummary">Copy summary</button>
+              <button class="btn btn-line" type="button" id="editAgain">Edit answers</button>
+            </div>
+            <p class="note">Prefer to call? <b style="user-select:all">+91 86024 38138</b></p>
+          </div>
+
+          <div class="nav-row" id="navRow">
+            <button class="btn btn-line" type="button" id="back">Back</button>
+            <span class="stepcount" id="stepCount">Step 1 of 5</span>
+            <button class="btn btn-primary" type="button" id="next">Next <svg class="arrow"><use href="#i-arrow"/></svg></button>
+          </div>
+        </form>
+
+        <aside class="board" aria-live="polite" aria-label="Your event board">
+          <div class="board-in">
+            <img class="board-mono" src="/pitch/premium-caterers/img/logo-dark.png" alt="" width="686" height="265">
+            <div class="rule"></div>
+            <h3 id="b-title">Your event</h3>
+            <dl>
+              <dt>Date</dt><dd id="b-date">To be decided</dd>
+              <dt>Where</dt><dd id="b-city">Indore</dd>
+              <dt>Guests</dt><dd id="b-guests">300</dd>
+              <dt>Service</dt><dd id="b-style">—</dd>
+              <dt>Cuisine</dt><dd id="b-cuisine">—</dd>
+              <dt>Diet</dt><dd id="b-diet">Pure vegetarian</dd>
+              <dt>Budget</dt><dd id="b-budget">—</dd>
+            </dl>
+            <div class="rule"></div>
+            <p class="board-sub">Live stations</p>
+            <ol id="b-stations"><li class="empty">Add stations to build your line-up</li></ol>
+            <p class="board-extras" id="b-extras"></p>
+            <div class="rule"></div>
+            <p class="curated">Curated by Chef Gagan Pathak</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <img src="/pitch/premium-caterers/img/logo-light.png" alt="Premium Caterers" width="686" height="265">
+      <p>We Serve Moments. You Enjoy Memories.<br>Chef-led catering since Dewas.</p>
+    </div>
+    <div><h4>Experiences</h4><ul><li><a href="#experiences">Weddings &amp; receptions</a></li><li><a href="#experiences">Corporate events</a></li><li><a href="#experiences">Private celebrations</a></li><li><a href="#stations">Live stations</a></li></ul></div>
+    <div><h4>Cities</h4><ul><li>Indore</li><li>Bhopal</li><li>Ujjain</li><li>Dewas</li><li><a href="#dubai">Dubai</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li>Call or WhatsApp<br><b style="color:var(--on-dark);user-select:all">+91 86024 38138</b></li><li><a href="https://www.instagram.com/premiumcaterers.in/" target="_blank" rel="noopener">Instagram @premiumcaterers.in</a></li><li><a href="#plan">Plan your event</a></li></ul></div>
+  </div>
+  <div class="wrap legal"><span>© 2026 Premium Caterers</span><span>Curated by Chef Gagan Pathak</span></div>
+  <div class="credit">
+    <span class="credit-wm" aria-hidden="true">Beyond Branding</span>
+    <div class="wrap credit-in">
+      <p class="credit-note"><b>Designed &amp; developed by Beyond Branding</b><span>Website, brand refresh and content for Premium Caterers.</span></p>
+      <a href="https://thebeyondbranding.com" target="_blank" rel="noopener" aria-label="Beyond Branding website"><span class="bb-mark">BB</span><span class="bb-name">Beyond Branding<small>Premium brand &amp; web studio</small></span></a>
+    </div>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Quick actions">
+  <a class="btn btn-ghost" style="color:var(--on-dark)" id="mWa" href="https://wa.me/918602438138" target="_blank" rel="noopener"><svg class="wa-icon"><use href="#i-wa"/></svg> WhatsApp</a>
+  <a class="btn btn-gold" href="#plan">Plan event</a>
+</nav>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+  const PHONE = '918602438138';
+  const $ = s => document.querySelector(s);
+  const $$ = s => [...document.querySelectorAll(s)];
+  const ic = p => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
+
+  const STATIONS = [
+    {id:'mithai', name:'Mithai Station', img:'mithai-station', alt:'Mithai Station menu board beside a tray of sweets', text:'Traditional Indian sweets, plated fresh at the counter.'},
+    {id:'chaat', name:'Chaat Station', img:'chaat-station', alt:'Chaat Station board on a lit counter', text:'Tangy, crunchy street favourites, assembled to order.'},
+    {id:'pizza', name:'Wood-fired Pizza', img:'pizza-oven', alt:'Chefs sliding a pizza into a wood-fired oven', text:'Live oven, blistered crusts, straight from the fire.'},
+    {id:'tawa', name:'Live Tawa', img:'tawa', alt:'Chef toasting sandwiches on a large tawa', text:'Griddled sandwiches and tawa specials, hot off the plate.'},
+    {id:'wok', name:'Wok & Flambé', img:'flambe', alt:'Chef tossing a wok as flames rise', text:'Indo-Chinese and stir-fries with a burst of fire.'},
+    {id:'handi', name:'Handi & Indian Mains', img:'sneh-handi', alt:'Brass handi of curry at a night counter', text:'Slow-cooked curries and dals served from brass handis.'},
+    {id:'dhaba', name:'Rajasthani Dhaba', img:'dhaba', alt:'Themed Rajasthani dhaba counter with painted front', text:'A themed village stall with Rajasthani classics.'},
+    {id:'fruit', name:'Fruit & Salad Bar', img:'fruit', alt:'Sliced watermelon arranged on a platter', text:'Seasonal fruit and fresh salads, styled to graze.'}
+  ];
+  const OCC = [
+    {v:'Wedding', d:'Wedding day feast and reception', i:'<path d="M9 14a5 5 0 1 0 0 .01M15 14a5 5 0 1 0 0 .01"/><path d="m9 5 1.5-2h3L15 5l-3 3z"/>'},
+    {v:'Pre-wedding', d:'Haldi, mehndi, sangeet', i:'<path d="M12 21c-4-3-7-6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4-3 7-7 10z"/>'},
+    {v:'Corporate', d:'Conferences, launches, galas', i:'<rect x="4" y="7" width="16" height="13" rx="1.5"/><path d="M9 7V4h6v3M4 12h16"/>'},
+    {v:'Birthday or anniversary', d:'Milestones with family', i:'<path d="M5 21h14v-8H5zM5 16c2 1 4-1 7 0s5 1 7 0M12 13V9M12 6.5c-1-1.2 0-2.5 0-3.5 0 1 1 2.3 0 3.5z"/>'},
+    {v:'Kitty or house party', d:'Intimate gatherings at home', i:'<path d="M4 11 12 4l8 7M6 9.5V20h12V9.5M10 20v-5h4v5"/>'},
+    {v:'Something else', d:'Pooja, retirement, college fest', i:'<path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/>'}
+  ];
+  const STYLE = [
+    {v:'Buffet', d:'Styled counters, self-serve', i:'<path d="M3 17h18M5 17a7 7 0 0 1 14 0M12 8V6M10 6h4"/>'},
+    {v:'Live stations', d:'Chefs cooking to order', i:'<path d="M12 3c2 3-1 4 1 7 1-1 2-1 2-3 2 2 3 4 3 6a6 6 0 0 1-12 0c0-2 1-3 2-4 0 2 1 3 2 3-1-3 0-6 2-9z"/>'},
+    {v:'Buffet + live stations', d:'Counters plus a live show', i:'<path d="M3 19h18M5 19a7 7 0 0 1 14 0M12 5c1 1.5-.5 2 .5 3.5"/>'},
+    {v:'Served at table', d:'Plated or thali service', i:'<circle cx="12" cy="13" r="6"/><path d="M3 5v6M3 8h2M21 5v14"/>'}
+  ];
+  const CUISINES = ['North Indian','South Indian','Rajasthani','Gujarati','Indo-Chinese','Italian','Continental','Chaat & street food','Desserts & mithai'];
+  const DIETS = ['Pure vegetarian','Jain','No onion-garlic','Vegan options'];
+  const EXTRAS = ['Tasting with Chef Gagan','Mocktail & beverage bar','Dessert station','Breakfast or hi-tea','Counter styling & tablescapes','Crockery & service staff'];
+  const BUDGET = ['Not sure','Under ₹800','₹800–1,500','₹1,500–2,500','₹2,500+'];
+  const CITIES = ['Indore','Bhopal','Ujjain','Dewas','Dubai','Other city'];
+  const VENUE = ['Booked','Still looking','At home'];
+  const DAYS = ['1','2','3+'];
+  const REPLY = ['WhatsApp','Phone call'];
+
+  const st = {occ:'', days:'1', city:'Indore', venue:'Booked', style:'', cuisines:new Set(), stations:new Set(), diet:new Set(['Pure vegetarian']), extras:new Set(), budget:'Not sure', reply:'WhatsApp'};
+
+  // station cards
+  $('#stationRow').innerHTML = STATIONS.map(s => `
+    <article class="station">
+      <img src="/pitch/premium-caterers/img/${s.img}.webp" alt="${s.alt}" loading="lazy">
+      <div class="station-body"><h3>${s.name}</h3><p>${s.text}</p>
+      <button class="add" type="button" data-st="${s.id}" aria-pressed="false"><svg class="tick"><use href="#i-plus"/></svg><span>Add to line-up</span></button></div>
+    </article>`).join('');
+
+  const tile = (name, o, type) => `<label class="tile"><input type="${type}" name="${name}" value="${o.v}"><span class="t">${ic(o.i)}<b>${o.v}</b><small>${o.d}</small></span></label>`;
+  const chip = (name, v, type, on, extra='') => `<label class="chip"><input type="${type}" name="${name}" value="${v}" ${on?'checked':''} ${extra}><span>${v}</span></label>`;
+  const seg = (name, list, cur) => list.map(v => `<label><input type="radio" name="${name}" value="${v}" ${v===cur?'checked':''}><span>${v}</span></label>`).join('');
+
+  $('#occTiles').innerHTML = OCC.map(o => tile('occ', o, 'radio')).join('');
+  $('#styleTiles').innerHTML = STYLE.map(o => tile('style', o, 'radio')).join('');
+  $('#cityChips').innerHTML = CITIES.map(c => chip('city', c, 'radio', c===st.city)).join('');
+  $('#cuisineChips').innerHTML = CUISINES.map(c => chip('cuisine', c, 'checkbox', false)).join('');
+  $('#stChips').innerHTML = STATIONS.map(s => chip('st', s.name, 'checkbox', false, `data-st="${s.id}"`)).join('');
+  $('#dietChips').innerHTML = DIETS.map(d => chip('diet', d, 'checkbox', st.diet.has(d))).join('');
+  $('#extraChips').innerHTML = EXTRAS.map(d => chip('extra', d, 'checkbox', false)).join('');
+  $('#daysSeg').innerHTML = seg('days', DAYS, st.days);
+  $('#venueSeg').innerHTML = seg('venue', VENUE, st.venue);
+  $('#budgetSeg').innerHTML = seg('budget', BUDGET, st.budget);
+  $('#replySeg').innerHTML = seg('reply', REPLY, st.reply);
+
+  function setStation(id, on){
+    on ? st.stations.add(id) : st.stations.delete(id);
+    $$(`.add[data-st="${id}"]`).forEach(b => {
+      b.setAttribute('aria-pressed', on); b.querySelector('span').textContent = on ? 'Added' : 'Add to line-up';
+      b.querySelector('use').setAttribute('href', on ? '#i-tick' : '#i-plus');
+    });
+    const cb = $(`#stChips input[data-st="${id}"]`); if (cb) cb.checked = on;
+    render();
+  }
+  $('#stationRow').addEventListener('click', e => { const b = e.target.closest('.add'); if (b) setStation(b.dataset.st, !st.stations.has(b.dataset.st)); });
+
+  const toggleSet = (set, v, on) => on ? set.add(v) : set.delete(v);
+  $('#wizard').addEventListener('change', e => {
+    const t = e.target, n = t.name;
+    if (n === 'st') return setStation(t.dataset.st, t.checked);
+    if (n === 'occ') { st.occ = t.value; $('#err1').hidden = true; }
+    if (n === 'style') st.style = t.value;
+    if (n === 'city') st.city = t.value;
+    if (n === 'days') st.days = t.value;
+    if (n === 'venue') { st.venue = t.value; $('#venueNameWrap').hidden = t.value !== 'Booked'; }
+    if (n === 'budget') st.budget = t.value;
+    if (n === 'reply') st.reply = t.value;
+    if (n === 'cuisine') toggleSet(st.cuisines, t.value, t.checked);
+    if (n === 'diet') toggleSet(st.diet, t.value, t.checked);
+    if (n === 'extra') toggleSet(st.extras, t.value, t.checked);
+    render();
+  });
+  $('#wizard').addEventListener('input', render);
+  $('#wizard').addEventListener('submit', e => e.preventDefault());
+
+  // steps
+  let step = 1; const LAST = 5;
+  function go(n, scroll){
+    step = n;
+    $$('#wizard .step').forEach(s => s.hidden = +s.dataset.step !== n);
+    $$('#progress li').forEach(li => { const k = +li.dataset.step; li.classList.toggle('is-on', k === n); li.classList.toggle('is-done', k < n); });
+    $('#barFill').style.width = Math.min(100, n / LAST * 100) + '%';
+    $('#navRow').hidden = n > LAST;
+    $('#back').style.visibility = n === 1 ? 'hidden' : 'visible';
+    $('#stepCount').textContent = `Step ${n} of ${LAST}`;
+    $('#next').innerHTML = n === LAST ? 'Review &amp; send <svg class="arrow"><use href="#i-arrow"/></svg>' : 'Next <svg class="arrow"><use href="#i-arrow"/></svg>';
+    if (scroll) $('#wizard').scrollIntoView({block:'start'});
+    render();
+  }
+  function valid(n){
+    if (n === 1 && !st.occ) { $('#err1').hidden = false; return false; }
+    if (n === 2 && !$('#f-date').value && !$('#f-flex').checked) { $('#err2').hidden = false; return false; }
+    if (n === 5) {
+      const ok = $('#f-name').value.trim() && $('#f-phone').value.replace(/\D/g,'').length >= 10;
+      $('#err5').hidden = !!ok; if (!ok) return false;
+    }
+    return true;
+  }
+  $('#next').addEventListener('click', () => { if (valid(step)) go(step + 1, true); });
+  $('#back').addEventListener('click', () => go(Math.max(1, step - 1), true));
+  $('#editAgain').addEventListener('click', () => go(1, true));
+  $('#f-date').addEventListener('input', () => { $('#err2').hidden = true; });
+  $('#f-flex').addEventListener('change', () => { $('#err2').hidden = true; });
+  $$('#progress li').forEach(li => li.addEventListener('click', () => { const k = +li.dataset.step; if (k < step) go(k, true); }));
+
+  const fmtDate = v => { if(!v) return ''; const d = new Date(v+'T00:00:00'); return isNaN(d) ? v : d.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short',year:'numeric'}); };
+  const guests = () => { const g = +$('#f-guests').value; return g >= 2000 ? '2,000+' : g.toLocaleString('en-IN'); };
+  const dateText = () => $('#f-flex').checked ? 'Flexible' + ($('#f-date').value ? ` (around ${fmtDate($('#f-date').value)})` : '') : (fmtDate($('#f-date').value) || 'To be decided');
+  const stationNames = () => STATIONS.filter(s => st.stations.has(s.id)).map(s => s.name);
+
+  function message(){
+    const v = id => $(id).value.trim();
+    const L = [
+      `Hello Chef Gagan, I'd like to plan an event with Premium Caterers.`, ``,
+      `*Occasion:* ${st.occ || 'Not decided'}`,
+      `*Date:* ${dateText()}${st.days !== '1' ? ` · ${st.days} days` : ''}`,
+      `*City:* ${st.city}${st.venue === 'Booked' && v('#f-venue') ? ' – ' + v('#f-venue') : ` (venue: ${st.venue.toLowerCase()})`}`,
+      `*Guests:* ${guests()}`,
+      `*Service:* ${st.style || 'Please suggest'}`,
+      `*Cuisines:* ${[...st.cuisines].join(', ') || 'Please suggest'}`,
+      `*Live stations:* ${stationNames().join(', ') || 'Please suggest'}`,
+      `*Diet:* ${[...st.diet].join(', ') || 'Vegetarian'}`
+    ];
+    if (st.extras.size) L.push(`*Extras:* ${[...st.extras].join(', ')}`);
+    if (st.budget !== 'Not sure') L.push(`*Budget per plate:* ${st.budget}`);
+    if (v('#f-notes')) L.push(`*Notes:* ${v('#f-notes')}`);
+    L.push('', `– ${v('#f-name') || 'Name'} · ${v('#f-phone') || ''}`.trim(), `Reply on ${st.reply}, ${$('#f-time').value.toLowerCase()}`);
+    if (v('#f-source')) L.push(`Heard about you via: ${v('#f-source')}`);
+    return L.join('\n');
+  }
+  const wa = t => `https://wa.me/${PHONE}?text=${encodeURIComponent(t)}`;
+
+  function render(){
+    const v = id => $(id).value.trim();
+    $('#guestsOut').textContent = guests();
+    $('#b-title').textContent = st.occ ? (st.occ === 'Something else' ? 'Your event' : `Your ${st.occ.toLowerCase()}`) : 'Your event';
+    $('#b-date').textContent = dateText() + (st.days !== '1' ? ` · ${st.days} days` : '');
+    $('#b-city').textContent = st.city + (st.venue === 'Booked' && v('#f-venue') ? ' · ' + v('#f-venue') : '');
+    $('#b-guests').textContent = guests();
+    $('#b-style').textContent = st.style || '—';
+    $('#b-cuisine').textContent = [...st.cuisines].join(', ') || '—';
+    $('#b-diet').textContent = [...st.diet].join(', ') || 'Vegetarian';
+    $('#b-budget').textContent = st.budget === 'Not sure' ? '—' : st.budget + ' / plate';
+    const names = stationNames();
+    $('#b-stations').innerHTML = names.length ? names.map(n => `<li>${n}</li>`).join('') : '<li class="empty">Add stations to build your line-up</li>';
+    $('#b-extras').textContent = st.extras.size ? '+ ' + [...st.extras].join(' · ') : '';
+    $('#rowHint').innerHTML = `${names.length} station${names.length===1?'':'s'} added · <a href="#plan">see your event board</a>`;
+    $('#doneWa').href = wa(message());
+  }
+
+  function setOcc(v){ st.occ = v; const r = $(`#occTiles input[value="${v}"]`); if (r) r.checked = true; render(); }
+  $$('[data-occasion]').forEach(el => el.addEventListener('click', () => {
+    setOcc(el.dataset.occasion); go(2);
+    if (el.tagName === 'BUTTON') $('#plan').scrollIntoView();
+  }));
+
+  // hero date check -> step 2 prefilled
+  $('#datecheck').addEventListener('submit', e => {
+    e.preventDefault();
+    $('#f-date').value = $('#dc-date').value;
+    const c = $(`#cityChips input[value="${$('#dc-city').value}"]`); if (c) { c.checked = true; st.city = c.value; }
+    const g = +$('#dc-guests').value; if (g) $('#f-guests').value = Math.min(2000, Math.max(25, Math.round(g/25)*25));
+    if (!st.occ) setOcc('Wedding');
+    go(2); $('#plan').scrollIntoView();
+    toast('Added to your event board. A few more details and you’re done.');
+  });
+
+  $('#tastingBtn').addEventListener('click', () => {
+    const x = $(`#extraChips input[value="Tasting with Chef Gagan"]`); x.checked = true; st.extras.add(x.value);
+    render(); $('#plan').scrollIntoView(); toast('Tasting request added to your board.');
+  });
+  $('#waGagan').href = wa(`Hello Chef Gagan, I found Premium Caterers online and would like to talk about an event.`);
+  $('#mWa').href = $('#waGagan').href;
+  $('#waDubai').href = wa(`Hello Chef Gagan, I'd like to plan an event in Dubai.\n\nOccasion:\nDate:\nArea / venue:\nGuests:`);
+
+  function copyText(t, btn, label){
+    const done = () => { if (btn) { btn.textContent = 'Copied'; setTimeout(() => btn.textContent = label, 1600); } };
+    try { navigator.clipboard.writeText(t).then(done, () => toast('Copy not allowed here. Select the text instead.')); } catch(_) { toast('Copy not allowed here. Select the text instead.'); }
+  }
+  $$('.copy').forEach(b => b.addEventListener('click', () => copyText(b.dataset.copy, b, 'Copy')));
+  $('#copySummary').addEventListener('click', e => copyText(message(), e.currentTarget, 'Copy summary'));
+
+  let tt; function toast(msg){ const el = $('#toast'); el.textContent = msg; el.hidden = false; clearTimeout(tt); tt = setTimeout(() => el.hidden = true, 2800); }
+
+  const nav = $('#nav'); const onScroll = () => nav.classList.toggle('solid', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  const kv = $('#kv'), kt = $('#kvToggle');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { kv.removeAttribute('autoplay'); kv.pause(); kt.textContent = 'Play'; }
+  kt.addEventListener('click', () => { if (kv.paused) { kv.play(); kt.textContent = 'Pause'; } else { kv.pause(); kt.textContent = 'Play'; } });
+
+  const today = new Date().toISOString().slice(0,10); $('#dc-date').min = today; $('#f-date').min = today;
+  go(1);
+})();
+</script>
+
+</body>
+</html>
