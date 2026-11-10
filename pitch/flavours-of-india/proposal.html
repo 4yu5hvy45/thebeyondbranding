@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Flavours of India Proposal</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" href="assets/logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: a printed-menu style proposal; ivory paper body, espresso cover and pricing band */
+:root{
+  --night:#130b07;--night-2:#1d120c;--ivory:#f5ecdf;--paper:#fbf6ee;--ink:#24170f;--ink-soft:#5f4a39;
+  --gold:#d9a66a;--gold-2:#b0773f;--gold-hi:#f0cf9c;--cream:#f4e6d0;--muted:#bfa88d;--line:rgba(95,74,57,.18);--red:#a8432b;
+  --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;--body:"Jost","Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--body);font-weight:300;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.05;margin:0;text-wrap:balance}
+h2{font-size:clamp(2.1rem,4.2vw,3.4rem)}
+p{margin:0}
+.eyebrow{font-size:.7rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold-2);display:flex;gap:12px;align-items:center}
+.eyebrow::before{content:"";width:26px;height:1px;background:currentColor}
+section{padding-block:96px}
+.lede{font-size:1.08rem;color:var(--ink-soft);max-width:38em;margin-top:18px}
+
+/* COVER */
+.cover{background:radial-gradient(110% 90% at 85% 10%,#3a2213,var(--night) 60%);color:var(--cream);padding-block:0;position:relative;overflow:hidden}
+.cover-top{display:flex;justify-content:space-between;align-items:center;padding-block:28px;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);gap:16px;flex-wrap:wrap}
+.cover-top b{color:var(--gold-hi);font-weight:500}
+.cover-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center;padding-block:50px 90px}
+.cover h1{font-size:clamp(3rem,7vw,5.6rem);color:#f6e2c2;margin-top:22px}
+.cover h1 em{color:var(--gold-hi)}
+.cover p.sub{font-size:1.1rem;color:#dfcbae;max-width:32em;margin-top:22px}
+.cover .eyebrow{color:var(--gold)}
+.cover-meta{display:flex;gap:30px;margin-top:40px;flex-wrap:wrap}
+.cover-meta div{font-size:.78rem;color:var(--muted);letter-spacing:.06em}
+.cover-meta strong{display:block;color:var(--cream);font-weight:400;font-size:.95rem;letter-spacing:0}
+.cover-img{border-radius:999px 999px 16px 16px;overflow:hidden;aspect-ratio:4/5;border:1px solid rgba(217,166,106,.3);padding:10px}
+.cover-img img{width:100%;height:100%;object-fit:cover;border-radius:999px 999px 10px 10px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:3px;font-family:var(--body);font-size:.9rem;text-decoration:none;font-weight:500}
+.btn-gold{background:linear-gradient(135deg,var(--gold-hi),var(--gold) 45%,#b9824a);color:#2a170b}
+.btn-line{border:1px solid rgba(244,230,208,.5);color:var(--cream);font-weight:400}
+.cover .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+
+/* SUMMARY STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:50px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:26px 22px}
+.stat+.stat{border-left:1px solid var(--line)}
+.stat b{font-family:var(--display);font-size:2.8rem;font-weight:500;line-height:1;color:var(--gold-2);font-variant-numeric:tabular-nums}
+.stat p{font-size:.86rem;color:var(--ink-soft);margin-top:8px;line-height:1.45}
+
+/* AUDIT */
+.audit{display:grid;gap:0;margin-top:46px;border-top:1px solid var(--line)}
+.issue{display:grid;grid-template-columns:110px 1fr 1fr;gap:30px;padding:26px 0;border-bottom:1px solid var(--line);align-items:start}
+.sev{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;padding:5px 10px;border-radius:999px;justify-self:start;font-weight:500}
+.sev.high{background:rgba(168,67,43,.12);color:var(--red)}
+.sev.med{background:rgba(176,119,63,.14);color:var(--gold-2)}
+.issue h3{font-size:1.45rem}
+.issue .found{font-size:.9rem;color:var(--ink-soft);margin-top:6px}
+.issue code{font-family:ui-monospace,Menlo,monospace;font-size:.78rem;background:rgba(95,74,57,.08);padding:2px 6px;border-radius:4px;word-break:break-all}
+.fix{font-size:.92rem;color:var(--ink);border-left:2px solid var(--gold);padding-left:16px}
+.fix b{display:block;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-2);font-weight:500;margin-bottom:4px}
+
+/* BEFORE AFTER */
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px}
+.ba figure{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.ba figure div{aspect-ratio:16/11;overflow:hidden;background:#000}
+.ba img{width:100%;height:100%;object-fit:cover}
+.ba figcaption{padding:16px 20px;font-size:.88rem;color:var(--ink-soft)}
+.ba figcaption b{color:var(--ink);font-weight:500;display:block}
+
+/* BRAND */
+.brand{background:var(--paper)}
+.brand-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:46px}
+.tile{border-radius:14px;overflow:hidden;border:1px solid var(--line);min-width:0;display:flex;flex-direction:column}.tile>:first-child{flex:1}
+.logo-tile{display:grid;grid-template-columns:1fr 1fr}
+.logo-tile div{display:flex;align-items:center;justify-content:center;padding:34px;aspect-ratio:1/1}
+.logo-tile div:first-child{background:var(--night)}
+.logo-tile div:last-child{background:var(--ivory)}
+.logo-tile img{width:72%}
+.wordmark{flex-direction:column;gap:6px;text-align:center}
+.wordmark span{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.4rem);color:var(--ink);line-height:1;letter-spacing:.02em}
+.wordmark small{font-size:.6rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold-2)}
+.tile-cap{padding:14px 18px;font-size:.82rem;color:var(--ink-soft);background:var(--ivory);border-top:1px solid var(--line)}
+.palette{display:grid;grid-template-columns:repeat(5,1fr);min-height:220px}
+.sw{padding:14px 12px;display:flex;flex-direction:column;justify-content:flex-end;font-size:.72rem;line-height:1.35}
+.sw b{font-weight:500;font-size:.8rem}
+.type{padding:30px;background:var(--ivory)}
+.type .big{font-family:var(--display);font-size:clamp(2.6rem,5vw,3.8rem);line-height:1}
+.type .big em{color:var(--gold-2)}
+.type p{margin-top:14px;color:var(--ink-soft);font-size:.92rem}
+.type .row{display:flex;justify-content:space-between;gap:16px;margin-top:20px;padding-top:14px;border-top:1px solid var(--line);font-size:.78rem;color:var(--ink-soft);flex-wrap:wrap}
+.apps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:22px;background:#e9dcc8}
+.app{border-radius:8px;aspect-ratio:3/4;overflow:hidden;position:relative;box-shadow:0 14px 30px -14px rgba(0,0,0,.45)}
+.app.menu-card{background:var(--night);color:var(--cream);padding:16px 14px;display:flex;flex-direction:column;gap:6px;font-size:.62rem}
+.app.menu-card h4{font-family:var(--display);font-weight:500;font-size:1.05rem;margin:0 0 4px;color:var(--gold-hi);text-align:center}
+.app.menu-card .li{display:flex;justify-content:space-between;border-bottom:1px dotted rgba(217,166,106,.35);padding-bottom:3px}
+.app.post img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.app.post::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(19,11,7,.9))}
+.app.post span{position:absolute;left:12px;right:12px;bottom:12px;z-index:1;font-family:var(--display);color:#f6e2c2;font-size:1rem;line-height:1.1}
+.app.tent{background:var(--ivory);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:12px;border:1px solid var(--line)}
+.app.tent img{width:46%}
+.app.tent b{font-family:var(--display);font-weight:500;font-size:1rem}
+.app.tent small{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-2)}
+
+/* PLAN */
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:46px}
+.phase{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:24px 22px}
+.phase .wk{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-2);font-weight:500}
+.phase h3{font-size:1.5rem;margin:8px 0 10px}
+.phase ul{margin:0;padding-left:18px;font-size:.88rem;color:var(--ink-soft)}
+.phase li+li{margin-top:4px}
+
+/* PRICING */
+.pricing{background:var(--night);color:var(--cream)}
+.pricing h2{color:#f6e2c2}
+.pricing .eyebrow{color:var(--gold)}
+.pricing .lede{color:#cdb89b}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px;align-items:stretch}
+.tier{background:var(--night-2);border:1px solid rgba(217,166,106,.2);border-radius:14px;padding:30px 26px;display:flex;flex-direction:column;gap:14px;position:relative}
+.tier.rec{border-color:var(--gold);background:linear-gradient(180deg,#2c1b10,var(--night-2))}
+.tier .flag{position:absolute;top:-12px;left:26px;background:var(--gold);color:#2a170b;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;padding:5px 12px;border-radius:999px;font-weight:500}
+.tier h3{font-size:1.9rem;color:#f6e2c2}
+.tier .for{font-size:.86rem;color:var(--muted)}
+.amt{font-family:var(--display);font-size:3rem;line-height:1;color:var(--gold-hi);font-variant-numeric:tabular-nums}
+.amt small{font-family:var(--body);font-size:.8rem;color:var(--muted);margin-left:4px}
+.tier ul{list-style:none;margin:6px 0 0;padding:0;font-size:.88rem;color:#e2d0b5;display:grid;gap:8px}
+.tier li{padding-left:22px;position:relative}
+.tier li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:1px;background:var(--gold)}
+.tier .time{margin-top:auto;padding-top:16px;border-top:1px solid rgba(217,166,106,.18);font-size:.8rem;color:var(--muted)}
+.retainer{margin-top:22px;display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:center;border:1px solid rgba(217,166,106,.25);border-radius:14px;padding:28px 30px}
+.retainer h3{font-size:1.7rem;color:#f6e2c2}
+.retainer p{color:#cdb89b;font-size:.9rem;margin-top:6px}
+.retainer ul{margin:0;padding-left:18px;font-size:.88rem;color:#e2d0b5;columns:2;column-gap:24px}
+.addons{margin-top:40px;overflow-x:auto}
+.addons table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:520px}
+.addons th{text-align:left;font-weight:400;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);padding:12px 10px;border-bottom:1px solid rgba(217,166,106,.3)}
+.addons td{padding:14px 10px;border-bottom:1px solid rgba(217,166,106,.12);color:#e2d0b5;vertical-align:top}
+.addons td:last-child{text-align:right;color:var(--gold-hi);white-space:nowrap;font-variant-numeric:tabular-nums}
+.addons th:last-child{text-align:right}
+.terms{margin-top:28px;font-size:.82rem;color:var(--muted)}
+
+/* CLOSE */
+.close-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+.why{display:grid;gap:16px;margin-top:30px}
+.why div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding-bottom:16px;border-bottom:1px solid var(--line);font-size:.92rem}
+.why b{font-weight:500;color:var(--gold-2);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;padding-top:3px}
+.card{background:var(--night);color:var(--cream);border-radius:16px;padding:36px 32px}
+.card h3{font-size:2rem;color:#f6e2c2}
+.card p{color:#cdb89b;font-size:.92rem;margin-top:8px}
+.card dl{margin:24px 0 0;display:grid;gap:12px}
+.card dl div{display:grid;grid-template-columns:90px 1fr;gap:12px;font-size:.92rem}
+.card dt{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);padding-top:4px}
+.card dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.card .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+footer{padding-block:30px;font-size:.78rem;color:var(--ink-soft);border-top:1px solid var(--line)}
+
+@media (max-width:900px){
+  .cover-grid,.close-grid,.brand-grid,.retainer{grid-template-columns:1fr}
+  .cover-img{max-width:380px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){border-left:none}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .issue{grid-template-columns:1fr;gap:12px}
+  .phases{grid-template-columns:1fr 1fr}
+  .tiers{grid-template-columns:1fr;gap:28px}
+  .ba{grid-template-columns:1fr}
+  section{padding-block:72px}
+}
+@media (max-width:560px){
+  .phases,.stats{grid-template-columns:1fr}
+  .stat+.stat{border-left:none;border-top:1px solid var(--line)}
+  .palette{grid-template-columns:repeat(5,1fr);font-size:.6rem}
+  .sw{padding:10px 6px}
+  .why div{grid-template-columns:1fr;gap:4px}
+  .retainer ul{columns:1}
+  .apps{gap:8px;padding:14px}
+}
+</style>
+<!-- clarity --><script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "z7a3izqphe");
+</script>
+</head>
+<body>
+
+<section class="cover">
+  <div class="wrap">
+    <div class="cover-top"><span><b>Beyond Branding</b> · London · Dubai · Mumbai</span><span>Proposal · November 2026</span></div>
+    <div class="cover-grid">
+      <div>
+        <div class="eyebrow">Prepared for Flavours of India · Ramada Hotel &amp; Suites by Wyndham, JBR</div>
+        <h1>Your food is award-winning. <em>Your website should be too.</em></h1>
+        <p class="sub">A website rebuild and brand refresh for Flavours of India, made from the photography, film and awards you already own. We have built a working concept so you can see the result before you commit to anything.</p>
+        <div class="actions">
+          <a class="btn btn-gold" href="index.html">View the live concept →</a>
+          <a class="btn btn-line" href="#pricing">See packages</a>
+        </div>
+        <div class="cover-meta">
+          <div>Prepared by<strong>Ayush, Creative Director</strong></div>
+          <div>For<strong>Flavours of India &amp; Ramada JBR</strong></div>
+          <div>Valid until<strong>10 December 2026</strong></div>
+        </div>
+      </div>
+      <div class="cover-img"><img src="assets/facade.jpg" alt="Flavours of India entrance at Ramada JBR" style="object-position:58% 60%"></div>
+    </div>
+  </div>
+</section>
+
+<section id="audit">
+  <div class="wrap">
+    <div class="eyebrow">01 · What we found</div>
+    <h2 style="margin-top:18px">An honest look at flavoursofindiadubai.com</h2>
+    <p class="lede">We reviewed the current homepage line by line. The restaurant has real strengths: three industry awards, professional dish photography, four experienced chefs and a loyal JBR following. The website hides almost all of it, and several problems are actively costing bookings and delivery orders.</p>
+    <div class="stats">
+      <div class="stat"><b>90 MB+</b><p>of uncompressed 4K video loads on the homepage. Our concept carries the same footage in under 1.5 MB.</p></div>
+      <div class="stat"><b>4</b><p>“Order” links send customers to your own partner back-office logins, not your delivery menus.</p></div>
+      <div class="stat"><b>3</b><p>awards (BBC Good Food ME, Hozpitality Silver, Tripadvisor) buried in the footer or missing.</p></div>
+      <div class="stat"><b>0</b><p>ways to reserve a table that actually reach the restaurant.</p></div>
+    </div>
+
+    <div class="audit">
+      <div class="issue"><span class="sev high">Critical</span><div><h3>Order links open restaurant dashboards</h3><p class="found">The Order menu points to <code>restaurant-hub.deliveroo.net</code>, <code>talabat.portal.restaurant</code>, <code>restaurant.noon.partners</code> and <code>app.careemnow.com/merchant</code>. A hungry customer hits a partner login and orders elsewhere.</p></div><p class="fix"><b>Fix</b>Public menu links for each platform, plus one “Order now” button that picks the right app on mobile.</p></div>
+      <div class="issue"><span class="sev high">Critical</span><div><h3>Placeholder text is live</h3><p class="found">Lorem ipsum (“Praesent erat orci, consequat eu pellentesque…”, “Donec maximus ligula…”) sits on the homepage, next to template lines like “provide healthy and fresh food”.</p></div><p class="fix"><b>Fix</b>Fresh copy written around Awadhi and Mughlai heritage, the chefs and JBR dining.</p></div>
+      <div class="issue"><span class="sev high">Critical</span><div><h3>The reservation form goes nowhere</h3><p class="found">Time slots stop at 10:30 PM and the WhatsApp button uses <code>wa.me/0523981654</code>, which is missing the UAE country code and fails to open a chat.</p></div><p class="fix"><b>Fix</b>A booking form that drops a ready-to-send WhatsApp message, with an upgrade path to a table-booking system.</p></div>
+      <div class="issue"><span class="sev high">Critical</span><div><h3>Stock template images of food you don’t serve</h3><p class="found">Nachos with guacamole, seafood pasta, a steak salad and dumplings appear in the hero, along with three blog posts by “Tanvir” showing fake “02 Comments”.</p></div><p class="fix"><b>Fix</b>Only your own dishes, interiors and films. Your existing shoot is strong enough to carry the site.</p></div>
+      <div class="issue"><span class="sev med">Major</span><div><h3>Conflicting opening hours</h3><p class="found">The footer reads “Monday to Sunday 12AM to 12PM” and “Friday to Saturday 8.00am – 6.00pm”. Your shopfront sign says 12 PM to 12 AM.</p></div><p class="fix"><b>Fix</b>One source of truth for hours, matched to Google Business Profile.</p></div>
+      <div class="issue"><span class="sev med">Major</span><div><h3>Typos and fake discounts on the menu</h3><p class="found">“Chef’s Special Bhuna Cost”, “Flavour Of India”. Every dish shows a struck-through higher price and random “20% Off” badges, which reads as untrustworthy.</p></div><p class="fix"><b>Fix</b>A clean, correctly spelled menu with honest prices and a printable PDF/QR version.</p></div>
+      <div class="issue"><span class="sev med">Major</span><div><h3>Dead pages and links</h3><p class="found">Twitter and Pinterest icons link to <code>#</code>; Portfolio, Services and FAQ are leftover template pages.</p></div><p class="fix"><b>Fix</b>A focused site: Story, Menu, Chefs, Experience, Events, Visit.</p></div>
+      <div class="issue"><span class="sev med">Major</span><div><h3>Invisible to Google and tourists</h3><p class="found">No restaurant schema, no menu markup, no Arabic, and a page heavy enough to fail Core Web Vitals on mobile.</p></div><p class="fix"><b>Fix</b>Restaurant and menu structured data, fast mobile pages, optional Arabic version.</p></div>
+    </div>
+
+    <div class="ba">
+      <figure><div><img src="assets/film-entrance.jpg" alt="Frame from existing entrance video"></div><figcaption><b>Footage you already own</b>Three venue clips sat unused as 90 MB of raw 4K files. We cut them into light, looping reels.</figcaption></figure>
+      <figure><div><img src="assets/concept-room.jpg" alt="Art-directed dining room visual"></div><figcaption><b>Art-directed visuals</b>We produced a set of moody, lantern-lit brand visuals of your room and signature dishes to set the new tone.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="brand" id="brand">
+  <div class="wrap">
+    <div class="eyebrow">02 · Brand refresh</div>
+    <h2 style="margin-top:18px">Keep the roundel. Add a royal second voice.</h2>
+    <p class="lede">Your orange roundel is recognised on Deliveroo, Talabat and the shopfront, so we keep it for delivery and casual touchpoints. For the dining room, website and menus we add a refined wordmark, a copper-and-saffron palette and a heritage serif, so the brand can feel like a night out and a quick order at the same time.</p>
+    <div class="brand-grid">
+      <div class="tile"><div class="logo-tile"><div><img src="assets/logo.png" alt="Current Flavours of India roundel logo"></div><div class="wordmark"><small>Est. 2020 · JBR</small><span>Flavours of India</span><small>Awadhi · Mughlai</small></div></div><p class="tile-cap">Primary roundel (kept, redrawn as clean vector) beside the new dining wordmark.</p></div>
+      <div class="tile"><div class="palette">
+        <div class="sw" style="background:#130b07;color:#f4e6d0"><b>Espresso</b>#130B07</div>
+        <div class="sw" style="background:#5a2e17;color:#f4e6d0"><b>Copper</b>#5A2E17</div>
+        <div class="sw" style="background:#d9a66a;color:#24170f"><b>Saffron Gold</b>#D9A66A</div>
+        <div class="sw" style="background:#e8792b;color:#24170f"><b>Roundel Orange</b>#E8792B</div>
+        <div class="sw" style="background:#f5ecdf;color:#24170f"><b>Ivory</b>#F5ECDF</div>
+      </div><p class="tile-cap">Palette taken from the copper handis, lantern light and the existing roundel.</p></div>
+      <div class="tile"><div class="type"><div class="big">Dum <em>Biryani</em></div><p>Cormorant Garamond for headlines and menus, paired with Jost for prices, labels and body text.</p><div class="row"><span>Display · Cormorant 500</span><span>Text · Jost 300 / 400</span><span>Labels · Jost, tracked caps</span></div></div><p class="tile-cap">Typography system.</p></div>
+      <div class="tile"><div class="apps">
+        <div class="app menu-card"><h4>From the Tandoor</h4><div class="li"><span>Tandoori Chicken</span><span>59</span></div><div class="li"><span>Jumbo Prawns</span><span>99</span></div><div class="li"><span>Stuffed Mushroom</span><span>45</span></div><h4 style="margin-top:8px">Specials</h4><div class="li"><span>Dal Makhni</span><span>50</span></div><div class="li"><span>Bhuna Gosht</span><span>69</span></div><div class="li"><span>Mutton Nihari</span><span>69</span></div></div>
+        <div class="app post"><img src="assets/concept-handi.jpg" alt=""><span>Friday Biryani Night</span></div>
+        <div class="app tent"><img src="assets/logo.png" alt=""><b>Scan for the menu</b><small>Table 12</small></div>
+      </div><p class="tile-cap">Applications: printed menu, Instagram post, table QR tent.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="plan">
+  <div class="wrap">
+    <div class="eyebrow">03 · The plan</div>
+    <h2 style="margin-top:18px">Live in four weeks</h2>
+    <div class="phases">
+      <div class="phase"><div class="wk">Week 1</div><h3>Discover</h3><ul><li>Menu, hours and booking flow confirmed</li><li>Brand refresh direction signed off</li><li>Content and photo selection</li></ul></div>
+      <div class="phase"><div class="wk">Week 2</div><h3>Design</h3><ul><li>Full site design on desktop and mobile</li><li>Wordmark, palette and type finalised</li><li>Menu layout</li></ul></div>
+      <div class="phase"><div class="wk">Week 3</div><h3>Build</h3><ul><li>Fast, lightweight site build</li><li>WhatsApp booking and delivery links</li><li>SEO, schema and analytics</li></ul></div>
+      <div class="phase"><div class="wk">Week 4</div><h3>Launch</h3><ul><li>Domain switch and testing</li><li>Google Business Profile refresh</li><li>Team handover and launch posts</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="eyebrow">04 · Investment</div>
+    <h2 style="margin-top:18px">Simple, fixed pricing</h2>
+    <p class="lede">One price per scope, agreed upfront. You work directly with our Creative Director, and our production studio does the build, which keeps the cost well below Dubai agency rates for the same standard of work.</p>
+    <div class="tiers">
+      <div class="tier"><h3>Website</h3><p class="for">The site in this concept, built for real.</p><div class="amt">7,500<small>AED</small></div><ul><li>Full website from this concept, desktop and mobile</li><li>Correct menu, hours and booking via WhatsApp</li><li>Public delivery links for all four apps</li><li>Awards, chefs, events and venue films</li><li>SEO, restaurant schema and Google Business Profile</li><li>Ramada JBR and Wyndham Rewards cross-links</li></ul><p class="time">Live in 3 weeks</p></div>
+      <div class="tier rec"><span class="flag">Recommended</span><h3>Website + Brand</h3><p class="for">The website plus a brand that matches the room.</p><div class="amt">14,500<small>AED</small></div><ul><li>Everything in Website</li><li>Roundel redrawn as clean vector, new dining wordmark</li><li>Palette, typography and one-page brand guide</li><li>Printed menu + QR table menu</li><li>15 art-directed dish and venue visuals</li><li>30-second brand film from your footage</li><li>Instagram and delivery-app templates</li></ul><p class="time">Live in 4 weeks</p></div>
+      <div class="tier"><h3>Monthly Content</h3><p class="for">Keeps the new brand busy after launch.</p><div class="amt">4,500<small>AED / month</small></div><ul><li>12 posts + 8 reels a month</li><li>Fresh dish visuals every month</li><li>Festive campaigns: Diwali, Ramadan, NYE</li><li>Website menu and offer updates</li><li>Monthly report and call</li><li>3-month minimum, then month to month</li></ul><p class="time">Starts the week you launch</p></div>
+    </div>
+    <div class="retainer">
+      <div><h3>For the wider Ramada JBR team</h3><p>The same system can roll out to Garden of Flavours and the hotel’s other outlets, or to sister R Hotels properties, with one shared design language.</p></div>
+      <ul><li>15% off each additional outlet</li><li>Shared brand and photo library</li><li>One point of contact</li><li>Consolidated monthly invoice</li></ul>
+    </div>
+    <p class="terms">50% to start, 50% at launch. Monthly content billed in advance. Hosting, domain and third-party tools at cost. Prices exclude VAT. Valid until 10 December 2026.</p>
+  </div>
+</section>
+
+<section id="next">
+  <div class="wrap close-grid">
+    <div>
+      <div class="eyebrow">05 · Why Beyond Branding</div>
+      <h2 style="margin-top:18px">A studio that has already done the first step</h2>
+      <div class="why">
+        <div><b>Proof first</b><span>The concept is built from your own assets. You can click through it today.</span></div>
+        <div><b>Hospitality</b><span>We design for restaurants, cafés, hotels and holiday homes across Dubai, London and Asia.</span></div>
+        <div><b>AI workflows</b><span>We use AI production to give you shoot-quality visuals and video at a fraction of the usual cost and time.</span></div>
+        <div><b>One lead</b><span>You deal directly with the Creative Director from brief to launch.</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Next step</h3>
+      <p>A 20-minute call to walk through the concept and agree the package. We can start the following week.</p>
+      <dl>
+        <div><dt>Contact</dt><dd>Ayush · Creative Director</dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:ayush@thebeyondbranding.com">ayush@thebeyondbranding.com</a></dd></div>
+        <div><dt>WhatsApp</dt><dd><a href="https://wa.me/19108301588">+1 (910) 830-1588</a></dd></div>
+        <div><dt>Web</dt><dd><a href="https://thebeyondbranding.com" target="_blank" rel="noopener">thebeyondbranding.com</a></dd></div>
+      </dl>
+      <div class="actions"><a class="btn btn-gold" href="https://wa.me/19108301588?text=Hi%20Ayush%2C%20I%27ve%20seen%20the%20Flavours%20of%20India%20proposal." target="_blank" rel="noopener">Message on WhatsApp</a><a class="btn btn-line" href="index.html">Open concept</a></div>
+    </div>
+  </div>
+</section>
+<footer><div class="wrap">Beyond Branding · Proposal for Flavours of India, JBR Dubai · November 2026. The concept website is a speculative design for discussion.</div></footer>
+</body>
+</html>

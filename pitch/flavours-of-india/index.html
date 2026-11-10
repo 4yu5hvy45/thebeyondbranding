@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Flavours of India JBR</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Authentic North Indian, Awadhi and Mughlai cuisine at Ramada Hotel & Suites, JBR, Dubai. Open daily 12 PM to 12 AM.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: dark espresso "night dining" bands alternating with ivory "menu card" bands; Mughal arch frames carry the imagery */
+:root{
+  --night:#130b07; --night-2:#1d120c; --night-3:#2a1a11;
+  --ivory:#f3e8d8; --ivory-2:#eadcc6; --ink:#24170f; --ink-soft:#5b4636;
+  --gold:#d9a66a; --gold-2:#b9824a; --gold-hi:#f0cf9c; --cream-text:#f4e6d0; --muted:#bfa88d;
+  --line:rgba(217,166,106,.28);
+  --display:"Cormorant Garamond","Cormorant",Georgia,"Times New Roman",serif;
+  --body:"Jost","Helvetica Neue",Arial,sans-serif;
+  --wrap:1240px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--cream-text);font-family:var(--body);font-weight:300;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--night)}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.04;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(2.3rem,4.6vw,3.9rem)}
+p{margin:0}
+.eyebrow{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:400;display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.7}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 26px;font-family:var(--body);font-size:.92rem;font-weight:400;letter-spacing:.04em;border-radius:3px;cursor:pointer;border:1px solid transparent;transition:transform .3s,background .3s,color .3s,border-color .3s}
+.btn svg{width:18px;height:18px;transition:transform .3s}
+.btn:hover svg{transform:translateX(4px)}
+.btn-gold{background:linear-gradient(135deg,var(--gold-hi),var(--gold) 45%,var(--gold-2));color:#2a170b;font-weight:500}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-line{border-color:rgba(244,230,208,.55);color:var(--cream-text)}
+.btn-line:hover{border-color:var(--gold);color:var(--gold-hi)}
+.jali{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23d9a66a' stroke-width='1'%3E%3Cpath d='M28 4c6 8 6 16 0 24-6-8-6-16 0-24zM28 28c6 8 6 16 0 24-6-8-6-16 0-24zM4 28c8-6 16-6 24 0-8 6-16 6-24 0zM28 28c8-6 16-6 24 0-8 6-16 6-24 0z'/%3E%3Ccircle cx='28' cy='28' r='3'/%3E%3Ccircle cx='0' cy='0' r='6'/%3E%3Ccircle cx='56' cy='0' r='6'/%3E%3Ccircle cx='0' cy='56' r='6'/%3E%3Ccircle cx='56' cy='56' r='6'/%3E%3C/g%3E%3C/svg%3E")}
+
+/* NAV */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(19,11,7,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(217,166,106,.14)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:84px}
+.nav-logo img{width:74px;height:auto;filter:drop-shadow(0 4px 14px rgba(0,0,0,.4))}
+.nav-links{display:flex;gap:34px;font-size:.92rem;font-weight:400}
+.nav-links a{position:relative;padding:6px 0;color:#ecdcc4}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--gold);transition:right .35s}
+.nav-links a:hover::after{right:0}
+.nav-cta{display:flex;gap:12px;align-items:center}
+.nav .btn{padding:11px 18px;font-size:.85rem}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--cream-text);width:46px;height:46px;border-radius:3px;cursor:pointer}
+.burger span{display:block;width:18px;height:1px;background:currentColor;margin:5px auto}
+.mobile-menu{display:none}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 78% 30%,#3a2213 0%,var(--night) 58%)}
+.hero .jali{position:absolute;inset:0;opacity:.07;mask-image:linear-gradient(90deg,#000 0,transparent 38%,transparent 62%,#000 100%);-webkit-mask-image:linear-gradient(90deg,#000 0,transparent 38%,transparent 62%,#000 100%)}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center;padding-block:72px 64px}
+.hero h1{font-size:clamp(3rem,7vw,6.1rem);color:#f6e2c2;margin:22px 0 24px}
+.hero h1 em{font-style:italic;color:var(--gold-hi)}
+.hero-lede{font-size:1.12rem;max-width:30em;color:#e6d4ba}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:34px 0 30px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px 26px;font-size:.9rem;color:var(--muted)}
+.hero-meta span{display:flex;align-items:center;gap:9px}
+.hero-meta svg{width:17px;height:17px;color:var(--gold)}
+.arch{position:relative;border-radius:999px 999px 14px 14px;overflow:hidden;aspect-ratio:4/5;max-width:100%;box-shadow:0 40px 90px -30px rgba(0,0,0,.8)}
+.arch img{width:100%;height:100%;object-fit:cover;animation:drift 18s ease-in-out infinite alternate}
+.arch-frame{position:relative;padding:12px;border:1px solid var(--line);border-radius:999px 999px 20px 20px}
+.arch-frame::after{content:"";position:absolute;inset:-12px;border:1px solid rgba(217,166,106,.12);border-radius:999px 999px 26px 26px;pointer-events:none}
+@keyframes drift{from{transform:scale(1.04)}to{transform:scale(1.13) translate(-2%,1%)}}
+.hero-badge{position:absolute;left:-34px;bottom:56px;background:rgba(19,11,7,.86);backdrop-filter:blur(8px);border:1px solid var(--line);padding:16px 20px;border-radius:4px;display:flex;gap:14px;align-items:center;max-width:250px}
+.hero-badge b{font-family:var(--display);font-size:2.2rem;font-weight:500;color:var(--gold-hi);line-height:1}
+.hero-badge small{font-size:.78rem;line-height:1.4;color:#e4d2b7}
+
+.pillars{border-top:1px solid rgba(217,166,106,.16);border-bottom:1px solid rgba(217,166,106,.16);background:var(--night-2)}
+.pillars .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.pillar{display:flex;gap:16px;align-items:center;padding:28px 22px}
+.pillar+.pillar{border-left:1px solid rgba(217,166,106,.16)}
+.pillar svg{flex:none;width:36px;height:36px;color:var(--gold)}
+.pillar h3{font-family:var(--body);font-size:.98rem;font-weight:500;letter-spacing:.01em;color:#f2e2c9}
+.pillar p{font-size:.82rem;color:var(--muted);line-height:1.45;margin-top:3px}
+
+/* AWARDS */
+.awards{background:var(--night)}
+.awards .wrap{display:flex;align-items:center;justify-content:space-between;gap:30px;padding-block:34px;flex-wrap:wrap}
+.awards-title{font-family:var(--display);font-size:1.5rem;font-style:italic;color:#ecd7b6}
+.award-list{display:flex;gap:34px;flex-wrap:wrap}
+.award{display:flex;gap:14px;align-items:center}
+.award img{width:58px;height:58px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+.award span{font-size:.8rem;line-height:1.4;color:var(--muted)}
+.award strong{display:block;color:#f2e2c9;font-weight:500;font-size:.88rem}
+
+/* IVORY SECTIONS */
+.ivory{background:var(--ivory);color:var(--ink);position:relative}
+.ivory::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 10% 0%,rgba(255,255,255,.55),transparent 70%),radial-gradient(60% 50% at 100% 100%,rgba(185,130,74,.12),transparent 70%);pointer-events:none}
+.ivory .eyebrow{color:var(--gold-2)}
+.ivory h2{color:var(--ink)}
+.section{padding-block:110px}
+
+.story-grid{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.story-copy p{font-size:1.06rem;color:var(--ink-soft);max-width:32em;margin-top:22px}
+.story-copy h2{margin-top:20px}
+.story-sign{margin-top:34px;display:flex;align-items:center;gap:18px}
+.story-sign .num{font-family:var(--display);font-size:3.4rem;color:var(--gold-2);line-height:1}
+.story-sign span{font-size:.86rem;color:var(--ink-soft);line-height:1.4}
+.link-line{display:inline-flex;align-items:center;gap:12px;margin-top:34px;padding-bottom:8px;border-bottom:1px solid var(--ink);font-weight:400;color:var(--ink)}
+.link-line svg{width:18px}
+.story-imgs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.story-imgs figure{margin:0;border-radius:18px;overflow:hidden;aspect-ratio:3/4;position:relative}
+.story-imgs figure:first-child{border-radius:999px 999px 18px 18px;margin-top:48px}
+.story-imgs img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+.story-imgs figure:hover img{transform:scale(1.05)}
+
+/* MENU */
+.menu{background:var(--night);position:relative;overflow:hidden}
+.menu-head{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:end}
+.menu-head p{color:#dcc8aa;max-width:28em;margin-top:18px;font-size:1.05rem}
+.menu-head h2{margin-top:20px;color:#f6e2c2}
+.menu-banner{border-radius:14px;overflow:hidden;aspect-ratio:2.1/1;position:relative}
+.menu-banner img{width:100%;height:100%;object-fit:cover}
+.menu-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--night) 0,transparent 30%)}
+.tabs{display:flex;gap:6px;margin:64px 0 34px;flex-wrap:wrap;border-bottom:1px solid rgba(217,166,106,.18)}
+.tab{background:none;border:none;color:var(--muted);font-family:var(--body);font-size:.95rem;padding:14px 20px;cursor:pointer;position:relative;letter-spacing:.03em}
+.tab[aria-selected="true"]{color:var(--gold-hi)}
+.tab[aria-selected="true"]::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:2px;background:var(--gold)}
+.dishes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.dish{background:var(--night-2);border:1px solid rgba(217,166,106,.14);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:transform .4s,border-color .4s}
+.dish:hover{transform:translateY(-4px);border-color:rgba(217,166,106,.45)}
+.dish-img{aspect-ratio:3/2;overflow:hidden}
+.dish-img img{width:100%;height:100%;object-fit:cover;transition:transform .9s}
+.dish:hover .dish-img img{transform:scale(1.06)}
+.dish-body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.dish-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.dish h3{font-size:1.45rem;color:#f4e1c3}
+.price{font-family:var(--body);font-size:.88rem;color:var(--gold-hi);white-space:nowrap;font-variant-numeric:tabular-nums}
+.dish p{font-size:.88rem;color:var(--muted);line-height:1.55}
+.tag{align-self:flex-start;margin-top:auto;padding-top:10px;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.menu-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:46px;flex-wrap:wrap}
+.menu-foot p{color:var(--muted);font-size:.9rem}
+
+/* CHEFS */
+.chefs-grid{position:relative;display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:start}
+.chefs-grid .lede{margin-top:20px;color:var(--ink-soft);max-width:28em;font-size:1.05rem}
+.chef-list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.chef{background:rgba(255,255,255,.5);border:1px solid rgba(91,70,54,.16);border-radius:12px;padding:26px 24px;display:flex;flex-direction:column;gap:6px}
+.chef .yrs{font-family:var(--display);font-size:3.3rem;line-height:1;color:var(--gold-2)}
+.chef .yrs small{font-size:1rem;font-family:var(--body);color:var(--ink-soft);margin-left:6px}
+.chef h3{font-size:1.5rem;color:var(--ink);margin-top:8px}
+.chef p{font-size:.86rem;color:var(--ink-soft);line-height:1.5}
+.chef .spec{margin-top:10px;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-2)}
+
+/* FILM */
+.film{background:var(--night-2)}
+.film-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+.film-head h2{margin-top:20px;color:#f6e2c2}
+.film-head p{color:var(--muted);max-width:26em}
+.reels{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;margin-top:50px}
+.reel{position:relative;border-radius:14px;overflow:hidden;background:#000;min-height:0}
+.reel video{width:100%;height:100%;object-fit:cover}
+.reel:first-child{aspect-ratio:auto}
+.reel:not(:first-child){aspect-ratio:9/14}
+.reel figcaption{position:absolute;left:16px;bottom:14px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#f3e2c8;text-shadow:0 2px 10px rgba(0,0,0,.7)}
+
+/* EVENTS */
+.events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:54px}
+.event{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/5;color:#f6e7d0}
+.event img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.event:hover img{transform:scale(1.06)}
+.event::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(19,11,7,.92))}
+.event div{position:absolute;left:24px;right:24px;bottom:24px;z-index:1}
+.event h3{font-size:1.9rem}
+.event p{font-size:.88rem;color:#e0ccae;margin-top:6px}
+.events-top{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;position:relative}
+.events-top h2{margin-top:20px}
+.events-top p{color:var(--ink-soft);max-width:30em}
+
+/* GALLERY */
+.gallery{background:var(--night);padding-block:0 0;overflow:hidden}
+.marquee{display:flex;gap:14px;width:max-content;animation:scroll 60s linear infinite;padding-block:14px}
+.marquee img{height:240px;width:auto;border-radius:10px;object-fit:cover;aspect-ratio:1/1}
+.gallery:hover .marquee{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* FACADE */
+.facade{position:relative;background:var(--night);overflow:hidden}
+.facade img{width:100%;height:clamp(320px,62vw,760px);object-fit:cover;object-position:60% 55%}
+.facade::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(19,11,7,.0) 45%,rgba(19,11,7,.95));pointer-events:none}
+.facade-cap{position:absolute;left:0;right:0;bottom:34px;z-index:1;display:flex;flex-direction:column;gap:12px}
+.facade-cap p{max-width:34em;color:#ecdcc4;font-size:1.05rem}
+/* VISIT */
+.visit{background:var(--night);position:relative;overflow:hidden}
+.visit .jali{position:absolute;inset:0;opacity:.05}
+.visit-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.visit h2{margin-top:20px;color:#f6e2c2}
+.info{margin-top:36px;display:grid;gap:22px}
+.info-row{display:grid;grid-template-columns:120px 1fr;gap:18px;padding-bottom:20px;border-bottom:1px solid rgba(217,166,106,.14)}
+.info-row dt{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.info-row dd{margin:0;color:#ead9bf;min-width:0}
+.info-row dd a{border-bottom:1px solid rgba(217,166,106,.4)}
+.delivery{display:flex;flex-wrap:wrap;gap:8px}
+.delivery a,.delivery span{font-size:.82rem;border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+.socials{display:flex;gap:10px;flex-wrap:wrap}
+.socials a{font-size:.85rem;border-bottom:1px solid rgba(217,166,106,.4)}
+.booking{background:var(--ivory);color:var(--ink);border-radius:16px;padding:40px 36px;position:relative}
+.booking h3{font-size:2.2rem}
+.booking>p{color:var(--ink-soft);font-size:.92rem;margin-top:6px}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+.field input,.field select,.field textarea{font:inherit;font-weight:400;color:var(--ink);background:#fbf6ee;border:1px solid rgba(91,70,54,.25);border-radius:6px;padding:12px 14px;width:100%;color-scheme:light}
+.field textarea{min-height:76px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold-2);box-shadow:0 0 0 3px rgba(185,130,74,.18)}
+.booking .btn{grid-column:1/-1;justify-content:center;border:none}
+.confirm{grid-column:1/-1;background:#fff8ee;border:1px solid rgba(185,130,74,.4);border-radius:8px;padding:16px 18px;font-size:.9rem;color:var(--ink-soft)}
+.confirm a{color:var(--ink);font-weight:500;border-bottom:1px solid var(--gold-2)}
+
+footer{background:#0d0705;border-top:1px solid rgba(217,166,106,.12)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-block:34px;flex-wrap:wrap;font-size:.82rem;color:#9d8a73}
+footer img{width:54px}
+footer .f-l{display:flex;gap:16px;align-items:center}
+
+@media (max-width:1020px){
+  .nav-links{display:none}
+  .burger{display:block}
+  .nav-cta .btn{display:none}
+  .mobile-menu{display:none;position:fixed;inset:84px 0 0;background:rgba(19,11,7,.97);z-index:49;padding:30px max(20px,env(safe-area-inset-left,0px));flex-direction:column;gap:6px}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{font-family:var(--display);font-size:2rem;padding:8px 0;border-bottom:1px solid rgba(217,166,106,.12)}
+  .mobile-menu .btn{margin-top:20px;justify-content:center;font-family:var(--body);font-size:1rem;border-bottom:none}
+  .hero-grid,.story-grid,.menu-head,.chefs-grid,.visit-grid{grid-template-columns:1fr}
+  .hero-grid{gap:44px;padding-block:44px 54px}
+  .hero-visual{max-width:460px;margin:0 auto;width:100%}
+  .hero-badge{left:-8px}
+  .pillars .wrap{grid-template-columns:1fr 1fr}
+  .pillar:nth-child(3){border-left:none}
+  .pillar:nth-child(n+3){border-top:1px solid rgba(217,166,106,.16)}
+  .reels{grid-template-columns:1fr 1fr}
+  .reel:first-child{grid-column:1/-1;aspect-ratio:16/8}
+  .events-grid{grid-template-columns:1fr 1fr}
+  .section{padding-block:80px}
+}
+@media (max-width:620px){
+  .pillars .wrap{grid-template-columns:1fr}
+  .pillar+.pillar{border-left:none;border-top:1px solid rgba(217,166,106,.16)}
+  .chef-list,.events-grid,.form{grid-template-columns:1fr}
+  .story-imgs figure:first-child{margin-top:28px}
+  .info-row{grid-template-columns:1fr;gap:6px}
+  .booking{padding:30px 20px}
+  .marquee img{height:170px}
+  .hero-badge{position:relative;left:auto;bottom:auto;margin:-40px auto 0;max-width:290px}
+  .award-list{gap:20px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+<!-- clarity --><script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "z7a3izqphe");
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="nav-logo" href="#top" aria-label="Flavours of India home"><img src="assets/logo.png" alt="Flavours of India"></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#story">Our Story</a><a href="#menu">Menu</a><a href="#chefs">Chefs</a><a href="#experience">Experience</a><a href="#events">Events</a><a href="#visit">Visit</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-line" href="#visit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Reserve a Table</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#story">Our Story</a><a href="#menu">Menu</a><a href="#chefs">Chefs</a><a href="#experience">Experience</a><a href="#events">Events</a><a href="#visit">Visit</a>
+    <a class="btn btn-gold" href="#visit">Reserve a Table</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="jali" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Ramada Hotel &amp; Suites · JBR, Dubai</div>
+      <h1>A Taste of India’s <em>Royal</em> Heritage</h1>
+      <p class="hero-lede">Slow-cooked Awadhi dum, charcoal tandoor and Mughlai classics from the royal kitchens of Lucknow, served at Ramada Hotel &amp; Suites on the JBR Walk.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#visit">Reserve a Table <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-line" href="#menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 6C9.5 4.5 6 4 3 4.5v14c3-.5 6.5 0 9 1.5 2.5-1.5 6-2 9-1.5v-14C18 4 14.5 4.5 12 6zM12 6v14"/></svg>Explore Menu</a>
+      </div>
+      <div class="hero-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>Shams 3, JBR, Dubai</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Open daily · 12 PM – 12 AM</span>
+      </div>
+    </div>
+    <div class="hero-visual" style="position:relative">
+      <div class="arch-frame"><div class="arch"><img src="assets/concept-hero.jpg" alt="Gosht dum biryani and dal makhni in hammered copper handis"></div></div>
+      <div class="hero-badge"><b>2022</b><small>BBC Good Food ME Awards &amp; Hozpitality Silver for Best New Restaurant</small></div>
+    </div>
+  </div>
+  <div class="pillars">
+    <div class="wrap">
+      <div class="pillar"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 30h28M8 30a12 12 0 0124 0M20 14v4M17 14h6"/></svg><div><h3>Authentic Cuisine</h3><p>North Indian, Awadhi &amp; Mughlai</p></div></div>
+      <div class="pillar"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="14" cy="13" r="4"/><circle cx="27" cy="13" r="4"/><path d="M6 31c0-5 4-8 8-8s8 3 8 8M19 31c0-5 4-8 8-8s8 3 8 8"/></svg><div><h3>Family Dining</h3><p>Generous sharing plates for all ages</p></div></div>
+      <div class="pillar"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M10 33l8-20 9 9-17 11zM22 8v4M30 10l-3 3M33 18h-4M26 5l1 2M34 25l-2-1"/></svg><div><h3>Celebrations &amp; Events</h3><p>Private dining, birthdays, festive menus</p></div></div>
+      <div class="pillar"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="28" r="4"/><circle cx="30" cy="28" r="4"/><path d="M15 28h11M7 20h12l3 8M26 14h4l4 10M22 14h4"/></svg><div><h3>Order Online</h3><p>Noon · Deliveroo · Careem · Talabat</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="awards" aria-label="Awards">
+  <div class="wrap">
+    <p class="awards-title">Recognised across Dubai’s dining scene</p>
+    <div class="award-list">
+      <div class="award"><img src="assets/award-bbc.jpg" alt="BBC Good Food Middle East Awards 2022"><span><strong>BBC Good Food ME</strong>Magazine Awards 2022</span></div>
+      <div class="award"><img src="assets/award-hozpitality.jpg" alt="Hozpitality F&amp;B Excellence Awards"><span><strong>Hozpitality F&amp;B</strong>Silver · Best New Restaurant</span></div>
+      <div class="award"><img src="assets/award-tripadvisor.jpg" alt="Tripadvisor Travellers' Choice 2023"><span><strong>Tripadvisor</strong>Travellers’ Choice 2023</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="ivory section" id="story">
+  <div class="wrap story-grid">
+    <div class="story-copy">
+      <div class="eyebrow">Our Story</div>
+      <h2>A Culinary Journey from Lucknow to the Gulf</h2>
+      <p>Flavours of India brings the court kitchens of Awadh and the roadside tandoors of the North to Jumeirah Beach Residence. Our chefs blend their own garam masala, cook the biryani in the dum style and give the nihari the slow hours it needs.</p>
+      <p>The result is food that tastes the way it does at home in India, served with the warmth that has made us a favourite with JBR families, hotel guests and the city’s Indian community.</p>
+      <div class="story-sign"><span class="num">69</span><span>years of combined<br>experience across our four head chefs</span></div>
+      <a class="link-line" href="#chefs">Meet the chefs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="story-imgs">
+      <figure><img src="assets/concept-elephant.jpg" alt="Hand-painted elephant with brass bells at the restaurant entrance"></figure>
+      <figure><img src="assets/concept-room.jpg" alt="Dining room with lantern-lit tables and Indian folk art"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="menu section" id="menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <div>
+        <div class="eyebrow">Signature Selection</div>
+        <h2>Menu Highlights</h2>
+        <p>A short list of the dishes our regulars order again and again. The full menu runs to biryanis, kebabs, curries and Indo-Chinese favourites.</p>
+      </div>
+      <div class="menu-banner"><img src="assets/concept-handi.jpg" alt="Copper handis of biryani and curry"></div>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Menu categories">
+      <button class="tab" role="tab" aria-selected="true" data-cat="starters" id="tab-starters">From the Tandoor</button>
+      <button class="tab" role="tab" aria-selected="false" data-cat="mains" id="tab-mains">Chef’s Specials</button>
+      <button class="tab" role="tab" aria-selected="false" data-cat="drinks" id="tab-drinks">Coolers</button>
+    </div>
+    <div class="dishes" id="dishes" role="tabpanel" aria-live="polite"></div>
+    <div class="menu-foot">
+      <p>Prices in AED. Ask your server about vegetarian preparations.</p>
+      <a class="btn btn-line" href="https://deliveroo.ae/menu/dubai/jbr/flavours-of-india-jbr" target="_blank" rel="noopener">Order for delivery <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="ivory section" id="chefs">
+  <div class="wrap chefs-grid">
+    <div>
+      <div class="eyebrow">Meet Our Chefs</div>
+      <h2 style="margin-top:20px">The People Behind the Flavours</h2>
+      <p class="lede">Four specialists, each with their own station: one for the dum, one for the tandoor, one for the curries and one for the wok.</p>
+    </div>
+    <div class="chef-list">
+      <article class="chef"><div class="yrs">20<small>years</small></div><h3>Chef Mohammad Alam</h3><p>Awadh, Mughlai &amp; North-West Frontier cuisine.</p><div class="spec">Curries · Kebabs · Biryani</div></article>
+      <article class="chef"><div class="yrs">18<small>years</small></div><h3>Chef Alam Singh</h3><p>Awadh &amp; Mughlai cuisine.</p><div class="spec">Curries</div></article>
+      <article class="chef"><div class="yrs">17<small>years</small></div><h3>Chef Suryamani</h3><p>The Indo-Chinese kitchen, from chilli paneer to Hakka noodles.</p><div class="spec">Indo-Chinese</div></article>
+      <article class="chef"><div class="yrs">14<small>years</small></div><h3>Chef Topraj</h3><p>Mughlai cuisine and the charcoal tandoor.</p><div class="spec">Kebabs</div></article>
+    </div>
+  </div>
+</section>
+
+<section class="film section" id="experience">
+  <div class="wrap">
+    <div class="film-head">
+      <div><div class="eyebrow">Step Inside</div><h2>Dinner on the JBR Walk</h2></div>
+      <p>Lantern-lit tables indoors, a garden terrace outside, and the elephant at the door who greets every guest.</p>
+    </div>
+    <div class="reels">
+      <figure class="reel" style="margin:0"><video src="assets/film-entrance.mp4" poster="assets/film-entrance.jpg" muted loop playsinline autoplay preload="metadata"></video><figcaption>The entrance</figcaption></figure>
+      <figure class="reel" style="margin:0"><video src="assets/film-table.mp4" poster="assets/film-table.jpg" muted loop playsinline preload="none"></video><figcaption>At the table</figcaption></figure>
+      <figure class="reel" style="margin:0"><video src="assets/film-terrace.mp4" poster="assets/film-terrace.jpg" muted loop playsinline preload="none"></video><figcaption>The terrace</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="ivory section" id="events">
+  <div class="wrap">
+    <div class="events-top">
+      <div><div class="eyebrow">Celebrations &amp; Events</div><h2>Gather Around the Table</h2></div>
+      <p>Birthdays, office lunches, Diwali and Eid gatherings. Tell us the occasion and the headcount and we will set the menu.</p>
+    </div>
+    <div class="events-grid">
+      <a class="event" href="#visit"><img src="assets/interior-2.jpg" alt="Private dining area"><div><h3>Private Dining</h3><p>Booth seating for intimate dinners and larger groups.</p></div></a>
+      <a class="event" href="#visit"><img src="assets/g-mixed-grill.jpg" alt="Mixed tandoori platter"><div><h3>Birthdays &amp; Parties</h3><p>Set menus with sharing platters and dessert.</p></div></a>
+      <a class="event" href="#visit"><img src="assets/interior-1.jpg" alt="Long dining table set for a group"><div><h3>Festive &amp; Corporate</h3><p>Diwali, Eid and team lunches, catered or in-house.</p></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" aria-label="Gallery">
+  <div class="marquee" id="marquee">
+    <img src="assets/g-biryani.jpg" alt="Biryani"><img src="assets/tandoori-chicken.jpg" alt="Tandoori chicken"><img src="assets/g-paneer-tikka.jpg" alt="Paneer tikka"><img src="assets/dal-makhni.jpg" alt="Dal makhni"><img src="assets/g-prawns.jpg" alt="Tandoori prawns"><img src="assets/g-curry.jpg" alt="Chicken curry"><img src="assets/mango-lassi.jpg" alt="Mango lassi"><img src="assets/g-kofta.jpg" alt="Malai kofta"><img src="assets/mushroom.jpg" alt="Tandoori stuffed mushroom">
+  </div>
+</section>
+
+<section class="facade" aria-label="Our entrance at Ramada Hotel &amp; Suites, JBR">
+  <img src="assets/facade.jpg" alt="Flavours of India entrance beside the Ramada Hotel &amp; Suites lobby at JBR, lit at dusk">
+  <div class="wrap facade-cap"><div class="eyebrow">Find us</div><p>Next to the hotel entrance at Ramada Hotel &amp; Suites by Wyndham, Shams 3, JBR. Steps from The Walk at JBR.</p></div>
+</section>
+<section class="visit section" id="visit">
+  <div class="jali" aria-hidden="true"></div>
+  <div class="wrap visit-grid">
+    <div>
+      <div class="eyebrow">Visit Us</div>
+      <h2>Your Table Is Waiting</h2>
+      <dl class="info">
+        <div class="info-row"><dt>Address</dt><dd>Ramada Hotel &amp; Suites by Wyndham<br>Shams 3, Jumeirah Beach Residence, Dubai</dd></div>
+        <div class="info-row"><dt>Hours</dt><dd>Monday to Sunday · 12 PM – 12 AM</dd></div>
+        <div class="info-row"><dt>Call</dt><dd><a href="tel:+97143999979">+971 4 399 9979</a></dd></div>
+        <div class="info-row"><dt>Hotel guests</dt><dd>Staying at Ramada JBR? Ask reception to hold a table. Wyndham Rewards members, ask about earning points on your bill.</dd></div>
+        <div class="info-row"><dt>Delivery</dt><dd><div class="delivery"><a href="https://deliveroo.ae/menu/dubai/jbr/flavours-of-india-jbr" target="_blank" rel="noopener">Deliveroo</a><span>Talabat</span><span>Noon Food</span><span>Careem</span></div></dd></div>
+        <div class="info-row"><dt>Follow</dt><dd><div class="socials"><a href="https://www.instagram.com/flavoursofindiajbr/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/flavoursofindiajbr/" target="_blank" rel="noopener">Facebook</a><a href="https://www.tiktok.com/@flavoursofindiajbr" target="_blank" rel="noopener">TikTok</a><a href="https://www.youtube.com/@FlavoursOfIndiaDubai" target="_blank" rel="noopener">YouTube</a><a href="https://www.tripadvisor.com/Restaurant_Review-g295424-d23741402-Reviews-Flavours_Of_India-Dubai_Emirate_of_Dubai.html" target="_blank" rel="noopener">Tripadvisor</a></div></dd></div>
+      </dl>
+    </div>
+    <div class="booking">
+      <h3>Reserve a Table</h3>
+      <p>Pick a time and we will confirm your table on WhatsApp.</p>
+      <form class="form" id="bookForm" novalidate>
+        <div class="field"><label for="b-name">Name</label><input id="b-name" required autocomplete="name" placeholder="Your name"></div>
+        <div class="field"><label for="b-guests">Guests</label><select id="b-guests"><option>1 guest</option><option selected>2 guests</option><option>3 guests</option><option>4 guests</option><option>5 guests</option><option>6 guests</option><option>7+ guests</option></select></div>
+        <div class="field"><label for="b-date">Date</label><input id="b-date" type="date" required></div>
+        <div class="field"><label for="b-time">Time</label><select id="b-time"><option>12:30 PM</option><option>1:30 PM</option><option>2:30 PM</option><option>6:30 PM</option><option>7:30 PM</option><option selected>8:30 PM</option><option>9:30 PM</option><option>10:30 PM</option></select></div>
+        <div class="field full"><label for="b-note">Occasion or requests</label><textarea id="b-note" placeholder="Birthday, high chair, terrace seating…"></textarea></div>
+        <button class="btn btn-gold" type="submit">Request Booking <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+        <div class="confirm" id="confirm" hidden></div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-l"><img src="assets/logo.png" alt=""><span>© 2026 Flavours of India, JBR Dubai</span></div>
+    <a href="proposal.html">Website concept by Beyond Branding · View proposal</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var burger=document.getElementById('burger'),mm=document.getElementById('mobileMenu');
+  burger.addEventListener('click',function(){var o=mm.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+  mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mm.classList.remove('open');burger.setAttribute('aria-expanded',false)})});
+
+  var menu={
+    starters:[
+      ['tandoori-chicken','Grilled Tandoori Chicken',59,'Bone-in chicken in a yoghurt and Kashmiri chilli marinade, charred in the clay oven.','Best seller'],
+      ['prawns','Tandoori Jumbo Prawns',99,'Jumbo prawns with ajwain, garlic and mustard oil, finished with lemon.','Chef’s pick'],
+      ['mushroom','Tandoori Stuffed Mushroom',45,'Mushrooms filled with spiced paneer and cheese, kissed by the tandoor.','Vegetarian']
+    ],
+    mains:[
+      ['dal-makhni','Dal Makhni',50,'Black lentils slow-simmered with butter and cream. A house favourite.','Vegetarian'],
+      ['bhuna-gosht','Chef’s Special Bhuna Gosht',69,'Mutton slow-roasted with tomato, onion, yoghurt and our house garam masala.','Signature'],
+      ['nihari','Mutton Nihari',69,'Fresh mutton slow-cooked in a myriad of spices, Old Delhi style.','Slow-cooked'],
+      ['sarson-saag','Makki di Roti te Sarson da Saag',60,'Punjabi mustard greens with white butter and maize-flour roti.','Vegetarian']
+    ],
+    drinks:[
+      ['mango-lassi','Mango Lassi',30,'Ripe mango whisked with sweet yoghurt and a pinch of cardamom.','Cooler'],
+      ['shikanji','Neembu Shikanji',30,'Indian lemonade with roasted cumin, black salt and fresh mint.','Cooler']
+    ]
+  };
+  var box=document.getElementById('dishes');
+  function render(cat){
+    box.innerHTML=menu[cat].map(function(d){return '<article class="dish"><div class="dish-img"><img loading="lazy" src="assets/'+d[0]+'.jpg" alt="'+d[1]+'"></div><div class="dish-body"><div class="dish-top"><h3>'+d[1]+'</h3><span class="price">AED '+d[2]+'</span></div><p>'+d[3]+'</p><span class="tag">'+d[4]+'</span></div></article>'}).join('');
+  }
+  document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected','false')});
+    t.setAttribute('aria-selected','true');render(t.dataset.cat);
+  })});
+  render('starters');
+
+  var mq=document.getElementById('marquee');mq.innerHTML+=mq.innerHTML;
+
+  var vids=document.querySelectorAll('.reel video');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var p=e.target.play();if(p&&p.catch)p.catch(function(){})}else e.target.pause()})},{threshold:.25});
+    vids.forEach(function(v){io.observe(v)});
+  }
+
+  var d=document.getElementById('b-date');var t=new Date();d.min=t.toISOString().slice(0,10);d.value=d.min;
+  document.getElementById('bookForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('b-name');
+    var c=document.getElementById('confirm');
+    if(!n.value.trim()){c.hidden=false;c.textContent='Add your name so we know who the table is for.';n.focus();return}
+    var msg='Hello Flavours of India, I would like to book a table.\nName: '+n.value.trim()+'\nGuests: '+document.getElementById('b-guests').value+'\nDate: '+d.value+'\nTime: '+document.getElementById('b-time').value+(document.getElementById('b-note').value.trim()?'\nNote: '+document.getElementById('b-note').value.trim():'');
+    var url='https://wa.me/971523981654?text='+encodeURIComponent(msg);
+    c.hidden=false;
+    c.innerHTML='Your request is ready. <a href="'+url+'" target="_blank" rel="noopener">Send it on WhatsApp</a> to +971 52 398 1654, or call +971 4 399 9979.';
+  });
+})();
+</script>
+
+<script src="https://thebeyondbranding.com/pitch/bar.js" defer data-client="Flavours of India" data-offer="Like this? We can build it for real in days." data-note="Fixed price, agreed upfront · Ayush, Beyond Branding" data-sector="hospitality" data-logos="marriott,radisson,dubai-media-office,esperti,soul-av,aiolec"></script>
+</body>
+</html>
