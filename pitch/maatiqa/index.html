@@ -339,9 +339,10 @@ form.enquiry{display:grid;gap:18px;background:var(--bone);color:var(--ink);borde
 .small-btn{border:1px solid var(--ink);border-radius:99px;padding:.5em 1em;font-size:.84rem}
 
 /* ---------- Configurator ---------- */
-.studio-lab{background:var(--forest);color:var(--bone);padding-block:clamp(100px,12vw,170px);overflow:hidden}
-.lab{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,70px);align-items:stretch}
-.lab__canvas{position:relative;min-height:560px;border:1px solid var(--line-l);border-radius:4px;background:radial-gradient(ellipse at 50% 70%,rgba(86,99,79,.55),transparent 70%);touch-action:pan-y;cursor:grab}
+.studio-lab{background:var(--forest);color:var(--bone);padding-block:clamp(110px,13vw,200px)}
+.lab{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;align-items:start}
+.lab__canvas{grid-column:1 / span 7;position:sticky;top:12vh;height:min(76vh,760px);min-height:520px;border-radius:2px;background:radial-gradient(ellipse 60% 55% at 50% 62%,rgba(86,99,79,.7),rgba(44,55,43,0) 72%);touch-action:pan-y;cursor:grab}
+.lab__canvas::before{content:"";position:absolute;left:0;right:0;bottom:16%;height:1px;background:var(--line-l)}
 .lab__canvas:active{cursor:grabbing}
 #labVessel{position:absolute;inset:0;width:100%;height:100%;z-index:1}
 .orbit{position:absolute;inset:8% 6%;width:88%;height:84%;pointer-events:none;overflow:visible}
@@ -349,10 +350,12 @@ form.enquiry{display:grid;gap:18px;background:var(--bone);color:var(--ink);borde
 .orbit circle{fill:var(--sand)}
 .lab__corner{position:absolute;left:16px;right:16px;display:flex;justify-content:space-between;color:rgba(238,234,227,.55);font-variant-numeric:tabular-nums;pointer-events:none}
 .lab__corner.t{top:14px}.lab__corner.b{bottom:14px}
-.lab__panel{display:grid;gap:26px;align-content:start}
-.lab__panel .display{font-size:var(--s3)}
+.lab__panel{grid-column:9 / span 4;display:grid;gap:28px;align-content:start}
+.lab__panel .display{font-size:clamp(2.7rem,1.6rem + 4.2vw,6.2rem)}
 .lab__panel .display em{color:var(--sand)}
-.lab__panel > p{color:rgba(238,234,227,.72)}
+.lab__panel > p{color:rgba(238,234,227,.72);font-size:.96rem}
+.ctrl{border-top:1px solid var(--line-l);padding-top:14px}
+.ctrl__top.mono{font-family:var(--f-body);font-weight:500;font-size:.68rem;letter-spacing:.18em}
 .ctrl{display:grid;gap:10px}
 .ctrl__top{display:flex;justify-content:space-between;color:rgba(238,234,227,.62);font-variant-numeric:tabular-nums}
 .ctrl__top output{color:var(--bone)}
@@ -436,8 +439,9 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
   .com__fig picture{aspect-ratio:4/5}
   .com__copy{margin-top:40px}
   .com__formintro{margin-bottom:24px}
-  .lab{grid-template-columns:1fr}
-  .lab__canvas{min-height:440px;height:62vh;max-height:560px}
+  .lab__canvas,.lab__panel{grid-column:1/-1}
+  .lab__canvas{position:relative;top:auto;min-height:420px;height:60vh;max-height:540px}
+  .lab__panel{margin-top:28px}
   .foot__top{grid-template-columns:1fr 1fr}
   .foot__top > :first-child{grid-column:1/-1}
 }
@@ -682,6 +686,7 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 
 <!-- ================= LAB / CONFIGURATOR ================= -->
 <section class="studio-lab" id="lab" data-nav="light">
+  <div class="wrap"><div class="sec__top sec__top--light"><span class="label">(05) Studio lab</span><span class="label label--soft">Interactive · drag the form to rotate</span></div></div>
   <div class="wrap lab">
     <div class="lab__canvas" id="labWrap" data-cursor="Drag">
       <svg class="orbit" viewBox="0 0 400 400" preserveAspectRatio="none" aria-hidden="true"><ellipse cx="200" cy="246" rx="170" ry="40"/><circle r="4"><animateMotion dur="9s" repeatCount="indefinite" path="M30 246 a170 40 0 1 0 340 0 a170 40 0 1 0 -340 0"/></circle></svg>
@@ -690,7 +695,6 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
       <div class="lab__corner b mono"><span id="labDims">H 28 cm</span><span id="labClayName">Terracotta</span></div>
     </div>
     <div class="lab__panel">
-      <span class="label" style="color:var(--sand)">(05) Studio lab</span>
       <h2 class="display" data-split>Shape a <em>form.</em></h2>
       <p>These are the same kinds of parameters we play with in the studio. When something feels right, send it to us and we’ll tell you whether the clay agrees.</p>
 
