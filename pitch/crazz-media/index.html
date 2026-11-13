@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Crazz Media — Social Media That Grows Brands</title>
+<meta name="description" content="Crazz Media is a Mumbai social media & growth agency: strategy, reels, content, management and performance marketing that turn attention into revenue.">
+<meta name="theme-color" content="#08060d">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:Genty;src:url(assets/genty.ttf) format("truetype");font-display:swap}
+:root{
+  --bg:#08060d;--bg2:#0e0a16;--card:rgba(255,255,255,.035);--line:rgba(255,255,255,.09);
+  --txt:#f4f1fa;--mute:#a79fb8;--p:#b04bff;--p2:#d946ef;--p3:#7f22fe;
+  --grad:linear-gradient(100deg,#c056ff 0%,#a43bff 45%,#d946ef 100%);
+  --r:22px;--max:1240px
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:Satoshi,system-ui,sans-serif;font-size:16px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+h1,h2,h3,.disp{font-family:"Clash Display",Satoshi,sans-serif;letter-spacing:-.02em;line-height:1}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{display:flex;align-items:center;gap:16px;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:#d9d2e6}
+.eyebrow:before{content:"";width:38px;height:2px;background:var(--p);border-radius:2px}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 30px;border-radius:999px;font-weight:700;font-size:16px;transition:.35s cubic-bezier(.2,.8,.2,1);cursor:pointer;border:0;font-family:inherit}
+.btn svg{width:16px;height:16px;transition:transform .35s}
+.btn:hover svg{transform:translate(3px,-3px)}
+.btn-p{background:var(--grad);color:#14051f;box-shadow:0 10px 40px -10px rgba(176,75,255,.7)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 18px 50px -10px rgba(176,75,255,.9)}
+.btn-o{border:1.5px solid rgba(255,255,255,.7);color:#fff;background:transparent}
+.btn-o:hover{background:#fff;color:#0a0710}
+.play{width:0;height:0;border-left:11px solid currentColor;border-top:7px solid transparent;border-bottom:7px solid transparent}
+
+/* NAV */
+nav{position:fixed;inset:0 0 auto;z-index:50;transition:.4s}
+nav.s{background:rgba(8,6,13,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:86px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{width:42px;height:42px;border-radius:50%}
+.logo b{font-family:"Clash Display",system-ui,sans-serif;font-weight:700;font-size:30px;letter-spacing:-.01em}
+.logo b i{font-style:normal;color:var(--p)}
+.links{display:flex;gap:44px;font-weight:500}
+.links a{position:relative;opacity:.9}
+.links a:after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--p);transition:.3s}
+.links a:hover:after{width:100%}
+.talk{border:1.5px solid var(--p);padding:11px 24px;border-radius:999px;font-weight:600;display:flex;gap:10px;align-items:center;transition:.3s}
+.talk:hover{background:var(--p);color:#14051f}
+.talk svg{width:14px;height:14px}
+.burger{display:none;background:none;border:0;color:#fff;width:44px;height:44px}
+.mmenu{display:none}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;padding:150px 0 40px;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 75% 35%,rgba(150,50,255,.28),transparent 70%),radial-gradient(40% 40% at 10% 90%,rgba(217,70,239,.12),transparent 70%);pointer-events:none}
+.ribbons{position:absolute;right:-10%;top:12%;width:85%;height:80%;pointer-events:none;opacity:.95}
+.hgrid{position:relative;display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(48px,6.6vw,96px);font-weight:700;margin:30px 0 28px}
+.hero h1 span{display:block}
+.hero p.lead{font-size:clamp(17px,1.5vw,21px);color:#d4cde0;max-width:480px;margin-bottom:40px}
+.ctas{display:flex;gap:16px;flex-wrap:wrap}
+.trust{margin-top:46px;display:flex;align-items:center;gap:14px;color:var(--mute);font-size:14px}
+.avs{display:flex}
+.avs span{width:34px;height:34px;border-radius:50%;border:2px solid var(--bg);margin-left:-10px;display:grid;place-items:center;font-size:12px;font-weight:700;color:#14051f}
+.avs span:first-child{margin-left:0}
+
+.stage{position:relative;height:640px;perspective:1400px}
+.phone{position:absolute;left:50%;top:50%;width:300px;height:610px;margin:-305px 0 0 -150px;border-radius:52px;padding:12px;
+  background:linear-gradient(145deg,#3a2a52,#120c1c 40%,#2a1d3d);box-shadow:0 0 0 1.5px rgba(192,86,255,.65),0 60px 120px -30px rgba(120,40,220,.7),inset 0 0 0 2px rgba(255,255,255,.06);
+  transform:rotateY(-18deg) rotateX(6deg) rotateZ(6deg);transform-style:preserve-3d;transition:transform .2s ease-out}
+.screen{position:relative;width:100%;height:100%;border-radius:42px;overflow:hidden;background:linear-gradient(160deg,#2b1a10,#0c0705)}
+.screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.screen:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),transparent 25%,transparent 60%,rgba(0,0,0,.7))}
+.sb{position:absolute;z-index:2;top:18px;left:28px;right:24px;display:flex;justify-content:space-between;font-size:12px;font-weight:700}
+.reels{position:absolute;z-index:2;top:52px;left:24px;font-weight:700;font-size:19px;font-style:italic}
+.side{position:absolute;z-index:2;right:16px;bottom:120px;display:flex;flex-direction:column;gap:18px;align-items:center;font-size:11px;font-weight:700}
+.side div{display:flex;flex-direction:column;align-items:center;gap:4px}
+.side svg{width:24px;height:24px}
+.cap{position:absolute;z-index:2;left:20px;bottom:86px;right:70px;font-size:12px}
+.cap b{display:flex;align-items:center;gap:8px;font-size:13px;margin-bottom:4px}
+.cap b img{position:static;width:24px;height:24px;border-radius:50%}
+.prog{position:absolute;z-index:2;left:20px;right:20px;bottom:70px;height:3px;background:rgba(255,255,255,.25);border-radius:3px;overflow:hidden}
+.prog i{display:block;height:100%;width:40%;background:#fff;animation:prog 6s linear infinite}
+@keyframes prog{from{width:0}to{width:100%}}
+.tabs{position:absolute;z-index:2;left:0;right:0;bottom:0;height:62px;display:flex;justify-content:space-around;align-items:center;background:rgba(10,6,14,.85)}
+.tabs svg{width:22px;height:22px;opacity:.9}
+.notch{position:absolute;z-index:3;top:10px;left:50%;width:96px;height:28px;margin-left:-48px;background:#000;border-radius:20px}
+
+.glass{position:absolute;padding:20px 22px;border-radius:20px;background:linear-gradient(150deg,rgba(255,255,255,.14),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 30px 60px -20px rgba(0,0,0,.6);min-width:160px;animation:bob 6s ease-in-out infinite}
+.glass svg.ic{width:26px;height:26px;margin-bottom:10px}
+.glass .n{font-family:"Clash Display",system-ui,sans-serif;font-weight:600;font-size:34px;line-height:1}
+.glass .l{font-size:15px;color:#e1d9ee;margin-top:6px}
+.glass .spark{width:110px;height:28px;margin-top:8px}
+.g1{left:-30px;top:40px;transform:rotate(-6deg)}
+.g2{left:-40px;top:380px;transform:rotate(5deg);animation-delay:-2s}
+.g3{right:-40px;top:90px;transform:rotate(-6deg);animation-delay:-1s}
+.g4{right:-20px;top:400px;transform:rotate(3deg);animation-delay:-3s}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -12px}}
+
+/* SERVICE STRIP */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px;position:relative}
+.sc{display:block;position:relative;padding:26px 24px;border-radius:18px;background:var(--card);border:1px solid var(--line);transition:.35s}
+.sc:hover{border-color:rgba(176,75,255,.55);background:rgba(176,75,255,.07);transform:translateY(-4px)}
+.sc .top{display:flex;gap:16px;align-items:flex-start}
+.sc svg.ic{width:34px;height:34px;flex:none;color:var(--p)}
+.sc h3{font-family:Satoshi,system-ui,sans-serif;font-weight:700;font-size:18px;letter-spacing:0;margin:4px 0 8px}
+.sc p{font-size:14px;color:var(--mute);line-height:1.5}
+.sc .ar{position:absolute;right:20px;top:24px;width:14px;height:14px}
+
+/* SECTIONS */
+section{position:relative;padding:120px 0}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:56px;flex-wrap:wrap}
+.sh h2{font-size:clamp(38px,5vw,68px);font-weight:600;margin-top:22px;max-width:760px}
+.sh p{color:var(--mute);max-width:420px}
+.ul{border-bottom:1px solid #fff;padding-bottom:2px;display:inline-flex;gap:10px;align-items:center;font-weight:600}
+.ul svg{width:14px;height:14px}
+
+/* MARQUEE */
+.mq{border-block:1px solid var(--line);padding:26px 0;overflow:hidden;background:linear-gradient(90deg,rgba(176,75,255,.06),transparent,rgba(217,70,239,.06))}
+.mq-t{display:flex;gap:60px;width:max-content;animation:mq 38s linear infinite}
+.mq-t span{font-family:"Clash Display",system-ui,sans-serif;font-size:clamp(28px,3.4vw,46px);font-weight:600;white-space:nowrap;display:flex;align-items:center;gap:60px}
+.mq-t span:after{content:"✦";color:var(--p);font-size:.6em}
+.mq-t span:nth-child(even){-webkit-text-stroke:1px rgba(255,255,255,.55);color:transparent}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* WORK */
+.work{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.wc{position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#1a1124}
+.wc img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.wc:hover img{transform:scale(1.07)}
+.wc:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),transparent 35%,transparent 60%,rgba(0,0,0,.75))}
+.wc .t{position:absolute;z-index:2;left:22px;top:22px;right:60px;font-size:21px;font-weight:600;line-height:1.15}
+.wc .t small{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#e2d6f5;margin-top:8px;font-weight:500}
+.wc .ri{position:absolute;z-index:2;right:20px;top:20px;width:24px;height:24px}
+.wc .pill{position:absolute;z-index:2;left:18px;bottom:18px;display:flex;gap:10px;align-items:center;padding:9px 16px;border-radius:999px;background:rgba(20,14,28,.6);backdrop-filter:blur(10px);font-size:14px;font-weight:600}
+.wc .pill .play{border-left-width:9px;border-top-width:6px;border-bottom-width:6px}
+
+/* SERVICES FULL */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.sv{padding:34px 30px;border-radius:var(--r);background:var(--card);border:1px solid var(--line);position:relative;overflow:hidden;transition:.4s}
+.sv:before{content:"";position:absolute;inset:auto -40% -60% auto;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(176,75,255,.35),transparent 70%);opacity:0;transition:.5s}
+.sv:hover{border-color:rgba(176,75,255,.45);transform:translateY(-6px)}
+.sv:hover:before{opacity:1}
+.sv .no{font-family:"Clash Display",system-ui,sans-serif;font-size:14px;color:var(--p);letter-spacing:.1em}
+.sv h3{font-size:26px;font-weight:600;margin:18px 0 12px}
+.sv p{color:var(--mute);font-size:15px}
+.sv .proof{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:14px;font-weight:600;color:#e7dcf7;display:flex;gap:10px;align-items:center}
+.sv .proof:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--grad);box-shadow:0 0 12px var(--p)}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:28px;overflow:hidden;background:linear-gradient(135deg,rgba(176,75,255,.12),rgba(255,255,255,.02))}
+.st{padding:48px 32px;border-right:1px solid var(--line)}
+.st:last-child{border-right:0}
+.st .n{font-family:"Clash Display",system-ui,sans-serif;font-size:clamp(44px,5vw,72px);font-weight:600;line-height:1}
+.st .l{color:var(--mute);margin-top:10px}
+
+/* PROCESS */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:p}
+.ps{position:relative;padding:30px 26px 34px;border-radius:var(--r);border:1px solid var(--line);background:var(--bg2)}
+.ps .k{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:rgba(176,75,255,.12);border:1px solid rgba(176,75,255,.4);font-family:"Clash Display",system-ui,sans-serif;font-weight:600;font-size:20px;color:#e3c8ff;margin-bottom:26px}
+.ps h3{font-size:26px;font-weight:600;margin-bottom:10px}
+.ps p{color:var(--mute);font-size:15px}
+.ps .wk{position:absolute;top:30px;right:26px;font-size:12px;letter-spacing:.2em;color:var(--mute);text-transform:uppercase}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:center}
+.fcard{position:relative;border-radius:30px;padding:44px;background:linear-gradient(160deg,#2a1342,#120a1c 60%);border:1px solid rgba(176,75,255,.35);overflow:hidden}
+.fcard:before{content:"";position:absolute;width:420px;height:420px;right:-160px;top:-160px;border-radius:50%;background:radial-gradient(circle,rgba(217,70,239,.45),transparent 70%)}
+.mono{position:relative;width:110px;height:110px;border-radius:50%;background:var(--grad);display:grid;place-items:center;font-family:"Clash Display",system-ui,sans-serif;font-weight:700;font-size:40px;color:#14051f;margin-bottom:28px}
+.fcard h3{position:relative;font-size:40px;font-weight:600}
+.fcard .rl{position:relative;color:#d9c3f5;margin:8px 0 22px;font-weight:500}
+.fcard p{position:relative;color:#cfc6dd}
+.genty{font-family:Genty,"Clash Display";font-size:clamp(46px,6vw,84px);line-height:.95;color:#f3dcff;text-shadow:3px 3px 0 var(--p3)}
+.about-txt p{color:#cfc6dd;font-size:18px;margin-top:22px}
+.about-txt .q{margin-top:30px;padding:22px 26px;border-left:3px solid var(--p);background:rgba(176,75,255,.07);border-radius:0 14px 14px 0;font-size:18px;color:#efe6fb}
+.mv{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+.mv div{padding:22px;border-radius:16px;border:1px solid var(--line);background:var(--card)}
+.mv b{font-family:"Clash Display",system-ui,sans-serif;font-size:20px;font-weight:600}
+.mv p{font-size:14.5px;margin-top:8px;color:var(--mute)}
+
+/* FAQ */
+.faq{max-width:900px;margin:0 auto}
+.fq{border-bottom:1px solid var(--line)}
+.fq button{width:100%;text-align:left;background:none;border:0;color:var(--txt);font-family:"Clash Display",system-ui,sans-serif;font-size:clamp(19px,2vw,24px);font-weight:500;padding:28px 50px 28px 0;position:relative;cursor:pointer}
+.fq button:after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:30px;color:var(--p);transition:.3s;font-family:Satoshi,system-ui,sans-serif}
+.fq.o button:after{transform:translateY(-50%) rotate(45deg)}
+.fq .a{max-height:0;overflow:hidden;transition:max-height .5s ease;color:var(--mute)}
+.fq .a p{padding-bottom:28px;max-width:760px}
+
+/* CONTACT */
+.cta{position:relative;border-radius:36px;padding:80px 60px;overflow:hidden;background:linear-gradient(130deg,#3b0f66 0%,#1a0b2b 50%,#0e0a16);border:1px solid rgba(176,75,255,.4);display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.cta:before{content:"";position:absolute;width:700px;height:700px;left:-250px;bottom:-400px;border-radius:50%;background:radial-gradient(circle,rgba(217,70,239,.35),transparent 65%)}
+.cta>*{position:relative}
+.cta h2{font-size:clamp(40px,5vw,70px);font-weight:600}
+.cta .lead{color:#dccdf0;margin:22px 0 34px;font-size:18px;max-width:440px}
+.chan{display:flex;flex-direction:column;gap:14px}
+.chan a{display:flex;gap:16px;align-items:center;padding:16px 20px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid var(--line);transition:.3s}
+.chan a:hover{border-color:var(--p);background:rgba(176,75,255,.1)}
+.chan svg{width:22px;height:22px;color:var(--p);flex:none}
+.chan small{display:block;color:var(--mute);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+form{display:grid;gap:14px;padding:34px;border-radius:24px;background:rgba(8,6,13,.55);border:1px solid var(--line);backdrop-filter:blur(10px)}
+form h3{font-size:26px;font-weight:600;margin-bottom:6px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+input,select,textarea{width:100%;padding:15px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--txt);font-family:inherit;font-size:15px;outline:none;transition:.3s}
+select option{background:#140e1d}
+input:focus,select:focus,textarea:focus{border-color:var(--p);background:rgba(176,75,255,.06)}
+textarea{min-height:110px;resize:vertical}
+form .btn{justify-content:center;margin-top:6px}
+
+footer{padding:70px 0 40px;border-top:1px solid var(--line);margin-top:40px}
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
+.fg h4{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:18px;font-weight:500}
+.fg ul{list-style:none;display:grid;gap:10px}
+.fg a:hover{color:var(--p)}
+.fg p{color:var(--mute);margin-top:18px;max-width:320px;font-size:15px}
+.soc{display:flex;gap:10px;margin-top:22px}
+.soc a{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:.3s}
+.soc a:hover{background:var(--p);border-color:var(--p);color:#14051f}
+.soc svg{width:18px;height:18px}
+.big{font-family:"Clash Display",system-ui,sans-serif;font-weight:700;font-size:clamp(80px,19vw,290px);line-height:.8;letter-spacing:-.04em;margin-top:70px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,0));-webkit-background-clip:text;background-clip:text;color:transparent;user-select:none}
+.big i{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text}
+.legal{display:flex;justify-content:space-between;color:var(--mute);font-size:13px;margin-top:20px;flex-wrap:wrap;gap:10px}
+
+.wa{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 30px rgba(37,211,102,.4);transition:.3s}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:30px;height:30px;color:#fff}
+
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+@media(max-width:1080px){
+  .links,.talk{display:none}.burger{display:block}
+  .mmenu{position:fixed;inset:0;z-index:49;background:rgba(8,6,13,.97);display:flex;flex-direction:column;justify-content:center;padding:40px;gap:22px;opacity:0;pointer-events:none;transition:.4s}
+  .mmenu.o{opacity:1;pointer-events:auto}
+  .mmenu a{font-family:"Clash Display",system-ui,sans-serif;font-size:44px;font-weight:600}
+  .hgrid{grid-template-columns:1fr}
+  .stage{height:600px;max-width:560px;margin:0 auto;width:100%}
+  .strip,.work,.proc{grid-template-columns:repeat(2,1fr)}
+  .svc{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}.st:nth-child(2){border-right:0}.st:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .about,.cta{grid-template-columns:1fr}
+  .fg{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .wrap{padding:0 20px}
+  .hero{padding-top:120px}
+  .stage{height:540px;transform:scale(.86);transform-origin:top center;margin-bottom:-60px}
+  .g1{left:-10px}.g2{left:-20px}.g3{right:-20px}.g4{right:-10px}
+  .glass{padding:14px 16px;min-width:130px}.glass .n{font-size:26px}.glass .l{font-size:13px}
+  .strip,.work,.proc,.svc{grid-template-columns:1fr}
+  .work{grid-template-columns:1fr 1fr;gap:12px}.wc .t{font-size:16px;left:14px;top:14px}.wc .pill{font-size:12px;padding:7px 12px;left:12px;bottom:12px}
+  section{padding:84px 0}
+  .cta{padding:44px 22px}.row{grid-template-columns:1fr}form{padding:24px}
+  .mv{grid-template-columns:1fr}
+  .fcard{padding:32px}
+  .st{padding:32px 22px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="arr" viewBox="0 0 16 16"><path d="M4 12L12 4M5.5 4H12v6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="reel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M3 8.5h18M8.5 3l3 5.5M14 3l3 5.5"/><path d="M10 12v5l4.5-2.5z" fill="currentColor" stroke="none"/></symbol>
+  </defs>
+</svg>
+
+<nav id="nav">
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="Crazz Media home"><img src="assets/logo.png" alt=""><b>CRAZZ<i>.</i></b></a>
+    <div class="links"><a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a><a href="#about">About</a></div>
+    <a href="#contact" class="talk">Let's Talk <svg><use href="#arr"/></svg></a>
+    <button class="burger" id="burger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h16M4 16h16"/></svg></button>
+  </div>
+</nav>
+<div class="mmenu" id="mmenu"><a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+
+<header class="hero" id="top">
+  <svg class="ribbons" viewBox="0 0 900 700" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="rg1" x1="0" x2="1"><stop offset="0" stop-color="#7f22fe" stop-opacity="0"/><stop offset=".45" stop-color="#b04bff" stop-opacity=".85"/><stop offset="1" stop-color="#e879f9" stop-opacity=".2"/></linearGradient>
+      <linearGradient id="rg2" x1="0" x2="1"><stop offset="0" stop-color="#d946ef" stop-opacity="0"/><stop offset=".6" stop-color="#a43bff" stop-opacity=".55"/><stop offset="1" stop-color="#7f22fe" stop-opacity="0"/></linearGradient>
+      <filter id="bl"><feGaussianBlur stdDeviation="6"/></filter>
+    </defs>
+    <path d="M60 640 C 260 520, 420 300, 900 250 L 900 300 C 470 360, 330 560, 120 700 Z" fill="url(#rg1)" filter="url(#bl)"/>
+    <path d="M200 700 C 420 560, 620 420, 900 420 L 900 450 C 640 470, 470 600, 290 700 Z" fill="url(#rg2)"/>
+    <path d="M0 520 C 250 470, 500 250, 900 120" stroke="url(#rg1)" stroke-width="2" fill="none" opacity=".7"/>
+  </svg>
+
+  <div class="wrap">
+    <div class="hgrid">
+      <div>
+        <div class="eyebrow rv">Social media agency · Mumbai</div>
+        <h1 class="rv d1"><span>Social Media</span><span>That Grows</span><span class="grad">Brands.</span></h1>
+        <p class="lead rv d2">Strategy, content and social media management that turns attention into real business growth.</p>
+        <div class="ctas rv d3">
+          <a href="#contact" class="btn btn-p">Start a Project <svg><use href="#arr"/></svg></a>
+          <a href="https://www.instagram.com/crazzmedia" target="_blank" rel="noopener" class="btn btn-o"><span class="play"></span>Watch Showreel</a>
+        </div>
+        <div class="trust rv d3">
+          <div class="avs"><span style="background:#e9d5ff">F</span><span style="background:#d8b4fe">B</span><span style="background:#c084fc">D</span><span style="background:#f0abfc">+</span></div>
+          Trusted by 50+ ambitious brands across Mumbai &amp; India
+        </div>
+      </div>
+
+      <div class="stage" id="stage">
+        <div class="phone" id="phone">
+          <div class="screen">
+            <div class="notch"></div>
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=700&q=80" alt="Latte being poured — a café reel" onerror="this.remove()">
+            <div class="sb"><span>9:41</span><span>●●● ▮</span></div>
+            <div class="reels">Reels ⌄</div>
+            <div class="side">
+              <div><svg viewBox="0 0 24 24" fill="#ff3b5c"><path d="M12 21s-7.5-4.6-9.5-9.3C1 8 3.3 4.5 6.9 4.5c2 0 3.6 1.1 5.1 3 1.5-1.9 3.1-3 5.1-3 3.6 0 5.9 3.5 4.4 7.2C19.5 16.4 12 21 12 21z"/></svg>12.4K</div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-4.2A8.5 8.5 0 1 1 20.5 11.5z"/></svg>289</div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M21 3L10 14M21 3l-7 18-4-7-7-4z"/></svg>1,021</div>
+            </div>
+            <div class="cap"><b><img src="assets/logo.png" alt="">crazzmedia</b>Crazy content, real results ☕✨</div>
+            <div class="prog"><i></i></div>
+            <div class="tabs">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M3 10.5L12 3l9 7.5V21h-6v-6H9v6H3z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M12 8v8M8 12h8"/></svg>
+              <svg viewBox="0 0 24 24" style="color:#fff"><use href="#reel"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3"/><path d="M6.5 18.5c1.5-2 3.4-3 5.5-3s4 1 5.5 3"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass g1">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M7 4v16l13-8z"/></svg>
+          <div class="n"><span data-c="15">15</span>M+</div><div class="l">Organic reel views</div>
+          <svg class="spark" viewBox="0 0 110 28"><path d="M2 22 C 20 26, 30 10, 45 16 S 70 24, 80 12 S 100 4, 108 6" fill="none" stroke="#c056ff" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="glass g2">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.3-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17" cy="9" r="2.6"/><path d="M17 14.5c2.4 0 4 1.6 4.5 4"/></svg>
+          <div class="n"><span data-c="500">500</span>+</div><div class="l">Influencer campaigns</div>
+        </div>
+        <div class="glass g3">
+          <svg class="ic" viewBox="0 0 24 24" fill="#fff"><rect x="4" y="14" width="3" height="6" rx="1"/><rect x="10.5" y="9" width="3" height="11" rx="1"/><rect x="17" y="4" width="3" height="16" rx="1"/></svg>
+          <div class="n">Up to <span data-c="10">10</span>X</div><div class="l">Paid ad ROAS</div>
+        </div>
+        <div class="glass g4">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+          <div class="n"><span data-c="50">50</span>+</div><div class="l">Brands scaled</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="strip">
+      <a href="#services" class="sc rv"><svg class="ar"><use href="#arr"/></svg><div class="top"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><path d="M12 12l7-7M16 5h3v3"/></svg><div><h3>Social Media Strategy</h3><p>A clear, platform-first plan that builds visibility and business impact.</p></div></div></a>
+      <a href="#services" class="sc rv d1"><svg class="ar"><use href="#arr"/></svg><div class="top"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 12.5l9 5 9-5M3 16.5l9 5 9-5"/></svg><div><h3>Content Creation</h3><p>Reels, photos, graphics and campaigns built for attention and engagement.</p></div></div></a>
+      <a href="#services" class="sc rv d2"><svg class="ar"><use href="#arr"/></svg><div class="top"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><div><h3>Social Media Management</h3><p>End-to-end handling of your brand across every platform.</p></div></div></a>
+      <a href="#services" class="sc rv d3"><svg class="ar"><use href="#arr"/></svg><div class="top"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="15" width="3.5" height="6" rx="1"/><rect x="8.5" y="11" width="3.5" height="10" rx="1"/><rect x="14" y="7" width="3.5" height="14" rx="1"/><rect x="19.5" y="3" width="2.5" height="18" rx="1"/></svg><div><h3>Growth &amp; Performance</h3><p>Audience growth, engagement and measurable business results.</p></div></div></a>
+    </div>
+  </div>
+</header>
+
+<div class="mq" aria-hidden="true"><div class="mq-t">
+  <span>Viral Reels</span><span>Content Strategy</span><span>Influencer Marketing</span><span>Meta &amp; Google Ads</span><span>Branding</span><span>SEO</span><span>Community</span><span>Web Design</span>
+  <span>Viral Reels</span><span>Content Strategy</span><span>Influencer Marketing</span><span>Meta &amp; Google Ads</span><span>Branding</span><span>SEO</span><span>Community</span><span>Web Design</span>
+</div></div>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sh">
+      <div><div class="eyebrow rv">Featured work</div><h2 class="rv d1">Content people <span class="grad">stop</span> scrolling for.</h2></div>
+      <a href="https://www.instagram.com/crazzmedia" target="_blank" rel="noopener" class="ul rv">View all work <svg><use href="#arr"/></svg></a>
+    </div>
+    <div class="work">
+      <a class="wc rv" href="https://www.instagram.com/crazzmedia" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=80" alt="Pizza close-up for a café reel" loading="lazy" onerror="this.remove()">
+        <div class="t">Café &amp; Restaurants<small>Reels · Food content</small></div><svg class="ri"><use href="#reel"/></svg>
+        <div class="pill"><span class="play"></span>Watch reel</div>
+      </a>
+      <a class="wc rv d1" href="https://www.instagram.com/crazzmedia" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=700&q=80" alt="Resort pool at sunset" loading="lazy" onerror="this.remove()">
+        <div class="t">Hotels &amp; Hospitality<small>Social · Campaigns</small></div><svg class="ri"><use href="#reel"/></svg>
+        <div class="pill"><span class="play"></span>Watch reel</div>
+      </a>
+      <a class="wc rv d2" href="https://www.instagram.com/crazzmedia" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=700&q=80" alt="Skincare product shoot" loading="lazy" onerror="this.remove()">
+        <div class="t">D2C &amp; Beauty<small>Performance ads</small></div><svg class="ri"><use href="#reel"/></svg>
+        <div class="pill"><span class="play"></span>Watch reel</div>
+      </a>
+      <a class="wc rv d3" href="https://www.instagram.com/crazzmedia" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=700&q=80" alt="Team collaborating" loading="lazy" onerror="this.remove()">
+        <div class="t">Brands &amp; Creators<small>Influencer marketing</small></div><svg class="ri"><use href="#reel"/></svg>
+        <div class="pill"><span class="play"></span>Watch reel</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sh">
+      <div><div class="eyebrow rv">What we do</div><h2 class="rv d1">One team. Every channel.<br><span class="grad">Real growth.</span></h2></div>
+      <p class="rv">We don't treat channels as silos. Content, community, paid ads and search feed into each other — so every rupee compounds.</p>
+    </div>
+    <div class="svc">
+      <div class="sv rv"><div class="no">01</div><h3>Reels &amp; Short-Form Video</h3><p>Scripting, creative direction, shooting and edits built for Instagram Reels and YouTube Shorts.</p><div class="proof">15M+ organic reel views</div></div>
+      <div class="sv rv d1"><div class="no">02</div><h3>Social Media Management</h3><p>Monthly content calendars, captions, community management and DMs — handled 7 days a week.</p><div class="proof">Instagram · YouTube · LinkedIn · Facebook · X</div></div>
+      <div class="sv rv d2"><div class="no">03</div><h3>Performance Marketing</h3><p>Meta and Google Ads with creative testing, sharp targeting and server-side tracking.</p><div class="proof">Up to 10X ROAS</div></div>
+      <div class="sv rv"><div class="no">04</div><h3>Influencer Marketing</h3><p>Nano, micro and macro creators — vetted, negotiated and managed with clear deliverables.</p><div class="proof">500+ campaigns executed</div></div>
+      <div class="sv rv d1"><div class="no">05</div><h3>Branding &amp; Packaging</h3><p>Positioning, logos, visual systems and packaging that make a brand unforgettable.</p><div class="proof">Built for category leadership</div></div>
+      <div class="sv rv d2"><div class="no">06</div><h3>SEO &amp; Websites</h3><p>Fast, mobile-first websites and technical SEO that turn search traffic into customers.</p><div class="proof">90+ PageSpeed builds</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="stats rv">
+      <div class="st"><div class="n"><span data-c="15">15</span>M+</div><div class="l">Organic reel views generated</div></div>
+      <div class="st"><div class="n"><span data-c="500">500</span>+</div><div class="l">Influencer campaigns executed</div></div>
+      <div class="st"><div class="n"><span data-c="10">10</span>X</div><div class="l">Peak paid-ad ROAS</div></div>
+      <div class="st"><div class="n"><span data-c="50">50</span>+</div><div class="l">Brands across India</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="process" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sh">
+      <div><div class="eyebrow rv">Process</div><h2 class="rv d1">From idea to <span class="grad">impact</span> in two weeks.</h2></div>
+      <p class="rv">A framework built for speed and compounding results across every touchpoint.</p>
+    </div>
+    <div class="proc">
+      <div class="ps rv"><span class="wk">Week 1</span><div class="k">01</div><h3>Ideate</h3><p>Bold, thumb-stopping concepts that cut through the noise of your feed.</p></div>
+      <div class="ps rv d1"><span class="wk">Week 1</span><div class="k">02</div><h3>Strategise</h3><p>Data-backed roadmaps, content pillars and funnels for sustainable growth.</p></div>
+      <div class="ps rv d2"><span class="wk">Week 2</span><div class="k">03</div><h3>Execute</h3><p>Shoots, edits, posting and ads rolled out across every platform.</p></div>
+      <div class="ps rv d3"><span class="wk">Ongoing</span><div class="k">04</div><h3>Optimise</h3><p>Weekly reporting, creative testing and real-time tweaks to what's working.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="padding-top:40px">
+  <div class="wrap about">
+    <div class="fcard rv">
+      <div class="mono">SC</div>
+      <h3>Siddhi Chopra</h3>
+      <div class="rl">Founder &amp; Strategist, Crazz Media</div>
+      <p>A digital marketing strategist with 4+ years scaling ambitious brands — across viral content strategy, performance marketing, SEO and brand positioning. Siddhi leads Crazz with fearless ideas, transparent partnerships and results you can measure.</p>
+    </div>
+    <div class="about-txt">
+      <div class="eyebrow rv">About Crazz</div>
+      <div class="genty rv d1" style="margin-top:22px">Crazy Content.<br>Real Growth.</div>
+      <p class="rv d2">We believe social media should do far more than chase vanity metrics. It should build real demand, earn trust and drive predictable revenue. We pair high-energy storytelling with sharp data so every post earns its place.</p>
+      <div class="q rv d2">If you want safe, passive marketing, we're not the right agency. If you want bold content that actually moves the needle — you're in the right place.</div>
+      <div class="mv rv d3">
+        <div><b>Mission</b><p>Help ambitious brands own their category with scroll-stopping content and performance-first marketing.</p></div>
+        <div><b>Vision</b><p>To be the growth engine and creative partner of choice for India's boldest founders.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sh" style="justify-content:center;text-align:center"><div><div class="eyebrow rv" style="justify-content:center">FAQ</div><h2 class="rv d1">Got questions?</h2></div></div>
+    <div class="faq">
+      <div class="fq rv"><button>What does Crazz Media do?</button><div class="a"><p>We're a Mumbai-based social media and growth agency. We plan, shoot and manage content, run influencer and paid campaigns, and build the brand and web foundations that make it all convert.</p></div></div>
+      <div class="fq rv"><button>Do you work outside Mumbai?</button><div class="a"><p>Yes. We're headquartered in Mumbai (Bandra, Andheri, BKC, South Mumbai, Thane, Navi Mumbai) and run campaigns for brands across Delhi NCR, Bengaluru, Hyderabad, Pune and the rest of India.</p></div></div>
+      <div class="fq rv"><button>How quickly can we start?</button><div class="a"><p>Strategy and audits begin in week one, with first content and campaigns going live by week two.</p></div></div>
+      <div class="fq rv"><button>Is the first consultation free?</button><div class="a"><p>Yes — every new enquiry includes a free strategy call and a growth audit of your social and ad accounts.</p></div></div>
+      <div class="fq rv"><button>How fast do you reply?</button><div class="a"><p>We respond to every enquiry, form and WhatsApp message within 2–4 business hours.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:40px">
+  <div class="wrap">
+    <div class="cta">
+      <div>
+        <div class="eyebrow rv">Let's talk</div>
+        <h2 class="rv d1" style="margin-top:22px">Ready to grow <span class="grad">louder?</span></h2>
+        <p class="lead rv d2">Book a free strategy session. We'll look at your brand and reply within 4 hours.</p>
+        <div class="chan rv d3">
+          <a href="https://wa.me/919082287249" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg><span><small>WhatsApp &amp; Phone</small>+91 90822 87249</span></a>
+          <a href="mailto:info.crazzmedia@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7l8.5 6 8.5-6"/></svg><span><small>Email</small>info.crazzmedia@gmail.com</span></a>
+          <a href="https://maps.google.com/?q=Mumbai+400050" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span><small>Studio</small>Mumbai Suburban, MH 400050</span></a>
+        </div>
+      </div>
+      <form id="f" class="rv d2">
+        <h3>Start a project</h3>
+        <div class="row"><input name="name" placeholder="Your name *" required><input name="phone" placeholder="Phone / WhatsApp *" required></div>
+        <input name="email" type="email" placeholder="Email address *" required>
+        <select name="service" required>
+          <option value="">What do you need? *</option>
+          <option>Social Media Management</option><option>Reels &amp; Content Creation</option><option>Performance Marketing</option><option>Influencer Marketing</option><option>Branding &amp; Packaging</option><option>SEO &amp; Website</option><option>Complete 360° Growth</option>
+        </select>
+        <textarea name="msg" placeholder="Tell us about your brand and goals"></textarea>
+        <button class="btn btn-p" type="submit">Send enquiry <svg><use href="#arr"/></svg></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div>
+        <a href="#top" class="logo"><img src="assets/logo.png" alt=""><b>CRAZZ<i>.</i></b></a>
+        <p>Social media, content and performance marketing for brands that want to be talked about. Mumbai → Pan-India.</p>
+        <div class="soc">
+          <a href="https://www.instagram.com/crazzmedia" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.linkedin.com/company/107023675/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM3 9h3v12H3zM9 9h2.9v1.7c.4-.8 1.5-1.9 3.4-1.9 3.4 0 4.2 2.2 4.2 5.2V21h-3v-6.2c0-1.5 0-3.3-2-3.3s-2.4 1.6-2.4 3.2V21H9z"/></svg></a>
+          <a href="https://www.facebook.com/people/Crazz-Media/61574822651247" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.5V11H7v4h2.5v7h4v-7h3l.5-4h-3.5V8.8c0-.5.3-.8.5-.8z"/></svg></a>
+          <a href="https://wa.me/919082287249" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="#work">Work</a></li><li><a href="#services">Services</a></li><li><a href="#process">Process</a></li><li><a href="#about">About</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="#services">Social Media</a></li><li><a href="#services">Reels &amp; Content</a></li><li><a href="#services">Performance Ads</a></li><li><a href="#services">Branding</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="mailto:info.crazzmedia@gmail.com">info.crazzmedia@gmail.com</a></li><li><a href="https://wa.me/919082287249">+91 90822 87249</a></li><li>Mon–Sat, 9am–8pm IST</li></ul></div>
+    </div>
+    <div class="big">CRAZZ<i>.</i></div>
+    <div class="legal"><span>© 2026 Crazz Media. All rights reserved.</span><span>Website concept by <a href="https://thebeyondbranding.com" style="color:#d8b4fe">Beyond Branding</a></span></div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/919082287249?text=Hi%20Crazz%20Media%2C%20I%27d%20like%20to%20talk%20about%20a%20project" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg></a>
+
+<script>
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>30),{passive:true});
+const mm=document.getElementById('mmenu');
+document.getElementById('burger').onclick=()=>mm.classList.toggle('o');
+mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('o'));
+
+const count=el=>{const t=+el.dataset.c,d=1600,s=performance.now();const f=n=>{const p=Math.min((n-s)/d,1);el.textContent=Math.round(t*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('[data-c]').forEach(count);io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv,.glass,.stats').forEach(el=>io.observe(el));
+
+const ph=document.getElementById('phone'),stg=document.getElementById('stage');
+if(matchMedia('(hover:hover)').matches){
+  stg.addEventListener('mousemove',e=>{const r=stg.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;ph.style.transform=`rotateY(${-18+x*16}deg) rotateX(${6-y*12}deg) rotateZ(6deg)`});
+  stg.addEventListener('mouseleave',()=>ph.style.transform='');
+}
+
+document.querySelectorAll('.fq button').forEach(b=>b.onclick=()=>{const q=b.parentElement,a=q.querySelector('.a'),o=q.classList.toggle('o');a.style.maxHeight=o?a.scrollHeight+'px':0});
+
+document.getElementById('f').onsubmit=e=>{e.preventDefault();const d=new FormData(e.target);
+  const body=`Name: ${d.get('name')}\nPhone: ${d.get('phone')}\nEmail: ${d.get('email')}\nService: ${d.get('service')}\n\n${d.get('msg')||''}`;
+  location.href=`mailto:info.crazzmedia@gmail.com?subject=${encodeURIComponent('New project enquiry — '+d.get('name'))}&body=${encodeURIComponent(body)}`;};
+</script>
+</body>
+</html>
