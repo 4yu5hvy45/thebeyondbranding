@@ -624,9 +624,9 @@ form.enquiry{grid-column:7 / span 6;display:grid;gap:20px;background:var(--card)
   </div>
 </aside>
 <script src="https://thebeyondbranding.com/pitch/bar.js" defer data-client="MAATIQA Studio" data-offer="Like this? Let’s build MAATIQA’s brand and website for real." data-note="Brand identity, website &amp; content system · Ayush, Beyond Branding" data-sector="design" data-logos="marriott,radisson,dubai-media-office,esperti,soul-av,aiolec"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/js/gsap.min.js?v=4"></script>
+<script src="assets/js/ScrollTrigger.min.js?v=4"></script>
+<script src="assets/js/lenis.min.js?v=4"></script>
 <script>
 (() => {
 "use strict";
@@ -971,14 +971,18 @@ if (!hasGSAP || REDUCED){
   return;
 }
 gsap.registerPlugin(ScrollTrigger);
-lenis = new Lenis({lerp:.09, smoothWheel:true, syncTouch:false});
-window.__lenis = lenis;
-lenis.on("scroll", ScrollTrigger.update);
-gsap.ticker.add(t => lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
-lenis.on("scroll", ({scroll, direction}) => navState(scroll, direction));
+if (typeof window.Lenis === "function"){
+  lenis = new Lenis({lerp:.09, smoothWheel:true, syncTouch:false});
+  window.__lenis = lenis;
+  lenis.on("scroll", ScrollTrigger.update);
+  gsap.ticker.add(t => lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
+  lenis.on("scroll", ({scroll, direction}) => navState(scroll, direction));
+} else {
+  let ly = 0; addEventListener("scroll", () => { navState(scrollY, scrollY - ly); ly = scrollY; }, {passive:true});
+}
 $$('a[href^="#"]').forEach(a => a.addEventListener("click", e => {
   const id = a.getAttribute("href"); const t = id.length > 1 ? $(id) : null;
-  e.preventDefault(); setMenu(false); lenis.scrollTo(t || 0, {duration:1.5, offset: t ? -10 : 0});
+  e.preventDefault(); setMenu(false); lenis ? lenis.scrollTo(t || 0, {duration:1.5, offset: t ? -10 : 0}) : (t ? t.scrollIntoView({behavior:"smooth"}) : scrollTo({top:0,behavior:"smooth"}));
 }));
 
 // Hero: the logo prints itself, then the copy arrives
@@ -1000,10 +1004,16 @@ const fm = {t:0};
 gsap.to(fm, {t:1, ease:"none", onUpdate:() => footMark.render(fm.t), scrollTrigger:{trigger:".foot__mark", start:"top 95%", end:"bottom 75%", scrub:.6}});
 
 // Reveals
-$$("[data-reveal]").forEach(el => gsap.from(el, {y:34, opacity:0, duration:1.2, ease:"expo.out", scrollTrigger:{trigger:el, start:"top 90%"}}));
+$$("[data-reveal]").forEach(el => gsap.from(el, {y:34, opacity:0, duration:1.1, ease:"expo.out", scrollTrigger:{trigger:el, start:"top 95%", once:true}}));
+// keep trigger positions right as photos, fonts and the announcement bar settle
+let rT; const refresh = () => { clearTimeout(rT); rT = setTimeout(() => ScrollTrigger.refresh(), 150); };
+$$("img").forEach(i => { if (!i.complete) i.addEventListener("load", refresh, {once:true}); });
+document.fonts && document.fonts.ready.then(refresh);
+// safety net: anything already on or above screen is shown, whatever happened above
+const reveal = () => $$("[data-reveal]").forEach(el => { if (el.getBoundingClientRect().top < innerHeight && +getComputedStyle(el).opacity < 1) gsap.to(el, {opacity:1, y:0, duration:.6, overwrite:true}); });
+setTimeout(reveal, 2500); addEventListener("scroll", () => { clearTimeout(reveal.t); reveal.t = setTimeout(reveal, 400); }, {passive:true});
 $$("[data-clip]").forEach(f => {
-  gsap.fromTo(f, {clipPath:"inset(12% 8% 12% 8% round 6px)"}, {clipPath:"inset(0% 0% 0% 0% round 6px)", duration:1.6, ease:"expo.out", scrollTrigger:{trigger:f, start:"top 88%"}});
-  const img = f.querySelector("img"); if (img) gsap.fromTo(img, {scale:1.16}, {scale:1.02, ease:"none", scrollTrigger:{trigger:f, start:"top bottom", end:"bottom top", scrub:true}});
+  const img = f.querySelector("img"); if (img) gsap.fromTo(img, {scale:1.12}, {scale:1.02, ease:"none", scrollTrigger:{trigger:f, start:"top bottom", end:"bottom top", scrub:true}});
 });
 addEventListener("load", () => ScrollTrigger.refresh());
 })();
