@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Instrument+Sans:wght@400;500;600&display=swap">
 <style>
 :root{
-  --bg:#F6F2EB; --bg2:#ECE4D8; --card:#FAF7F1; --ink:#26231F; --muted:#6F675D; --soft:#9A9085;
+  --bg:#F6F2EB; --bg2:#ECE4D8; --card:#FAF7F1; --ink:#2C2824; --muted:#6F675D; --soft:#9A9085;
   --line:rgba(38,35,31,.14); --line-l:rgba(243,238,230,.18);
   --green:#3E4B3D; --green-d:#323D31; --bone:#F3EEE6; --clay:#A75E3F; --sand:#D6C5AD; --char:#1E1C1A;
   --serif:"Newsreader","Iowan Old Style","Palatino Linotype",Georgia,serif;
@@ -55,7 +55,7 @@ p{max-width:60ch}
 .lead{color:var(--muted);font-size:1.06rem}
 .link{display:inline-flex;align-items:center;gap:.5em;font-weight:500;font-size:.94rem;border-bottom:1px solid currentColor;padding-bottom:2px;width:fit-content;transition:gap .4s var(--ease)}
 .link:hover{gap:.85em}
-.btn{display:inline-flex;align-items:center;gap:.6em;border-radius:99px;padding:.95em 1.5em;font-weight:500;font-size:.94rem;transition:background .35s,color .35s,transform .35s var(--ease)}
+.btn{display:inline-flex;align-items:center;gap:.6em;border-radius:4px;padding:1.05em 1.7em;letter-spacing:.01em;font-weight:500;font-size:.94rem;transition:background .35s,color .35s,transform .35s var(--ease)}
 .btn:hover{transform:translateY(-2px)}
 .btn--bone{background:var(--bone);color:var(--green-d)}
 .btn--bone:hover{background:#fff}
@@ -70,8 +70,13 @@ p{max-width:60ch}
 .head .h2{grid-column:1 / span 7}
 .head .side{grid-column:9 / span 4;display:grid;gap:18px}
 
+/* announcement */
+.announce{background:var(--green);color:var(--bone);font-size:.82rem;position:relative;z-index:81}
+.announce__in{display:flex;justify-content:center;gap:14px;padding-block:9px;flex-wrap:wrap;text-align:center}
+.announce a{opacity:.8;border-bottom:1px solid rgba(243,238,230,.4)}
+.announce a:hover{opacity:1}
 /* nav */
-.nav{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);z-index:80;color:var(--bone);transition:background .45s,color .45s,transform .6s var(--ease),box-shadow .45s}
+.nav{position:fixed;left:0;right:0;top:calc(env(safe-area-inset-top,0px) + var(--ann,0px));z-index:80;color:var(--bone);transition:background .45s,color .45s,transform .6s var(--ease),box-shadow .45s}
 .nav__bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding-block:16px}
 .nav.is-solid{background:rgba(243,238,230,.94);color:var(--ink);box-shadow:0 1px 0 var(--line)}
 .nav.is-hidden{transform:translateY(-105%)}
@@ -82,7 +87,7 @@ p{max-width:60ch}
 .nav__links a{position:relative}
 .nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
 .nav__links a:hover::after{transform:scaleX(1);transform-origin:left}
-.nav__cta{justify-self:end;border:1px solid currentColor;border-radius:99px;padding:.55em 1.15em;font-size:.88rem;font-weight:500;transition:background .35s,color .35s}
+.nav__cta{justify-self:end;border:1px solid currentColor;border-radius:4px;padding:.55em 1.15em;font-size:.88rem;font-weight:500;transition:background .35s,color .35s}
 .nav:not(.is-solid) .nav__cta:hover{background:var(--bone);color:var(--green-d)}
 .nav.is-solid .nav__cta{background:var(--green);border-color:var(--green);color:var(--bone)}
 .burger{display:none;justify-self:end;width:44px;height:44px;place-items:center}
@@ -108,13 +113,19 @@ p{max-width:60ch}
 .hero__copy p{opacity:.85;font-size:clamp(1rem,.95rem + .3vw,1.15rem)!important;font-family:var(--sans)!important;font-size:clamp(1.15rem,1rem + .5vw,1.45rem);line-height:1.4;font-family:var(--serif);font-weight:300;letter-spacing:-.005em}
 .hero__copy .row{display:flex;gap:10px;flex-wrap:wrap}
 
+/* values strip */
+.values{border-bottom:1px solid var(--line);background:var(--bg)}
+.values__in{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-block:26px}
+.values__in div{display:flex;gap:14px;align-items:center;font-size:.9rem;line-height:1.35;color:var(--muted)}
+.values__in b{display:block;color:var(--ink);font-weight:500}
+.values svg{width:30px;height:30px;flex:none;fill:none;stroke:var(--green);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
 /* intro */
 .intro .head{margin-bottom:clamp(56px,7vw,100px)}
 .intro .h2{grid-column:1 / span 8}
 .intro__imgs{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;align-items:end}
 .intro__a{grid-column:1 / span 7;aspect-ratio:16/10.5}
 .intro__b{grid-column:9 / span 4;aspect-ratio:4/5}
-.frame{position:relative;overflow:hidden;border-radius:12px;background:var(--bg2)}
+.frame{position:relative;overflow:hidden;border-radius:6px;background:var(--bg2)}
 .frame picture,.frame img,.frame video{position:absolute;inset:0;width:100%;height:100%}
 .cap{margin-top:12px;color:var(--soft);font-size:.86rem}
 
@@ -136,10 +147,17 @@ p{max-width:60ch}
 .product .frame::after{content:"";position:absolute;inset:0;background:rgba(214,197,173,.08);mix-blend-mode:multiply;pointer-events:none}
 .product__meta{color:var(--soft);font-size:.86rem;margin-top:-6px}
 
+/* tabs */
+.tabs{display:flex;gap:26px;border-bottom:1px solid var(--line);margin-bottom:clamp(28px,3vw,40px);overflow-x:auto;scrollbar-width:none}
+.tab{padding:0 0 12px;font-size:.95rem;color:var(--soft);border-bottom:1.5px solid transparent;margin-bottom:-1px;white-space:nowrap;transition:color .3s,border-color .3s}
+.tab:hover{color:var(--ink)}
+.tab[aria-pressed="true"]{color:var(--ink);border-color:var(--ink)}
+.product{transition:opacity .45s var(--ease)}
+.product.is-out{display:none}
 /* bento */
 .forms{background:var(--bg2)}
 .bento{display:grid;grid-template-columns:7fr 5fr;grid-template-areas:"big a" "big b" "c dark";gap:clamp(12px,1.4vw,20px)}
-.tile{position:relative;overflow:hidden;border-radius:14px;min-height:clamp(200px,20vw,300px);color:var(--bone);display:flex;align-items:flex-end;padding:clamp(18px,2vw,28px)}
+.tile{position:relative;overflow:hidden;border-radius:6px;min-height:clamp(200px,20vw,300px);color:var(--bone);display:flex;align-items:flex-end;padding:clamp(18px,2vw,28px)}
 .tile img{position:absolute;inset:0;transition:transform 1.4s var(--ease)}
 .tile:hover img{transform:scale(1.05)}
 .tile::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(25,22,19,.55),rgba(25,22,19,0) 55%)}
@@ -191,7 +209,7 @@ p{max-width:60ch}
 .reel{flex:none;width:clamp(210px,21vw,290px);scroll-snap-align:start;display:grid;gap:12px}
 @media (min-width:1441px){.reels__row{padding-left:calc((100vw - 1440px)/2 + 20px);scroll-padding-left:calc((100vw - 1440px)/2 + 20px)}}
 .reels__row{scroll-padding-left:var(--gut)}
-.reel .frame{aspect-ratio:9/16;border-radius:16px}
+.reel .frame{aspect-ratio:9/16;border-radius:6px}
 .reel__top{position:absolute;left:12px;top:12px;z-index:2;display:flex;align-items:center;gap:8px;color:#fff;font-size:.78rem;font-weight:500;text-shadow:0 1px 6px rgba(0,0,0,.35)}
 .reel__top i{width:26px;height:26px;border-radius:50%;background:var(--green);display:grid;place-items:center}
 .reel__top i svg{width:16px;fill:var(--bone)}
@@ -208,7 +226,7 @@ p{max-width:60ch}
 /* spaces */
 .spaces{background:var(--bg2);color:var(--ink);padding-bottom:clamp(80px,9vw,140px)}
 .spaces .band{color:var(--bone)}
-.band{position:relative;overflow:hidden;border-radius:16px;min-height:clamp(440px,48vw,640px);display:flex;align-items:flex-end;padding:clamp(24px,4vw,64px)}
+.band{position:relative;overflow:hidden;border-radius:6px;min-height:clamp(440px,48vw,640px);display:flex;align-items:flex-end;padding:clamp(24px,4vw,64px)}
 .band picture,.band img{position:absolute;inset:0;width:100%;height:100%}
 .band img{object-position:65% 50%}
 .band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,24,20,.72),rgba(28,24,20,.25) 48%,rgba(28,24,20,0) 70%)}
@@ -220,13 +238,18 @@ p{max-width:60ch}
 .services b{font-family:var(--serif);font-weight:400;font-size:1.35rem;letter-spacing:-.01em}
 .services span{color:var(--muted);font-size:.92rem;line-height:1.5}
 
+/* statement */
+.statement{padding-block:clamp(90px,10vw,160px) 0}
+.statement__t{font-family:var(--serif);font-weight:300;font-size:clamp(3.4rem,1.2rem + 9vw,10.5rem);line-height:.92;letter-spacing:-.045em;color:var(--green);max-width:none}
+.statement__t em{font-style:italic;color:var(--clay)}
+.statement__row{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:clamp(28px,3vw,44px);padding-top:18px;color:var(--muted)}
 /* enquiry */
 .enq__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;align-items:start}
 .enq__copy{grid-column:1 / span 5;display:grid;gap:22px;position:sticky;top:120px}
 .enq__copy .h2 em{color:var(--green)}
 .contact{display:grid;gap:4px;border-top:1px solid var(--line);padding-top:18px;font-size:.94rem}
 .contact span{color:var(--soft)}
-form.enquiry{grid-column:7 / span 6;display:grid;gap:20px;background:var(--card);border-radius:16px;padding:clamp(22px,3vw,40px)}
+form.enquiry{grid-column:7 / span 6;display:grid;gap:20px;background:var(--card);border-radius:6px;padding:clamp(22px,3vw,40px)}
 .field{display:grid;gap:6px}
 .field label{font-size:.82rem;color:var(--muted);font-weight:500}
 .field input,.field select,.field textarea{font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);padding:10px 0;border-radius:0;width:100%;transition:border-color .3s}
@@ -269,7 +292,7 @@ form.enquiry{grid-column:7 / span 6;display:grid;gap:20px;background:var(--card)
 .qv::backdrop{background:rgba(38,35,31,.55)}
 .qv[open]{animation:qvIn .6s var(--ease)}
 @keyframes qvIn{from{opacity:0;transform:translateY(24px)}}
-.qv__in{display:grid;grid-template-columns:1.05fr 1fr;background:var(--card);border-radius:18px;overflow:hidden}
+.qv__in{display:grid;grid-template-columns:1.05fr 1fr;background:var(--card);border-radius:8px;overflow:hidden}
 .qv__img{position:relative;aspect-ratio:4/5;background:var(--bg2)}
 .qv__img img{position:absolute;inset:0;filter:sepia(.12) saturate(.88) contrast(1.03)}
 .qv__body{position:relative;display:grid;gap:20px;align-content:center;padding:clamp(28px,4vw,56px)}
@@ -291,6 +314,8 @@ form.enquiry{grid-column:7 / span 6;display:grid;gap:20px;background:var(--card)
   .services,.promise{grid-template-columns:1fr 1fr}
 }
 @media (max-width:860px){
+  .values__in{grid-template-columns:1fr 1fr;gap:18px}
+  .announce__in{font-size:.78rem;gap:8px}
   .nav__links,.nav__cta{display:none}.burger{display:grid}
   .nav__bar{grid-template-columns:1fr auto}
   .hero{height:auto;min-height:0;display:flex;flex-direction:column}
@@ -332,6 +357,7 @@ form.enquiry{grid-column:7 / span 6;display:grid;gap:20px;background:var(--card)
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="mqPath" fill-rule="evenodd" d="M208 316C205.2 315.9 204.5 315.7 203 315L200.7 314.2L197.8 313.2L196.4 312.4L195.4 312L194.3 311.3L192.1 310.1L190.2 309.1L189.1 308.5L187.9 307.8L186.9 307.1L185.2 306.1L183.2 304.9L181.8 303.8L180.6 302.9L179.3 302.1L177.3 301.1L175.2 300L174.2 299.3L172.2 298.3L169.8 297.2L168.1 296.6L165 295.8C161.1 295.5 160.1 294.8 159.9 292.2C159.8 289.7 161.1 288.8 164.1 289.4C168.3 290.2 171.5 290.3 176.2 289.9C180 289.7 180.8 289.5 181.7 288.7L182.9 287.9C184.4 287 184.6 285.1 183.3 283.4L178.3 283.4L175.6 283.9L173.3 283.9L170.2 283.1L167.3 282.4L166 281.7L163.8 280.8L158.5 278.2L157 277.2L155.8 276.2L154.4 275.2L153 274.1L151.9 273L150.9 272L149 270L147 267.8L145.9 266.4L144.9 265.1L144.2 264L143 262L142.1 260.5L141.3 259L140.7 257.6L139.8 255.4L138.8 252.8L137.5 249.7L136.8 247.5L135.9 243.1L135.1 239.8C134.3 238 134 236.3 133.9 232.7L133.4 224.3L133.65 218.4L133.65 210.3C134 206 134.2 204.9 135 203L135.9 199.1L136.8 195.1L137.5 193L138.7 190.2L139.8 187.8L140.4 186L141.2 184.3L142.3 182.3L143 181L144 179.3L145 177.9L145.9 176.5L146.7 175.5L148.4 173.6L150.2 171.7L151.3 170.6L153.1 168.8L155.1 167L156.3 166.2L157.6 165.4L159.3 164.4L160.9 163.6L162.3 162.8L164.8 161.7L167.2 160.8L171.6 159.6L175.2 159L178.2 158.4C180.6 158 183.8 158 185.9 158.5L187.5 158.7L189.4 159.2L191.5 159.6L195.4 160.7L198.2 161.7L201 162.8L203 163.9L205.6 165.5L207.4 166.8L210.6 169.7L211.3 170.4L216.1 175.4L217.1 176.6L218 178L218.9 179.4L219.8 180.8L220.5 182L221.2 183.4L222.1 185.1L223.4 188L224.3 190.2L225.2 192.6L226.1 195.1L227.1 199L227.9 202.9C228.7 205.2 228.9 206.6 229.35 211.2L229.47 219L229.29 223.8L229.29 231.6L228 239.7L226.8 245.7L226.2 247.6L225.5 249.7L224.2 252.9L223.2 255.2L222.3 257.2L221.5 258.8L220.3 261.5L219.5 262.8L218.8 263.8L218 265.1L217 266.2L215.9 267.7L215 269.1L214.2 270.1L211.8 272.9L211.2 273.4L210.6 274.1L209.4 275.4L208.4 276.6L206.3 279.1L205.2 280.1L202.3 282.7L201.2 283.5L200.1 284.3L199.1 285.2L198.1 286.1L196.8 287L195.1 288L193.6 289L192.3 290L190.5 291L187.9 292.1L186.1 292.9L184.9 293.7C182.7 294.7 182.3 296.2 183.9 296.9C187.6 298.6 188.8 298.7 192.9 298L195.2 297.6L197 297.2L199.1 296.8L201.1 296.3L202.8 295.6L205.2 294.3L206.6 293.1L207.8 292.2L208.8 291.4L210 290L211.2 288.4L212 287.2L212.9 286L213.7 284.8C215.2 281.7 219.5 281.8 221.6 285L222.5 285.8L223.5 286.9L224.3 287.9L225.1 289L226.1 290.3L227 291.5L228.1 293.6L229 295.1L229.9 296.7L230.7 298.5L231.5 300.6C232.5 302.8 232.5 304.6 231.4 306.3L230.8 307.5L228.5 310.4L227.2 311.4L226 312.3L224.9 313L222.7 314.1L220.4 315L217 316L214.6 316L208 316ZM79 284.3L77.2 284.2L71.1 283.1L69.7 282.6L64.8 280.1L63.6 279.3L62 277.7L60.8 276.2L59.6 274.7L58.7 273.4L57.8 271.5L56.9 269.6L56 267.8L55 261.8L54.6 259.7L54.4 258.1L54 231.1C53.9 205 54 206.9 53.2 205.8L50.5 203.9L47.4 203.1C45 203 44.7 202.7 44.9 199.8L45.3 197.2L48.4 195.8L50 195.3L51.6 194.7L52.7 194L54.6 192.9L55.9 192.2L57.1 191.5L58.3 190.7L59.8 189.6L63.1 186.9L64.4 185.8L65.4 185.1L67.5 183.1L69.8 181L71.7 179.3L73.1 178.2L74.6 177L76.1 175.8L77.3 174.8L78.4 173.8L80.2 172.6C83 170.9 83.1 170.9 84.7 172.5C86 173.7 85.8 172.6 86.1 184.6L86.1 196.2C86.6 196.7 86.7 196.7 90.5 196.7C96 196.8 96.4 197 96.2 199.9L95.5 202.5C94.7 203.3 94.8 203.2 90.8 203.2C86.7 203.2 86.7 203.2 86.3 204C85.8 204.9 85.8 204.3 85.8 233.2C85.9 267.9 85.8 266.4 87.1 268.9L87.9 270.9L88.9 272.9L89.9 274.1L90.9 275.1L91.8 275.9L92.8 276.8C93.9 277.6 94 277.8 93.7 278.8C93.5 279.9 93.8 280.3 94.3 279.8L94.6 278.6L95.5 277.1C96.2 276.6 96.4 276.2 96.5 274.8L96.7 273L96.9 271L96.9 244.2L96.5 216.4C96.2 215.3 94.4 213.1 93.3 212.4C91.9 211.7 91.7 211.3 91.7 210.3C91.7 209.1 92.1 208.5 93.5 207.8L94.9 207L96.3 206.3L97.9 205.6L101.8 203.5L104.2 202.4L106.4 201.5L108.7 200.5L110.4 199.8L113.3 198.7L114.8 197.9L117.6 196.8L120.8 195.8C123.9 194.3 128.3 194.8 129.1 196.8C130 198.8 129.9 196.2 130.15 234.2L130.15 274.6L131.3 278.2L132.3 279.6L133 280.8C133.4 281.6 133.1 282.1 131.9 283.4L94.3 283.4L93.3 281.7C92.6 280.9 92.3 280.9 91.3 281.7L88.2 283.1L86.2 283.4L79 283.4ZM247.2 284.1L245.6 283.6L243.8 283L241.7 281.8L239.8 280.7L238.2 279.7L237.1 278.9L234.2 275.9L233.3 274.4L232.1 272.5L231.2 271.1L230.1 268L229.95 266.1L229.95 260.6L230.3 256.8C230.4 254.2 230.5 253.7 231.3 252.7L232.2 250.4L233.2 247.4L233.9 245.7L235.2 243.6L236.1 242.3L242.7 234.8L245.9 232.1L247 231.3L248.2 230.5L249.4 229.6L251.6 228.3L252.9 227.6L254.4 226.8L256 226L258.9 224.6L261.3 223.6L263.7 222.8L266.2 221.9L269.4 221L272.2 220.2L276.4 218.9C278.5 218.5 278.4 218.5 279.4 216C280.5 213.2 280.5 212.8 279.5 210.2L279 208.2L278 205.8L275.9 204.1C274.3 202.6 271.6 202.2 267.3 202.7L264 203.6L261.7 205L258.7 207.2L257.6 208.2L255 211.1L254 212.2L253.1 213.2L252.2 214.3L251.2 215.5L250.2 216.8L249.2 218.1L248.2 219.2L247.4 220.2L246.7 221.2L245.9 222.2L241.5 226.5L237.9 226.9C235.6 226.2 234.4 223.1 234.6 218.2L234.6 213.7L235.2 209.2L235.9 207.4C236.2 206.1 236.4 205.8 237.6 204.8L239.2 203.4L240.7 202.4L242.1 201.5L243.5 200.5L244.9 199.8L247 198.9L249.4 198.1L255.4 196.4L258.7 195.7C261.1 195 268 194.7 275.4 195.1L282.5 196.1L284.4 196.5L289 197.8L291.4 198.8L293.6 199.9L295.3 200.8L296.6 201.5L297.9 202.3L299.4 203.5L302.3 205.8L303.3 206.9L304.3 208.1L305 209L305.9 210.1L308.7 214.7L309.6 216.3L310.9 219.1L311.5 221L312.3 225L313 228.8L313.1 265.6L313.1 268.1L313.5 271.3C313.7 274.8 314.4 278 315.3 279.2C316.6 281 316.7 281.9 315.6 283.4L286.4 283.4L284 281.6C282.1 280.3 281.6 279.6 280.8 277.2L279.9 275.2L279.1 274.2C278.2 273 276.2 273 275.2 274.2L274.3 275L272.9 276.1L269.9 278.7L268.3 279.8L266.2 281L264.3 282.1L261.9 282.9L259.1 283.7C257.4 284.3 249 284.6 247.2 284.1ZM191.7 274.9C193.1 274.6 194.1 273.8 195.2 272.3L196.2 271.3L197.1 270.2L197.8 269.1L199 266.3L199.7 264.1C200.5 262.5 200.6 261.6 201 256.9L202 250.4L201.7 240.2L201.4 237.8L201.2 236.2L200.9 232.1L199.6 220.4L198.7 216.4L198 213.3L197.2 210.2L196.3 205.5L195 200.8L193.9 197.5L193.4 195.7L192.5 192.7L191.8 191L190.6 188.3L189.5 185.9L188.8 184.2L187.9 182.4L186.9 180.7L185.7 178.6L184.8 177.3L184 176.3L183.1 175.1L182.2 173.9L181.5 172.8L180.6 171.8L179.7 171L178.6 170.1L177.5 169.4L176.4 168.6C174.2 167 169.6 166.9 168.3 168.4L167.2 169.3L166 170.9L165 172.4L163.9 175.1L163.4 177.3C162.2 180.9 162.1 182.8 161.9 193.9L161.9 202.2L162.3 206.2L163.2 213.9L163.9 220.6L164.9 225.7L165.9 229.8L167.1 235.6L167.6 238.4L168.6 243.1L169.6 246.5L170.3 248.6L171.7 252.4L172.2 253.5L173.2 256L174.1 258.2L174.9 260.1L176 262.6L176.9 264.2L178 265.8L178.9 267.4L179.6 268.9L180.5 270L181.5 271.1L182.2 271.9L183.3 272.9L184.6 273.9C185.9 275 189.3 275.5 191.7 274.9ZM270.7 268C274.1 267.6 275 267.2 277 265.4C278.6 263.9 278.6 263.8 279 262L279.6 259.6C280.5 257.3 280.5 255.9 280.5 242.9C280.4 232.1 280.4 232.6 279.7 231.1L279 229.6C278.7 228.9 277.8 228.4 275.9 228C274.6 227.7 271.1 228.7 270 229.6L268.9 230.4L268.2 231L267.2 231.8L266 233.2L265.1 234.3L264 236.3L263.2 237.9L262.4 239.3L261.2 241.4C260.6 242.2 260.3 243.1 260.1 245.8L259.8 247.4L259.8 255.2L261.2 261.6L262.2 263.3C263.5 265.9 265.8 267.5 268.9 268L270.7 268ZM111.5 189.1L110.1 188.7L107.9 188.2C105.7 187.9 105.4 187.8 104.3 186.9L102.9 186.1L101.3 184.9L100 183.8L98.6 181.9L97.8 180.6L96.8 179L96.2 177.4C94.7 174 94.6 168.4 96.2 164.9L96.7 163.5L97.6 161.5L98.7 159.8L101.1 157.2L102.9 156L104.3 155L106.5 154.1L108.2 153.7C111 153 113.7 152.9 115.6 153.3L118.6 153.8C121.2 154.1 121.5 154.2 122.6 155.3L123.9 156.2L125 156.9L126.1 157.8L127.3 159.3L128 160.4C130.3 163.5 130.9 167.1 130.5 174.1C130.3 177.7 129.8 179.2 128 181.5L127.2 182.6L125.8 184.2L124.7 185.2L123 186.4L121.5 187.2L118.9 188.1L116 188.95L111.5 188.95ZM269.9 152.7L266.6 152C263.4 151.2 262.7 150.9 261.8 150L260.3 149.1L258.7 148.2L257.4 147.2L256.4 146.3L255.5 145.2L254.7 144L253.5 142.7L252.7 141.5C252 140.1 251.6 139.9 251.6 141L252.2 142.7L252.9 144L254.1 146.6L255.1 147.9L255.9 149.1C257 150.5 254.9 151.2 250.6 151L233 151C207.4 151 207.7 151.1 207 150.3C206.6 149.9 206.6 149.4 207.2 148.6L208.5 146L209.1 144.5C209.9 142.9 210.5 137.7 210.2 133.7L209.1 124.7L208.5 122L207.9 115.9L207.3 112.3L206.8 110.5C206.4 108.6 206.1 108.1 205.1 107.9L191.3 107.9C189.8 107.9 189.7 109.8 191.2 112L192.1 114.2L193 116.6L193.6 118.2L194.7 121.7L195.2 123.7L196.2 127.9C197.7 130.9 197.9 141.3 196.4 144.1L195.9 145.5L194.6 147.8C192.8 149.9 192.4 150.2 190.9 150.6C188.9 151.1 191.6 151 133.3 151L110.7 151C109.8 150.3 109.7 149.5 110.5 148.6C111.5 147.4 111.7 146.9 111.9 145.1L112.5 142.9L113.3 136.2L113.3 62.8L112.6 57.9L111.9 55.9C110.8 52 107.9 51.5 106.2 54.9L105.6 56.1L104 59.3L103.3 61L102.5 62.9L101.7 64.7L101 67.1L100 70.4L99.1 72.8L98 76.9L97.3 78.8L96.1 83.3L95.2 86.8L94.2 91L93.3 94.3L92.3 98.6L91.8 100.6L90.5 105.9L89.6 110L88.8 113.4L88.2 115.8L86.9 121L86.1 123.9L85.2 127.5L84.2 130.1L83.2 133.1L82.4 134.8L79.8 137.9C78.7 138.5 76.7 137.9 76.2 136.8L75.5 135.8L74.5 134L73.6 132.2L72.5 129.4L71.9 128L70.9 125.6L69.8 122.9L68.9 120.5L68 117.6L67.1 115.4L66.3 112.1L65.4 109.4L64.4 106.3L63.4 103.6L62.8 101.3L61.7 97.7L60.8 95.1L59.6 91.7L58.8 89.4L57.9 86.7L56.8 83.8L56 81.3L54.9 78L53.9 75L53.1 73L52.4 71.1L51.4 68.7L50.2 65.9L49.5 63.9L48.8 62.2L47.9 60.7L47.1 59.2L45.8 56.5L44.8 55.2L44.1 54.1L43 53.2C41.7 52 40.7 52.3 39.2 54.6C38 56.5 37.9 56.7 37.65 58.9L37.67 65.2L37.67 68.8L38.4 76.8L39.5 81.2L40.6 86.4L41.2 88.8L42.1 91.7L43.2 94.4L44.1 96.6L45.1 98.7L46.2 100.9L47.1 102.7L48.1 104.4L49.3 106.8L51.7 111.1L52.7 112.7L53.5 114L54.4 115.6L55.2 117L56 118.2L56.9 119.6L58.2 121.9L59 123.2L60 124.9L61 126.6L62.1 128.8L62.8 130.4L64.6 136.3L65.1 138.3L64.7 141.9L64 143.9L61.7 147.7L59.6 149L58.1 149.7C56.6 150.9 55.3 151 45.2 151C27.8 151 27.2 151 26.7 150.4L27.1 148.3L28.3 145.4L28.9 143.2L29.75 140.6L29.77 97.8L29.77 55.2C30 42.8 29.7 37.7 28.9 35.6L28.2 33.5L27.5 31.2C26.5 28.9 26.7 28.4 28.2 28.15L60.6 28.15C67 28.2 66.7 28.1 68.3 29L69.8 29.8C71 30.3 72.5 31.8 72.9 32.8L73.9 34.2L75.1 36.4L75.9 38.2L76.6 40.1L77.5 42.3L78.6 45.5L79.4 48.5L80.5 52.5L81.2 54.7L82.4 58.5L83.2 61L83.9 63L85 67.1L86.1 70.8L87.2 73.4C88.5 74.9 88.9 74.7 89.3 72.4L90.2 69.8L91.3 66.8L92 64.5L93.2 59.4L93.8 57.6L94.7 55L96 51L96.7 48.6L97.7 45.1L98.7 42.1L99.5 40L100.6 37.6L103.9 31.9L106.5 29.7L108 28.9L111.5 28.15L148.2 28.15C149.5 28.4 149.5 29.8 148.2 31.8L146.7 36.9L146.2 38.6L146.2 89.2C146.1 144.4 145.9 138.1 147.1 144.5C147.5 146.7 147.7 147 148.8 147C149.9 147 150.2 146.6 150.8 145.1L151.9 142.8L152.7 141L153.7 138.8L154.4 136.8L155.1 134.7L156 131L157 128L158 125L158.9 121.9L159.7 119.2L160.9 115.1L161.9 111.5L162.9 108.3L163.5 106L164.5 101.9L165.8 97.2L166.4 94.2L167.5 89L168.3 86.3L169.2 81.6L170.2 77.5L171.1 72.6L171.9 68.9L172.7 64.5L173.8 59.7L174.7 56L175 53.8L175.2 52.4L175.8 49.9L176.1 48.6L176.3 46.8L176.95 44.4L176.95 37.5C177.3 34.4 177 32.4 176.1 30.2C175.6 29 175.8 28.5 176.9 28.15L227.3 28.15C228.5 28.5 228.7 29.1 228 30C226.7 32 226.4 42.2 227.5 46.6L228.2 49L229.2 54.6L229.7 57.9L230.8 63.5L231.7 67.9L232.6 71.7L233.5 76.6L234.5 81.8L234.9 83.9L235.2 85.2L235.6 86.5L236.3 89L237.3 92.9L238.1 96.8L239.1 100.7L240.1 104.4L241 107.8L241.9 110.7L242.8 114.5L243.5 117.1L244.7 120.9L245.5 123.6L246.8 127.9L247.4 130L248.4 133.1L249.5 135.7C250.3 138.9 250.8 137.2 250.4 132.8L250.3 130.8L250.9 125L251.9 120.5L252.6 118.5L253.6 115.5L254.6 113.7L255.5 112.1L256.3 110.8L257.2 109.6L258.6 107.7L260.2 105.7L262.5 103.5L266.6 100.3L267.8 99.4L269 98.5L270.1 97.7L271.6 96.8L273.2 95.9L274.8 95.1L277.1 93.9L279.5 92.8L281.2 92.1L283.9 91L286.4 90.2L290.3 89.2L294.5 88L296.6 87.2C298.2 86.8 298.3 86.7 299.4 85.1C300.5 83.7 300.5 83.6 300.5 81.1C300.5 78.6 300.5 78.5 299.8 77.5L298.9 75.4C298.4 73.9 298.2 73.6 297.2 73L296 72.1L293.3 71L291.4 70.8L288.3 70.8L286.6 71.1L284.5 71.9L282.9 72.9L279.2 75.6L278.1 76.6L275.4 79.1L274.3 80.2L273.4 81.1L272.7 82.1L271.8 83.4L268.8 87.2L268 88.4L266.1 90.7L264.4 92.5L263.4 93.4L262.4 94.2C261.2 95.3 258.1 95.4 257.1 94.5C255.5 93.1 255.2 91.6 255.2 85.6C255.2 79.3 255.2 78.6 255.8 76.9L256.4 75.2L258.1 72.9L259.5 71.7L260.8 70.8L262.1 69.9L263.4 69L264.8 68.2L267.7 66.9L270.4 66L275.6 64.7L278.8 64C281.8 63.2 298.4 63 301.2 63.9L303.1 64.3L309.5 66L311.2 66.7L313.7 67.9L315.3 68.9L317.3 70L318.8 71L319.8 71.8L320.9 72.8L324.3 76L325.9 77.8L327.2 79.7L328.2 81.2L329.3 83.1L329.8 84.1L331 86.6L331.7 88.6C332.8 91.2 332.9 91.6 333.3 96L333.65 99.3L333.65 119.3C333.7 139.7 333.7 139.3 334.3 142.1L334.8 144.9L335.8 147.3C337.3 149.3 337.3 150.3 336 151L307.2 151C304.8 150.5 303.4 149.7 302.7 148.3L302 147.1L300.9 144.9C299.8 141.6 297.5 140.5 295.6 142.4L292.7 144.8L291 146.2L287.9 148.5L286.9 149L285.9 149.5L285.1 150.1L283.3 150.8L281 151.6C279 152.4 273.8 153 269.9 152.7ZM292.9 136.1C296.4 135.2 298.3 133.4 299.2 130.1L299.9 128.2C300.8 126.5 300.9 122.8 300.7 107C300.6 100.3 300.6 100.3 299.9 98.8C298.4 95.7 294.5 95.5 290.3 98.3L289.1 99L284.9 103.1L284.5 104.1L283.4 106L282.8 107L282 109L280.8 113.8L280.3 116.2C279.2 121.9 281.1 130.5 284 133.6L285.1 134.8L287.2 135.8L289.1 136.3C290.5 136.7 290.9 136.7 292.9 136.1ZM203.9 101.3C205 100.7 204.9 96.5 203.6 93.1L202.6 88.7L201.7 85.1L200.9 82.1L199.8 77.5L198.9 74.6L197.5 69.9L196.9 68L196.3 66.5L195.7 64.9L195.1 63.1L193.9 60.4L193.3 59.2L192.6 57.8L191.8 56.4L188.4 53.3C186.5 52.3 183.6 53.9 182.2 56.5L181.3 58.3L180.2 63.2L179.7 65L179.8 73.6L179.8 77.1L180.3 79.7L180.7 82.2L181.6 86.7L182.3 89L183.3 91.8L184.2 94L185.3 97.6L186.3 99.8C186.8 101.3 186.9 101.3 188.7 101.35L203.9 101.35Z"/></defs></svg>
+<div class="announce" id="announce"><div class="wrap announce__in"><span>The first collection is here.</span><a href="#enquire">Enquire about availability →</a></div></div>
 <header class="nav" id="nav">
   <div class="wrap nav__bar">
     <a href="#top" class="logo" aria-label="MAATIQA, back to top"><svg viewBox="25.0 26.5 313.3 290.8" aria-hidden="true"><use href="#mqPath"/></svg></a>
@@ -364,6 +390,7 @@ form.enquiry{grid-column:7 / span 6;display:grid;gap:20px;background:var(--card)
   </div>
 </section>
 
+<section class="values" aria-label="What makes MAATIQA different"><div class="wrap values__in"><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M6 20c1-5 3-8 6-8s5 3 6 8M9 14c1-.7 2-1 3-1s2 .3 3 1"/></svg><span><b>Natural clay</b>No plastics, no shortcuts</span></div><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9h14M5 13h14M5 17h14M8 5l4-2 4 2"/></svg><span><b>Printed in layers</b>Forms a wheel can’t make</span></div><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 12V6a1.5 1.5 0 0 1 3 0v5M10 10V4.5a1.5 1.5 0 0 1 3 0V11M13 10V5.5a1.5 1.5 0 0 1 3 0V12M16 10.5a1.5 1.5 0 0 1 3 0V14a6 6 0 0 1-6 6h-1a6 6 0 0 1-5-2.7L4.5 13.5a1.5 1.5 0 0 1 2.5-1.6L8 13"/></svg><span><b>Finished by hand</b>Dried, refined, kiln-fired</span></div><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-5.5-6-11a6 6 0 0 1 12 0c0 5.5-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg><span><b>Made in Indore</b>Shipped across India</span></div></div></section>
 <!-- INTRO -->
 <section class="sec intro">
   <div class="wrap">
@@ -388,29 +415,30 @@ form.enquiry{grid-column:7 / span 6;display:grid;gap:20px;background:var(--card)
       <h2 class="h2" data-reveal>The first <em>collection</em></h2>
       <div class="side" data-reveal><p class="lead">Vessels, planters and sculptural forms in natural clay. Every piece is slightly different from the last.</p><a class="link" href="#enquire">Ask about availability →</a></div>
     </div>
+    <div class="tabs" role="group" aria-label="Filter the collection"><button class="tab" aria-pressed="true" data-f="all">All pieces</button><button class="tab" aria-pressed="false" data-f="vessel">Vessels</button><button class="tab" aria-pressed="false" data-f="sculpt">Sculptural</button></div>
     <div class="products">
-      <a class="product" href="#enquire" data-piece="Jaal" data-reveal><div class="frame"><img src="assets/img/lattice.webp?v=3" alt="Jaal, a lattice vessel in terracotta" loading="lazy" decoding="async"></div>
+      <a class="product" href="#enquire" data-piece="Jaal" data-cat="vessel" data-reveal><div class="frame"><img src="assets/img/lattice.webp?v=3" alt="Jaal, a lattice vessel in terracotta" loading="lazy" decoding="async"></div>
         <div class="product__row"><span class="product__name">Jaal<i>net</i></span><span class="product__go">Enquire →</span></div>
         <span class="product__meta">Terracotta · Lattice vessel</span></a>
-      <a class="product" href="#enquire" data-piece="Bhanwar" data-reveal><div class="frame"><img src="assets/img/twist.webp?v=3" alt="Bhanwar, a folded spiral in terracotta" loading="lazy" decoding="async"></div>
+      <a class="product" href="#enquire" data-piece="Bhanwar" data-cat="sculpt" data-reveal><div class="frame"><img src="assets/img/twist.webp?v=3" alt="Bhanwar, a folded spiral in terracotta" loading="lazy" decoding="async"></div>
         <div class="product__row"><span class="product__name">Bhanwar<i>whirlpool</i></span><span class="product__go">Enquire →</span></div>
         <span class="product__meta">Terracotta · Folded spiral</span></a>
-      <a class="product" href="#enquire" data-piece="Kumud" data-reveal><div class="frame"><img src="assets/img/v-lotus.webp?v=3" alt="Kumud, a petal-rim vase in stoneware" loading="lazy" decoding="async"></div>
+      <a class="product" href="#enquire" data-piece="Kumud" data-cat="sculpt" data-reveal><div class="frame"><img src="assets/img/v-lotus.webp?v=3" alt="Kumud, a petal-rim vase in stoneware" loading="lazy" decoding="async"></div>
         <div class="product__row"><span class="product__name">Kumud<i>water lily</i></span><span class="product__go">Enquire →</span></div>
         <span class="product__meta">Stoneware · Petal-rim vase</span></a>
-      <a class="product" href="#enquire" data-piece="Hawa" data-reveal><div class="frame"><img src="assets/img/v-twist.webp?v=3" alt="Hawa, a offset twist vase in terracotta" loading="lazy" decoding="async"></div>
+      <a class="product" href="#enquire" data-piece="Hawa" data-cat="vessel" data-reveal><div class="frame"><img src="assets/img/v-twist.webp?v=3" alt="Hawa, a offset twist vase in terracotta" loading="lazy" decoding="async"></div>
         <div class="product__row"><span class="product__name">Hawa<i>wind</i></span><span class="product__go">Enquire →</span></div>
         <span class="product__meta">Terracotta · Offset twist vase</span></a>
-      <a class="product" href="#enquire" data-piece="Moti" data-reveal><div class="frame"><img src="assets/img/v-sphere.webp?v=3" alt="Moti, a stacked-sphere vessel in stoneware" loading="lazy" decoding="async"></div>
+      <a class="product" href="#enquire" data-piece="Moti" data-cat="vessel" data-reveal><div class="frame"><img src="assets/img/v-sphere.webp?v=3" alt="Moti, a stacked-sphere vessel in stoneware" loading="lazy" decoding="async"></div>
         <div class="product__row"><span class="product__name">Moti<i>pearls</i></span><span class="product__go">Enquire →</span></div>
         <span class="product__meta">Stoneware · Stacked-sphere vessel</span></a>
-      <a class="product" href="#enquire" data-piece="Dhaar" data-reveal><div class="frame"><img src="assets/img/facet.webp?v=3" alt="Dhaar, a faceted column in terracotta" loading="lazy" decoding="async"></div>
+      <a class="product" href="#enquire" data-piece="Dhaar" data-cat="vessel" data-reveal><div class="frame"><img src="assets/img/facet.webp?v=3" alt="Dhaar, a faceted column in terracotta" loading="lazy" decoding="async"></div>
         <div class="product__row"><span class="product__name">Dhaar<i>edge</i></span><span class="product__go">Enquire →</span></div>
         <span class="product__meta">Terracotta · Faceted column</span></a>
-      <a class="product" href="#enquire" data-piece="Lehar" data-reveal><div class="frame"><img src="assets/img/v-wave.webp?v=3" alt="Lehar, a wave vase in white clay" loading="lazy" decoding="async"></div>
+      <a class="product" href="#enquire" data-piece="Lehar" data-cat="vessel" data-reveal><div class="frame"><img src="assets/img/v-wave.webp?v=3" alt="Lehar, a wave vase in white clay" loading="lazy" decoding="async"></div>
         <div class="product__row"><span class="product__name">Lehar<i>wave</i></span><span class="product__go">Enquire →</span></div>
         <span class="product__meta">White clay · Wave vase</span></a>
-      <a class="product" href="#enquire" data-piece="Raakh" data-reveal><div class="frame"><img src="assets/img/grey-lattice.webp?v=3" alt="Raakh, a lattice vase in grey stoneware" loading="lazy" decoding="async"></div>
+      <a class="product" href="#enquire" data-piece="Raakh" data-cat="vessel" data-reveal><div class="frame"><img src="assets/img/grey-lattice.webp?v=3" alt="Raakh, a lattice vase in grey stoneware" loading="lazy" decoding="async"></div>
         <div class="product__row"><span class="product__name">Raakh<i>ash</i></span><span class="product__go">Enquire →</span></div>
         <span class="product__meta">Grey stoneware · Lattice vase</span></a></div>
   </div>
@@ -523,6 +551,13 @@ form.enquiry{grid-column:7 / span 6;display:grid;gap:20px;background:var(--card)
   </div>
 </section>
 
+<!-- STATEMENT -->
+<section class="statement" aria-label="Brand statement">
+  <div class="wrap">
+    <p class="statement__t" data-reveal>Made slowly.<br><em>Made in India.</em></p>
+    <div class="statement__row" data-reveal><span>Every MAATIQA piece is printed, dried, refined and fired in our Indore studio.</span><a class="link" href="#studio">Meet the studio →</a></div>
+  </div>
+</section>
 <!-- ENQUIRE -->
 <section class="sec" id="enquire">
   <div class="wrap enq__grid">
@@ -569,12 +604,6 @@ form.enquiry{grid-column:7 / span 6;display:grid;gap:20px;background:var(--card)
 
 <footer class="foot" data-tone="light">
   <div class="wrap">
-    <div class="promise">
-      <div><b>Natural clay</b><span>No plastics, no shortcuts.</span></div>
-      <div><b>Printed in layers</b><span>Forms a potter’s wheel can’t make.</span></div>
-      <div><b>Finished by hand</b><span>Dried, refined and fired slowly.</span></div>
-      <div><b>Made in Indore</b><span>Shipped across India.</span></div>
-    </div>
     <div class="foot__main">
       <a href="#top" class="foot__mark" aria-label="MAATIQA, back to top"><canvas id="footMark" aria-hidden="true"></canvas></a>
       <div class="foot__cols">
@@ -883,6 +912,17 @@ const step = () => (row.querySelector(".reel")?.offsetWidth || 260) * 2 + 40;
 $("#rNext").addEventListener("click", () => row.scrollBy({left:step(), behavior:"smooth"}));
 $("#rPrev").addEventListener("click", () => row.scrollBy({left:-step(), behavior:"smooth"}));
 
+/* ===== Collection tabs ===== */
+$$(".tab").forEach(t => t.addEventListener("click", () => {
+  $$(".tab").forEach(x => x.setAttribute("aria-pressed", x === t ? "true" : "false"));
+  $$(".product").forEach(p => p.classList.toggle("is-out", t.dataset.f !== "all" && p.dataset.cat !== t.dataset.f));
+  window.ScrollTrigger && ScrollTrigger.refresh();
+}));
+/* announcement offsets the fixed nav until it scrolls away */
+const ann = $("#announce");
+const setAnn = () => document.documentElement.style.setProperty("--ann", Math.max(0, ann.offsetHeight - (window.__lenis ? window.__lenis.scroll : scrollY)) + "px");
+setAnn(); addEventListener("resize", setAnn); addEventListener("scroll", setAnn, {passive:true});
+
 /* ===== Menu, enquiry ===== */
 let lenis = null;
 const menu = $("#menu"), burger = $("#burger");
@@ -962,7 +1002,7 @@ gsap.to(fm, {t:1, ease:"none", onUpdate:() => footMark.render(fm.t), scrollTrigg
 // Reveals
 $$("[data-reveal]").forEach(el => gsap.from(el, {y:34, opacity:0, duration:1.2, ease:"expo.out", scrollTrigger:{trigger:el, start:"top 90%"}}));
 $$("[data-clip]").forEach(f => {
-  gsap.fromTo(f, {clipPath:"inset(12% 8% 12% 8% round 12px)"}, {clipPath:"inset(0% 0% 0% 0% round 12px)", duration:1.6, ease:"expo.out", scrollTrigger:{trigger:f, start:"top 88%"}});
+  gsap.fromTo(f, {clipPath:"inset(12% 8% 12% 8% round 6px)"}, {clipPath:"inset(0% 0% 0% 0% round 6px)", duration:1.6, ease:"expo.out", scrollTrigger:{trigger:f, start:"top 88%"}});
   const img = f.querySelector("img"); if (img) gsap.fromTo(img, {scale:1.16}, {scale:1.02, ease:"none", scrollTrigger:{trigger:f, start:"top bottom", end:"bottom top", scrub:true}});
 });
 addEventListener("load", () => ScrollTrigger.refresh());
