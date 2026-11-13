@@ -7,7 +7,7 @@
 <title>MAATIQA Studio</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="MAATIQA is a ceramic design studio in Indore. Vessels and sculptural objects printed from natural clay and finished by hand.">
-<meta name="theme-color" content="#F3EEE6">
+<meta name="theme-color" content="#F6F2EB">
 <meta property="og:title" content="MAATIQA Studio · a website concept by Beyond Branding">
 <meta property="og:description" content="Ceramic objects printed from natural clay and finished by hand in Indore.">
 <meta property="og:image" content="https://thebeyondbranding.com/pitch/maatiqa/assets/img/og.jpg">
@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Instrument+Sans:wght@400;500;600&display=swap">
 <style>
 :root{
-  --bg:#F3EEE6; --bg2:#EBE3D7; --card:#FAF7F1; --ink:#26231F; --muted:#6F675D; --soft:#9A9085;
+  --bg:#F6F2EB; --bg2:#ECE4D8; --card:#FAF7F1; --ink:#26231F; --muted:#6F675D; --soft:#9A9085;
   --line:rgba(38,35,31,.14); --line-l:rgba(243,238,230,.18);
   --green:#3E4B3D; --green-d:#323D31; --bone:#F3EEE6; --clay:#A75E3F; --sand:#D6C5AD; --char:#1E1C1A;
   --serif:"Newsreader","Iowan Old Style","Palatino Linotype",Georgia,serif;
@@ -103,7 +103,9 @@ p{max-width:60ch}
 .hero__mark{grid-column:1 / span 6;width:min(100%,600px);aspect-ratio:313.3/290.8;position:relative}
 .hero__mark canvas{position:absolute;inset:0;width:100%;height:100%}
 .hero__copy{grid-column:9 / span 4;display:grid;gap:24px;padding-bottom:6px}
-.hero__copy p{font-size:clamp(1.15rem,1rem + .5vw,1.45rem);line-height:1.4;font-family:var(--serif);font-weight:300;letter-spacing:-.005em}
+.hero__h{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,1.4rem + 1.9vw,3.2rem);line-height:1;letter-spacing:-.025em}
+.hero__h em{font-style:italic;color:var(--sand)}
+.hero__copy p{opacity:.85;font-size:clamp(1rem,.95rem + .3vw,1.15rem)!important;font-family:var(--sans)!important;font-size:clamp(1.15rem,1rem + .5vw,1.45rem);line-height:1.4;font-family:var(--serif);font-weight:300;letter-spacing:-.005em}
 .hero__copy .row{display:flex;gap:10px;flex-wrap:wrap}
 
 /* intro */
@@ -160,8 +162,8 @@ p{max-width:60ch}
 .vessel__copy .h2 em{color:var(--sand)}
 .vessel__copy .lead{color:rgba(243,238,230,.72)}
 .steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-l)}
-.steps li{display:grid;grid-template-columns:28px 1fr;gap:4px 14px;padding:15px 0;border-bottom:1px solid var(--line-l)}
-.steps li span{grid-row:span 2;color:var(--sand);font-family:var(--serif);font-style:italic}
+.steps li{display:grid;grid-template-columns:64px 1fr;gap:2px 16px;padding:14px 0;border-bottom:1px solid var(--line-l);align-items:center}
+.steps li img{grid-row:span 2;width:64px;height:64px;border-radius:10px;object-fit:cover}
 .steps b{font-weight:500}
 .steps p{color:rgba(243,238,230,.66);font-size:.92rem;line-height:1.5}
 
@@ -179,7 +181,7 @@ p{max-width:60ch}
 .quote{font-family:var(--serif);font-style:italic;font-weight:300;font-size:1.3rem;color:var(--green)}
 
 /* reels */
-.reels{background:var(--bg2);overflow:hidden}
+.reels{background:var(--bg);overflow:hidden}
 .reels__row{display:flex;gap:clamp(12px,1.4vw,20px);overflow-x:auto;scroll-snap-type:x mandatory;padding-left:var(--gut);padding-right:var(--gut-r);padding-bottom:6px;scrollbar-width:none;overscroll-behavior-x:contain}
 .reels__row::-webkit-scrollbar{display:none}
 .reel{flex:none;width:clamp(210px,21vw,290px);scroll-snap-align:start;display:grid;gap:12px}
@@ -191,6 +193,7 @@ p{max-width:60ch}
 .reel__play{position:absolute;right:12px;bottom:12px;z-index:2;width:34px;height:34px;border-radius:50%;background:rgba(243,238,230,.88);display:grid;place-items:center;transition:opacity .4s}
 .reel__play svg{width:12px;fill:var(--ink);margin-left:2px}
 .reel.playing .reel__play{opacity:0}
+.reel__tag{color:var(--soft);font-size:.84rem;margin-top:-8px}
 .reel b{font-family:var(--serif);font-weight:400;font-size:1.12rem;letter-spacing:-.01em;line-height:1.2}
 .reels__ctrl{display:flex;gap:8px}
 .arrow-btn{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:background .3s,border-color .3s}
@@ -198,7 +201,8 @@ p{max-width:60ch}
 .arrow-btn svg{width:16px;height:16px}
 
 /* spaces */
-.spaces{background:var(--green);color:var(--bone);padding-bottom:clamp(80px,9vw,140px)}
+.spaces{background:var(--bg2);color:var(--ink);padding-bottom:clamp(80px,9vw,140px)}
+.spaces .band{color:var(--bone)}
 .band{position:relative;overflow:hidden;border-radius:16px;min-height:clamp(440px,48vw,640px);display:flex;align-items:flex-end;padding:clamp(24px,4vw,64px)}
 .band picture,.band img{position:absolute;inset:0;width:100%;height:100%}
 .band img{object-position:65% 50%}
@@ -207,9 +211,9 @@ p{max-width:60ch}
 .band__copy .h2 em{color:var(--sand)}
 .band__copy p{color:rgba(243,238,230,.82)}
 .services{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:clamp(48px,6vw,80px)}
-.services div{border-top:1px solid var(--line-l);padding-top:18px;display:grid;gap:8px}
+.services div{border-top:1px solid var(--line);padding-top:18px;display:grid;gap:8px}
 .services b{font-family:var(--serif);font-weight:400;font-size:1.35rem;letter-spacing:-.01em}
-.services span{color:rgba(243,238,230,.66);font-size:.92rem;line-height:1.5}
+.services span{color:var(--muted);font-size:.92rem;line-height:1.5}
 
 /* enquiry */
 .enq__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;align-items:start}
@@ -327,8 +331,9 @@ form.enquiry{grid-column:7 / span 6;display:grid;gap:20px;background:var(--card)
   <div class="wrap hero__in">
     <h1 class="hero__mark"><span class="sr">MAATIQA</span><canvas id="heroMark" aria-hidden="true"></canvas></h1>
     <div class="hero__copy" data-hero>
+      <h2 class="hero__h">Form follows <em>material.</em></h2>
       <p>Ceramic objects printed from natural clay and finished by hand in Indore.</p>
-      <div class="row"><a href="#collection" class="btn btn--bone">View the collection</a><a href="#enquire" class="btn btn--ghost">Commission a piece</a></div>
+      <div class="row"><a href="#collection" class="btn btn--bone">Explore the collection</a></div>
     </div>
   </div>
 </section>
@@ -410,10 +415,10 @@ form.enquiry{grid-column:7 / span 6;display:grid;gap:20px;background:var(--card)
       <h2 class="h2" data-reveal>Every piece begins as <em>a single line.</em></h2>
       <p class="lead" data-reveal>One continuous line of clay, laid down layer upon layer. It is the oldest way to build a pot, guided here by a digital model and finished by hand.</p>
       <ol class="steps" data-reveal>
-        <li><span>i</span><b>Prepare</b><p>Clay is mixed and conditioned until it flows, yet holds its shape.</p></li>
-        <li><span>ii</span><b>Design</b><p>Each form is drawn on screen: its profile, rhythm and twist.</p></li>
-        <li><span>iii</span><b>Print</b><p>The printer coils the clay, one ring on top of the last.</p></li>
-        <li><span>iv</span><b>Finish</b><p>Pieces dry slowly, are refined by hand and fired in a kiln.</p></li>
+        <li><img src="assets/img/earth.webp" alt="Clay being kneaded underfoot" loading="lazy" decoding="async"><b>Prepare</b><p>Clay is mixed and conditioned until it flows, yet holds its shape.</p></li>
+        <li><img src="assets/img/cad.webp" alt="A vase being modelled on screen" loading="lazy" decoding="async"><b>Design</b><p>Each form is drawn on screen: its profile, rhythm and twist.</p></li>
+        <li><img src="assets/img/braid.webp" alt="A braided vessel being printed" loading="lazy" decoding="async"><b>Print</b><p>The printer coils the clay, one ring on top of the last.</p></li>
+        <li><img src="assets/img/final-hand.webp" alt="A finished vessel held in a hand" loading="lazy" decoding="async"><b>Finish</b><p>Pieces dry slowly, are refined by hand and fired in a kiln.</p></li>
       </ol>
     </div>
   </div>
@@ -451,29 +456,29 @@ form.enquiry{grid-column:7 / span 6;display:grid;gap:20px;background:var(--card)
   <div class="reels__row" id="reelRow">
     <article class="reel"><div class="frame"><video data-src="assets/reels/making.mp4" poster="assets/reels/making.webp" muted loop playsinline preload="none" aria-label="Instagram reel: The making process"></video>
       <span class="reel__top"><i><svg viewBox="25.0 26.5 313.3 290.8"><use href="#mqPath"/></svg></i>maatiqa_studio</span><span class="reel__play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span></div>
-      <b>The making process</b></article>
+      <b>The making process</b><span class="reel__tag">Made differently</span></article>
     <article class="reel"><div class="frame"><video data-src="assets/reels/vases.mp4" poster="assets/reels/vases.webp" muted loop playsinline preload="none" aria-label="Instagram reel: Vases that feel like art"></video>
       <span class="reel__top"><i><svg viewBox="25.0 26.5 313.3 290.8"><use href="#mqPath"/></svg></i>maatiqa_studio</span><span class="reel__play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span></div>
-      <b>Vases that feel like art</b></article>
+      <b>Vases that feel like art</b><span class="reel__tag">Objects &amp; forms</span></article>
     <article class="reel"><div class="frame"><video data-src="assets/reels/material.mp4" poster="assets/reels/material.webp" muted loop playsinline preload="none" aria-label="Instagram reel: The material, the tools, the print"></video>
       <span class="reel__top"><i><svg viewBox="25.0 26.5 313.3 290.8"><use href="#mqPath"/></svg></i>maatiqa_studio</span><span class="reel__play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span></div>
-      <b>The material, the tools, the print</b></article>
+      <b>The material, the tools, the print</b><span class="reel__tag">Material studies</span></article>
     <article class="reel"><div class="frame"><video data-src="assets/reels/precision.mp4" poster="assets/reels/precision.webp" muted loop playsinline preload="none" aria-label="Instagram reel: Hours of precision, gone in a moment"></video>
       <span class="reel__top"><i><svg viewBox="25.0 26.5 313.3 290.8"><use href="#mqPath"/></svg></i>maatiqa_studio</span><span class="reel__play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span></div>
-      <b>Hours of precision, gone in a moment</b></article>
+      <b>Hours of precision, gone in a moment</b><span class="reel__tag">Behind the material</span></article>
     <article class="reel"><div class="frame"><video data-src="assets/reels/bappa.mp4" poster="assets/reels/bappa.webp" muted loop playsinline preload="none" aria-label="Instagram reel: We made him with our own hands"></video>
       <span class="reel__top"><i><svg viewBox="25.0 26.5 313.3 290.8"><use href="#mqPath"/></svg></i>maatiqa_studio</span><span class="reel__play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span></div>
-      <b>We made him with our own hands</b></article>
+      <b>We made him with our own hands</b><span class="reel__tag">Behind the material</span></article>
     <article class="reel"><div class="frame"><video data-src="assets/reels/built.mp4" poster="assets/reels/built.webp" muted loop playsinline preload="none" aria-label="Instagram reel: How the studio was built"></video>
       <span class="reel__top"><i><svg viewBox="25.0 26.5 313.3 290.8"><use href="#mqPath"/></svg></i>maatiqa_studio</span><span class="reel__play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span></div>
-      <b>How the studio was built</b></article>
+      <b>How the studio was built</b><span class="reel__tag">Behind the material</span></article>
     <article class="reel"><div class="frame"><video data-src="assets/reels/yes.mp4" poster="assets/reels/yes.webp" muted loop playsinline preload="none" aria-label="Instagram reel: When a print works, and when it doesn’t"></video>
       <span class="reel__top"><i><svg viewBox="25.0 26.5 313.3 290.8"><use href="#mqPath"/></svg></i>maatiqa_studio</span><span class="reel__play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span></div>
-      <b>When a print works, and when it doesn’t</b></article></div>
+      <b>When a print works, and when it doesn’t</b><span class="reel__tag">Made differently</span></article></div>
 </section>
 
 <!-- SPACES -->
-<section class="sec spaces" data-tone="light">
+<section class="sec spaces">
   <div class="wrap">
     <div class="band" data-reveal>
       <picture><source media="(max-width:860px)" type="image/avif" srcset="assets/campaign/hospitality-m-720.avif"><source media="(max-width:860px)" type="image/webp" srcset="assets/campaign/hospitality-m-720.webp"><source type="image/avif" srcset="assets/campaign/hospitality-960.avif 960w, assets/campaign/hospitality-1672.avif 1672w" sizes="100vw"><img src="assets/campaign/hospitality-1672.webp" srcset="assets/campaign/hospitality-960.webp 960w, assets/campaign/hospitality-1672.webp 1672w" sizes="100vw" alt="Terracotta vessels on a ledge in a warm restaurant interior" loading="lazy" decoding="async"></picture>
