@@ -98,11 +98,11 @@ p{max-width:60ch}
 .hero__bg{position:absolute;inset:0}
 .hero__bg picture,.hero__bg img{position:absolute;inset:0;width:100%;height:100%}
 .hero__bg img{object-position:64% 50%;transform:scale(1.04);transform-origin:64% 50%}
-.hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,36,27,.62) 0%,rgba(28,36,27,.22) 40%,rgba(28,36,27,0) 62%),linear-gradient(0deg,rgba(28,36,27,.55),rgba(28,36,27,0) 42%)}
-.hero__in{position:absolute;inset:auto 0 0 0;padding-bottom:calc(clamp(40px,7vh,84px) + 56px);display:grid;grid-template-columns:repeat(12,1fr);gap:20px;align-items:end}
-.hero__mark{grid-column:1 / span 6;width:min(100%,600px);aspect-ratio:313.3/290.8;position:relative}
+.hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,36,27,.7) 0%,rgba(28,36,27,.3) 38%,rgba(28,36,27,0) 60%),linear-gradient(0deg,rgba(28,36,27,.55),rgba(28,36,27,0) 42%)}
+.hero__in{position:absolute;inset:auto 0 0 0;padding-bottom:calc(clamp(36px,6vh,72px) + 56px);display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(18px,3vh,30px) 20px;align-items:end}
+.hero__mark{grid-column:1 / span 5;width:min(100%,500px);aspect-ratio:313.3/290.8;position:relative}
 .hero__mark canvas{position:absolute;inset:0;width:100%;height:100%}
-.hero__copy{grid-column:9 / span 4;display:grid;gap:24px;padding-bottom:6px}
+.hero__copy{grid-column:1 / span 5;display:grid;gap:18px;max-width:440px}
 .hero__h{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,1.4rem + 1.9vw,3.2rem);line-height:1;letter-spacing:-.025em}
 .hero__h em{font-style:italic;color:var(--sand)}
 .hero__copy p{opacity:.85;font-size:clamp(1rem,.95rem + .3vw,1.15rem)!important;font-family:var(--sans)!important;font-size:clamp(1.15rem,1rem + .5vw,1.45rem);line-height:1.4;font-family:var(--serif);font-weight:300;letter-spacing:-.005em}
@@ -129,7 +129,11 @@ p{max-width:60ch}
 .product__row{display:flex;justify-content:space-between;gap:4px 10px;align-items:baseline;flex-wrap:wrap}
 .product__name{font-family:var(--serif);font-size:1.3rem;letter-spacing:-.01em;line-height:1.1}
 .product__name i{font-size:.82em;color:var(--soft);margin-left:.3em}
-.product__price{font-size:.84rem;color:var(--clay);white-space:nowrap}
+.product__go{font-size:.84rem;color:var(--green);white-space:nowrap;opacity:0;transform:translateX(-6px);transition:opacity .4s,transform .4s var(--ease)}
+.product:hover .product__go,.product:focus-visible .product__go{opacity:1;transform:none}
+@media (hover:none){.product__go{display:none}}
+.product .frame img{filter:sepia(.12) saturate(.88) contrast(1.03) brightness(1.02)}
+.product .frame::after{content:"";position:absolute;inset:0;background:rgba(214,197,173,.08);mix-blend-mode:multiply;pointer-events:none}
 .product__meta{color:var(--soft);font-size:.86rem;margin-top:-6px}
 
 /* bento */
@@ -185,7 +189,8 @@ p{max-width:60ch}
 .reels__row{display:flex;gap:clamp(12px,1.4vw,20px);overflow-x:auto;scroll-snap-type:x mandatory;padding-left:var(--gut);padding-right:var(--gut-r);padding-bottom:6px;scrollbar-width:none;overscroll-behavior-x:contain}
 .reels__row::-webkit-scrollbar{display:none}
 .reel{flex:none;width:clamp(210px,21vw,290px);scroll-snap-align:start;display:grid;gap:12px}
-@media (min-width:1441px){.reels__row{padding-left:calc((100vw - 1440px)/2 + var(--gut))}}
+@media (min-width:1441px){.reels__row{padding-left:calc((100vw - 1440px)/2 + 20px);scroll-padding-left:calc((100vw - 1440px)/2 + 20px)}}
+.reels__row{scroll-padding-left:var(--gut)}
 .reel .frame{aspect-ratio:9/16;border-radius:16px}
 .reel__top{position:absolute;left:12px;top:12px;z-index:2;display:flex;align-items:center;gap:8px;color:#fff;font-size:.78rem;font-weight:500;text-shadow:0 1px 6px rgba(0,0,0,.35)}
 .reel__top i{width:26px;height:26px;border-radius:50%;background:var(--green);display:grid;place-items:center}
@@ -364,28 +369,28 @@ form.enquiry{grid-column:7 / span 6;display:grid;gap:20px;background:var(--card)
     </div>
     <div class="products">
       <a class="product" href="#enquire" data-piece="Jaal" data-reveal><div class="frame"><img src="assets/img/lattice.webp" alt="Jaal, a lattice vessel in terracotta" loading="lazy" decoding="async"></div>
-        <div class="product__row"><span class="product__name">Jaal<i>net</i></span><span class="product__price">On request</span></div>
+        <div class="product__row"><span class="product__name">Jaal<i>net</i></span><span class="product__go">Enquire →</span></div>
         <span class="product__meta">Terracotta · Lattice vessel</span></a>
       <a class="product" href="#enquire" data-piece="Bhanwar" data-reveal><div class="frame"><img src="assets/img/twist.webp" alt="Bhanwar, a folded spiral in terracotta" loading="lazy" decoding="async"></div>
-        <div class="product__row"><span class="product__name">Bhanwar<i>whirlpool</i></span><span class="product__price">On request</span></div>
+        <div class="product__row"><span class="product__name">Bhanwar<i>whirlpool</i></span><span class="product__go">Enquire →</span></div>
         <span class="product__meta">Terracotta · Folded spiral</span></a>
       <a class="product" href="#enquire" data-piece="Kumud" data-reveal><div class="frame"><img src="assets/img/v-lotus.webp" alt="Kumud, a petal-rim vase in stoneware" loading="lazy" decoding="async"></div>
-        <div class="product__row"><span class="product__name">Kumud<i>water lily</i></span><span class="product__price">On request</span></div>
+        <div class="product__row"><span class="product__name">Kumud<i>water lily</i></span><span class="product__go">Enquire →</span></div>
         <span class="product__meta">Stoneware · Petal-rim vase</span></a>
       <a class="product" href="#enquire" data-piece="Hawa" data-reveal><div class="frame"><img src="assets/img/v-twist.webp" alt="Hawa, a offset twist vase in terracotta" loading="lazy" decoding="async"></div>
-        <div class="product__row"><span class="product__name">Hawa<i>wind</i></span><span class="product__price">On request</span></div>
+        <div class="product__row"><span class="product__name">Hawa<i>wind</i></span><span class="product__go">Enquire →</span></div>
         <span class="product__meta">Terracotta · Offset twist vase</span></a>
       <a class="product" href="#enquire" data-piece="Moti" data-reveal><div class="frame"><img src="assets/img/v-sphere.webp" alt="Moti, a stacked-sphere vessel in stoneware" loading="lazy" decoding="async"></div>
-        <div class="product__row"><span class="product__name">Moti<i>pearls</i></span><span class="product__price">On request</span></div>
+        <div class="product__row"><span class="product__name">Moti<i>pearls</i></span><span class="product__go">Enquire →</span></div>
         <span class="product__meta">Stoneware · Stacked-sphere vessel</span></a>
       <a class="product" href="#enquire" data-piece="Dhaar" data-reveal><div class="frame"><img src="assets/img/facet.webp" alt="Dhaar, a faceted column in terracotta" loading="lazy" decoding="async"></div>
-        <div class="product__row"><span class="product__name">Dhaar<i>edge</i></span><span class="product__price">On request</span></div>
+        <div class="product__row"><span class="product__name">Dhaar<i>edge</i></span><span class="product__go">Enquire →</span></div>
         <span class="product__meta">Terracotta · Faceted column</span></a>
       <a class="product" href="#enquire" data-piece="Lehar" data-reveal><div class="frame"><img src="assets/img/v-wave.webp" alt="Lehar, a wave vase in white clay" loading="lazy" decoding="async"></div>
-        <div class="product__row"><span class="product__name">Lehar<i>wave</i></span><span class="product__price">On request</span></div>
+        <div class="product__row"><span class="product__name">Lehar<i>wave</i></span><span class="product__go">Enquire →</span></div>
         <span class="product__meta">White clay · Wave vase</span></a>
       <a class="product" href="#enquire" data-piece="Raakh" data-reveal><div class="frame"><img src="assets/img/grey-lattice.webp" alt="Raakh, a lattice vase in grey stoneware" loading="lazy" decoding="async"></div>
-        <div class="product__row"><span class="product__name">Raakh<i>ash</i></span><span class="product__price">On request</span></div>
+        <div class="product__row"><span class="product__name">Raakh<i>ash</i></span><span class="product__go">Enquire →</span></div>
         <span class="product__meta">Grey stoneware · Lattice vase</span></a></div>
   </div>
 </section>
@@ -396,9 +401,9 @@ form.enquiry{grid-column:7 / span 6;display:grid;gap:20px;background:var(--card)
     <div class="head"><h2 class="h2" data-reveal>A form for <em>every space</em></h2><div class="side" data-reveal><p class="lead">From a single vase on a shelf to a run of planters for a hotel terrace.</p></div></div>
     <div class="bento">
       <a class="tile tile--big" href="#collection" data-reveal><picture><source media="(max-width:860px)" type="image/avif" srcset="assets/campaign/collection-m-720.avif"><source media="(max-width:860px)" type="image/webp" srcset="assets/campaign/collection-m-720.webp"><source type="image/avif" srcset="assets/campaign/collection-960.avif 960w, assets/campaign/collection-1536.avif 1536w" sizes="(max-width:860px) 100vw, 56vw"><img src="assets/campaign/collection-1536.webp" srcset="assets/campaign/collection-960.webp 960w, assets/campaign/collection-1536.webp 1536w" sizes="(max-width:860px) 100vw, 56vw" alt="Terracotta vessels on limestone plinths" loading="lazy" decoding="async"></picture><span class="tile__t"><b>Vessels</b><span>Explore →</span></span></a>
-      <a class="tile tile--a" href="#collection" data-reveal><img src="assets/img/braid-tall.webp" alt="A braided-texture clay planter" loading="lazy" decoding="async"><span class="tile__t"><b>Planters</b><span>Explore →</span></span></a>
+      <a class="tile tile--a" href="#collection" data-reveal><img src="assets/img/braid-tall.webp" alt="A braided-texture clay planter" loading="lazy" decoding="async" style="object-position:50% 45%"><span class="tile__t"><b>Planters</b><span>Explore →</span></span></a>
       <a class="tile tile--b" href="#collection" data-reveal><img src="assets/img/v-sculpt.webp" alt="Sculptural rose-clay forms" loading="lazy" decoding="async"><span class="tile__t"><b>Sculptural</b><span>Explore →</span></span></a>
-      <a class="tile tile--c" href="#collection" data-reveal><img src="assets/img/ripple-white.webp" alt="A white wave-rimmed bowl" loading="lazy" decoding="async"><span class="tile__t"><b>Bowls &amp; table</b><span>Explore →</span></span></a>
+      <a class="tile tile--c" href="#collection" data-reveal><img src="assets/img/ripple-white.webp" alt="A white wave-rimmed bowl" loading="lazy" decoding="async" style="object-position:50% 72%"><span class="tile__t"><b>Bowls &amp; table</b><span>Explore →</span></span></a>
       <div class="tile tile--dark" data-reveal><p>Have a space in mind? We’ll shape something for it.</p><a href="#enquire" class="btn btn--bone">Start a brief</a></div>
     </div>
   </div>
