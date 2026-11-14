@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Beyond HQ — 90-Day Execution Board</title>
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;--tile:#F5F5F7;--dark:#000;--ink:#1D1D1F;--muted:#6E6E73;--line:#E5E5EA;
+  --red:#D91C2B;--red-soft:#FDECEE;--green:#1F9D55;--green-soft:#E8F6EE;--amber:#B26A00;--amber-soft:#FFF4E0;
+  --r:22px;--mono:'IBM Plex Mono',ui-monospace,monospace;--sans:'Inter Tight',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.5;font-size:16px}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+section{padding:72px 0}
+h2{font-size:clamp(30px,5vw,48px);line-height:1.02;letter-spacing:-.03em;font-weight:800;margin:10px 0 14px}
+h3{font-size:21px;letter-spacing:-.02em;font-weight:700;line-height:1.15}
+.lead{font-size:18px;color:var(--muted);max-width:640px}
+.red{color:var(--red)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:18px;height:54px;overflow-x:auto;scrollbar-width:none}
+nav .wrap::-webkit-scrollbar{display:none}
+nav b{font-weight:800;letter-spacing:-.02em;white-space:nowrap}
+nav b i{font-style:normal;color:var(--red)}
+nav a{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap}
+nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{background:var(--dark);color:#fff;padding:84px 0 64px}
+.hero h1{font-size:clamp(44px,9vw,104px);line-height:.92;letter-spacing:-.045em;font-weight:800;margin:14px 0 22px}
+.hero h1 span{color:var(--red)}
+.hero .lead{color:#A1A1A6}
+.hero .mono{color:#A1A1A6}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:44px}
+.kpi{background:#111;border:1px solid #222;border-radius:18px;padding:18px}
+.kpi .n{font-size:34px;font-weight:800;letter-spacing:-.03em}
+.kpi .l{font-size:13px;color:#A1A1A6}
+.bar{height:6px;background:#222;border-radius:9px;margin-top:12px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--red);border-radius:9px;width:0;transition:width 1s}
+
+/* now card */
+.now{background:var(--tile);border-radius:var(--r);padding:28px;display:grid;grid-template-columns:1.2fr 1fr;gap:28px}
+.now .big{font-size:clamp(22px,3vw,30px);font-weight:700;letter-spacing:-.02em;line-height:1.2}
+.three{display:grid;gap:10px}
+.three label{display:flex;gap:10px;align-items:center;background:#fff;border-radius:14px;padding:10px 14px;border:1px solid var(--line)}
+.three input[type=text]{flex:1;border:0;outline:0;font:inherit;font-size:15px;background:transparent;min-width:0}
+.who{display:flex;gap:6px;margin-bottom:10px}
+.who button{font:inherit;font-size:13px;font-weight:600;border:1px solid var(--line);background:#fff;border-radius:99px;padding:6px 14px;cursor:pointer}
+.who button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* checkbox */
+.cb{appearance:none;-webkit-appearance:none;width:22px;height:22px;border-radius:7px;border:2px solid #C7C7CC;flex:none;cursor:pointer;display:grid;place-items:center;transition:.15s;background:#fff}
+.cb:checked{background:var(--red);border-color:var(--red)}
+.cb:checked::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+
+/* missions */
+.missions{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:34px}
+.m{border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:14px;background:#fff;position:relative}
+.m .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.m .num{font-family:var(--mono);font-size:12px;color:var(--red);font-weight:500}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:11px;padding:4px 9px;border-radius:99px;background:var(--tile);color:var(--ink);white-space:nowrap}
+.tag.a{background:#111;color:#fff}
+.tag.r{background:var(--red-soft);color:var(--red)}
+.m p{color:var(--muted);font-size:15px}
+.steps{list-style:none;display:grid;gap:8px}
+.steps li label{display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-size:15px}
+.steps li label span{padding-top:1px}
+.steps li.done span{text-decoration:line-through;color:#AEAEB2}
+.who-s{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-left:4px;white-space:nowrap}
+.donewhen{font-size:13px;background:var(--green-soft);color:var(--green);border-radius:12px;padding:9px 12px;font-weight:500}
+.prog{height:4px;background:var(--tile);border-radius:9px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--red);width:0;transition:width .4s}
+
+/* lanes */
+.lanes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+.lane{border-radius:var(--r);padding:26px}
+.lane.a{background:var(--dark);color:#fff}
+.lane.r{background:var(--tile)}
+.lane h3{font-size:26px;margin-bottom:4px}
+.lane .mono{margin-bottom:16px;display:block}
+.lane.a .mono{color:#A1A1A6}
+.lane ul{list-style:none;display:grid;gap:9px}
+.lane li{display:flex;gap:10px;font-size:15px}
+.lane li::before{content:"→";color:var(--red);font-weight:700}
+.handoff{margin-top:16px;border:1.5px dashed #C7C7CC;border-radius:var(--r);padding:18px 22px;font-size:15px}
+
+/* loop */
+.loop{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:34px;counter-reset:s}
+.st{background:var(--tile);border-radius:18px;padding:18px 16px;position:relative}
+.st::before{counter-increment:s;content:"0" counter(s);font-family:var(--mono);font-size:11px;color:var(--red)}
+.st h4{font-size:17px;margin:6px 0 6px;letter-spacing:-.01em}
+.st p{font-size:13.5px;color:var(--muted);line-height:1.4}
+.st .tool{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:10.5px;background:#fff;border-radius:99px;padding:3px 8px}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.rule{border:1px solid var(--line);border-radius:18px;padding:18px}
+.rule b{display:block;font-size:16px;margin-bottom:4px;letter-spacing:-.01em}
+.rule span{font-size:14px;color:var(--muted)}
+
+/* stack */
+.stack{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.tool-card{border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:8px}
+.tool-card .role{font-family:var(--mono);font-size:11px;color:var(--red);text-transform:uppercase;letter-spacing:.06em}
+.tool-card h3{font-size:20px}
+.tool-card p{font-size:14.5px;color:var(--muted)}
+.tool-card .alt{font-size:13px;color:var(--ink);background:var(--tile);border-radius:10px;padding:8px 10px;margin-top:auto}
+.verdict{margin-top:16px;background:var(--red-soft);border-radius:var(--r);padding:20px 24px;font-size:16px}
+.verdict b{color:var(--red)}
+
+/* math */
+.math{background:var(--dark);color:#fff;border-radius:var(--r);padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:30px}
+.sl{margin-bottom:22px}
+.sl .row{display:flex;justify-content:space-between;font-size:14px;color:#A1A1A6;margin-bottom:8px}
+.sl .row b{color:#fff;font-size:16px}
+input[type=range]{width:100%;accent-color:var(--red)}
+.out .n{font-size:clamp(46px,7vw,72px);font-weight:800;letter-spacing:-.04em;line-height:1}
+.out .l{color:#A1A1A6;font-size:14px;margin-top:6px}
+.out .gap{margin-top:20px;font-size:15px;padding:12px 14px;border-radius:12px;background:#111;border:1px solid #222}
+
+/* parking */
+.park-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+.p{border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.p b{font-size:16px;letter-spacing:-.01em}
+.p span{font-size:13.5px;color:var(--muted)}
+.p .unlock{margin-top:auto;padding-top:8px;font-family:var(--mono);font-size:11px;color:var(--amber)}
+.p.next{border-color:var(--amber);background:var(--amber-soft)}
+.addidea{display:flex;gap:8px;margin-top:20px}
+.addidea input{flex:1;font:inherit;border:1px solid var(--line);border-radius:14px;padding:12px 14px;outline:0;min-width:0}
+.addidea button,.btn{font:inherit;font-weight:600;background:var(--ink);color:#fff;border:0;border-radius:14px;padding:12px 18px;cursor:pointer;white-space:nowrap}
+#myParked{display:grid;gap:8px;margin-top:12px;list-style:none}
+#myParked li{display:flex;justify-content:space-between;gap:10px;align-items:center;background:var(--tile);border-radius:12px;padding:10px 14px;font-size:14.5px}
+#myParked li em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--amber);white-space:nowrap}
+#myParked li em.ok{color:var(--green)}
+#myParked li button{background:none;border:0;color:var(--muted);cursor:pointer;font-size:16px}
+
+/* guardrails */
+.guards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:30px}
+.g{display:flex;gap:14px;padding:18px;border-radius:18px;background:var(--tile)}
+.g .ic{width:30px;height:30px;border-radius:9px;background:var(--red);color:#fff;display:grid;place-items:center;font-weight:800;flex:none}
+.g b{display:block;margin-bottom:2px}
+.g span{font-size:14px;color:var(--muted)}
+
+/* app */
+.app{background:var(--dark);color:#fff}
+.app .lead{color:#A1A1A6}
+.app .mono{color:#A1A1A6}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}
+.f{background:#111;border:1px solid #222;border-radius:18px;padding:20px}
+.f .e{font-size:22px}
+.f b{display:block;margin:8px 0 4px;font-size:16.5px}
+.f span{font-size:14px;color:#A1A1A6}
+.road{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.rd{border:1px solid #333;border-radius:18px;padding:20px}
+.rd .mono{color:var(--red)}
+.rd b{display:block;margin:6px 0 4px;font-size:17px}
+.rd span{font-size:14px;color:#A1A1A6}
+
+/* week */
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:30px}
+.d{border-radius:16px;padding:14px 12px;background:var(--tile);min-height:120px}
+.d .mono{font-size:11px}
+.d b{display:block;margin:6px 0 4px;font-size:14.5px;letter-spacing:-.01em}
+.d span{font-size:12.5px;color:var(--muted);line-height:1.35;display:block}
+.d.k{background:var(--red);color:#fff}
+.d.k .mono,.d.k span{color:#FFD8DB}
+
+footer{padding:40px 0 60px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.reset{background:none;border:1px solid var(--line);color:var(--muted);border-radius:99px;padding:6px 12px;font:inherit;font-size:12px;cursor:pointer}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:860px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .now,.math{grid-template-columns:1fr}
+  .missions,.lanes,.guards{grid-template-columns:1fr}
+  .loop{grid-template-columns:repeat(2,1fr)}
+  .rules,.stack,.park-grid,.feat,.road{grid-template-columns:1fr}
+  .week{grid-template-columns:1fr 1fr}
+  section{padding:56px 0}
+  .now{padding:22px}
+}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <b>Beyond <i>HQ</i></b>
+  <a href="#now">Now</a><a href="#missions">Missions</a><a href="#lanes">Who</a><a href="#loop">Loop</a><a href="#stack">Tools</a><a href="#math">Math</a><a href="#park">Parking lot</a><a href="#app">The app</a>
+</div></nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="mono">Ayush × Ratneshwar · 90-day sprint · private</span>
+    <h1>Less planning.<br><span>More shipping.</span></h1>
+    <p class="lead">We've come up with about 35 ideas since May. This page keeps 4. Everything else waits in the parking lot. Built for two ADHD brains: open it, do the next box, close it.</p>
+    <div class="kpis">
+      <div class="kpi"><div class="n">$10K</div><div class="l">monthly target</div></div>
+      <div class="kpi"><div class="n">4</div><div class="l">missions. Not 35.</div></div>
+      <div class="kpi"><div class="n">3</div><div class="l">tasks a day each, max</div></div>
+      <div class="kpi"><div class="n" id="dayN">Day 0</div><div class="l" id="dayL">of 90 · starts Mon 17 Nov</div><div class="bar"><i id="dayBar"></i></div></div>
+    </div>
+  </div>
+</header>
+
+<!-- NOW -->
+<section id="now"><div class="wrap">
+  <span class="mono">Open this first, every day</span>
+  <h2>Right now, just this.</h2>
+  <div class="now reveal">
+    <div>
+      <div class="big" id="nextUp">Loading your next box…</div>
+      <p class="lead" style="margin-top:12px;font-size:16px">This is the first unchecked step from the missions below, picked for whoever is selected. Don't scroll for something more fun. Do this one.</p>
+    </div>
+    <div>
+      <div class="who" role="tablist">
+        <button data-p="ayush" class="on">Ayush</button>
+        <button data-p="ratneshwar">Ratneshwar</button>
+      </div>
+      <div class="three" id="today"></div>
+      <p class="mono" style="margin-top:10px;text-transform:none;letter-spacing:0">Today's 3. Write them, tick them, and you're done for the day.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- MISSIONS -->
+<section id="missions" style="padding-top:0"><div class="wrap">
+  <span class="mono">The only 4 things that count till February</span>
+  <h2>Four missions.</h2>
+  <p class="lead">Ranked by how close they are to money and how little coordination they need. Each one has a finish line, so it can actually end.</p>
+  <div class="missions" id="missionGrid"></div>
+</div></section>
+
+<!-- LANES -->
+<section id="lanes" style="background:#FBFBFD"><div class="wrap">
+  <span class="mono">Clear lanes, no control games</span>
+  <h2>Who owns what.</h2>
+  <p class="lead">Every task in the chat stalled for the same reason: it belonged to both of us, so it belonged to nobody. One owner per thing. The other person can help but never blocks.</p>
+  <div class="lanes">
+    <div class="lane a reveal">
+      <h3>Ayush</h3><span class="mono">Delivery · creative · current clients</span>
+      <ul>
+        <li>Spec samples and sites (the proven earner)</li>
+        <li>Creative direction for Beyond Motion films</li>
+        <li>Relationships with AIOLEC, Soul AV, Esperti, Valence, Overcmr</li>
+        <li>Reels: you're on camera, the face of the brand</li>
+        <li>Final yes or no on anything client-facing in design</li>
+      </ul>
+    </div>
+    <div class="lane r reveal">
+      <h3>Ratneshwar</h3><span class="mono">BD · proposals · automation · pipeline</span>
+      <ul>
+        <li>Lead lists, 10 qualified businesses a week</li>
+        <li>Proposals and pricing (AIOLEC first, under SwiftStream)</li>
+        <li>Figma → Remotion film pipeline and content bots</li>
+        <li>Keyword-to-DM automation and the inbound form</li>
+        <li>Follow-up engine, deploys, analytics</li>
+      </ul>
+    </div>
+  </div>
+  <div class="handoff reveal"><b>Handoff rule:</b> when work crosses lanes, send <b>one message</b> with the link, what "done" looks like, and a date. No voice notes for handoffs. They can't be searched, and they're how ideas got lost in this chat.</div>
+</div></section>
+
+<!-- LOOP -->
+<section id="loop"><div class="wrap">
+  <span class="mono">The workflow</span>
+  <h2>One loop, every day.</h2>
+  <p class="lead">This is the part we'll later turn into the app. Each step has a tool, and none of them is a boring dashboard.</p>
+  <div class="loop">
+    <div class="st reveal"><h4>Capture</h4><p>Idea, voice note or lead goes into one inbox. Don't decide anything yet.</p><span class="tool">voice → Todoist</span></div>
+    <div class="st reveal"><h4>Park</h4><p>A new idea waits 7 days before it can become a mission. Most die there, which is the point.</p><span class="tool">Parking lot ↓</span></div>
+    <div class="st reveal"><h4>Pick 3</h4><p>Each morning, 3 boxes from the missions. Not 4.</p><span class="tool">This page</span></div>
+    <div class="st reveal"><h4>Body-double</h4><p>A 90-minute call with cameras on and mics muted, each working on our own thing. The parallel play Ratneshwar suggested, done remotely.</p><span class="tool">Meet · 9–10:30 PM</span></div>
+    <div class="st reveal"><h4>Ship ugly</h4><p>Send v1. Working beats pretty. Polishing is how we procrastinate.</p><span class="tool">Vercel · GitHub</span></div>
+    <div class="st reveal"><h4>Auto-chase</h4><p>Claude chases every follow-up and sends a recap each night. Our heads don't have to hold it.</p><span class="tool">Claude task</span></div>
+  </div>
+  <div class="rules">
+    <div class="rule reveal"><b>No new tools this sprint</b><span>Buying tools and domains feels productive but isn't. Use what we already pay for.</span></div>
+    <div class="rule reveal"><b>Planning has a timer</b><span>30 minutes on Sunday, then it's closed. The plan makes us feel good, but it isn't the work.</span></div>
+    <div class="rule reveal"><b>Missed a day? Don't make it up</b><span>Pick 3 again tomorrow. No guilt spiral, no overnight catch-up sessions.</span></div>
+  </div>
+</div></section>
+
+<!-- STACK -->
+<section id="stack" style="background:#FBFBFD"><div class="wrap">
+  <span class="mono">Tools, minus the Slack boredom</span>
+  <h2>Three tools. That's it.</h2>
+  <p class="lead">Slack is built for teams of 50. There are two of us, and we live on our phones. Keep the tools we already use and add a robot to do the nagging.</p>
+  <div class="stack">
+    <div class="tool-card reveal"><span class="role">Talk</span><h3>WhatsApp, split in two</h3><p>Keep "Stonks and Fun" for chatting and memes. Create a second group, "Beyond HQ", for decisions and handoffs only, with text only and one message per handoff.</p><div class="alt">Upgrade later: move HQ to Telegram so Ratneshwar's RAG bot can sit in it and remember everything.</div></div>
+    <div class="tool-card reveal"><span class="role">Tasks</span><h3>Todoist (we already have it)</h3><p>Ratneshwar made the Beyond Branding project on 7 Sep. Revive it with one section per mission and one owner per task. It takes tasks by voice and works on the iPad and the phone.</p><div class="alt">If it feels dead: Linear is faster and feels like a game. Notion is too open-ended for us.</div></div>
+    <div class="tool-card reveal"><span class="role">Nag</span><h3>Claude as the manager</h3><p>Have a scheduled Claude task read Todoist and email every night: what shipped, what's overdue, who owes a reply. You already run this for your mail, so point it at the missions too.</p><div class="alt">Ratneshwar's Grok bots can post the same recap into the HQ group.</div></div>
+  </div>
+  <div class="verdict reveal"><b>Verdict:</b> skip Slack. Use WhatsApp HQ for talking, Todoist for tasks, Claude for nagging, and this page for direction. If it doesn't fit those four, we don't need it this sprint.</div>
+</div></section>
+
+<!-- MATH -->
+<section id="math"><div class="wrap">
+  <span class="mono">Is $10K real?</span>
+  <h2>The math, honestly.</h2>
+  <p class="lead">Your real tickets so far: AIOLEC £1.2k, Soul AV £1.2–1.6k, the Australia client £1k, AIOLEC Amazon pitched at £1.6k. Cold outreach gets about 1% replies. Move the sliders.</p>
+  <div class="math reveal">
+    <div>
+      <div class="sl"><div class="row">Avg ticket (USD) <b id="vT">$1,500</b></div><input type="range" id="sT" min="500" max="5000" step="100" value="1500"></div>
+      <div class="sl"><div class="row">New projects / month <b id="vP">3</b></div><input type="range" id="sP" min="0" max="12" value="3"></div>
+      <div class="sl"><div class="row">Retainers / month (each) <b id="vR">$600</b></div><input type="range" id="sR" min="0" max="3000" step="100" value="600"></div>
+      <div class="sl"><div class="row">Active retainers <b id="vN">2</b></div><input type="range" id="sN" min="0" max="12" value="2"></div>
+    </div>
+    <div class="out">
+      <div class="mono" style="color:#A1A1A6">Monthly revenue</div>
+      <div class="n" id="vOut">$5,700</div>
+      <div class="l" id="vPct">57% of $10K</div>
+      <div class="gap" id="vGap"></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- PARKING -->
+<section id="park" style="background:#FBFBFD"><div class="wrap">
+  <span class="mono">Not "no". Just "not yet".</span>
+  <h2>The parking lot.</h2>
+  <p class="lead">These ideas are good, but each one has an unlock condition. Until that condition is met, nobody works on it, however exciting it feels at 2 AM.</p>
+  <div class="park-grid">
+    <div class="p next reveal"><b>Automations for clients</b><span>The Ireland construction referral, Soul AV, AIOLEC. Price it on the costs it saves them.</span><span class="unlock">UNLOCK → after one discovery call where we write down their process</span></div>
+    <div class="p next reveal"><b>Overcmr marketing and sales</b><span>Pays reliably and wants numbers, not art. Pitch a sales page plus content, with a cut of sales.</span><span class="unlock">UNLOCK → once the AIOLEC proposal template exists, reuse it</span></div>
+    <div class="p next reveal"><b>Makhana brand</b><span>Ratneshwar's uncle does ₹1 Cr a year in sales and has the suppliers. We do the brand, the family runs operations.</span><span class="unlock">UNLOCK → after Chhath, for a fee or equity, branding only</span></div>
+    <div class="p reveal"><b>Airbnb / stays template</b><span>The site and motion ad already exist. Reuse them for similar properties.</span><span class="unlock">UNLOCK → as Mission 3 samples once spec pitching is steady</span></div>
+    <div class="p reveal"><b>Partner network</b><span>People you've trained (your friend, the Meebo junior) bring leads for a cut.</span><span class="unlock">UNLOCK → when we can't deliver everything ourselves</span></div>
+    <div class="p reveal"><b>$10K custom software</b><span>Ekoslabs-style tools, the import-export product, Pihoco.</span><span class="unlock">UNLOCK → when a paying client names the problem</span></div>
+    <div class="p reveal"><b>Arjun / Call It Arts</b><span>A long-term community play with big connections. Keep the relationship going.</span><span class="unlock">UNLOCK → when it comes with a budget, not just a vision</span></div>
+    <div class="p reveal"><b>Events, manufacturing, quartz</b><span>High-ROI dreams for when we're running at scale.</span><span class="unlock">UNLOCK → 3 months straight at $10K</span></div>
+    <div class="p reveal"><b>Selling .md files and resources</b><span>Hard to sell. Better as the free lead magnet for Mission 4.</span><span class="unlock">UNLOCK → never as a product, always as bait</span></div>
+  </div>
+  <div class="addidea"><input id="ideaIn" placeholder="Got a new idea? Park it here. It unlocks in 7 days." maxlength="140"><button id="ideaBtn">Park it</button></div>
+  <ul id="myParked"></ul>
+</div></section>
+
+<!-- GUARDRAILS -->
+<section id="guards"><div class="wrap">
+  <span class="mono">Don't let one shortcut kill the studio</span>
+  <h2>Guardrails.</h2>
+  <div class="guards">
+    <div class="g reveal"><div class="ic">!</div><div><b>Only show real work</b><span>No case studies or client logos for work we didn't do. One sharp-eyed London client is enough to lose the referral chain.</span></div></div>
+    <div class="g reveal"><div class="ic">!</div><div><b>Use design references, don't copy</b><span>Using a brand's design .md file as reference is fine. Shipping its look is not. Rework the type, colour and layout until it doesn't read as their clone.</span></div></div>
+    <div class="g reveal"><div class="ic">₹</div><div><b>Sort the tax side now</b><span>File a GST LUT for export services, read the FEMA freelancer rules, and find a CA before the bigger payments start.</span></div></div>
+    <div class="g reveal"><div class="ic">₮</div><div><b>Keep other people's money out</b><span>Don't route Arjun's USDT cash-out, or anyone else's crypto, through our accounts.</span></div></div>
+    <div class="g reveal"><div class="ic">⌂</div><div><b>Get a presence that sticks</b><span>Google often delists virtual offices. Set the Business Profile as a service-area business and get a few real reviews from AIOLEC and Soul AV.</span></div></div>
+    <div class="g reveal"><div class="ic">÷</div><div><b>Write the split before the work</b><span>Every shared project starts with one line: who leads it, the % split, who invoices. It only takes two minutes and avoids fights later.</span></div></div>
+  </div>
+</div></section>
+
+<!-- WEEK -->
+<section id="week" style="background:#FBFBFD"><div class="wrap">
+  <span class="mono">The weekly rhythm</span>
+  <h2>A week that runs itself.</h2>
+  <div class="week">
+    <div class="d"><span class="mono">Mon</span><b>Leads in</b><span>R drops 10 qualified businesses</span></div>
+    <div class="d"><span class="mono">Tue</span><b>Samples</b><span>A builds 2–3 spec samples</span></div>
+    <div class="d"><span class="mono">Wed</span><b>Reel day</b><span>Film 1 reel with a keyword CTA</span></div>
+    <div class="d"><span class="mono">Thu</span><b>Pitch</b><span>Send the samples, upsell films to past clients</span></div>
+    <div class="d"><span class="mono">Fri</span><b>Reel 2 + chase</b><span>Second reel, Claude follow-ups</span></div>
+    <div class="d"><span class="mono">Sat</span><b>Off-ish</b><span>Client work only, or rest</span></div>
+    <div class="d k"><span class="mono">Sun</span><b>30-min review</b><span>Ship log, reset the missions, then stop</span></div>
+  </div>
+</div></section>
+
+<!-- APP -->
+<section id="app" class="app"><div class="wrap">
+  <span class="mono">Later: turn this into a product</span>
+  <h2>Beyond HQ, the app<br>for founders who can't stop starting.</h2>
+  <p class="lead">Every ADHD founder has the same problem: lots of ideas, little follow-through, and tools built for neurotypical project managers. We're building the fix for ourselves first, and this page is v0.</p>
+  <div class="feat">
+    <div class="f"><div class="e">🎙️</div><b>Voice in, tasks out</b><span>Drop voice notes or a WhatsApp chat export. AI pulls out ideas, tasks and owners, the way this page came from our chat.</span></div>
+    <div class="f"><div class="e">🅿️</div><b>Idea cooldown</b><span>New ideas are locked for 7 days. If it still excites you after that, it becomes a mission. It protects focus from novelty.</span></div>
+    <div class="f"><div class="e">☝️</div><b>One-thing screen</b><span>The app opens to a single task, not a dashboard. You get the full list only after you finish it.</span></div>
+    <div class="f"><div class="e">👥</div><b>Built-in body doubling</b><span>Tap to join your partner's focus room. Seeing each other work keeps both of you going.</span></div>
+    <div class="f"><div class="e">🤖</div><b>AI chaser</b><span>It nags clients and partners for you, writes the follow-ups and sends a short nightly recap. Nobody has to remember it.</span></div>
+    <div class="f"><div class="e">🔥</div><b>Ship log, not streaks</b><span>A visible wall of things you finished. Real wins give the dopamine, and a missed day costs nothing.</span></div>
+  </div>
+  <div class="road">
+    <div class="rd"><span class="mono">v0 · now</span><b>This page</b><span>Ticks save on your own device. We use it for 30 days and note what we actually open.</span></div>
+    <div class="rd"><span class="mono">v1 · after the sprint</span><b>Shared and synced</b><span>Supabase backend, both of us on the same board, a WhatsApp/Telegram bot and the nightly recap.</span></div>
+    <div class="rd"><span class="mono">v2 · if v1 sticks</span><b>Open to others</b><span>The chat-export importer as the hook, with a ₹/$ subscription. The two of us are the case study.</span></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>Beyond HQ · built from the "Stonks and Fun" chat, May–Nov 2026 · Beyond Branding</span>
+  <button class="reset" id="resetBtn">Reset my ticks</button>
+</div></footer>
+
+<script>
+(function(){
+  var store={get:function(k,d){try{var v=localStorage.getItem('bhq_'+k);return v?JSON.parse(v):d}catch(e){return d}},
+             set:function(k,v){try{localStorage.setItem('bhq_'+k,JSON.stringify(v))}catch(e){}}};
+
+  var M=[
+    {id:'m1',title:'Beyond Motion launch films',tag:'Closest to new money',owners:['A','R'],
+     why:'This is the newest strong idea (11 Nov). The Figma → Claude → Remotion pipeline renders 1080p/60fps on about 4% of tokens. Sell it to clients who already paid us for a site.',
+     done:'Done when one paid film is delivered and the offer is live on thebeyondmotion.com',
+     steps:[['Make one demo launch film for AIOLEC using its existing site assets','R'],['Set 3 price tiers (15s / 30s / 60s) and put them on thebeyondmotion.com','A'],['Send the demo to AIOLEC, Soul AV, Esperti and Valence: "want one for your launch?"','A'],['Add Rudraksh\'s work to the Beyond Motion showreel','A'],['Close and deliver the first paid film','A']]},
+    {id:'m2',title:'AIOLEC Amazon + sales cut',tag:'Live client · proposal out',owners:['R','A'],
+     why:'There\'s a live client, a 13-page proposal and a £1,600 pitch out. Ratneshwar leads it under SwiftStream as the outside agency. It\'s our first real test of working together.',
+     done:'Done when the client signs a fixed fee plus a sales % and the first listing is live',
+     steps:[['Agree the split in one line: who leads, % each, who invoices','A'],['Read the AIOLEC Amazon proposal and research listing and registration','R'],['Build the SwiftStream proposal: packages, intro, proof, Ayush\'s cut','R'],['Ayush introduces Ratneshwar to the client','A'],['Signed, then the first product listing goes live','R']]},
+    {id:'m3',title:'Spec-sample revamp engine',tag:'Proven · ~£1–1.6k per ticket',owners:['A','R'],
+     why:'It already works: 69+ sites built. Find businesses with weak sites, rebuild the homepage, send it. Treat the site as the entry point and upsell films, content and automation.',
+     done:'Done when it runs on rhythm: 10 leads in and 5 samples out every week, and 2 deals close this month',
+     steps:[['R sets up a lead sheet: name, URL, owner contact, why they\'ll pay','R'],['Make one reusable sample template plus a WhatsApp/email script','A'],['Week 1: 10 leads in, 5 samples out','R'],['Claude follow-up on day 2 and day 5 for every sample sent','R'],['Close 2 revamps, each with a film or content upsell','A']]},
+    {id:'m4',title:'Inbound reel engine',tag:'Slow burn · biggest upside',owners:['A','R'],
+     why:'Outbound won\'t scale past 1% replies. Ratneshwar has said it since May. A reel asks people to comment a keyword, they get the free $3,000 Website Guide by DM, and the guide leads to a "done for you" form. The guide is bait, not a product.',
+     done:'Done when 8 reels are posted, the DMs are automated, and 3 inbound calls are booked',
+     steps:[['R automates the keyword → DM → guide flow','R'],['Put an inbound form plus Cal.com booking on thebeyondbranding.com','R'],['Batch-film 4 reels in one sitting, each with a keyword CTA','A'],['Post 2 a week and reply to every comment within a day','A'],['Book 3 inbound calls from the reels','A']]}
+  ];
+  var ticks=store.get('ticks',{});
+  var grid=document.getElementById('missionGrid');
+  var name={A:'Ayush',R:'Ratneshwar'};
+
+  M.forEach(function(m,mi){
+    var el=document.createElement('article');el.className='m reveal';
+    var steps=m.steps.map(function(s,si){var k=m.id+'_'+si;var on=!!ticks[k];
+      return '<li class="'+(on?'done':'')+'"><label><input type="checkbox" class="cb" data-k="'+k+'" '+(on?'checked':'')+'><span>'+s[0]+' <span class="who-s">· '+name[s[1]]+'</span></span></label></li>'}).join('');
+    el.innerHTML='<div class="top"><div><div class="num">MISSION 0'+(mi+1)+'</div><h3>'+m.title+'</h3></div></div>'+
+      '<div class="tags"><span class="tag r">'+m.tag+'</span><span class="tag a">Lead: '+name[m.owners[0]]+'</span></div>'+
+      '<p>'+m.why+'</p><div class="prog"><i data-p="'+m.id+'"></i></div><ul class="steps">'+steps+'</ul><div class="donewhen">✓ '+m.done+'</div>';
+    grid.appendChild(el);
+  });
+
+  function progress(){
+    M.forEach(function(m){var n=0;m.steps.forEach(function(s,i){if(ticks[m.id+'_'+i])n++});
+      var bar=document.querySelector('[data-p="'+m.id+'"]');if(bar)bar.style.width=(n/m.steps.length*100)+'%'});
+    nextUp();
+  }
+  grid.addEventListener('change',function(e){var k=e.target.dataset.k;if(!k)return;ticks[k]=e.target.checked;store.set('ticks',ticks);
+    e.target.closest('li').classList.toggle('done',e.target.checked);progress()});
+
+  // person + next up + today's 3
+  var person=store.get('person','ayush');
+  var whoBtns=document.querySelectorAll('.who button');
+  function nextUp(){
+    var code=person==='ayush'?'A':'R',found=null;
+    for(var i=0;i<M.length&&!found;i++){for(var j=0;j<M[i].steps.length;j++){var s=M[i].steps[j];if(!ticks[M[i].id+'_'+j]&&s[1]===code){found={m:M[i].title,s:s[0]};break}}}
+    document.getElementById('nextUp').innerHTML=found?'<span class="mono" style="display:block;margin-bottom:8px">'+found.m+'</span>'+found.s:'Every box is ticked. Go ship something, then add the next missions on Sunday.';
+  }
+  function renderToday(){
+    var t=store.get('today_'+person,{d:'',items:[['',false],['',false],['',false]]});
+    var today=new Date().toDateString();if(t.d!==today){t={d:today,items:[['',false],['',false],['',false]]};store.set('today_'+person,t)}
+    var box=document.getElementById('today');box.innerHTML='';
+    t.items.forEach(function(it,i){var l=document.createElement('label');
+      l.innerHTML='<input type="checkbox" class="cb" '+(it[1]?'checked':'')+'><input type="text" placeholder="Task '+(i+1)+'" value="'+it[0].replace(/"/g,'&quot;')+'" maxlength="90">';
+      var cb=l.children[0],tx=l.children[1];
+      cb.onchange=function(){t.items[i][1]=cb.checked;store.set('today_'+person,t)};
+      tx.oninput=function(){t.items[i][0]=tx.value;store.set('today_'+person,t)};
+      box.appendChild(l)});
+  }
+  whoBtns.forEach(function(b){b.classList.toggle('on',b.dataset.p===person);
+    b.onclick=function(){person=b.dataset.p;store.set('person',person);whoBtns.forEach(function(x){x.classList.toggle('on',x===b)});nextUp();renderToday()}});
+  progress();renderToday();
+
+  // day counter
+  var start=new Date(2026,10,17),now=new Date(),d=Math.floor((now-start)/864e5)+1;
+  var dn=document.getElementById('dayN'),dl=document.getElementById('dayL');
+  if(d<1){dn.textContent='T–'+(1-d);dl.textContent='days · sprint starts Mon 17 Nov'}
+  else if(d>90){dn.textContent='Done';dl.textContent='90 days complete. Review time.';d=90}
+  else{dn.textContent='Day '+d;dl.textContent='of 90 · ends 14 Feb'}
+  setTimeout(function(){document.getElementById('dayBar').style.width=Math.max(0,Math.min(100,d/90*100))+'%'},300);
+
+  // math
+  var f=function(n){return '$'+Math.round(n).toLocaleString('en-US')};
+  function calc(){var T=+sT.value,P=+sP.value,R=+sR.value,N=+sN.value,out=T*P+R*N;
+    vT.textContent=f(T);vP.textContent=P;vR.textContent=f(R);vN.textContent=N;vOut.textContent=f(out);
+    vPct.textContent=Math.round(out/100)+'% of $10K';
+    var gap=10000-out;
+    vGap.innerHTML=gap<=0?'<b style="color:#4ADE80">Target hit.</b> Now protect it: retainers are what stay.':
+      'Short by <b>'+f(gap)+'</b>. That\'s '+Math.ceil(gap/T)+' more projects, or '+Math.ceil(gap/Math.max(R,1))+' more retainers. At about 1% cold replies, '+Math.ceil(gap/T)+' projects takes ~'+(Math.ceil(gap/T)*100)+' cold messages, so <b>upsells and referrals beat volume.</b>'}
+  var sT=document.getElementById('sT'),sP=document.getElementById('sP'),sR=document.getElementById('sR'),sN=document.getElementById('sN'),
+      vT=document.getElementById('vT'),vP=document.getElementById('vP'),vR=document.getElementById('vR'),vN=document.getElementById('vN'),
+      vOut=document.getElementById('vOut'),vPct=document.getElementById('vPct'),vGap=document.getElementById('vGap');
+  [sT,sP,sR,sN].forEach(function(s){s.oninput=calc});calc();
+
+  // parking lot
+  var parked=store.get('parked',[]),ul=document.getElementById('myParked');
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function renderPark(){ul.innerHTML='';parked.forEach(function(p,i){var left=Math.ceil((p.t+7*864e5-Date.now())/864e5);
+    var li=document.createElement('li');li.innerHTML='<span>'+esc(p.x)+'</span><em class="'+(left<=0?'ok':'')+'">'+(left<=0?'UNLOCKED · still excited?':'unlocks in '+left+'d')+'</em><button aria-label="Remove">×</button>';
+    li.querySelector('button').onclick=function(){parked.splice(i,1);store.set('parked',parked);renderPark()};ul.appendChild(li)})}
+  function add(){var v=document.getElementById('ideaIn').value.trim();if(!v)return;parked.unshift({x:v,t:Date.now()});store.set('parked',parked);document.getElementById('ideaIn').value='';renderPark()}
+  document.getElementById('ideaBtn').onclick=add;
+  document.getElementById('ideaIn').onkeydown=function(e){if(e.key==='Enter')add()};
+  renderPark();
+
+  document.getElementById('resetBtn').onclick=function(){ticks={};store.set('ticks',ticks);
+    document.querySelectorAll('#missionGrid .cb').forEach(function(c){c.checked=false;c.closest('li').classList.remove('done')});progress()};
+
+  // reveal
+  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12}):null;
+  document.querySelectorAll('.reveal').forEach(function(el){io?io.observe(el):el.classList.add('in')});
+})();
+</script>
+</body>
+</html>
